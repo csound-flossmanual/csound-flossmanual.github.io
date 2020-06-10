@@ -1,0 +1,744 @@
+
+<!DOCTYPE HTML>
+<html>
+ <head>
+   
+
+<link type="text/css" href="/site_static/css/booki.css" rel="Stylesheet" >
+<link type="text/css" href="/site_static/js/jquery/themes/base/jquery.ui.all.css" rel="Stylesheet" >
+<link type="text/css" href="/site_static/js/jquery/themes/smoothness/jquery.ui.all.css" rel="Stylesheet" >
+<script type="text/javascript" src="/site_static/js/jquery/jquery-1.4.4.js"></script>
+<script type="text/javascript" src="/site_static/js/jquery/ui/jquery-ui-1.8.10.custom.js"></script>
+<script type="text/javascript" src="/site_static/js/jquery.json-1.3.js"></script>
+<script type="text/javascript" src="/site_static/js/booki.js"></script>
+<script src="/site_static/js/messaging.js" type="text/javascript"></script>   
+<script type="text/javascript" src="/site_static/js/general.js"></script>
+<link href="/site_static/css/jquery.bubblepopup.v2.3.1.css" rel="stylesheet" type="text/css" />
+<link type="text/css" href="/site_static/css/jquery-ui_overrides.css" rel="Stylesheet" >
+<script src="/site_static/js/jquery.bubblepopup.v2.3.1.min.js" type="text/javascript"></script>
+
+<link rel="SHORTCUT ICON" href="http://write.flossmanuals.net/site_static/images/favicon.ico" type="image/x-icon">
+
+
+<script type="text/javascript">
+  $(function() {
+      $.booki.sputnikDispatcherURL = "/_sputnik/";
+
+      $("#dialog-sputnik-error").dialog({
+          modal: true,
+          autoOpen: false,
+          buttons: {
+            Ok: function() {
+               $(this).dialog('close');
+               window.location = '.';
+            }
+          }
+      });
+  
+      $("FORM.messagefield").messagefield('init', {'view_post': '/messaging/post' });  
+  });
+</script>
+
+
+   
+ <title>/chapter: C-Configuring-Midi / CSOUND</title>
+ <link type="text/css" href="/site_static/css/draft.css" rel="Stylesheet" />
+
+ <link rel="alternate" type="application/rss+xml" title="RSS feed for CSOUND" href="/feeds/rss/book/csound/" /> 
+ <link rel="alternate" type="application/atom+xml" title="Atom feed for CSOUND" href="/feeds/atom/book/csound/" /> 
+
+ <link rel="alternate" type="application/rss+xml" title="RSS feed for chapter C. CONFIGURING MIDI" href="/feeds/rss/chapter/csound/csound/" /> 
+ <link rel="alternate" type="application/atom+xml" title="Atom feed for chapter C. CONFIGURING MIDI" href="/feeds/atom/chapter/csound/csound/" /> 
+ 
+ <script type="text/javascript" src="/site_static/js/draft.js"></script>
+
+
+   <link type="text/css" href="/static/css/_user.css" rel="Stylesheet" >
+ </head>
+<body>
+
+<div class="topbar"> 
+  <div class="logo"><a href="http://write.flossmanuals.net/"></a></div>
+
+  <div class="meta-bar">
+    
+    <ul>
+      <li>
+        <a href="/accounts/signin/?redirect=/csound/_draft/_v/1.0/c-configuring-midi/">Sign In / Create Account</a>
+      </li>
+    </ul>
+    
+    <div style="padding-top: 10px; padding-right: 15px;">
+      <br/>
+      
+
+<script>
+  $(function() {
+    var $frm = $("FORM[name=changelang]");
+	
+    $("A[href=#]", $frm).click(function() {
+        var lang = $(this).attr("class").substr(4);
+	
+        $("INPUT[name=language]", $frm).val(lang);
+        $frm.submit();
+	
+        return false;
+    });
+  });
+ </script>
+
+<form name="changelang" method="POST" action="/accounts/i18n/setlang/?language=en-us">
+  <input type="hidden" name="language" value="en-us">
+  
+    &nbsp;English&nbsp;|
+  
+  
+  
+    &nbsp;<a class="langes" href="#">Español</a>&nbsp;|
+  
+
+  
+    &nbsp;<a class="langfr" href="#">Français</a>&nbsp;|
+  
+	
+  
+    &nbsp;<a class="langit" href="#">Italiano</a>&nbsp;|
+  
+	
+  
+    &nbsp;<a class="langpt" href="#">Português</a>&nbsp;|
+  
+	
+  
+    &nbsp;<a class="langru" href="#">Русский</a>&nbsp;|
+  
+	
+  
+    &nbsp;<a class="langsq" href="#">Shqip</a>
+  	
+</form>
+
+    </div>
+    
+    
+  </div><!-- End of .meta-bar -->
+</div><!-- End top bar -->
+
+<div class="menubar shadow">
+  
+  
+  <div class="navbox">
+    <ul>
+      <li><a href="/list-books/">Books</a></li>
+      <li><a href="/list-groups/">Groups</a></li>
+      <li><a href="/list-people/">People</a></li>
+    </ul>      
+  </div><!-- End of .navbox -->       
+</div>
+
+<div class="content-container">
+  <div class="content shadow">
+    <!-- Content box and the drop shadow-->
+    
+
+<h2>CSOUND</h2>
+<div class="padded">
+ <div id="bookmenu" style="background: url(/site_static/images/draft_bg.png) repeat !important;"> 
+  <ul>
+   
+    
+      <li><b>INTRODUCTION</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/preface/">PREFACE</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/how-to-use-this-manual/">HOW TO USE THIS MANUAL</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/on-this-release/">ON THIS RELEASE</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/credits/">CREDITS</a></li>
+    
+   
+    
+      <li><b>01 BASICS</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-digital-audio/">A. DIGITAL AUDIO</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-pitch-and-frequency/">B. PITCH AND FREQUENCY</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-intensities/">C. INTENSITIES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-random/">D. RANDOM</a></li>
+    
+   
+    
+      <li><b>02 QUICK START</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-make-csound-run/">A. MAKE CSOUND RUN</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-csound-syntax/">B. CSOUND SYNTAX</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-configuring-midi/">C. CONFIGURING MIDI</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-live-audio/">D. LIVE AUDIO</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-rendering-to-file/">E. RENDERING TO FILE</a></li>
+    
+   
+    
+      <li><b>03 CSOUND LANGUAGE</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-initialization-and-performance-pass/">A. INITIALIZATION AND PERFORMANCE PASS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-local-and-global-variables/">B. LOCAL AND GLOBAL VARIABLES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-control-structures/">C. CONTROL STRUCTURES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-function-tables/">D. FUNCTION TABLES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-arrays/">E. ARRAYS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/f-live-events/">F. LIVE EVENTS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/g-user-defined-opcodes/">G. USER DEFINED OPCODES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/h-macros/">H. MACROS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/i-functional-syntax/">I. FUNCTIONAL SYNTAX</a></li>
+    
+   
+    
+      <li><b>04 SOUND SYNTHESIS</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-additive-synthesis/">A. ADDITIVE SYNTHESIS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-subtractive-synthesis/">B. SUBTRACTIVE SYNTHESIS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-amplitude-and-ring-modulation/">C. AMPLITUDE AND RING MODULATION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-frequency-modulation/">D. FREQUENCY MODULATION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-waveshaping/">E. WAVESHAPING</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/f-granular-synthesis/">F. GRANULAR SYNTHESIS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/g-physical-modelling/">G. PHYSICAL MODELLING</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/h-scanned-synthesis/">H. SCANNED SYNTHESIS</a></li>
+    
+   
+    
+      <li><b>05 SOUND MODIFICATION</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-envelopes/">A. ENVELOPES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-panning-and-spatialization/">B. PANNING AND SPATIALIZATION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-filters/">C. FILTERS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-delay-and-feedback/">D. DELAY AND FEEDBACK</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-reverberation/">E. REVERBERATION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/f-am-rm-waveshaping/">F. AM / RM / WAVESHAPING</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/g-granular-synthesis/">G. GRANULAR SYNTHESIS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/h-convolution/">H. CONVOLUTION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/i-fourier-analysis-spectral-processing/">I. FOURIER ANALYSIS / SPECTRAL PROCESSING</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/k-ats-resynthesis/">K. ATS RESYNTHESIS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/l-amplitude-and-pitch-tracking/">L. AMPLITUDE AND PITCH TRACKING</a></li>
+    
+   
+    
+      <li><b>06 SAMPLES</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-record-and-play-soundfiles/">A. RECORD AND PLAY SOUNDFILES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-record-and-play-buffers/">B. RECORD AND PLAY BUFFERS</a></li>
+    
+   
+    
+      <li><b>07 MIDI</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-receiving-events-by-midiin/">A. RECEIVING EVENTS BY MIDIIN</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-triggering-instrument-instances/">B. TRIGGERING INSTRUMENT INSTANCES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-working-with-controllers/">C. WORKING WITH CONTROLLERS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-reading-midi-files/">D. READING MIDI FILES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-midi-output/">E. MIDI OUTPUT</a></li>
+    
+   
+    
+      <li><b>08 OTHER COMMUNICATION</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-open-sound-control/">A. OPEN SOUND CONTROL</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-csound-and-arduino/">B. CSOUND AND ARDUINO</a></li>
+    
+   
+    
+      <li><b>09 CSOUND IN OTHER APPLICATIONS</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-csound-in-pd/">A. CSOUND IN PD</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-csound-in-maxmsp/">B. CSOUND IN MAXMSP</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-csound-in-ableton-live/">C. CSOUND IN ABLETON LIVE</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-csound-as-a-vst-plugin/">D. CSOUND AS A VST PLUGIN</a></li>
+    
+   
+    
+      <li><b>10 CSOUND FRONTENDS</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/csoundqt/">CSOUNDQT</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/cabbage/">CABBAGE</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/blue/">BLUE</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/winxound/">WINXOUND</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/csound-via-terminal/">CSOUND VIA TERMINAL</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/web-based-csound/">WEB BASED CSOUND</a></li>
+    
+   
+    
+      <li><b>11 CSOUND UTILITIES</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/csound-utilities/">CSOUND UTILITIES</a></li>
+    
+   
+    
+      <li><b>12 CSOUND AND OTHER PROGRAMMING LANGUAGES</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-the-csound-api/">A. THE CSOUND API</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-python-inside-csound/">B. PYTHON INSIDE CSOUND</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-python-in-csoundqt/">C. PYTHON IN CSOUNDQT</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-lua-in-csound/">D. LUA IN CSOUND</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-csound-in-ios/">E. CSOUND IN iOS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/f-csound-on-android/">F. CSOUND ON ANDROID</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/g-csound-and-haskell/">G. CSOUND AND HASKELL</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/h-csound-and-html/">H. CSOUND AND HTML</a></li>
+    
+   
+    
+      <li><b>13 EXTENDING CSOUND</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/extending-csound/">EXTENDING CSOUND</a></li>
+    
+   
+    
+      <li><b>OPCODE GUIDE</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/overview/">OVERVIEW</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/signal-processing-i/">SIGNAL PROCESSING I</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/signal-processing-ii/">SIGNAL PROCESSING II</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/data/">DATA</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/realtime-interaction/">REALTIME INTERACTION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/instrument-control/">INSTRUMENT CONTROL</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/maths-pythonsystem-plugins/">MATHS, PYTHON/SYSTEM, PLUGINS</a></li>
+    
+   
+    
+      <li><b>APPENDIX</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/methods-of-writing-csound-scores/">METHODS OF WRITING CSOUND SCORES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/glossary/">GLOSSARY</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/links/">LINKS</a></li>
+    
+   
+  </ul>
+ </div>
+ <div id="bookcontent"   style="background: url(/site_static/images/draft_bg.png) repeat !important;">
+   
+
+  <html><head><title>Csound: CONFIGURINGMIDI</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head><body><h1>CONFIGURING MIDI
+</h1>
+<p>Csound can receive MIDI events (like MIDI notes and MIDI control changes) from an external MIDI interface or from another program via a virtual MIDI cable. This information can be used to control any aspect of synthesis or performance.
+</p>
+<p>Csound receives MIDI data through MIDI Realtime Modules. These are special Csound plugins which enable MIDI input using different methods according to platform. They are enabled using the <em>-+rtmidi</em> <a href="http://csound.github.io/docs/manual/html/CommandFlagsCategory.html">command line flag</a> in the <em>&lt;CsOptions&gt;</em> section of your .csd file, but can also be set interactively on some front-ends via the configure dialog setups.
+  <br></p>
+<p>There is the universal "portmidi" module. <a href="http://portmedia.sourceforge.net/">PortMidi</a> is a cross-platform module for MIDI I/O and should be available on all platforms. To enable the "portmidi" module, you can use the flag:
+</p>
+<pre>-+rtmidi=portmidi
+</pre>
+<p>After selecting the RT MIDI module from a front-end or the command line, you need to select the MIDI devices for input and output. These are set using the flags -M and -Q respectively followed by the number of the interface. You can usually use:
+</p>
+<pre>-M999</pre>
+<p> To get a performance error with a listing of available interfaces.
+</p>
+<p>For the PortMidi module (and others like ALSA), you can specify no number to use the default MIDI interface or the 'a' character to use all devices. This will even work when no MIDI devices are present.
+</p>
+<pre>-Ma</pre>
+<p>So if you want MIDI input using the portmidi module, using device 2 for input and device 1 for output, your <em>&lt;CsOptions&gt;</em> section should contain:
+</p>
+<pre>-+rtmidi=portmidi -M2 -Q1</pre>
+<p>There is a special "virtual" RT MIDI module which enables MIDI input from a <a href="http://csound.github.io/docs/manual/html/MidiTop.html#MidiVirtual">virtual keyboard</a>. To enable it, you can use:
+</p>
+<pre> -+rtmidi=virtual -M0
+</pre>
+<h2>Platform Specific Modules
+</h2>
+<p>If the "portmidi" module is not working properly for some reason, you can try other platform specific modules.
+  <br></p>
+<p id="alexbreak">
+</p>
+<p>
+</p>
+<h3> Linux
+  <br></h3>
+<p>On Linux systems, you might also have an "alsa" module to use the alsa raw MIDI interface. This is different from the more common alsa sequencer interface and will typically require the snd-virmidi module to be loaded.
+</p>
+<h3>OS X
+</h3>
+<p>On OS X you may have a "coremidi" module available.
+</p>
+<h3> Windows
+</h3>
+<p>On Windows, you may have a "winmme" MIDI module.
+</p>
+<h2>MIDI I/O in CsoundQt
+</h2>
+<p>As with Audio I/O, you can set the MIDI preferences in the configuration dialog. In it you will find a selection box for the RT MIDI module, and text boxes for MIDI input and output devices.
+</p>
+<p align="center"><img src="static/QuteCsoundMidiConfiguration.png" height="509" width="560"> 
+  <br></p>
+<h2> How to Use a MIDI Keyboard
+</h2>
+<p>Once you've set up the hardware, you are ready to receive MIDI information and interpret it in Csound. By default, when a MIDI note is received, it turns on the Csound instrument corresponding to its channel number, so if a note is received on channel 3, it will turn on instrument 3, if it is received on channel 10, it will turn on instrument 10 and so on.
+</p>
+<p>If you want to change this routing of MIDI channels to instruments, you can use the <a href="http://csound.github.io/docs/manual/html/massign.html">massign</a> opcode. For instance, this statement lets you route your MIDI channel 1 to instrument 10:
+</p>
+<pre> massign 1, 10
+</pre>
+<p>On the following example, a simple instrument, which plays a sine wave, is defined in instrument 1. There are no score note events, so no sound will be produced unless a MIDI note is received on channel 1.
+</p>
+<p>   <em><strong>EXAMPLE 02C01_Midi_Keybd_in.csd</strong></em>
+  <br></p>
+<pre>&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+-+rtmidi=portmidi -Ma -odac
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+;Example by Andrés Cabrera
+
+sr = 44100
+ksmps = 32
+nchnls = 2
+0dbfs = 1
+
+        massign   0, 1 ;assign all MIDI channels to instrument 1
+
+instr 1
+iCps    cpsmidi   ;get the frequency from the key pressed
+iAmp    ampmidi   0dbfs * 0.3 ;get the amplitude
+aOut    poscil    iAmp, iCps ;generate a sine tone
+        outs      aOut, aOut ;write it to the output
+endin
+
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+e 3600
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+</pre>
+<p>Note that Csound has an unlimited polyphony in this way: each key pressed starts a new instance of instrument 1, and you can have any number of instrument instances at the same time.
+  <br></p>
+<h2>How to Use a MIDI Controller
+</h2>
+<p>To receive MIDI controller events, opcodes like <a href="http://csound.github.io/docs/manual/html/ctrl7.html">ctrl7</a><em> </em>can be used.  In the following example instrument 1 is turned on for 60 seconds. It will receive controller #1 (modulation wheel) on channel 1 and convert MIDI range (0-127) to a range between 220 and 440. This value is used to set the frequency of a simple sine oscillator.
+</p>
+<p>   <em><strong>EXAMPLE 02C02_Midi_Ctl_in.csd</strong></em>
+</p>
+<pre>&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+-+rtmidi=virtual -M1 -odac
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+;Example by Andrés Cabrera
+
+sr = 44100
+ksmps = 32
+nchnls = 2
+0dbfs = 1
+
+instr 1
+; --- receive controller number 1 on channel 1 and scale from 220 to 440
+kFreq ctrl7  1, 1, 220, 440
+; --- use this value as varying frequency for a sine wave
+aOut  poscil 0.2, kFreq
+      outs   aOut, aOut
+endin
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+i 1 0 60
+e
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+</pre>
+<h2>Other Type of MIDI Data
+</h2>
+<p>Csound can receive other type of MIDI, like pitch bend, and aftertouch through the usage of specific opcodes. Generic MIDI Data can be received using the <a href="http://csound.github.io/docs/manual/html/midiin.html">midiin</a> opcode. The example below prints to the console the data received via MIDI.
+</p>
+<p>   <em><strong>EXAMPLE 02C03_Midi_all_in.csd</strong></em>
+  <br></p>
+<p>
+</p>
+<pre>&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+-+rtmidi=portmidi -Ma -odac
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+;Example by Andrés Cabrera
+
+sr = 44100
+ksmps = 32
+nchnls = 2
+0dbfs = 1
+
+instr 1
+kStatus, kChan, kData1, kData2 midiin
+
+if kStatus != 0 then ;print if any new MIDI message has been received
+    printk 0, kStatus
+    printk 0, kChan
+    printk 0, kData1
+    printk 0, kData2
+endif
+
+endin
+
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+i1 0 3600
+e
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+</pre></body></html>
+   
+  </div>
+ </div>
+
+
+  </div>
+</div>
+<!-- End of content -->
+
+
+
+<!-- sputnik error page -->
+<div id="dialog-sputnik-qrac" style="display: none"></div>
+<div id="dialog-sputnik-error" title="Can't communicate with booktype">
+  <p>
+    <span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
+    There has been error in communication with Booktype server.
+    Not sure right now where is the problem.
+  </p>
+  <p>
+    You should refresh this page.
+  </p>
+</div>
+
+
+<ul class="strings template">
+ <li class="ok">OK</li>
+ <li class="back">Back</li>
+ <li class="create">Create</li>
+ <li class="cancel">Cancel</li>
+ <li class="next">Next</li>
+ <li class="import">Import</li>
+ <li class="savechanges">Save changes</li>
+ <li class="errorcreategroup">Couldn't create a group!</li>
+ <li class="msgepub">enter epub URL</li>
+ <li class="msgarchive">enter Archive.org ID</li>
+ <li class="msgwiki">enter Wikibooks URL</li>
+ <li class="msgbooktype">enter Booktype URL</li>
+ <li class="deletebook">Delete book</li>
+</ul>
+
+</body>
+</html>
+

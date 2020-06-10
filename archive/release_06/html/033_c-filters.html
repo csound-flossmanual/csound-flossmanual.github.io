@@ -1,0 +1,927 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html>
+ <head>
+   <link type="text/css" href="http://www.flossmanuals.net/_templates/prettify/src/prettify.css" rel="Stylesheet" />
+   <script type="text/javascript" src="http://www.flossmanuals.net/_templates/prettify/src/prettify.js"></script>
+
+   <link type="text/css" href="/site_static/js/jquery/themes/base/jquery.ui.all.css" rel="Stylesheet" >
+   <link type="text/css" href="/site_static/js/jquery/themes/smoothness/jquery.ui.all.css" rel="Stylesheet" >
+   <script type="text/javascript" src="/static/js/jquery-1.7.js"></script>
+<!--
+   <script type="text/javascript" src="/site_static/js/jquery/jquery-1.4.4.js"></script>
+-->   
+<script type="text/javascript" src="/site_static/js/jquery/ui/jquery-ui-1.8.10.custom.js"></script>
+   <script type="text/javascript" src="/site_static/js/jquery.json-1.3.js"></script>
+   <script type="text/javascript" src="/site_static/js/booki.js"></script>
+
+   <link href="/site_static/css/jquery.bubblepopup.v2.3.1.css" rel="stylesheet" type="text/css" />
+   <script src="/site_static/js/jquery.bubblepopup.v2.3.1.min.js" type="text/javascript"></script>
+
+   <link type="text/css" href="/static/css/booki_fm.css" rel="Stylesheet"/ >
+<style>
+.template {
+	display: none !important;
+}
+
+
+#header {
+    background-color: transparent !important;
+}
+.paginator { padding:.5em .75em; float:left; font:normal .8em arial; }
+ 
+.paginator .prev-na,
+.paginator .next-na {
+	padding:.3em;
+	font-weight: bold;
+/*	font:bold .875em arial; */
+}
+ 
+.paginator .prev-na,
+.paginator .next-na {
+/*	border:1px solid #ccc; 
+	background-color:#f9f9f9; */
+	color:#aaa;
+	font-weight:normal;
+}
+ 
+.paginator .prev a, .paginator .prev a:visited,
+.paginator .next a, .paginator .next a:visited {
+/*	border:1px solid #c2ee62; 
+	background-color:#edfdd0; */
+	color:#234f32;
+	padding:.3em;
+/*	font:bold .875em arial; */
+        font-weight: bold;
+}
+ 
+.paginator .prev, .paginator .prev-na { margin-right:.5em; }
+.paginator .next, .paginator .next-na { margin-left:.5em; }
+ 
+.paginator .page a, .paginator .page a:visited, .paginator .curr {
+	padding:.25em;
+	font-weight: normal;
+/*	font:normal .875em verdana; */
+/*	border:1px solid #C2EE62; 
+	background-color:#EDFDD0; */
+	margin:0em .25em;	
+	color:#006000;
+}
+ 
+.paginator .curr { 
+/*	background-color:#234f32; 
+	color:#fff; */
+	border:1px solid #234f32; 
+	font-weight:bold;
+	font-size:1em;
+}
+ 
+.paginator .page a:hover,
+.paginator .curr a:hover,
+.paginator .prev a:hover,
+.paginator .next a:hover {
+/*	color:#fff;
+	background-color:#234f32;
+	border:1px solid #234f32; */
+}
+</style>
+ <script type="text/javascript">
+      $(function() {
+   $.booki.sputnikDispatcherURL = "/_sputnik/";
+    });
+   </script>
+
+   <script type="text/javascript">
+     $(function() {
+	 // open debug window
+	 $.booki.debug.init();
+	 
+	 
+	 $("A.debug").click(function() {
+	     $("#bookidebug").dialog("open");
+	     return false;
+	 });
+     });
+   </script>
+
+   
+<title>/chapter: C-Filters / CSound</title>
+<link type="text/css" href="/site_static/css/editor.css" rel="Stylesheet" />
+
+<script src="http://assets.annotateit.org/annotator/v1.2.5/annotator-full.min.js"></script>
+<link rel="stylesheet" href="http://assets.annotateit.org/annotator/v1.2.5/annotator.min.css">
+
+
+
+<link rel="alternate" type="application/rss+xml" title="RSS feed for CSound" href="/feeds/rss/book/csound/" /> 
+<link rel="alternate" type="application/atom+xml" title="Atom feed for CSound" href="/feeds/atom/book/csound/" /> 
+
+<link rel="alternate" type="application/rss+xml" title="RSS feed for chapter C-Filters" href="/feeds/rss/chapter/csound/csound/" /> 
+<link rel="alternate" type="application/atom+xml" title="Atom feed for chapter C-Filters" href="/feeds/atom/chapter/csound/csound/" /> 
+
+
+ </head>
+<body onload="prettyPrint()" >
+<!-- testis -->
+
+<script type="text/javascript">
+$(function() {
+    $("#snippetdialog").dialog({autoOpen: false});
+});
+</script>
+
+
+<div id="snippetdialog" title="Basic dialog">
+        <p></p>
+</div>
+
+
+
+<div id="page-container"> 
+<style>
+body
+{
+margin:0;
+padding:0
+}
+#header
+{
+position:absolute;
+top:23px;
+width:100%;
+background-image: url('http://www.flossmanuals.net/_templates/fm_resources/header_bg.gif');
+background-position: 700px 0px; /* this places the orange background at
+an offset, making sure it doesn't underlap the left side of the gif */
+background-repeat: no-repeat;
+}
+
+#fmheader {
+    background-image: url("http://en.flossmanuals.net/_templates/fm_resources/header_bg.gif");
+    background-position: 600px 0;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 23px;
+    width: 100%;
+}
+#header_image
+{
+margin-left: 270px;
+border: 0px
+}
+
+#navigation
+{
+position:absolute;
+top: 80px;
+left: 357px;
+width:50%;
+}
+
+
+#languages
+{
+position:absolute;
+top: 40px;
+left: 740px;
+width:50%;
+}
+</style>
+
+
+
+<!-- Header graphic is common to all pages  -->
+<div id="header"><img id="header_image" alt="FlossManuals menu" src="http://www.flossmanuals.net/_templates/fm_resources/header_menu.gif" height="95" width="465" border="0"></div>
+
+
+<!-- Navigation buttons are language and context specific  -->
+<div id="navigation">
+<a title="Read" href="http://en.flossmanuals.net/index.php"><img src="http://www.flossmanuals.net/_templates/fm_resources/read_en.png" width="65" height="30" border="0" alt="Read"></a>
+<a title="Write" href="http://booki.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/write_active_en.png" width="65" height="30" border="0" alt="Write"></a>
+<a title="Remix" href="http://en.flossmanuals.net/index.php?plugin=remix"><img src="http://www.flossmanuals.net/_templates/fm_resources/remix_en.png" width="65" height="30" border="0" alt="Remix"></a>
+<a title="About" href="http://www.flossmanuals.org"><img src="http://www.flossmanuals.net/_templates/fm_resources/about_en.png" width="65" height="30" border="0" alt="About"></a>
+</div>
+
+<!-- Language buttons are common to all pages  -->
+<div id="languages">
+<a title="English" href="http://en.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/english_button.png" width="65" height="30" border="0" alt="English"></a>
+
+<!-- <a title="Español" href="http://es.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/spanish_button.png" width="65" height="30" border="0" alt="Español"></a> -->
+<a title="فارسی" href="http://fa.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/farsi_button.png" width="65" height="30" border="0" alt="فارسی"></a>
+<a title="Suomi" href="http://fi.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/finnish_button.png" width="65" height="30" border="0" alt="Suomi"></a>
+<br>
+<a title="Français" href="http://fr.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/french_button.png" width="65" height="30" border="0" alt="Français"></a>
+<a title="Nederlands" href="http://nl.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/dutch_button.png" width="65" height="30" border="0" alt="Nederlands"></a>
+<!-- <a title="Pусский" href="http://ru.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/russian_button.png" width="65" height="30" border="0" alt="Pусский"></a> -->
+<a title="Translate" href="http://translate.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/translate_button.png" width="65" height="30" border="0" alt="Translate"></a>
+</div>
+
+<!-- End top bar -->
+
+<!-- nav box + drop shadow -->
+<div class="navbox shadow" style="top:160px;">
+    		<ul>
+
+ 		<li><a href="/accounts/signin/?redirect=/csound/_draft/_v/1.0/c-filters/">Sign In</li><li>Register</a></li>
+
+                <li><a href="/list-books">All Manuals</a></li>
+                <li><a href="/list-groups">All Groups</a></li>
+                <li><a href="/list-people/">All People</a></li>
+           	</ul>
+</div>
+<!-- End of nav box -->
+
+
+
+<div class="content-container shadow">
+<!-- Content box and the drop shadow-->
+
+
+
+
+<br clear="all"/>
+   <h1>CSound</h1>
+
+
+<div id="bookmenu"   style="background: url(/site_static/images/draft_bg.png) repeat !important;">
+<ul>
+
+ 
+   <li><b>INTRODUCTION</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/introduction/">PREFACE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/how-to-use-this-manual/">HOW TO USE THIS MANUAL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/on-this-release/">ON THIS RELEASE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/credits/">CREDITS</a></li>
+ 
+
+ 
+   <li><b>01 BASICS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-digital-audio/">A. DIGITAL AUDIO</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-pitch-and-frequency/">B. PITCH AND FREQUENCY</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-intensities/">C. INTENSITIES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/random/">D. RANDOM</a></li>
+ 
+
+ 
+   <li><b>02 QUICK START</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-make-csound-run/">A. MAKE CSOUND RUN</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-csound-syntax/">B. CSOUND SYNTAX</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-configuring-midi/">C. CONFIGURING MIDI</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-live-audio/">D. LIVE AUDIO</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-rendering-to-file/">E. RENDERING TO FILE</a></li>
+ 
+
+ 
+   <li><b>03 CSOUND LANGUAGE</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-initialization-and-performance-pass/">A. INITIALIZATION AND PERFORMANCE PASS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-local-and-global-variables/">B. LOCAL AND GLOBAL VARIABLES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-control-structures/">C. CONTROL STRUCTURES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-function-tables/">D. FUNCTION TABLES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/arrays/">E. ARRAYS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-triggering-instrument-events/">F. LIVE EVENTS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-user-defined-opcodes/">G. USER DEFINED OPCODES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/macros/">H. MACROS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/functional-syntax/">I. FUNCTIONAL SYNTAX</a></li>
+ 
+
+ 
+   <li><b>04 SOUND SYNTHESIS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-additive-synthesis/">A. ADDITIVE SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-subtractive-synthesis/">B. SUBTRACTIVE SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-amplitude-and-ringmodulation/">C. AMPLITUDE AND RING MODULATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-frequency-modulation/">D. FREQUENCY MODULATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-waveshaping/">E. WAVESHAPING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-granular-synthesis/">F. GRANULAR SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/g-physical-modelling/">G. PHYSICAL MODELLING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/scanned-synthesis/">H. SCANNED SYNTHESIS</a></li>
+ 
+
+ 
+   <li><b>05 SOUND MODIFICATION</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-envelopes/">A. ENVELOPES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-panning-and-spatialization/">B. PANNING AND SPATIALIZATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-filters/">C. FILTERS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-delay-and-feedback/">D. DELAY AND FEEDBACK</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-reverberation/">E. REVERBERATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-am-rm-waveshaping/">F. AM / RM / WAVESHAPING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/g-granular-synthesis/">G. GRANULAR SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/h-convolution/">H. CONVOLUTION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/i-fourier-analysis-spectral-processing/">I. FOURIER ANALYSIS / SPECTRAL PROCESSING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/k-ats-resynthesis/">K. ATS RESYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/amplitude-and-pitch-tracking/">L. AMPLITUDE AND PITCH TRACKING</a></li>
+ 
+
+ 
+   <li><b>06 SAMPLES</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-record-and-play-soundfiles/">A. RECORD AND PLAY SOUNDFILES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-record-and-play-buffers/">B. RECORD AND PLAY BUFFERS</a></li>
+ 
+
+ 
+   <li><b>07 MIDI</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-receiving-events-by-midiin/">A. RECEIVING EVENTS BY MIDIIN</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-triggering-instrument-instances/">B. TRIGGERING INSTRUMENT INSTANCES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-working-with-controllers/">C. WORKING WITH CONTROLLERS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-reading-midi-files/">D. READING MIDI FILES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-midi-output/">E. MIDI OUTPUT</a></li>
+ 
+
+ 
+   <li><b>08 OTHER COMMUNICATION</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/osc-and-wii/">A. OPEN SOUND CONTROL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-arduino/">B. CSOUND AND ARDUINO</a></li>
+ 
+
+ 
+   <li><b>09 CSOUND IN OTHER APPLICATIONS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-pd/">A. CSOUND IN PD</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-maxmsp/">B. CSOUND IN MAXMSP</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-ableton-live/">C. CSOUND IN ABLETON LIVE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-csound-as-a-vst-plugin/">D. CSOUND AS A VST PLUGIN</a></li>
+ 
+
+ 
+   <li><b>10 CSOUND FRONTENDS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/qutecsound/">CSOUNDQT</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/cecilia/">CABBAGE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/blue/">BLUE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/winxound/">WINXOUND</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-via-terminal/">CSOUND VIA TERMINAL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/web-based-csound/">WEB BASED CSOUND</a></li>
+ 
+
+ 
+   <li><b>11 CSOUND UTILITIES</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-utilities/">CSOUND UTILITIES</a></li>
+ 
+
+ 
+   <li><b>12 CSOUND AND OTHER PROGRAMMING LANGUAGES</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/the-csound-api/">A. THE CSOUND API</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/using-python-inside-csound/">B. PYTHON INSIDE CSOUND</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-python-in-csoundqt/">C. PYTHON IN CSOUNDQT</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-lua-in-csound/">D. LUA IN CSOUND</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-csound-in-ios/">E. CSOUND IN iOS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-csound-on-android/">F. CSOUND ON ANDROID</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-and-haskell/">G. CSOUND AND HASKELL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/h-csound-and-html/">H. CSOUND AND HTML</a></li>
+ 
+
+ 
+   <li><b>13 EXTENDING CSOUND</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/extending-csound/">EXTENDING CSOUND</a></li>
+ 
+
+ 
+   <li><b>OPCODE GUIDE</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/overview/">OVERVIEW</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/signal-processing-i/">SIGNAL PROCESSING I</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/signal-processing-ii/">SIGNAL PROCESSING II</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/data/">DATA</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/realtime-interaction/">REALTIME INTERACTION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/instrument-control/">INSTRUMENT CONTROL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/math-pythonsystem-plugins/">MATHS, PYTHON/SYSTEM, PLUGINS</a></li>
+ 
+
+ 
+   <li><b>APPENDIX</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/writing-csound-scores-by-hand/">METHODS OF WRITING CSOUND SCORES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/glossary/">GLOSSARY</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/links/">LINKS</a></li>
+ 
+
+</ul>
+</div>
+<div id="bookcontent"   >
+<title>Csound: FILTERS</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<h1>FILTERS
+</h1>
+<p>Audio filters can range from devices that subtly shape the tonal characteristics of a sound to ones that dramatically remove whole portions of a sound spectrum to create new sounds. Csound includes several versions of each of the commonest types of filters and some more esoteric ones also. The full list of Csound's standard filters can be found <a href="http://www.csounds.com/manual/html/SigmodStandard.html">here</a>. A list of the more specialised filters can be found <a href="http://www.csounds.com/manual/html/SigmodSpeciali.html">here</a>.
+  <br />
+</p>
+<h2>Lowpass Filters
+</h2>
+<p>The first type of filter encountered is normally the lowpass filter. As its name suggests it allows lower frequencies to pass through unimpeded and therefore filters higher frequencies. The crossover&nbsp; frequency is normally referred to as the 'cutoff' frequency. Filters of this type do not really cut frequencies off at the cutoff point like a brick wall but instead attenuate increasingly according to a cutoff slope. Different filters offer cutoff slopes of different of steepness. Another aspect of a lowpass filter that we may be concerned with is a ripple that might emerge at the cutoff point. If this is exaggerated intentionally it is referred to as resonance or 'Q'.
+  <br />
+  <br />In the following example, three lowpass filters filters are demonstrated: <a href="http://www.csounds.com/manual/html/tone.html">tone</a>, <a href="http://www.csounds.com/manual/html/butterlp.html">butlp</a> and <a href="http://www.csounds.com/manual/html/moogladder.html">moogladder</a>. <em>tone</em> offers a quite gentle cutoff slope and therefore is better suited to subtle spectral enhancement tasks. <em>butlp</em> is based on the Butterworth filter design and produces a much sharper cutoff slope at the expense of a slightly greater CPU overhead. <em>moogladder</em> is an interpretation of an analogue filter found in a moog synthesizer – it includes a resonance control.
+  <br />
+  <br />In the example a sawtooth waveform is played in turn through each filter. Each time the cutoff frequency is modulated using an envelope, starting high and descending low so that more and more of the spectral content of the sound is removed as the note progresses. A sawtooth waveform has been chosen as it contains strong higher frequencies and therefore demonstrates the filters characteristics well; a sine wave would be a poor choice of source sound on account of its lack of spectral richness.
+  <br />
+</p>
+<p>&nbsp;&nbsp; <strong><em>EXAMPLE 05C01_tone_butlp_moogladder.csd</em></strong>
+</p>
+<h4>
+</h4>
+<pre>&lt;CsoundSynthesizer&gt;
+
+&lt;CsOptions&gt;
+-odac ; activates real time sound output
+&lt;/CsOptions&gt;
+
+&lt;CsInstruments&gt;
+; Example by Iain McCurdy
+
+sr = 44100
+ksmps = 32
+nchnls = 1
+0dbfs = 1
+
+  instr 1
+        prints       "tone%n"    ; indicate filter type in console
+aSig    vco2         0.5, 150    ; input signal is a sawtooth waveform
+kcf     expon        10000,p3,20 ; descending cutoff frequency
+aSig    tone         aSig, kcf   ; filter audio signal
+        out          aSig        ; filtered audio sent to output
+&nbsp; endin
+
+  instr 2
+        prints       "butlp%n"   ; indicate filter type in console
+aSig    vco2         0.5, 150    ; input signal is a sawtooth waveform
+kcf     expon        10000,p3,20 ; descending cutoff frequency
+aSig    butlp        aSig, kcf   ; filter audio signal
+        out          aSig        ; filtered audio sent to output
+  endin
+
+  instr 3
+        prints       "moogladder%n" ; indicate filter type in console
+aSig    vco2         0.5, 150       ; input signal is a sawtooth waveform
+kcf     expon        10000,p3,20    ; descending cutoff frequency
+aSig    moogladder   aSig, kcf, 0.9 ; filter audio signal
+        out          aSig           ; filtered audio sent to output
+  endin
+
+&lt;/CsInstruments&gt;
+
+&lt;CsScore&gt;
+; 3 notes to demonstrate each filter in turn
+i 1 0  3; tone
+i 2 4  3; butlp
+i 3 8  3; moogladder
+e
+&lt;/CsScore&gt;
+
+&lt;/CsoundSynthesizer&gt;
+</pre>
+<h2>Highpass Filters
+</h2>
+<p>A highpass filter is the converse of a lowpass filter; frequencies higher than the cutoff point are allowed to pass whilst those lower are attenuated. <a href="http://www.csounds.com/manual/html/atone.html">atone</a> and <a href="http://www.csounds.com/manual/html/butterhp.html">buthp</a> are the analogues of <em>tone</em> and <em>butlp</em>. Resonant highpass filters are harder to find but Csound has one in <a href="http://www.csounds.com/manual/html/bqrez.html">bqrez</a>. <em>bqrez</em> is actually a multi-mode filter and could also be used as a resonant lowpass filter amongst other things. We can choose which mode we want by setting one of its input arguments appropriately. Resonant highpass is mode 1. In this example a sawtooth waveform is again played through each of the filters in turn but this time the cutoff frequency moves from low to high. Spectral content is increasingly removed but from the opposite spectral direction.
+  <br />
+</p>
+<p><strong>&nbsp;&nbsp; <em>EXAMPLE 05C02_atone_buthp_bqrez.csd</em></strong>
+  <br />
+</p>
+<pre>&lt;CsoundSynthesizer&gt;
+
+&lt;CsOptions&gt;
+-odac ; activates real time sound output
+&lt;/CsOptions&gt;
+
+&lt;CsInstruments&gt;
+; Example by Iain McCurdy
+
+sr = 44100
+ksmps = 32
+nchnls = 1
+0dbfs = 1
+
+  instr 1
+        prints       "atone%n"     ; indicate filter type in console
+aSig    vco2         0.2, 150      ; input signal is a sawtooth waveform
+kcf     expon        20, p3, 20000 ; define envelope for cutoff frequency
+aSig    atone        aSig, kcf     ; filter audio signal
+        out          aSig          ; filtered audio sent to output
+  endin
+
+  instr 2
+        prints       "buthp%n"     ; indicate filter type in console
+aSig    vco2         0.2, 150      ; input signal is a sawtooth waveform
+kcf     expon        20, p3, 20000 ; define envelope for cutoff frequency
+aSig    buthp        aSig, kcf     ; filter audio signal
+        out          aSig          ; filtered audio sent to output
+  endin
+
+  instr 3
+        prints       "bqrez(mode:1)%n" ; indicate filter type in console
+aSig    vco2         0.03, 150         ; input signal is a sawtooth waveform
+kcf     expon        20, p3, 20000     ; define envelope for cutoff frequency
+aSig    bqrez        aSig, kcf, 30, 1  ; filter audio signal
+        out          aSig              ; filtered audio sent to output
+  endin
+
+&lt;/CsInstruments&gt;
+
+&lt;CsScore&gt;
+; 3 notes to demonstrate each filter in turn
+i 1 0  3 ; atone
+i 2 5  3 ; buthp
+i 3 10 3 ; bqrez(mode 1)
+e
+&lt;/CsScore&gt;
+
+&lt;/CsoundSynthesizer&gt;
+</pre>
+<h2>Bandpass Filters
+</h2>
+<p>A bandpass filter allows just a narrow band of sound to pass through unimpeded and as such is a little bit like a combination of a lowpass and highpass filter connected in series. We normally expect at least one additional parameter of control: control over the width of the band of frequencies allowed to pass through, or 'bandwidth'.
+  <br />
+  <br />In the next example cutoff frequency and bandwidth are demonstrated independently for two different bandpass filters offered by Csound. First of all a sawtooth waveform is passed through a <a href="http://www.csounds.com/manual/html/reson.html">reson</a> filter and a <a href="http://www.csounds.com/manual/html/butterbp.html">butbp</a> filter in turn while the cutoff frequency rises (bandwidth remains static). Then pink noise is passed through <em>reson</em> and <em>butbp</em> in turn again but this time the cutoff frequency remains static at 5000Hz while the bandwidth expands from 8 to 5000Hz. In the latter two notes it will be heard how the resultant sound moves from almost a pure sine tone to unpitched noise. <em>butbp</em> is obviously the Butterworth based bandpass filter. <em>reson</em> can produce dramatic variations in amplitude depending on the bandwidth value and therefore some balancing of amplitude in the output signal may be necessary if out of range samples and distortion are to be avoided. Fortunately the opcode itself includes two modes of amplitude balancing built in but by default neither of these methods are active and in this case the use of the balance opcode may be required. Mode 1 seems to work well with spectrally sparse sounds like harmonic tones while mode 2 works well with spectrally dense sounds such as white or pink noise.
+  <br />
+</p>
+<p><strong><em>&nbsp;&nbsp; EXAMPLE 05C03_reson_butbp.csd</em></strong>
+</p>
+<pre>&lt;CsoundSynthesizer&gt;
+
+&lt;CsOptions&gt;
+-odac ; activates real time sound output
+&lt;/CsOptions&gt;
+
+&lt;CsInstruments&gt;
+; Example by Iain McCurdy
+
+sr = 44100
+ksmps = 32
+nchnls = 1
+0dbfs = 1
+
+&nbsp; instr 1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; prints&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "reson%n"          ; indicate filter type in console
+aSig&nbsp;&nbsp;&nbsp; vco2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.5, 150           ; input signal: sawtooth waveform
+kcf&nbsp;&nbsp;&nbsp;&nbsp; expon&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20,p3,10000        ; rising cutoff frequency
+aSig&nbsp;&nbsp;&nbsp; reson&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; aSig,kcf,kcf*0.1,1 ; filter audio signal
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; out&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; aSig               ; send filtered audio to output
+&nbsp; endin
+
+&nbsp; instr 2
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; prints&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "butbp%n"          ; indicate filter type in console
+aSig&nbsp;&nbsp;&nbsp; vco2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.5, 150           ; input signal: sawtooth waveform
+kcf&nbsp;&nbsp;&nbsp;&nbsp; expon&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20,p3,10000        ; rising cutoff frequency
+aSig&nbsp;&nbsp;&nbsp; butbp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; aSig, kcf, kcf*0.1 ; filter audio signal
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; out&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; aSig               ; send filtered audio to output
+&nbsp; endin
+
+&nbsp; instr 3
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; prints&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "reson%n"          ; indicate filter type in console
+aSig&nbsp;&nbsp;&nbsp; pinkish&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.5                ; input signal: pink noise
+kbw&nbsp;&nbsp;&nbsp;&nbsp; expon&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10000,p3,8         ; contracting bandwidth
+aSig&nbsp;&nbsp;&nbsp; reson&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; aSig, 5000, kbw, 2 ; filter audio signal
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; out&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; aSig               ; send filtered audio to output
+&nbsp; endin
+
+&nbsp; instr 4
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; prints&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "butbp%n"          ; indicate filter type in console
+aSig&nbsp;&nbsp;&nbsp; pinkish&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.5                ; input signal: pink noise
+kbw&nbsp;&nbsp;&nbsp;&nbsp; expon&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10000,p3,8         ; contracting bandwidth
+aSig&nbsp;&nbsp;&nbsp; butbp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; aSig, 5000, kbw    ; filter audio signal
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; out&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; aSig               ; send filtered audio to output
+&nbsp; endin
+
+&lt;/CsInstruments&gt;
+
+&lt;CsScore&gt;
+i 1 0&nbsp; 3 ; reson - cutoff frequency rising
+i 2 4&nbsp; 3 ; butbp - cutoff frequency rising
+i 3 8&nbsp; 6 ; reson - bandwidth increasing
+i 4 15 6 ; butbp - bandwidth increasing
+e
+&lt;/CsScore&gt;
+
+&lt;/CsoundSynthesizer&gt;
+</pre>
+<h2>Comb Filtering
+</h2>
+<p>A comb filter is a special type of filter that creates a harmonically related stack of resonance peaks on an input sound file. A comb filter is really just a very short delay effect with feedback. Typically the delay times involved would be less than 0.05 seconds. Many of the comb filters documented in <a href="http://www.csounds.com/manual/html/">the Csound Manual</a> term this delay time, 'loop time'. The fundamental of the harmonic stack of resonances produced will be 1/loop time. Loop time and the frequencies of the resonance peaks will be inversely proportionsl – as loop time get smaller, the frequencies rise. For a loop time of 0.02 seconds the fundamental resonance peak will be 50Hz, the next peak 100Hz, the next 150Hz and so on. Feedback is normally implemented as reverb time – the time taken for amplitude to drop to 1/1000 of its original level or by 60dB. This use of reverb time as opposed to feedback alludes to the use of comb filters in the design of reverb algorithms. Negative reverb times will result in only the odd numbered partials of the harmonic stack being present.
+  <br />
+  <br />The following example demonstrates a comb filter using the <a href="http://www.csounds.com/manual/html/vcomb.html">vcomb</a> opcode. This opcode allows for performance time modulation of the loop time parameter. For the first 5 seconds of the demonstration the reverb time increases from 0.1 seconds to 2 while the loop time remains constant at 0.005 seconds. Then the loop time decreases to 0.0005 seconds over 6 seconds (the resonant peaks rise in frequency), finally over the course of 10 seconds the loop time rises to 0.1 seconds (the resonant peaks fall in frequency). A repeating noise impulse is used as a source sound to best demonstrate the qualities of a comb filter.
+  <br />
+</p>
+<p><strong><em>&nbsp;&nbsp; EXAMPLE 05C04_comb.csd</em></strong>
+</p>
+<pre>&lt;CsoundSynthesizer&gt;
+
+&lt;CsOptions&gt;
+-odac ;activates real time sound output
+&lt;/CsOptions&gt;
+
+&lt;CsInstruments&gt;
+;Example by Iain McCurdy
+
+sr = 44100
+ksmps = 32
+nchnls = 1
+0dbfs = 1
+
+  instr 1
+; -- generate an input audio signal (noise impulses) --
+; repeating amplitude envelope:
+kEnv         loopseg   1,0, 0,1,0.005,1,0.0001,0,0.9949,0
+aSig         pinkish   kEnv*0.6                     ; pink noise pulses
+
+; apply comb filter to input signal
+krvt    linseg  0.1, 5, 2                           ; reverb time
+alpt    expseg  0.005,5,0.005,6,0.0005,10,0.1,1,0.1 ; loop time
+aRes    vcomb   aSig, krvt, alpt, 0.1               ; comb filter
+        out     aRes                                ; audio to output
+  endin
+
+&lt;/CsInstruments&gt;
+
+&lt;CsScore&gt;
+i 1 0 25
+e
+&lt;/CsScore&gt;
+
+&lt;/CsoundSynthesizer&gt;
+</pre>
+<h2>Other Filters Worth Investigating
+  <br />
+</h2>
+<p>In addition to a wealth of low and highpass filters Csound several more unique filters. Multimode such as <a href="http://www.csounds.com/manual/html/bqrez.html">bqrez</a> provide several different filter types within a single opcode. Filter type is normally chosen using an i-rate input argument that functions like a switch. Another multimode filter, <a href="http://www.csounds.com/manual/html/clfilt.html">clfilt</a>, offers addition filter controls such as 'filter design' and 'number of poles' to create unusual sound filters. unfortunately some parts of this opcode are not implemented yet.
+</p>
+<p><a href="http://www.csounds.com/manual/html/eqfil.html">eqfil</a> is essentially a parametric equaliser but multiple iterations could be used as modules in a graphic equaliser bank. In addition to the capabilities of eqfil, <a href="http://www.csounds.com/manual/html/pareq.html">pareq</a> adds the possibility of creating low and high shelving filtering which might prove useful in mastering or in spectral adjustment of more developed sounds.
+</p>
+<p><a href="http://www.csounds.com/manual/html/rbjeq.html">rbjeq</a> offers a quite comprehensive multimode filter including highpass, lowpass, bandpass, bandreject, peaking, low-shelving and high-shelving, all in a single opcode
+</p>
+<p><a href="http://www.csounds.com/manual/html/statevar.html">statevar</a> offers the outputs from four filter types - highpass, lowpass, bandpass and bandreject - simultaneously so that the user can morph between them smoothly. <a href="http://www.csounds.com/manual/html/svfilter.html">svfilter</a> does a similar thing but with just highpass, lowpass and bandpass filter types.&nbsp;
+</p>
+<p> <a href="http://www.csounds.com/manual/html/phaser1.html">phaser1</a> and <a href="http://www.csounds.com/manual/html/phaser2.html">phaser2</a> offer algorithms containing chains of first order and second order allpass filters respectively. These algorithms could conceivably be built from individual allpass filters but these ready-made versions provide convenience and added efficiency
+  <br />
+</p>
+<p> <a href="http://www.csounds.com/manual/html/hilbert.html">hilbert</a> is a specialist IIR filter that implements the Hilbert transformer.
+</p>
+<p>For those wishing to devise their own filter using coefficients Csound offers <a href="http://www.csounds.com/manual/html/filter2.html">filter2</a> and <a href="http://www.csounds.com/manual/html/zfilter2.html">zfilter2</a>.
+  <br />
+</p>
+   <hr/>
+    <a href="/csound/_edit/">EDIT</a>
+
+</div>
+
+<script type="text/javascript">
+jQuery(function ($) {
+    $('#bookcontent').annotator()
+   		.annotator('setupPlugins', {}, {
+                Tags: false,
+                Filter: {
+                  addAnnotationFilter: false
+                },
+                Permissions: false,
+                AnnotateItPermissions: {}
+              });
+});
+</script>
+
+
+
+</div>
+<!-- End of content -->
+
+</div>  
+<!-- DEV TOOLS -->
+<div id="bookidebug">
+</div>
+
+<!-- sputnik error page -->
+<div id="dialog-sputnik-qrac" style="display: none"></div>
+</body>
+</html>
+

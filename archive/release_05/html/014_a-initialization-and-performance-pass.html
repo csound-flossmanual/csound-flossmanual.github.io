@@ -1,0 +1,1384 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html>
+ <head>
+   <link type="text/css" href="http://www.flossmanuals.net/_templates/prettify/src/prettify.css" rel="Stylesheet" />
+   <script type="text/javascript" src="http://www.flossmanuals.net/_templates/prettify/src/prettify.js"></script>
+
+   <link type="text/css" href="/site_static/js/jquery/themes/base/jquery.ui.all.css" rel="Stylesheet" >
+   <link type="text/css" href="/site_static/js/jquery/themes/smoothness/jquery.ui.all.css" rel="Stylesheet" >
+   <script type="text/javascript" src="/static/js/jquery-1.7.js"></script>
+<!--
+   <script type="text/javascript" src="/site_static/js/jquery/jquery-1.4.4.js"></script>
+-->   
+<script type="text/javascript" src="/site_static/js/jquery/ui/jquery-ui-1.8.10.custom.js"></script>
+   <script type="text/javascript" src="/site_static/js/jquery.json-1.3.js"></script>
+   <script type="text/javascript" src="/site_static/js/booki.js"></script>
+
+   <link href="/site_static/css/jquery.bubblepopup.v2.3.1.css" rel="stylesheet" type="text/css" />
+   <script src="/site_static/js/jquery.bubblepopup.v2.3.1.min.js" type="text/javascript"></script>
+
+   <link type="text/css" href="/static/css/booki_fm.css" rel="Stylesheet"/ >
+<style>
+.template {
+	display: none !important;
+}
+
+
+#header {
+    background-color: transparent !important;
+}
+.paginator { padding:.5em .75em; float:left; font:normal .8em arial; }
+ 
+.paginator .prev-na,
+.paginator .next-na {
+	padding:.3em;
+	font-weight: bold;
+/*	font:bold .875em arial; */
+}
+ 
+.paginator .prev-na,
+.paginator .next-na {
+/*	border:1px solid #ccc; 
+	background-color:#f9f9f9; */
+	color:#aaa;
+	font-weight:normal;
+}
+ 
+.paginator .prev a, .paginator .prev a:visited,
+.paginator .next a, .paginator .next a:visited {
+/*	border:1px solid #c2ee62; 
+	background-color:#edfdd0; */
+	color:#234f32;
+	padding:.3em;
+/*	font:bold .875em arial; */
+        font-weight: bold;
+}
+ 
+.paginator .prev, .paginator .prev-na { margin-right:.5em; }
+.paginator .next, .paginator .next-na { margin-left:.5em; }
+ 
+.paginator .page a, .paginator .page a:visited, .paginator .curr {
+	padding:.25em;
+	font-weight: normal;
+/*	font:normal .875em verdana; */
+/*	border:1px solid #C2EE62; 
+	background-color:#EDFDD0; */
+	margin:0em .25em;	
+	color:#006000;
+}
+ 
+.paginator .curr { 
+/*	background-color:#234f32; 
+	color:#fff; */
+	border:1px solid #234f32; 
+	font-weight:bold;
+	font-size:1em;
+}
+ 
+.paginator .page a:hover,
+.paginator .curr a:hover,
+.paginator .prev a:hover,
+.paginator .next a:hover {
+/*	color:#fff;
+	background-color:#234f32;
+	border:1px solid #234f32; */
+}
+</style>
+ <script type="text/javascript">
+      $(function() {
+   $.booki.sputnikDispatcherURL = "/_sputnik/";
+    });
+   </script>
+
+   <script type="text/javascript">
+     $(function() {
+	 // open debug window
+	 $.booki.debug.init();
+	 
+	 
+	 $("A.debug").click(function() {
+	     $("#bookidebug").dialog("open");
+	     return false;
+	 });
+     });
+   </script>
+
+   
+<title>/chapter: A-Initialization-And-Performance-Pass / CSound</title>
+<link type="text/css" href="/site_static/css/editor.css" rel="Stylesheet" />
+
+<script src="http://assets.annotateit.org/annotator/v1.2.5/annotator-full.min.js"></script>
+<link rel="stylesheet" href="http://assets.annotateit.org/annotator/v1.2.5/annotator.min.css">
+
+
+
+<link rel="alternate" type="application/rss+xml" title="RSS feed for CSound" href="/feeds/rss/book/csound/" /> 
+<link rel="alternate" type="application/atom+xml" title="Atom feed for CSound" href="/feeds/atom/book/csound/" /> 
+
+<link rel="alternate" type="application/rss+xml" title="RSS feed for chapter A-Initialization-And-Performance-Pass" href="/feeds/rss/chapter/csound/csound/" /> 
+<link rel="alternate" type="application/atom+xml" title="Atom feed for chapter A-Initialization-And-Performance-Pass" href="/feeds/atom/chapter/csound/csound/" /> 
+
+
+ </head>
+<body onload="prettyPrint()" >
+<!-- testis -->
+
+<script type="text/javascript">
+$(function() {
+    $("#snippetdialog").dialog({autoOpen: false});
+});
+</script>
+
+
+<div id="snippetdialog" title="Basic dialog">
+        <p></p>
+</div>
+
+
+
+<div id="page-container"> 
+<style>
+body
+{
+margin:0;
+padding:0
+}
+#header
+{
+position:absolute;
+top:23px;
+width:100%;
+background-image: url('http://www.flossmanuals.net/_templates/fm_resources/header_bg.gif');
+background-position: 700px 0px; /* this places the orange background at
+an offset, making sure it doesn't underlap the left side of the gif */
+background-repeat: no-repeat;
+}
+
+#fmheader {
+    background-image: url("http://en.flossmanuals.net/_templates/fm_resources/header_bg.gif");
+    background-position: 600px 0;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 23px;
+    width: 100%;
+}
+#header_image
+{
+margin-left: 270px;
+border: 0px
+}
+
+#navigation
+{
+position:absolute;
+top: 80px;
+left: 357px;
+width:50%;
+}
+
+
+#languages
+{
+position:absolute;
+top: 40px;
+left: 740px;
+width:50%;
+}
+</style>
+
+
+
+<!-- Header graphic is common to all pages  -->
+<div id="header"><img id="header_image" alt="FlossManuals menu" src="http://www.flossmanuals.net/_templates/fm_resources/header_menu.gif" height="95" width="465" border="0"></div>
+
+
+<!-- Navigation buttons are language and context specific  -->
+<div id="navigation">
+<a title="Read" href="http://en.flossmanuals.net/index.php"><img src="http://www.flossmanuals.net/_templates/fm_resources/read_en.png" width="65" height="30" border="0" alt="Read"></a>
+<a title="Write" href="http://booki.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/write_active_en.png" width="65" height="30" border="0" alt="Write"></a>
+<a title="Remix" href="http://en.flossmanuals.net/index.php?plugin=remix"><img src="http://www.flossmanuals.net/_templates/fm_resources/remix_en.png" width="65" height="30" border="0" alt="Remix"></a>
+<a title="About" href="http://www.flossmanuals.org"><img src="http://www.flossmanuals.net/_templates/fm_resources/about_en.png" width="65" height="30" border="0" alt="About"></a>
+</div>
+
+<!-- Language buttons are common to all pages  -->
+<div id="languages">
+<a title="English" href="http://en.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/english_button.png" width="65" height="30" border="0" alt="English"></a>
+
+<!-- <a title="Español" href="http://es.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/spanish_button.png" width="65" height="30" border="0" alt="Español"></a> -->
+<a title="فارسی" href="http://fa.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/farsi_button.png" width="65" height="30" border="0" alt="فارسی"></a>
+<a title="Suomi" href="http://fi.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/finnish_button.png" width="65" height="30" border="0" alt="Suomi"></a>
+<br>
+<a title="Français" href="http://fr.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/french_button.png" width="65" height="30" border="0" alt="Français"></a>
+<a title="Nederlands" href="http://nl.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/dutch_button.png" width="65" height="30" border="0" alt="Nederlands"></a>
+<!-- <a title="Pусский" href="http://ru.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/russian_button.png" width="65" height="30" border="0" alt="Pусский"></a> -->
+<a title="Translate" href="http://translate.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/translate_button.png" width="65" height="30" border="0" alt="Translate"></a>
+</div>
+
+<!-- End top bar -->
+
+<!-- nav box + drop shadow -->
+<div class="navbox shadow" style="top:160px;">
+    		<ul>
+
+ 		<li><a href="/accounts/signin/?redirect=/csound/_draft/_v/1.0/a-initialization-and-performance-pass/">Sign In</li><li>Register</a></li>
+
+                <li><a href="/list-books">All Manuals</a></li>
+                <li><a href="/list-groups">All Groups</a></li>
+                <li><a href="/list-people/">All People</a></li>
+           	</ul>
+</div>
+<!-- End of nav box -->
+
+
+
+<div class="content-container shadow">
+<!-- Content box and the drop shadow-->
+
+
+
+
+<br clear="all"/>
+   <h1>CSound</h1>
+
+
+<div id="bookmenu"   style="background: url(/site_static/images/draft_bg.png) repeat !important;">
+<ul>
+
+ 
+   <li><b>INTRODUCTION</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/introduction/">PREFACE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/how-to-use-this-manual/">HOW TO USE THIS MANUAL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/on-this-release/">ON THIS RELEASE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/credits/">CREDITS</a></li>
+ 
+
+ 
+   <li><b>01 BASICS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-digital-audio/">A. DIGITAL AUDIO</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-pitch-and-frequency/">B. PITCH AND FREQUENCY</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-intensities/">C. INTENSITIES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/random/">D. RANDOM</a></li>
+ 
+
+ 
+   <li><b>02 QUICK START</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-make-csound-run/">A. MAKE CSOUND RUN</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-csound-syntax/">B. CSOUND SYNTAX</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-configuring-midi/">C. CONFIGURING MIDI</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-live-audio/">D. LIVE AUDIO</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-rendering-to-file/">E. RENDERING TO FILE</a></li>
+ 
+
+ 
+   <li><b>03 CSOUND LANGUAGE</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-initialization-and-performance-pass/">A. INITIALIZATION AND PERFORMANCE PASS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-local-and-global-variables/">B. LOCAL AND GLOBAL VARIABLES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-control-structures/">C. CONTROL STRUCTURES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-function-tables/">D. FUNCTION TABLES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/arrays/">E. ARRAYS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-triggering-instrument-events/">F. LIVE EVENTS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-user-defined-opcodes/">G. USER DEFINED OPCODES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/macros/">H. MACROS</a></li>
+ 
+
+ 
+   <li><b>04 SOUND SYNTHESIS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-additive-synthesis/">A. ADDITIVE SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-subtractive-synthesis/">B. SUBTRACTIVE SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-amplitude-and-ringmodulation/">C. AMPLITUDE AND RING MODULATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-frequency-modulation/">D. FREQUENCY MODULATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-waveshaping/">E. WAVESHAPING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-granular-synthesis/">F. GRANULAR SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/g-physical-modelling/">G. PHYSICAL MODELLING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/scanned-synthesis/">H. SCANNED SYNTHESIS</a></li>
+ 
+
+ 
+   <li><b>05 SOUND MODIFICATION</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-envelopes/">A. ENVELOPES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-panning-and-spatialization/">B. PANNING AND SPATIALIZATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-filters/">C. FILTERS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-delay-and-feedback/">D. DELAY AND FEEDBACK</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-reverberation/">E. REVERBERATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-am-rm-waveshaping/">F. AM / RM / WAVESHAPING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/g-granular-synthesis/">G. GRANULAR SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/h-convolution/">H. CONVOLUTION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/i-fourier-analysis-spectral-processing/">I. FOURIER ANALYSIS / SPECTRAL PROCESSING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/k-ats-resynthesis/">K. ATS RESYNTHESIS</a></li>
+ 
+
+ 
+   <li><b>06 SAMPLES</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-record-and-play-soundfiles/">A. RECORD AND PLAY SOUNDFILES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-record-and-play-buffers/">B. RECORD AND PLAY BUFFERS</a></li>
+ 
+
+ 
+   <li><b>07 MIDI</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-receiving-events-by-midiin/">A. RECEIVING EVENTS BY MIDIIN</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-triggering-instrument-instances/">B. TRIGGERING INSTRUMENT INSTANCES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-working-with-controllers/">C. WORKING WITH CONTROLLERS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-reading-midi-files/">D. READING MIDI FILES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-midi-output/">E. MIDI OUTPUT</a></li>
+ 
+
+ 
+   <li><b>08 OTHER COMMUNICATION</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/osc-and-wii/">A. OPEN SOUND CONTROL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-arduino/">B. CSOUND AND ARDUINO</a></li>
+ 
+
+ 
+   <li><b>09 CSOUND IN OTHER APPLICATIONS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-pd/">A. CSOUND IN PD</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-maxmsp/">B. CSOUND IN MAXMSP</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-ableton-live/">C. CSOUND IN ABLETON LIVE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-csound-as-a-vst-plugin/">D. CSOUND AS A VST PLUGIN</a></li>
+ 
+
+ 
+   <li><b>10 CSOUND FRONTENDS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/qutecsound/">CSOUNDQT</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/cecilia/">CABBAGE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/blue/">BLUE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/winxound/">WINXOUND</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-via-terminal/">CSOUND VIA TERMINAL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/web-based-csound/">WEB BASED CSOUND</a></li>
+ 
+
+ 
+   <li><b>11 CSOUND UTILITIES</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-utilities/">CSOUND UTILITIES</a></li>
+ 
+
+ 
+   <li><b>12 CSOUND AND OTHER PROGRAMMING LANGUAGES</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/the-csound-api/">A. THE CSOUND API</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/using-python-inside-csound/">B. PYTHON INSIDE CSOUND</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-python-in-csoundqt/">C. PYTHON IN CSOUNDQT</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-lua-in-csound/">D. LUA IN CSOUND</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-csound-in-ios/">E. CSOUND IN iOS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-csound-on-android/">F. CSOUND ON ANDROID</a></li>
+ 
+
+ 
+   <li><b>13 EXTENDING CSOUND</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/extending-csound/">EXTENDING CSOUND</a></li>
+ 
+
+ 
+   <li><b>OPCODE GUIDE</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/overview/">OVERVIEW</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/signal-processing-i/">SIGNAL PROCESSING I</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/signal-processing-ii/">SIGNAL PROCESSING II</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/data/">DATA</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/realtime-interaction/">REALTIME INTERACTION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/instrument-control/">INSTRUMENT CONTROL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/math-pythonsystem-plugins/">MATHS, PYTHON/SYSTEM, PLUGINS</a></li>
+ 
+
+ 
+   <li><b>APPENDIX</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/writing-csound-scores-by-hand/">METHODS OF WRITING CSOUND SCORES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/glossary/">GLOSSARY</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/links/">LINKS</a></li>
+ 
+
+</ul>
+</div>
+<div id="bookcontent"   >
+<title>Csound: InitAndPerfPass</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<br />
+<h1>INITIALIZATION AND PERFORMANCE PASS
+</h1>
+<p>Not only for beginners, but also for experienced Csound users, many problems result from the misunderstanding of the so-called i-rate and k-rate. You want Csound to do something just once, but Csound does it continuously. You want Csound to do something continuously, but Csound does it just once. If you experience such a case, you will most probably have confused i- and k-rate-variables.
+</p>
+<p>The concept behind this is actually not complicated. But it is something which is more implicitly mentioned when we think of a program flow, whereas Csound wants to know it explicitely. So we tend to forget it when we use Csound, and we do not notice that we ordered a stone to become a wave, and a wave to become a stone. This chapter tries to explicate very carefully the difference between stones and waves, and how you can profit from them, after you understood and accepted both qualities.
+</p>
+<p>
+</p>
+<h2>The Init Pass
+</h2>
+<p>Whenever a Csound instrument is called, all variables are set to initial values. This is called the initialization pass.
+</p>
+<p>There are certain variables, which stay in the state in which they have been put by the init-pass. These variables start with an <strong>i</strong> if they are local (= only considered inside an instrument), or with a <strong>gi</strong> if they are global (= considered overall in the orchestra). This is a simple example:
+</p>
+<p>&nbsp;&nbsp; <em><strong>EXAMPLE 03A01_Init-pass.csd</strong></em>
+  <br />
+</p>
+<pre>&lt;CsoundSynthesizer&gt;
+&lt;CsInstruments&gt;
+
+giGlobal   =          1/2
+
+instr 1
+iLocal     =          1/4
+           print      giGlobal, iLocal
+endin
+
+instr 2
+iLocal     =          1/5
+           print      giGlobal, iLocal
+endin
+
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+i 1 0 0
+i 2 0 0
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+;example by joachim heintz
+</pre>
+<p>The output should include these lines:
+  <br /><font face="courier new,courier,monospace" size="2">SECTION 1:
+  <br />new alloc for instr 1:
+  <br />instr 1:&nbsp; giGlobal = 0.500&nbsp; iLocal = 0.250
+  <br />new alloc for instr 2:
+  <br />instr 2:&nbsp; giGlobal = 0.500&nbsp; iLocal = 0.200 </font>
+</p>
+<p>As you see, the local variables <em>iLocal</em> do have different meanings in the context of their instrument, whereas <em>giGlobal</em> is known everywhere and in the same way. It is also worth mentioning that the performance time of the instruments (p3) is zero. This makes sense, as the instruments are called, but only the init-pass is performed.<span class="InsertNoteMarker" id="InsertNoteID_6_marker7"><sup><a href="#InsertNoteID_6">1</a></sup></span>
+</p>
+<h2>The Performance Pass
+</h2>
+<p>After having assigned initial values to all variables, Csound starts the actual performance. As music is a variation of values in time,<span class="InsertNoteMarker" id="InsertNoteID_8_marker9"><sup><a href="#InsertNoteID_8">2</a></sup></span>&nbsp; audio signals are producing values which vary in time. In all digital audio, the time unit is given by the sample rate, and one sample is the smallest possible time atom. For a sample rate of 44100 Hz,<span class="InsertNoteMarker" id="InsertNoteID_10_marker11"><sup><a href="#InsertNoteID_10">3</a></sup></span>&nbsp; one sample comes up to the duration of 1/44100 = 0.0000227 seconds.
+</p>
+<p>So, performance for an audio application means basically: calculate all the samples which are finally being written to the output. You can imagine this as the cooperation of a clock and a calculator. For each sample, the clock ticks, and for each tick, the next sample is calculated.
+</p>
+<p>Most audio applications do not perform this calculation sample by sample. It is much more efficient to collect some amount of samples in a "block" or "vector", and calculate them all together. This means in fact, to introduce another internal clock in your application; a clock which ticks less frequently than the sample clock. For instance, if (always assumed your sample rate is 44100 Hz) your block size consists of 10 samples, your internal calculation time clock ticks every 1/4410 (0.000227) seconds. If your block size consists of 441 samples, the clock ticks every 1/100 (0.01) seconds.
+</p>
+<p>The following illustration shows an example for a block size of 10 samples. The samples are shown at the bottom line. Above are the control ticks, one for each ten samples. The top two lines show the times for both clocks in seconds. In the upmost line you see that the first control cycle has been finished at 0.000227 seconds, the second one at 0.000454 seconds, and so on.<span class="InsertNoteMarker" id="InsertNoteID_28_marker29"><sup><a href="#InsertNoteID_28">4</a></sup></span>&nbsp;
+  <br />
+  <br /><img src="static/03A_sr_kr_time3.png" height="204" width="600" />
+  <br />
+  <br />The rate (frequency) of these ticks is called the control rate in Csound. By historical reason,<span class="InsertNoteMarker" id="InsertNoteID_12_marker13"><sup><a href="#InsertNoteID_12">5</a></sup></span>&nbsp; it is called "kontrol rate" instead of control rate, and abbreviated as "kr" instead of cr. Each of the calculation cycles is called a "k-cycle". The block size or vector size is given by the <em>ksmps</em> parameter, which means: how many samples (smps) are collected for one k-cycle.<span class="InsertNoteMarker" id="InsertNoteID_14_marker15"><sup><a href="#InsertNoteID_14">6</a></sup></span>
+</p>
+<p>Let us see some code examples to illustrate these basic contexts.
+  <br />
+</p>
+<h3>Implicit Incrementation
+  <br />
+</h3>
+<p>&nbsp;&nbsp; <em><strong>EXAMPLE 03A02_Perf-pass_incr.csd</strong></em>
+  <br />
+</p>
+<pre>&lt;CsoundSynthesizer&gt;
+&lt;CsInstruments&gt;
+sr = 44100
+ksmps = 4410
+
+instr 1
+kCount&nbsp;&nbsp;&nbsp; init&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0; set kcount to 0 first
+kCount&nbsp;&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; kCount + 1; increase at each k-pass
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printk&nbsp;&nbsp;&nbsp; 0, kCount; print the value
+endin
+
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+i 1 0 1
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+;example by joachim heintz
+</pre>
+<p>Your output should contain the lines:
+  <br /><font face="courier new,courier,monospace" size="2">i&nbsp;&nbsp; 1 time&nbsp;&nbsp;&nbsp;&nbsp; 0.10000:&nbsp;&nbsp;&nbsp;&nbsp; 1.00000
+  <br />i&nbsp;&nbsp; 1 time&nbsp;&nbsp;&nbsp;&nbsp; 0.20000:&nbsp;&nbsp;&nbsp;&nbsp; 2.00000
+  <br />i&nbsp;&nbsp; 1 time&nbsp;&nbsp;&nbsp;&nbsp; 0.30000:&nbsp;&nbsp;&nbsp;&nbsp; 3.00000
+  <br />i&nbsp;&nbsp; 1 time&nbsp;&nbsp;&nbsp;&nbsp; 0.40000:&nbsp;&nbsp;&nbsp;&nbsp; 4.00000
+  <br />i&nbsp;&nbsp; 1 time&nbsp;&nbsp;&nbsp;&nbsp; 0.50000:&nbsp;&nbsp;&nbsp;&nbsp; 5.00000
+  <br />i&nbsp;&nbsp; 1 time&nbsp;&nbsp;&nbsp;&nbsp; 0.60000:&nbsp;&nbsp;&nbsp;&nbsp; 6.00000
+  <br />i&nbsp;&nbsp; 1 time&nbsp;&nbsp;&nbsp;&nbsp; 0.70000:&nbsp;&nbsp;&nbsp;&nbsp; 7.00000
+  <br />i&nbsp;&nbsp; 1 time&nbsp;&nbsp;&nbsp;&nbsp; 0.80000:&nbsp;&nbsp;&nbsp;&nbsp; 8.00000
+  <br />i&nbsp;&nbsp; 1 time&nbsp;&nbsp;&nbsp;&nbsp; 0.90000:&nbsp;&nbsp;&nbsp;&nbsp; 9.00000
+  <br />i&nbsp;&nbsp; 1 time&nbsp;&nbsp;&nbsp;&nbsp; 1.00000:&nbsp;&nbsp;&nbsp; 10.00000 </font>
+</p>
+<p>A counter (kCount) is set here to zero as initial value. Then, in each control cycle, the counter is increased by one. What we see here, is the typical behaviour of a loop. The loop has not been set explicitely, but works implicitely because of the continuous recalculation of all k-variables. So we can also speak about the k-cycles as an implicit (and time-triggered) k-loop.<span class="InsertNoteMarker" id="InsertNoteID_16_marker17"><sup><a href="#InsertNoteID_16">7</a></sup></span>&nbsp; Try changing the ksmps value from 4410 to 8820 and to 2205 and observe the difference.
+</p>
+<p>The next example reads the incrementation of <em>kCount</em> as rising frequency. The first instrument, called Rise, sets the k-rate frequency <em>kFreq</em> to the initial value of 100 Hz, and then adds 10 Hz in every new k-cycle. As ksmps=441, one k-cycle takes 1/100 second to perform. So in 3 seconds, the frequency rises from 100 to 3100 Hz. At the last k-cycle, the final frequency value is printed out.<span class="InsertNoteMarker" id="InsertNoteID_18_marker19"><sup><a href="#InsertNoteID_18">8</a></sup></span>&nbsp; - The second instrument, Partials, increments the counter by one for each k-cycle, but only sets this as new frequency for every 100 steps. So the frequency stays at 100 Hz for one second, then at 200 Hz for one second, and so on. As the resulting frequencies are in the ratio 1 : 2 : 3 ..., we hear partials based on a 100 Hz fundamental, from the first partial up to the 31st. The opcode printk2 prints out the frequency value whenever it has changed.
+  <br />
+</p>
+<p>&nbsp;&nbsp; <em><strong>EXAMPLE 03A03_Perf-pass_incr_listen.csd</strong></em>
+  <br />
+</p>
+<pre>&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+-o dac
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+sr = 44100
+ksmps = 441
+0dbfs = 1
+nchnls = 2
+
+;build a table containing a sine wave
+giSine&nbsp;&nbsp;&nbsp;&nbsp; ftgen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0, 0, 2^10, 10, 1
+
+instr Rise
+kFreq&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; init&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 100
+aSine&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; poscil&nbsp;&nbsp;&nbsp;&nbsp; .2, kFreq, giSine
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; outs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; aSine, aSine
+;increment frequency by 10 Hz for each k-cycle
+kFreq&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; kFreq + 10
+;print out the frequency for the last k-cycle
+kLast&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; release
+&nbsp;if kLast == 1 then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printk&nbsp;&nbsp;&nbsp;&nbsp; 0, kFreq
+&nbsp;endif
+endin
+
+instr Partials
+;initialize kCount
+kCount&nbsp;&nbsp;&nbsp;&nbsp; init&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 100
+;get new frequency if kCount equals 100, 200, ...
+&nbsp;if kCount % 100 == 0 then
+kFreq&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; kCount
+&nbsp;endif
+aSine&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; poscil&nbsp;&nbsp;&nbsp;&nbsp; .2, kFreq, giSine
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; outs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; aSine, aSine
+;increment kCount
+kCount&nbsp;&nbsp;&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; kCount + 1
+;print out kFreq whenever it has changed
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printk2&nbsp;&nbsp;&nbsp; kFreq
+endin
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+i "Rise" 0 3
+i "Partials" 4 31
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+<p>;example by joachim heintz
+</p></pre>
+<h3>Init versus Equals
+  <br />
+</h3>
+<p>A frequently occuring error is that instead of setting the k-variable as <em>kCount init 0</em>, it is set as <em>kCount = 0</em>. The meaning of both statements has one significant difference. <em>kCount init 0</em> sets the value for kCount to zero only in the init pass, without affecting it during the performance pass. kCount = 1 sets the value for kCount to zero again and again, in each performance cycle. So the increment always starts from the same point, and nothing really happens:
+  <br />
+</p>
+<p>&nbsp;&nbsp; <em><strong>EXAMPLE 03A04_Perf-pass_no_incr.csd</strong></em>
+  <br />
+</p>
+<pre>&lt;CsoundSynthesizer&gt;
+&lt;CsInstruments&gt;
+sr = 44100
+ksmps = 4410
+
+instr 1
+kcount&nbsp;&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0; sets kcount to 0 at each k-cycle
+kcount&nbsp;&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; kcount + 1; does not really increase ...
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printk&nbsp;&nbsp;&nbsp; 0, kcount; print the value
+endin
+
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+i 1 0 1
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+;example by joachim heintz
+</pre>
+<p>Outputs:
+  <br /><font face="courier new,courier,monospace" size="2">&nbsp;i&nbsp;&nbsp; 1 time&nbsp;&nbsp;&nbsp;&nbsp; 0.10000:&nbsp;&nbsp;&nbsp;&nbsp; 1.00000
+  <br />&nbsp;i&nbsp;&nbsp; 1 time&nbsp;&nbsp;&nbsp;&nbsp; 0.20000:&nbsp;&nbsp;&nbsp;&nbsp; 1.00000
+  <br />&nbsp;i&nbsp;&nbsp; 1 time&nbsp;&nbsp;&nbsp;&nbsp; 0.30000:&nbsp;&nbsp;&nbsp;&nbsp; 1.00000
+  <br />&nbsp;i&nbsp;&nbsp; 1 time&nbsp;&nbsp;&nbsp;&nbsp; 0.40000:&nbsp;&nbsp;&nbsp;&nbsp; 1.00000
+  <br />&nbsp;i&nbsp;&nbsp; 1 time&nbsp;&nbsp;&nbsp;&nbsp; 0.50000:&nbsp;&nbsp;&nbsp;&nbsp; 1.00000
+  <br />&nbsp;i&nbsp;&nbsp; 1 time&nbsp;&nbsp;&nbsp;&nbsp; 0.60000:&nbsp;&nbsp;&nbsp;&nbsp; 1.00000
+  <br />&nbsp;i&nbsp;&nbsp; 1 time&nbsp;&nbsp;&nbsp;&nbsp; 0.70000:&nbsp;&nbsp;&nbsp;&nbsp; 1.00000
+  <br />&nbsp;i&nbsp;&nbsp; 1 time&nbsp;&nbsp;&nbsp;&nbsp; 0.80000:&nbsp;&nbsp;&nbsp;&nbsp; 1.00000
+  <br />&nbsp;i&nbsp;&nbsp; 1 time&nbsp;&nbsp;&nbsp;&nbsp; 0.90000:&nbsp;&nbsp;&nbsp;&nbsp; 1.00000
+  <br />&nbsp;i&nbsp;&nbsp; 1 time&nbsp;&nbsp;&nbsp;&nbsp; 1.00000:&nbsp;&nbsp;&nbsp;&nbsp; 1.00000 </font>
+</p>
+<h3>A Look at the Audio Vector
+  <br />
+</h3>
+<p>There are different opcodes to print out k-variables.<span class="InsertNoteMarker" id="InsertNoteID_20_marker21"><sup><a href="#InsertNoteID_20">9</a></sup></span> There is no opcode in Csound to print out the audio vector directly, but you can use the <em>vaget</em> opcode to see what is happening inside one control cycle with the audio samples.
+  <br />
+</p>
+<p>&nbsp;&nbsp; <em><strong>EXAMPLE 03A05_Audio_vector.csd</strong></em>
+  <br />
+</p>
+<pre>&lt;CsoundSynthesizer&gt;
+&lt;CsInstruments&gt;
+sr = 44100
+ksmps = 5
+0dbfs = 1
+
+instr 1
+aSine&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; oscils&nbsp;&nbsp;&nbsp;&nbsp; 1, 2205, 0
+kVec1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; vaget&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0, aSine
+kVec2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; vaget&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1, aSine
+kVec3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; vaget&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2, aSine
+kVec4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; vaget&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3, aSine
+kVec5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; vaget&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4, aSine
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printks&nbsp;&nbsp;&nbsp; "kVec1 = % f, kVec2 = % f, kVec3 = % f, kVec4 = % f, kVec5 = % f\n",\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0, kVec1, kVec2, kVec3, kVec4, kVec5
+endin
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+i 1 0 [1/2205]
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+;example by joachim heintz
+</pre>
+<p>The output shows these lines:
+  <br /><font face="courier new,courier,monospace" size="2">kVec1 =&nbsp; 0.000000, kVec2 =&nbsp; 0.309017, kVec3 =&nbsp; 0.587785, kVec4 =&nbsp; 0.809017, kVec5 =&nbsp; 0.951057
+  <br />kVec1 =&nbsp; 1.000000, kVec2 =&nbsp; 0.951057, kVec3 =&nbsp; 0.809017, kVec4 =&nbsp; 0.587785, kVec5 =&nbsp; 0.309017
+  <br />kVec1 = -0.000000, kVec2 = -0.309017, kVec3 = -0.587785, kVec4 = -0.809017, kVec5 = -0.951057
+  <br />kVec1 = -1.000000, kVec2 = -0.951057, kVec3 = -0.809017, kVec4 = -0.587785, kVec5 = -0.309017 </font>
+</p>
+<p>In this example, the number of audio samples in one k-cycle is set to five by the statement <em>ksmps=5</em>. The first argument to vaget specifies which sample of the block you get. For instance,
+  <br />
+</p>
+<pre>kVec1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; vaget&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0, aSine</pre>
+<p>gets the first value of the audio vector and writes it into the variable kVec1. For a frequency of 2205 Hz at a sample rate of 44100 Hz, you need 20 samples to write one complete cycle of the sine. So we call the instrument for 1/2205 seconds, and we get 4 k-cycles. The printout shows exactly one period of the sine wave.
+</p>
+<h3>A Summarizing Example
+  <br />
+</h3>
+<p>After having put so much attention to the different single aspects of initialization, performance and audio vectors, the next example tries to summarize and illustrate all the aspects in their practical mixture.
+</p>
+<p>
+</p>
+<p>&nbsp;&nbsp; <em><strong>EXAMPLE 03A06_Init_perf_audio.csd</strong></em>&nbsp;
+  <br />
+</p>
+<pre>&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+-o dac
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+sr = 44100
+ksmps = 441
+nchnls = 2
+0dbfs = 1
+instr 1
+iAmp      =       p4 ;amplitude taken from the 4th parameter of the score line
+iFreq     =       p5 ;frequency taken from the 5th parameter
+; --- move from 0 to 1 in the duration of this instrument call (p3)
+kPan      line      0, p3, 1
+aNote     oscils  iAmp, iFreq, 0 ;create an audio signal
+aL, aR    pan2    aNote, kPan ;let the signal move from left to right
+          outs    aL, aR ;write it to the output
+endin
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+i 1 0 3 0.2 443
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+;example by joachim heintz
+</pre>
+<p>As ksmps=441, each control cycle is 0.01 seconds long (441/44100). So this happens when the instrument call is performed:
+</p>
+<p><img title="InitAndPerfPass3" alt="InitAndPerfPass3" src="/csound/_edit/static/Csound-Picts-03_CsLanguage-InitAndPerfPass3-en.png" height="326" width="600" />&nbsp;
+  <br />
+</p>
+<p>&nbsp;
+</p>
+<h2>Accessing the Initialization Value of a k-Variable
+</h2>
+<p>It has been said that the init pass sets initial values to all variables. It must be emphasized that this indeed concerns all variables, not only the i-variables. It is only the matter that i-variables are not affected by anything which happens later, in the performance. But also k- and a-variables get their initial values.
+</p>
+<p>As we saw, the init opcode is used to set initial values for k- or a-variables explicitely. On the other hand, you can get the initial value of a k-variable which has not been set explicitely, by the i() facility. This is a simple example:
+  <br />
+</p>
+<p>
+</p>
+<p>&nbsp;&nbsp; <em><strong>EXAMPLE 03A07_Init-values_of_k-variables.csd</strong></em>&nbsp;
+  <br />
+</p>
+<pre>&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+-o dac
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+instr 1
+gkLine line 0, p3, 1
+endin
+instr 2
+iInstr2LineValue = i(gkLine)
+print iInstr2LineValue
+endin
+instr 3
+iInstr3LineValue = i(gkLine)
+print iInstr3LineValue
+endin
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+i 1 0 5
+i 2 2 0
+i 3 4 0
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+;example by joachim heintz</pre>
+<p>Outputs:
+  <br /><font face="courier new,courier,monospace" size="2">new alloc for instr 1:
+  <br />B&nbsp; 0.000 ..&nbsp; 2.000 T&nbsp; 2.000 TT&nbsp; 2.000 M:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.0
+  <br />new alloc for instr 2:
+  <br />instr 2:&nbsp; iInstr2LineValue = 0.400
+  <br />B&nbsp; 2.000 ..&nbsp; 4.000 T&nbsp; 4.000 TT&nbsp; 4.000 M:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.0
+  <br />new alloc for instr 3:
+  <br />instr 3:&nbsp; iInstr3LineValue = 0.800
+  <br />B&nbsp; 4.000 ..&nbsp; 5.000 T&nbsp; 5.000 TT&nbsp; 5.000 M:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.0 </font>
+</p>
+<p>Instrument 1 produces a rising k-signal, starting at zero and ending at one, over a time of five seconds. The values of this line rise are written to the global variable <em>gkLine</em>. After two seconds, instrument 2 is called, and examines the value of <em>gkLine</em> at its init-pass via <em><strong>i</strong>(gkLine)</em>. The value at this time (0.4), is printed out at init-time as <em>iInstr2LineValue</em>. The same happens for instrument 3, which prints out <em>iInstr3LineValue = 0.800</em>, as it has been started at 4 seconds.
+</p>
+<p>The i() feature is particularily useful if you need to examine the value of any control signal from a widget or from midi, at the time when an instrument starts.
+</p>
+<p>
+</p>
+<h2>Reinitialization
+</h2>
+<p>As we saw above, an i-value is not affected by the performance loop. So you cannot expect this to work as an incrementation:
+  <br />
+</p>
+<p>
+</p>
+<p>&nbsp;&nbsp; <em><strong>EXAMPLE 03A08_Init_no_incr.csd</strong></em>&nbsp;
+  <br />
+</p>
+<pre>&lt;CsoundSynthesizer&gt;
+&lt;CsInstruments&gt;
+sr = 44100
+ksmps = 4410
+
+instr 1
+iCount&nbsp;&nbsp;&nbsp; init&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;set iCount to 0 first
+iCount&nbsp;&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; iCount + 1 ;increase
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print&nbsp;&nbsp;&nbsp;&nbsp; iCount&nbsp;&nbsp;&nbsp;&nbsp; ;print the value
+endin
+
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+i 1 0 1
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+;example by joachim heintz</pre>
+<p>The output is nothing but:
+  <br /><font face="courier new,courier,monospace" size="2">instr 1:&nbsp; iCount = 1.000 </font>
+</p>
+<p>But you can advise Csound to repeat the initialization of an i-variable. This is done with the <em>reinit</em> opcode. You must mark a section by a label (any name followed by a colon). Then the reinit statement will cause the i-variable to refresh. Use rireturn to end the reinit section.
+  <br />
+</p>
+<p>
+</p>
+<p>&nbsp;&nbsp; <em><strong>EXAMPLE 03A09_Re-init.csd</strong></em>&nbsp;
+  <br />
+</p>
+<pre>&lt;CsoundSynthesizer&gt;
+&lt;CsInstruments&gt;
+sr = 44100
+ksmps = 4410
+
+instr 1
+iCount&nbsp;&nbsp;&nbsp; init&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; set icount to 0 first
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; reinit&nbsp;&nbsp;&nbsp; new&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; reinit the section each k-pass
+new:
+iCount&nbsp;&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; iCount + 1 ; increase
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print&nbsp;&nbsp;&nbsp;&nbsp; iCount&nbsp;&nbsp;&nbsp;&nbsp; ; print the value
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rireturn
+endin
+
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+i 1 0 1
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+;example by joachim heintz</pre>
+<p>Outputs:
+  <br /><font face="courier new,courier,monospace" size="2">instr 1:&nbsp; iCount = 1.000
+  <br />instr 1:&nbsp; iCount = 2.000
+  <br />instr 1:&nbsp; iCount = 3.000
+  <br />instr 1:&nbsp; iCount = 4.000
+  <br />instr 1:&nbsp; iCount = 5.000
+  <br />instr 1:&nbsp; iCount = 6.000
+  <br />instr 1:&nbsp; iCount = 7.000
+  <br />instr 1:&nbsp; iCount = 8.000
+  <br />instr 1:&nbsp; iCount = 9.000
+  <br />instr 1:&nbsp; iCount = 10.000
+  <br />instr 1:&nbsp; iCount = 11.000 </font>
+  <br />
+  <br />What happens here more in detail, is the following. In the actual init-pass, <em>iCount</em> is set to zero via <em>iCount init 0</em>. Still in this init-pass, it is incremented by one (iCount = iCount+1) and the value is printed out as <em>iCount = 1.000</em>. Now starts the first performance pass. The statement <em>reinit new</em> advices Csound to initialise again the section labeled as "new". So the statement <em>iCount = iCount + 1</em> is executed again. As the current value of <em>iCount</em> at this time is 1, the result is 2. So the printout at this first performance pass is<em> iCount = 2.000</em>. The same happens in the next nine performance cycles, so the final count is 11.
+</p>
+<h2>Order Of Calculation
+</h2>
+<p>In this context, it can be very important to observe the order in which the instruments of a Csound orchestra are evaluated. This order is determined by the instrument numbers. So, if you want to use during the same performance pass a value in instrument 10 which is generated by another instrument, you must not give this instrument the number 11 or higher. In the following example, first instrument 10 uses a value of instrument 1, then a value of instrument 100.
+  <br />
+</p>
+<p>
+</p>
+<p>&nbsp;&nbsp; <em><strong>EXAMPLE 03A10_Order_of_calc.csd</strong></em>&nbsp;
+  <br />
+</p>
+<pre>&lt;CsoundSynthesizer&gt;
+&lt;CsInstruments&gt;
+sr = 44100
+ksmps = 4410
+
+instr 1
+gkcount&nbsp;&nbsp; init&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0 ;set gkcount to 0 first
+gkcount&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gkcount + 1 ;increase
+endin
+
+instr 10
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printk&nbsp;&nbsp;&nbsp; 0, gkcount ;print the value
+endin
+
+instr 100
+gkcount&nbsp;&nbsp; init&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0 ;set gkcount to 0 first
+gkcount&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gkcount + 1 ;increase
+endin
+
+
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+;first i1 and i10
+i 1 0 1
+i 10 0 1
+;then i100 and i10
+i 100 1 1
+i 10 1 1
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+;Example by Joachim Heintz</pre>
+<p>The output shows the difference:
+  <br /><font face="courier new,courier,monospace" size="2">new alloc for instr 1:
+  <br />new alloc for instr 10:
+  <br />&nbsp;i&nbsp; 10 time&nbsp;&nbsp;&nbsp;&nbsp; 0.10000:&nbsp;&nbsp;&nbsp;&nbsp; 1.00000
+  <br />&nbsp;i&nbsp; 10 time&nbsp;&nbsp;&nbsp;&nbsp; 0.20000:&nbsp;&nbsp;&nbsp;&nbsp; 2.00000
+  <br />&nbsp;i&nbsp; 10 time&nbsp;&nbsp;&nbsp;&nbsp; 0.30000:&nbsp;&nbsp;&nbsp;&nbsp; 3.00000
+  <br />&nbsp;i&nbsp; 10 time&nbsp;&nbsp;&nbsp;&nbsp; 0.40000:&nbsp;&nbsp;&nbsp;&nbsp; 4.00000
+  <br />&nbsp;i&nbsp; 10 time&nbsp;&nbsp;&nbsp;&nbsp; 0.50000:&nbsp;&nbsp;&nbsp;&nbsp; 5.00000
+  <br />&nbsp;i&nbsp; 10 time&nbsp;&nbsp;&nbsp;&nbsp; 0.60000:&nbsp;&nbsp;&nbsp;&nbsp; 6.00000
+  <br />&nbsp;i&nbsp; 10 time&nbsp;&nbsp;&nbsp;&nbsp; 0.70000:&nbsp;&nbsp;&nbsp;&nbsp; 7.00000
+  <br />&nbsp;i&nbsp; 10 time&nbsp;&nbsp;&nbsp;&nbsp; 0.80000:&nbsp;&nbsp;&nbsp;&nbsp; 8.00000
+  <br />&nbsp;i&nbsp; 10 time&nbsp;&nbsp;&nbsp;&nbsp; 0.90000:&nbsp;&nbsp;&nbsp;&nbsp; 9.00000
+  <br />&nbsp;i&nbsp; 10 time&nbsp;&nbsp;&nbsp;&nbsp; 1.00000:&nbsp;&nbsp;&nbsp; 10.00000
+  <br />B&nbsp; 0.000 ..&nbsp; 1.000 T&nbsp; 1.000 TT&nbsp; 1.000 M:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.0
+  <br />new alloc for instr 100:
+  <br />&nbsp;i&nbsp; 10 time&nbsp;&nbsp;&nbsp;&nbsp; 1.10000:&nbsp;&nbsp;&nbsp;&nbsp; 0.00000
+  <br />&nbsp;i&nbsp; 10 time&nbsp;&nbsp;&nbsp;&nbsp; 1.20000:&nbsp;&nbsp;&nbsp;&nbsp; 1.00000
+  <br />&nbsp;i&nbsp; 10 time&nbsp;&nbsp;&nbsp;&nbsp; 1.30000:&nbsp;&nbsp;&nbsp;&nbsp; 2.00000</font><font face="courier new,courier,monospace" size="2"><font face="courier new,courier,monospace" size="2">
+  <br />&nbsp;i&nbsp; 10 time&nbsp;&nbsp;&nbsp;&nbsp; 1.40000:&nbsp;&nbsp;&nbsp;&nbsp; 3.00000 </font>
+  <br />&nbsp;i&nbsp; 10 time&nbsp;&nbsp;&nbsp;&nbsp; 1.50000:&nbsp;&nbsp;&nbsp;&nbsp; 4.00000
+  <br />&nbsp;i&nbsp; 10 time&nbsp;&nbsp;&nbsp;&nbsp; 1.60000:&nbsp;&nbsp;&nbsp;&nbsp; 5.00000
+  <br />&nbsp;i&nbsp; 10 time&nbsp;&nbsp;&nbsp;&nbsp; 1.70000:&nbsp;&nbsp;&nbsp;&nbsp; 6.00000
+  <br />&nbsp;i&nbsp; 10 time&nbsp;&nbsp;&nbsp;&nbsp; 1.80000:&nbsp;&nbsp;&nbsp;&nbsp; 7.00000
+  <br />&nbsp;i&nbsp; 10 time&nbsp;&nbsp;&nbsp;&nbsp; 1.90000:&nbsp;&nbsp;&nbsp;&nbsp; 8.00000
+  <br />&nbsp;i&nbsp; 10 time&nbsp;&nbsp;&nbsp;&nbsp; 2.00000:&nbsp;&nbsp;&nbsp;&nbsp; 9.00000
+  <br />B&nbsp; 1.000 ..&nbsp; 2.000 T&nbsp; 2.000 TT&nbsp; 2.000 M:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.0 </font>
+</p>
+<p>Instrument 10 can use the values which instrument 1 has produced in the same control cycle, but it can only refer to values of instrument 100 which are produced in the previous control cycle. By this reason, the printout shows values which are one less in the latter case.
+</p>
+<h2>Named Instruments
+</h2>
+<p>It has been said in chapter 02B (Quick Start) that instead of a number you can also use a name for an instrument. This is mostly preferable, because you can give meaningful names, leading to a better readable code. But what about the order of calculation in named instruments?
+</p>
+<p>The answer is simple: Csound calculates them in the same order as they are written in the orchestra. So if your instrument collection is like this ...
+  <br />
+</p>
+<p>
+</p>
+<p>&nbsp;&nbsp; <em><strong>EXAMPLE 03A11_Order_of_calc_named.csd</strong></em>&nbsp;
+  <br />
+</p>
+<pre>&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+-nd
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+
+instr Grain_machine
+prints " Grain_machine\n"
+endin
+
+instr Fantastic_FM
+prints "&nbsp; Fantastic_FM\n"
+endin
+
+instr Random_Filter
+prints "&nbsp;&nbsp; Random_Filter\n"
+endin
+
+instr Final_Reverb
+prints "&nbsp;&nbsp;&nbsp; Final_Reverb\n"
+endin
+
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+i "Final_Reverb" 0 1
+i "Random_Filter" 0 1
+i "Grain_machine" 0 1
+i "Fantastic_FM" 0 1
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+;example by joachim heintz</pre>
+<p>... you can count on this output:
+  <br /><font face="courier new,courier,monospace" size="2">new alloc for instr Grain_machine:
+  <br />&nbsp;Grain_machine
+  <br />new alloc for instr Fantastic_FM:
+  <br />&nbsp; Fantastic_FM
+  <br />new alloc for instr Random_Filter:
+  <br />&nbsp;&nbsp; Random_Filter
+  <br />new alloc for instr Final_Reverb:
+  <br />&nbsp;&nbsp;&nbsp; Final_Reverb </font>
+</p>
+<p>Note that the score has not the same order. But internally, Csound transforms all names to numbers, in the order they are written from top to bottom. The numbers are reported on the top of Csound's output:<span class="InsertNoteMarker" id="InsertNoteID_22_marker23"><sup><a href="#InsertNoteID_22">10</a></sup></span>&nbsp;
+  <br /><font face="courier new,courier,monospace" size="2">instr Grain_machine uses instrument number 1
+  <br />instr Fantastic_FM uses instrument number 2
+  <br />instr Random_Filter uses instrument number 3
+  <br />instr Final_Reverb uses instrument number 4 </font>
+</p>
+<h2>About "i-time" And "k-rate" Opcodes
+</h2>
+<p>It is often confusing for the beginner that there are some opcodes which only work at "i-time" or "i-rate", and others which only work at "k-rate" or "k-time". For instance, if the user wants to print the value of any variable, (s)he thinks: "OK - print it out." But Csound replies: "Please, tell me first if you want to print an i- or a k-variable".<span class="InsertNoteMarker" id="InsertNoteID_24_marker25"><sup><a href="#InsertNoteID_24">11</a></sup></span>
+</p>
+<p>The <a href="http://csounds.com/manual/html/print.html">print</a> opcode just prints variables which are updated at each initialization pass ("i-time" or "i-rate"). If you want to print a variable which is updated at each control cycle ("k-rate" or "k-time"), you need its counterpart <a href="http://csounds.com/manual/html/printk.html">printk</a>. (As the performance pass is usually updated some thousands times per second, you have an additional parameter in printk, telling Csound how often you want to print out the k-values.)
+</p>
+<p>So, some opcodes are just for i-rate variables, like <a href="http://csounds.com/manual/html/filelen.html">filelen</a> or <a href="http://csounds.com/manual/html/ftgen.html">ftgen</a>. Others are just for k-rate variables like <a href="http://csounds.com/manual/html/metro.html">metro</a> or <a href="http://csounds.com/manual/html/max_k.html">max_k</a>. Many opcodes have variants for either i-rate-variables or k-rate-variables, like <a href="http://csounds.com/manual/html/printf.html">printf_i</a> and <a href="http://csounds.com/manual/html/printf.html">printf</a>, <a href="http://csounds.com/manual/html/sprintf.html">sprintf</a> and <a href="http://csounds.com/manual/html/sprintf.html">sprintfk</a>, <a href="http://csounds.com/manual/html/strindex.html">strindex</a> and <a href="http://csounds.com/manual/html/strindexk.html">strindexk</a>.
+  <br />
+</p>
+<p>Most of the Csound opcodes are able to work either at i-time or at k-time or at audio-rate, but you have to think carefully what you need, as the behaviour will be very different if you choose the i-, k- or a-variante of an opcode. For example, the <a href="http://csounds.com/manual/html/random.html">random</a> opcode can work at all three rates:
+</p>
+<pre>ires      random    imin, imax : works at "i-time"
+kres      random    kmin, kmax : works at "k-rate"
+ares      random    kmin, kmax : works at "audio-rate"
+</pre>
+<p>If you use the i-rate random generator, you will get one value for each note. For instance, if you want to have a different pitch for each note you are generating, you will use this one.
+</p>
+<p>If you use the k-rate random generator, you will get one new value on every control cycle. If your sample rate is 44100 and your ksmps=10, you will get 4410 new values per second! If you take this as pitch value for a note, you will hear nothing but a noisy jumping. If you want to have a moving pitch, you can use the <a href="http://csounds.com/manual/html/randomi.html">randomi</a> variant of the k-rate random generator, which can reduce the number of new values per second, and interpolate between them.
+</p>
+<p>If you use the a-rate random generator, you will get as many new values per second as your sample rate is. If you use it in the range of your 0 dB amplitude, you produce white noise.
+</p>
+<p>&nbsp;&nbsp; <em><strong>EXAMPLE 03A12_Random_at_ika.csd</strong></em>&nbsp;&nbsp;
+</p>
+<pre>&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+-odac
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+sr = 44100
+ksmps = 32
+0dbfs = 1
+nchnls = 2
+
+          seed      0 ;each time different seed
+giSine    ftgen     0, 0, 2^10, 10, 1 ;sine table
+
+instr 1 ;i-rate random
+iPch      random    300, 600
+aAmp      linseg    .5, p3, 0
+aSine     poscil    aAmp, iPch, giSine
+          outs      aSine, aSine
+endin
+
+instr 2 ;k-rate random: noisy
+kPch      random    300, 600
+aAmp      linseg    .5, p3, 0
+aSine     poscil    aAmp, kPch, giSine
+          outs      aSine, aSine
+endin
+
+instr 3 ;k-rate random with interpolation: sliding pitch
+kPch      randomi   300, 600, 3
+aAmp      linseg    .5, p3, 0
+aSine     poscil    aAmp, kPch, giSine
+          outs      aSine, aSine
+endin
+
+instr 4 ;a-rate random: white noise
+aNoise    random    -.1, .1
+          outs      aNoise, aNoise
+endin
+
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+i 1 0   .5
+i 1 .25 .5
+i 1 .5  .5
+i 1 .75 .5
+i 2 2   1
+i 3 4   2
+i 3 5   2
+i 3 6   2
+i 4 9   1
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+;example by joachim heintz
+</pre>
+<h2>Possible Problems with k-Rate Tick Size
+</h2>
+<p>It has been said that usually the k-rate clock ticks much slower than the sample (a-rate) clock. For a common size of ksmps=32, one k-value remains the same for 32 samples. This can lead to problems, for instance if you use k-rate envelopes. Let us assume that you want to produce a very short fade-in of 3 milliseconds, and you do it with the following line of code:
+</p>
+<pre>kFadeIn linseg 0, .003, 1</pre>
+<p>Your envelope will look like this:
+</p>
+<p><img src="static/03A_k-rate_env.png" height="280" width="489" />
+  <br />
+  <br />Such a "staircase-envelope" is what you hear in the next example as zipper noise. The transeg opcode produces a non-linear envelope with a sharp peak:
+</p>
+<p align="center"><img src="static/03A_peak.png" height="258" width="127" />&nbsp;
+</p>
+<p>The rise and the decay are each 1/100 seconds long. If this envelope is produced at k-rate with a blocksize of 128 (instr 1), the noise is clearly audible. Try changing ksmps to 64, 32 or 16 and compare the amount of zipper noise. - Instrument 2 uses an envelope at audio-rate instead. Regardless the blocksize, each sample is calculated seperately, so the envelope will always be smooth.
+</p>
+<p>&nbsp;&nbsp; <em><strong>EXAMPLE 03A13_Zipper.csd</strong></em>&nbsp;&nbsp;&nbsp;
+  <br />
+</p>
+<pre>&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+-o dac
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+sr = 44100
+;--- increase or decrease to hear the difference more or less evident
+ksmps = 128
+nchnls = 2
+0dbfs = 1
+
+instr 1 ;envelope at k-time
+aSine     oscils    .5, 800, 0
+kEnv      transeg   0, .1, 5, 1, .1, -5, 0
+aOut      =         aSine * kEnv
+          outs      aOut, aOut
+endin
+
+instr 2 ;envelope at a-time
+aSine     oscils    .5, 800, 0
+aEnv      transeg   0, .1, 5, 1, .1, -5, 0
+aOut      =         aSine * aEnv
+          outs      aOut, aOut
+endin
+
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+r 5 ;repeat the following line 5 times
+i 1 0 1
+s ;end of section
+r 5
+i 2 0 1
+e
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+;example by joachim heintz
+</pre>
+<h2>Time Impossible
+  <br />
+</h2>
+<p>There are two internal clocks in Csound. The sample rate (sr) determines the audio-rate, whereas the control rate (kr) determines the rate, in which a new control cycle can be started and a new block of samples can be performed. In general, Csound can not start any event in between two control cycles, nor end.
+</p>
+<p>With Csound6, the possibilities of these "in between" are enlarged via the --sample-accurate option.<span id="InsertNoteID_26_LinkBacks"></span>
+</p>
+<p>The next example chooses an extreme small control rate (only 10 k-cycles per second) to illustrate this.
+  <br />
+</p>
+<p>&nbsp;&nbsp; <em><strong>EXAMPLE 03A14_Time_Impossible.csd</strong></em>&nbsp;&nbsp;&nbsp;
+  <br />
+</p>
+<pre>&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+-o test.wav -d
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+sr = 44100
+ksmps = 4410
+nchnls = 1
+0dbfs = 1
+
+&nbsp; instr 1
+aPink oscils .5, 430, 0
+out aPink
+&nbsp; endin
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+i 1 0.05 0.1
+i 1 0.4 0.15
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;</pre>
+<p>The first call advices instrument 1 to start performance at time 0.05. But this is impossible as it lies between two control cycles. The second call starts at a possible time, but the duration of 0.15 again does not coincident with the control rate. So the result starts the first call at time 0.1 and extends the second call to 0.2 seconds:
+</p>
+<p align="center"><img src="static/03A_Wrong_times.png" height="321" width="418" />&nbsp;
+</p>
+<p>
+  <br />
+</p>
+<h2>When to Use i- or k- Rate
+</h2>
+<p>When you code on your Csound instrument, you may sometimes wonder whether you shall use an i-rate or a k-rate opcode. From what is said, the general answer is clear: Use i-rate if something has to be done only once, or in a somehow punctual manner. Use k-rate if something has to be done continuously, or if you must regard what happens during the performance.
+</p>
+<br />
+<p><span></span>
+</p>
+<ol id="InsertNote_NoteList">
+  <li id="InsertNoteID_6">You would not get any other result if you set p3 to 1 or any other value, as nothing is done here except initialization.<span id="InsertNoteID_6_LinkBacks"><sup><a href="#InsertNoteID_6_marker7">^</a></sup></span></li>
+  <li id="InsertNoteID_8">For the physical result which comes out of the loudspeakers or headphones, the variation is the variation of air pressure.<span id="InsertNoteID_8_LinkBacks"><sup><a href="#InsertNoteID_8_marker9">^</a></sup></span></li>
+  <li id="InsertNoteID_10">44100 samples per second<span id="InsertNoteID_10_LinkBacks"><sup><a href="#InsertNoteID_10_marker11">^</a></sup></span></li>
+  <li id="InsertNoteID_28">These are by the way the times which Csound reports if you ask for the control cycles. The first control cycle in this example (sr=44100, ksmps=10) would be reported as 0.00027 seconds, not as 0.00000 seconds.<span id="InsertNoteID_28_LinkBacks"><sup><a href="#InsertNoteID_28_marker29">^</a></sup></span></li>
+  <li id="InsertNoteID_12">As Richard Boulanger explains, in early Csound a line starting with 'c' was a comment line. So it was not possible to abbreviate control variables as cAnything (http://csound.1045644.n5.nabble.com/OT-why-is-control-rate-called-kontrol-rate-td5720858.html#a5720866). <span id="InsertNoteID_12_LinkBacks"><sup><a href="#InsertNoteID_12_marker13">^</a></sup></span></li>
+  <li id="InsertNoteID_14">As the k-rate is directly depending on sample rate (sr) and ksmps (kr = sr/ksmps), it is probably the best style to specify sr and ksmps in the header, but not kr. <span id="InsertNoteID_14_LinkBacks"><sup><a href="#InsertNoteID_14_marker15">^</a></sup></span></li>
+  <li id="InsertNoteID_16">This must not be confused with a 'real' k-loop where inside one single k-cycle a loop is performed. See chapter 03C (section Loops) for examples.<span id="InsertNoteID_16_LinkBacks"><sup><a href="#InsertNoteID_16_marker17">^</a></sup></span></li>
+  <li id="InsertNoteID_18">The value is 3110 instead of 3100 because it has already been incremented by 10.<span id="InsertNoteID_18_LinkBacks"><sup><a href="#InsertNoteID_18_marker19">^</a></sup></span></li>
+  <li id="InsertNoteID_20">See the manual page for printk, printk2, printks, printf to know more about the differences.<span id="InsertNoteID_20_LinkBacks"><sup><a href="#InsertNoteID_20_marker21">^</a></sup></span></li>
+  <li id="InsertNoteID_22">If you want to know the number in an instrument, use the nstrnum opcode. <span id="InsertNoteID_22_LinkBacks"><sup><a href="#InsertNoteID_22_marker23">^</a></sup></span></li>
+  <li id="InsertNoteID_24">See the following section 03B about the variable types for more on this subject.<span id="InsertNoteID_24_LinkBacks"><sup><a href="#InsertNoteID_24_marker25">^</a></sup></span></li>
+</ol>
+   <hr/>
+    <a href="/csound/_edit/">EDIT</a>
+
+</div>
+
+<script type="text/javascript">
+jQuery(function ($) {
+    $('#bookcontent').annotator()
+   		.annotator('setupPlugins', {}, {
+                Tags: false,
+                Filter: {
+                  addAnnotationFilter: false
+                },
+                Permissions: false,
+                AnnotateItPermissions: {}
+              });
+});
+</script>
+
+
+
+</div>
+<!-- End of content -->
+
+</div>  
+<!-- DEV TOOLS -->
+<div id="bookidebug">
+</div>
+
+<!-- sputnik error page -->
+<div id="dialog-sputnik-qrac" style="display: none"></div>
+</body>
+</html>
+

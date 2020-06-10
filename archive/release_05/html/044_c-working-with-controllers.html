@@ -1,0 +1,884 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html>
+ <head>
+   <link type="text/css" href="http://www.flossmanuals.net/_templates/prettify/src/prettify.css" rel="Stylesheet" />
+   <script type="text/javascript" src="http://www.flossmanuals.net/_templates/prettify/src/prettify.js"></script>
+
+   <link type="text/css" href="/site_static/js/jquery/themes/base/jquery.ui.all.css" rel="Stylesheet" >
+   <link type="text/css" href="/site_static/js/jquery/themes/smoothness/jquery.ui.all.css" rel="Stylesheet" >
+   <script type="text/javascript" src="/static/js/jquery-1.7.js"></script>
+<!--
+   <script type="text/javascript" src="/site_static/js/jquery/jquery-1.4.4.js"></script>
+-->   
+<script type="text/javascript" src="/site_static/js/jquery/ui/jquery-ui-1.8.10.custom.js"></script>
+   <script type="text/javascript" src="/site_static/js/jquery.json-1.3.js"></script>
+   <script type="text/javascript" src="/site_static/js/booki.js"></script>
+
+   <link href="/site_static/css/jquery.bubblepopup.v2.3.1.css" rel="stylesheet" type="text/css" />
+   <script src="/site_static/js/jquery.bubblepopup.v2.3.1.min.js" type="text/javascript"></script>
+
+   <link type="text/css" href="/static/css/booki_fm.css" rel="Stylesheet"/ >
+<style>
+.template {
+	display: none !important;
+}
+
+
+#header {
+    background-color: transparent !important;
+}
+.paginator { padding:.5em .75em; float:left; font:normal .8em arial; }
+ 
+.paginator .prev-na,
+.paginator .next-na {
+	padding:.3em;
+	font-weight: bold;
+/*	font:bold .875em arial; */
+}
+ 
+.paginator .prev-na,
+.paginator .next-na {
+/*	border:1px solid #ccc; 
+	background-color:#f9f9f9; */
+	color:#aaa;
+	font-weight:normal;
+}
+ 
+.paginator .prev a, .paginator .prev a:visited,
+.paginator .next a, .paginator .next a:visited {
+/*	border:1px solid #c2ee62; 
+	background-color:#edfdd0; */
+	color:#234f32;
+	padding:.3em;
+/*	font:bold .875em arial; */
+        font-weight: bold;
+}
+ 
+.paginator .prev, .paginator .prev-na { margin-right:.5em; }
+.paginator .next, .paginator .next-na { margin-left:.5em; }
+ 
+.paginator .page a, .paginator .page a:visited, .paginator .curr {
+	padding:.25em;
+	font-weight: normal;
+/*	font:normal .875em verdana; */
+/*	border:1px solid #C2EE62; 
+	background-color:#EDFDD0; */
+	margin:0em .25em;	
+	color:#006000;
+}
+ 
+.paginator .curr { 
+/*	background-color:#234f32; 
+	color:#fff; */
+	border:1px solid #234f32; 
+	font-weight:bold;
+	font-size:1em;
+}
+ 
+.paginator .page a:hover,
+.paginator .curr a:hover,
+.paginator .prev a:hover,
+.paginator .next a:hover {
+/*	color:#fff;
+	background-color:#234f32;
+	border:1px solid #234f32; */
+}
+</style>
+ <script type="text/javascript">
+      $(function() {
+   $.booki.sputnikDispatcherURL = "/_sputnik/";
+    });
+   </script>
+
+   <script type="text/javascript">
+     $(function() {
+	 // open debug window
+	 $.booki.debug.init();
+	 
+	 
+	 $("A.debug").click(function() {
+	     $("#bookidebug").dialog("open");
+	     return false;
+	 });
+     });
+   </script>
+
+   
+<title>/chapter: C-Working-With-Controllers / CSound</title>
+<link type="text/css" href="/site_static/css/editor.css" rel="Stylesheet" />
+
+<script src="http://assets.annotateit.org/annotator/v1.2.5/annotator-full.min.js"></script>
+<link rel="stylesheet" href="http://assets.annotateit.org/annotator/v1.2.5/annotator.min.css">
+
+
+
+<link rel="alternate" type="application/rss+xml" title="RSS feed for CSound" href="/feeds/rss/book/csound/" /> 
+<link rel="alternate" type="application/atom+xml" title="Atom feed for CSound" href="/feeds/atom/book/csound/" /> 
+
+<link rel="alternate" type="application/rss+xml" title="RSS feed for chapter C-Working-With-Controllers" href="/feeds/rss/chapter/csound/csound/" /> 
+<link rel="alternate" type="application/atom+xml" title="Atom feed for chapter C-Working-With-Controllers" href="/feeds/atom/chapter/csound/csound/" /> 
+
+
+ </head>
+<body onload="prettyPrint()" >
+<!-- testis -->
+
+<script type="text/javascript">
+$(function() {
+    $("#snippetdialog").dialog({autoOpen: false});
+});
+</script>
+
+
+<div id="snippetdialog" title="Basic dialog">
+        <p></p>
+</div>
+
+
+
+<div id="page-container"> 
+<style>
+body
+{
+margin:0;
+padding:0
+}
+#header
+{
+position:absolute;
+top:23px;
+width:100%;
+background-image: url('http://www.flossmanuals.net/_templates/fm_resources/header_bg.gif');
+background-position: 700px 0px; /* this places the orange background at
+an offset, making sure it doesn't underlap the left side of the gif */
+background-repeat: no-repeat;
+}
+
+#fmheader {
+    background-image: url("http://en.flossmanuals.net/_templates/fm_resources/header_bg.gif");
+    background-position: 600px 0;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 23px;
+    width: 100%;
+}
+#header_image
+{
+margin-left: 270px;
+border: 0px
+}
+
+#navigation
+{
+position:absolute;
+top: 80px;
+left: 357px;
+width:50%;
+}
+
+
+#languages
+{
+position:absolute;
+top: 40px;
+left: 740px;
+width:50%;
+}
+</style>
+
+
+
+<!-- Header graphic is common to all pages  -->
+<div id="header"><img id="header_image" alt="FlossManuals menu" src="http://www.flossmanuals.net/_templates/fm_resources/header_menu.gif" height="95" width="465" border="0"></div>
+
+
+<!-- Navigation buttons are language and context specific  -->
+<div id="navigation">
+<a title="Read" href="http://en.flossmanuals.net/index.php"><img src="http://www.flossmanuals.net/_templates/fm_resources/read_en.png" width="65" height="30" border="0" alt="Read"></a>
+<a title="Write" href="http://booki.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/write_active_en.png" width="65" height="30" border="0" alt="Write"></a>
+<a title="Remix" href="http://en.flossmanuals.net/index.php?plugin=remix"><img src="http://www.flossmanuals.net/_templates/fm_resources/remix_en.png" width="65" height="30" border="0" alt="Remix"></a>
+<a title="About" href="http://www.flossmanuals.org"><img src="http://www.flossmanuals.net/_templates/fm_resources/about_en.png" width="65" height="30" border="0" alt="About"></a>
+</div>
+
+<!-- Language buttons are common to all pages  -->
+<div id="languages">
+<a title="English" href="http://en.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/english_button.png" width="65" height="30" border="0" alt="English"></a>
+
+<!-- <a title="Español" href="http://es.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/spanish_button.png" width="65" height="30" border="0" alt="Español"></a> -->
+<a title="فارسی" href="http://fa.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/farsi_button.png" width="65" height="30" border="0" alt="فارسی"></a>
+<a title="Suomi" href="http://fi.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/finnish_button.png" width="65" height="30" border="0" alt="Suomi"></a>
+<br>
+<a title="Français" href="http://fr.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/french_button.png" width="65" height="30" border="0" alt="Français"></a>
+<a title="Nederlands" href="http://nl.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/dutch_button.png" width="65" height="30" border="0" alt="Nederlands"></a>
+<!-- <a title="Pусский" href="http://ru.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/russian_button.png" width="65" height="30" border="0" alt="Pусский"></a> -->
+<a title="Translate" href="http://translate.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/translate_button.png" width="65" height="30" border="0" alt="Translate"></a>
+</div>
+
+<!-- End top bar -->
+
+<!-- nav box + drop shadow -->
+<div class="navbox shadow" style="top:160px;">
+    		<ul>
+
+ 		<li><a href="/accounts/signin/?redirect=/csound/_draft/_v/1.0/c-working-with-controllers/">Sign In</li><li>Register</a></li>
+
+                <li><a href="/list-books">All Manuals</a></li>
+                <li><a href="/list-groups">All Groups</a></li>
+                <li><a href="/list-people/">All People</a></li>
+           	</ul>
+</div>
+<!-- End of nav box -->
+
+
+
+<div class="content-container shadow">
+<!-- Content box and the drop shadow-->
+
+
+
+
+<br clear="all"/>
+   <h1>CSound</h1>
+
+
+<div id="bookmenu"   style="background: url(/site_static/images/draft_bg.png) repeat !important;">
+<ul>
+
+ 
+   <li><b>INTRODUCTION</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/introduction/">PREFACE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/how-to-use-this-manual/">HOW TO USE THIS MANUAL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/on-this-release/">ON THIS RELEASE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/credits/">CREDITS</a></li>
+ 
+
+ 
+   <li><b>01 BASICS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-digital-audio/">A. DIGITAL AUDIO</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-pitch-and-frequency/">B. PITCH AND FREQUENCY</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-intensities/">C. INTENSITIES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/random/">D. RANDOM</a></li>
+ 
+
+ 
+   <li><b>02 QUICK START</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-make-csound-run/">A. MAKE CSOUND RUN</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-csound-syntax/">B. CSOUND SYNTAX</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-configuring-midi/">C. CONFIGURING MIDI</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-live-audio/">D. LIVE AUDIO</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-rendering-to-file/">E. RENDERING TO FILE</a></li>
+ 
+
+ 
+   <li><b>03 CSOUND LANGUAGE</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-initialization-and-performance-pass/">A. INITIALIZATION AND PERFORMANCE PASS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-local-and-global-variables/">B. LOCAL AND GLOBAL VARIABLES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-control-structures/">C. CONTROL STRUCTURES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-function-tables/">D. FUNCTION TABLES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/arrays/">E. ARRAYS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-triggering-instrument-events/">F. LIVE EVENTS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-user-defined-opcodes/">G. USER DEFINED OPCODES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/macros/">H. MACROS</a></li>
+ 
+
+ 
+   <li><b>04 SOUND SYNTHESIS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-additive-synthesis/">A. ADDITIVE SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-subtractive-synthesis/">B. SUBTRACTIVE SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-amplitude-and-ringmodulation/">C. AMPLITUDE AND RING MODULATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-frequency-modulation/">D. FREQUENCY MODULATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-waveshaping/">E. WAVESHAPING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-granular-synthesis/">F. GRANULAR SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/g-physical-modelling/">G. PHYSICAL MODELLING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/scanned-synthesis/">H. SCANNED SYNTHESIS</a></li>
+ 
+
+ 
+   <li><b>05 SOUND MODIFICATION</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-envelopes/">A. ENVELOPES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-panning-and-spatialization/">B. PANNING AND SPATIALIZATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-filters/">C. FILTERS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-delay-and-feedback/">D. DELAY AND FEEDBACK</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-reverberation/">E. REVERBERATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-am-rm-waveshaping/">F. AM / RM / WAVESHAPING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/g-granular-synthesis/">G. GRANULAR SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/h-convolution/">H. CONVOLUTION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/i-fourier-analysis-spectral-processing/">I. FOURIER ANALYSIS / SPECTRAL PROCESSING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/k-ats-resynthesis/">K. ATS RESYNTHESIS</a></li>
+ 
+
+ 
+   <li><b>06 SAMPLES</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-record-and-play-soundfiles/">A. RECORD AND PLAY SOUNDFILES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-record-and-play-buffers/">B. RECORD AND PLAY BUFFERS</a></li>
+ 
+
+ 
+   <li><b>07 MIDI</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-receiving-events-by-midiin/">A. RECEIVING EVENTS BY MIDIIN</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-triggering-instrument-instances/">B. TRIGGERING INSTRUMENT INSTANCES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-working-with-controllers/">C. WORKING WITH CONTROLLERS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-reading-midi-files/">D. READING MIDI FILES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-midi-output/">E. MIDI OUTPUT</a></li>
+ 
+
+ 
+   <li><b>08 OTHER COMMUNICATION</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/osc-and-wii/">A. OPEN SOUND CONTROL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-arduino/">B. CSOUND AND ARDUINO</a></li>
+ 
+
+ 
+   <li><b>09 CSOUND IN OTHER APPLICATIONS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-pd/">A. CSOUND IN PD</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-maxmsp/">B. CSOUND IN MAXMSP</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-ableton-live/">C. CSOUND IN ABLETON LIVE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-csound-as-a-vst-plugin/">D. CSOUND AS A VST PLUGIN</a></li>
+ 
+
+ 
+   <li><b>10 CSOUND FRONTENDS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/qutecsound/">CSOUNDQT</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/cecilia/">CABBAGE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/blue/">BLUE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/winxound/">WINXOUND</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-via-terminal/">CSOUND VIA TERMINAL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/web-based-csound/">WEB BASED CSOUND</a></li>
+ 
+
+ 
+   <li><b>11 CSOUND UTILITIES</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-utilities/">CSOUND UTILITIES</a></li>
+ 
+
+ 
+   <li><b>12 CSOUND AND OTHER PROGRAMMING LANGUAGES</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/the-csound-api/">A. THE CSOUND API</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/using-python-inside-csound/">B. PYTHON INSIDE CSOUND</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-python-in-csoundqt/">C. PYTHON IN CSOUNDQT</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-lua-in-csound/">D. LUA IN CSOUND</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-csound-in-ios/">E. CSOUND IN iOS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-csound-on-android/">F. CSOUND ON ANDROID</a></li>
+ 
+
+ 
+   <li><b>13 EXTENDING CSOUND</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/extending-csound/">EXTENDING CSOUND</a></li>
+ 
+
+ 
+   <li><b>OPCODE GUIDE</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/overview/">OVERVIEW</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/signal-processing-i/">SIGNAL PROCESSING I</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/signal-processing-ii/">SIGNAL PROCESSING II</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/data/">DATA</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/realtime-interaction/">REALTIME INTERACTION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/instrument-control/">INSTRUMENT CONTROL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/math-pythonsystem-plugins/">MATHS, PYTHON/SYSTEM, PLUGINS</a></li>
+ 
+
+ 
+   <li><b>APPENDIX</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/writing-csound-scores-by-hand/">METHODS OF WRITING CSOUND SCORES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/glossary/">GLOSSARY</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/links/">LINKS</a></li>
+ 
+
+</ul>
+</div>
+<div id="bookcontent"   >
+<h1>WORKING WITH CONTROLLERS
+</h1>
+<h2>Scanning MIDI Continuous Controllers
+</h2>
+<p> The most useful opcode for reading in midi continuous controllers is <a target="_blank" href="http://www.csounds.com/manual/html/ctrl7.html">ctrl7</a>. ctrl7's input arguments allow us to specify midi channel and controller number of the controller to be scanned in addition to giving us the option of rescaling the received midi values between a new minimum and maximum value as defined by the 3rd and 4th input arguments. Further possibilities for modifying the data output are provided by the 5th (optional) argument which is used to point to a function table that reshapes the controller's output response to something possibly other than linear. This can be useful when working with parameters which are normally expressed on a logarithmic scale such as frequency.
+  <br>
+</p>
+<p>The following example scans midi controller 1 on channel 1 and prints values received to the console. The minimum and maximum values are given as 0 and 127 therefore they are not rescaled at all. Controller 1 is also the modulation wheel on a midi keyboard.</p>
+<p><strong>&nbsp; <em>EXAMPLE 07C01_ctrl7_print.csd</em></strong>
+  <br>
+</p>
+<pre>&lt;CsoundSynthesizer&gt;
+
+&lt;CsOptions&gt;
+-Ma -odac
+; activate all MIDI devices
+&lt;/CsOptions&gt;
+
+&lt;CsInstruments&gt;
+; 'sr' and 'nchnls' are irrelevant so are omitted
+ksmps = 32
+
+  instr 1
+kCtrl    ctrl7    1,1,0,127    ; read in controller 1 on channel 1
+kTrigger changed  kCtrl        ; if 'kCtrl' changes generate a trigger ('bang')
+ if kTrigger=1 then
+; Print kCtrl to console with formatting, but only when its value changes.
+printks "Controller Value: %d%n", 0, kCtrl
+ endif
+  endin
+
+&lt;/CsInstruments&gt;
+
+&lt;CsScore&gt;
+i 1 0 3600
+e
+&lt;/CsScore&gt;
+
+&lt;CsoundSynthesizer&gt;
+</pre>
+<p> There are also 14 bit and 21 bit versions of <em>ctrl7 </em>(<a href="http://www.csounds.com/manual/html/ctrl14.html">ctrl14</a> and <a href="http://www.csounds.com/manual/html/ctrl21.html">ctrl21</a>) which improve upon the 7 bit resolution of 'ctrl7' but hardware that outputs 14 or 21 bit controller information is rare so these opcodes are seldom used.
+</p>
+<h2>Scanning Pitch Bend and Aftertouch
+</h2>
+<p>We can scan pitch bend and aftertouch in a similar way by using the opcodes <a href="http://www.csounds.com/manual/html/pchbend.html">pchbend</a> and <a href="http://www.csounds.com/manual/html/aftouch.html">aftouch</a>. Once again we can specify minimum and maximum values with which to rescale the output. In the case of 'pchbend' we specify the value it outputs when the pitch bend wheel is at rest followed by a value which defines the entire range from when it is pulled to its minimum to when it is pushed to its maximum. In this example, playing a key on the keyboard will play a note, the pitch of which can be bent up or down two semitones by using the pitch bend wheel. Aftertouch can be used to modify the amplitude of the note while it is playing. Pitch bend and aftertouch data is also printed at the terminal whenever they change. One thing to bear in mind is that for 'pchbend' to function the Csound instrument that contains it needs to have been activated by a MIDI event, i.e. you will need to play a midi note on your keyboard and then move the pitch bend wheel.
+</p>
+<p>
+</p>
+<p><strong><em>&nbsp; EXAMPLE 07C02_pchbend_aftouch.csd</em></strong>
+</p>
+<pre>&lt;CsoundSynthesizer&gt;
+
+&lt;CsOptions&gt;
+-odac -Ma
+&lt;/CsOptions&gt;
+
+&lt;CsInstruments&gt;
+sr = 44100
+ksmps = 32
+nchnls = 1
+0dbfs = 1
+
+giSine  ftgen  0,0,2^10,10,1  ; a sine wave
+
+  instr 1
+; -- pitch bend --
+kPchBnd  pchbend  0,4                ; read in pitch bend (range -2 to 2)
+kTrig1   changed  kPchBnd            ; if 'kPchBnd' changes generate a trigger
+ if kTrig1=1 then
+printks "Pitch Bend:%f%n",0,kPchBnd  ; print kPchBnd to console when it changes
+ endif
+
+; -- aftertouch --
+kAfttch  aftouch 0,0.9               ; read in aftertouch (range 0 to 0.9)
+kTrig2   changed kAfttch             ; if 'kAfttch' changes generate a trigger
+ if kTrig2=1 then
+printks "Aftertouch:%d%n",0,kAfttch  ; print kAfttch to console when it changes
+ endif
+
+; -- create a sound --
+iNum     notnum                      ; read in MIDI note number
+; MIDI note number + pitch bend are converted to cycles per seconds
+aSig     poscil   0.1,cpsmidinn(iNum+kPchBnd),giSine
+         out      aSig               ; audio to output
+  endin
+
+&lt;/CsInstruments&gt;
+
+&lt;CsScore&gt;
+f 0 300
+e
+&lt;/CsScore&gt;
+
+&lt;CsoundSynthesizer&gt;
+</pre>
+<h2>Initialising MIDI Controllers
+</h2>
+<p>It may be useful to be able to define the initial value of a midi controller, that is, the value any ctrl7s will adopt until their corresponding hardware controls have been moved. Midi hardware controls only send messages when they change so until this happens their values in Csound defaults to their minimum settings unless additional initialisation has been carried out. As an example, if we imagine we have a Csound instrument in which the output volume is controlled by a midi controller it might prove to be slightly frustrating that each time the orchestra is launched, this instrument will remain silent until the volume control is moved. This frustration might become greater when many midi controllers are begin utilised. It would be more useful to be able to define the starting value for each of these controllers. The <a href="http://www.csounds.com/manual/html/initc7.html">initc7</a> opcode allows us to do this. If initc7 is placed within the instrument itself it will be reinitialised each time the instrument is called, if it is placed in instrument 0 (just after the header statements) then it will only be initialised when the orchestra is first launched. The latter case is probably most useful.
+</p>
+<p>In the following example a simple synthesizer is created. Midi controller 1 controls the output volume of this instrument but the initc7&nbsp;<span style="font-style: italic;"></span>statement near the top of the orchestra ensures that this control does not default to its minimum setting. The arguments that initc7 takes are for midi channel, controller number and initial value. Initial value is defined within the range 0-1, therefore a value of 1 will set this controller to its maximum value (midi value 127), and a value of 0.5 will set it to its halfway value (midi value 64), and so on.
+</p>
+<p>Additionally this example uses the <a href="http://www.csounds.com/manual/html/cpsmidi.html">cpsmidi</a> opcode to scan midi pitch (basically converting midi note numbers to cycles-per-second) and the <a href="http://www.csounds.com/manual/html/ampmidi.html">ampmidi</a> opcode to scan and rescale key velocity.
+</p>
+<p><strong><em><em>&nbsp; EXAMPLE 07C03_cpsmidi_ampmidi.csd</em></em></strong>
+</p>
+<pre>&lt;CsoundSynthesizer&gt;
+
+&lt;CsOptions&gt;
+-Ma -odac
+; activate all midi inputs and real-time audio output
+&lt;/CsOptions&gt;
+
+&lt;CsInstruments&gt;
+; Example by Iain McCurdy
+
+sr = 44100
+ksmps = 32
+nchnls = 1
+0dbfs = 1
+
+giSine ftgen 0,0,2^12,10,1 ; a sine wave
+initc7 1,1,1               ; initialize CC 1 on chan. 1 to its max level
+
+  instr 1
+iCps cpsmidi               ; read in midi pitch in cycles-per-second
+iAmp ampmidi 1             ; read in key velocity. Rescale to be from 0 to 1
+kVol ctrl7   1,1,0,1       ; read in CC 1, chan 1. Rescale to be from 0 to 1
+aSig poscil  iAmp*kVol, iCps, giSine ; an audio oscillator
+     out     aSig          ; send audio to output
+  endin
+
+&lt;/CsInstruments&gt;
+
+&lt;CsScore&gt;
+f 0 3600
+e
+&lt;/CsScore&gt;
+
+&lt;CsoundSynthesizer&gt;
+</pre>
+<p>You will maybe hear that this instrument produces 'clicks' as notes begin and end. To find out how to prevent this see the section on envelopes with release sensing in the chapter <a href="http://en.flossmanuals.net/csound/ch031_a-envelopes/">Sound Modification: Envelopes</a>.
+  <br>
+</p>
+<h2>Smoothing 7-bit Quantisation in MIDI Controllers
+</h2>
+<p> A problem we encounter with 7 bit midi controllers is the poor resolution that they offer us. 7 bit means that we have 2 to the power of 7 possible values; therefore 128 possible values, which is rather inadequate for defining, for example, the frequency of an oscillator over a number of octaves, the cutoff frequency of a filter or a quickly moving volume control. We soon become aware of the parameter that is being changed moving in steps - so not really a 'continuous' controller. We may also experience clicking artefacts, sometimes called 'zipper noise', as the value changes. The extent of this will depend upon the parameter being controlled. There are some things we can do to address this problem. We can filter the controller signal within Csound so that the sudden changes that occur between steps along the controller's travel are smoothed using additional interpolating values - we must be careful not to smooth excessively otherwise the response of the controller will become sluggish. Any k-rate compatible lowpass filter can be used for this task but the <a href="http://www.csounds.com/manual/html/portk.html">portk</a> opcode is particularly useful as it allows us to define the amount of smoothing as a time taken to glide to half the required value rather than having to specify a cutoff frequency. Additionally this 'half time' value can be varied at k-rate which provides an advantage availed of in the following example.
+</p>
+<p>This example takes the simple synthesizer of the previous example as its starting point. The volume control, which is controlled by midi controller 1 on channel 1, is passed through a 'portk' filter. The 'half time' for 'portk'<em></em> ramps quickly up to its required value of 0.01 through the use of a <a href="http://www.csounds.com/manual/html/linseg.html">linseg</a> statement in the previous line. This ensures that when a new note begins the volume control immediately jumps to its required value rather than gliding up from zero as would otherwise be affected by the 'portk'<em></em> filter. Try this example with the 'portk'<em></em> half time defined as a constant to hear the difference. To further smooth the volume control, it is converted to an a-rate variable through the use of the <a href="http://www.csounds.com/manual/html/interp.html">interp</a> opcode which, as well as performing this conversion, interpolates values in the gaps between k-cycles.</p>
+<p><strong><em><em>&nbsp; EXAMPLE 07C04_smoothing.csd</em></em></strong>
+</p>
+<pre>&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+-Ma -odac
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+;Example by Iain McCurdy
+
+sr = 44100
+ksmps = 32
+nchnls = 1
+0dbfs = 1
+
+giSine   ftgen    0,0,2^12,10,1
+         initc7   1,1,1          ; initialize CC 1 to its max. level
+
+  instr 1
+iCps      cpsmidi                ; read in midi pitch in cycles-per-second
+iAmp      ampmidi 1              ; read in note velocity - re-range 0 to 1
+kVol      ctrl7   1,1,0,1        ; read in CC 1, chan. 1. Re-range from 0 to 1
+kPortTime linseg  0,0.001,0.01   ; create a value that quickly ramps up to 0.01
+kVol      portk   kVol,kPortTime ; create a filtered version of kVol
+aVol      interp  kVol           ; create an a-rate version of kVol
+aSig      poscil  iAmp*aVol,iCps,giSine
+          out     aSig
+  endin
+
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+f 0 300
+e
+&lt;/CsScore&gt;
+&lt;CsoundSynthesizer&gt;
+</pre>
+<p>All of the techniques introduced in this section are combined in the final example which includes a 2-semitone pitch bend and tone control which is controlled by aftertouch. For tone generation this example uses the <a href="http://www.csounds.com/manual/html/gbuzz.html">gbuzz</a> opcode.
+</p>
+<p><strong><em><em>&nbsp; EXAMPLE 07C05_MidiControlComplex.csd</em></em></strong>
+</p>
+<pre>&lt;CsoundSynthesizer&gt;
+
+&lt;CsOptions&gt;
+-Ma -odac
+&lt;/CsOptions&gt;
+
+&lt;CsInstruments&gt;
+;Example by Iain McCurdy
+
+sr = 44100
+ksmps = 32
+nchnls = 1
+0dbfs = 1
+
+giCos   ftgen    0,0,2^12,11,1 ; a cosine wave
+         initc7   1,1,1        ; initialize controller to its maximum level
+
+  instr 1
+iNum      notnum                   ; read in midi note number
+iAmp      ampmidi 0.1              ; read in note velocity - range 0 to 0.2
+kVol      ctrl7   1,1,0,1          ; read in CC 1, chan. 1. Re-range from 0 to 1
+kPortTime linseg  0,0.001,0.01     ; create a value that quickly ramps up to 0.01
+kVol      portk   kVol, kPortTime  ; create filtered version of kVol
+aVol      interp  kVol             ; create an a-rate version of kVol.
+iRange    =       2                ; pitch bend range in semitones
+iMin      =       0                ; equilibrium position
+kPchBnd	  pchbend iMin, 2*iRange   ; pitch bend in semitones (range -2 to 2)
+kPchBnd   portk   kPchBnd,kPortTime; create a filtered version of kPchBnd
+aEnv      linsegr 0,0.005,1,0.1,0  ; amplitude envelope with release stage
+kMul      aftouch 0.4,0.85         ; read in aftertouch
+kMul      portk   kMul,kPortTime   ; create a filtered version of kMul
+; create an audio signal using the 'gbuzz' additive synthesis opcode
+aSig      gbuzz   iAmp*aVol*aEnv,cpsmidinn(iNum+kPchBnd),70,0,kMul,giCos
+          out     aSig             ; audio to output
+  endin
+
+&lt;/CsInstruments&gt;
+
+&lt;CsScore&gt;
+f 0 300
+e
+&lt;/CsScore&gt;
+
+&lt;CsoundSynthesizer&gt;
+</pre>
+   <hr/>
+    <a href="/csound/_edit/">EDIT</a>
+
+</div>
+
+<script type="text/javascript">
+jQuery(function ($) {
+    $('#bookcontent').annotator()
+   		.annotator('setupPlugins', {}, {
+                Tags: false,
+                Filter: {
+                  addAnnotationFilter: false
+                },
+                Permissions: false,
+                AnnotateItPermissions: {}
+              });
+});
+</script>
+
+
+
+</div>
+<!-- End of content -->
+
+</div>  
+<!-- DEV TOOLS -->
+<div id="bookidebug">
+</div>
+
+<!-- sputnik error page -->
+<div id="dialog-sputnik-qrac" style="display: none"></div>
+</body>
+</html>
+

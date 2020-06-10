@@ -1,0 +1,1132 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html>
+ <head>
+   <link type="text/css" href="http://www.flossmanuals.net/_templates/prettify/src/prettify.css" rel="Stylesheet" />
+   <script type="text/javascript" src="http://www.flossmanuals.net/_templates/prettify/src/prettify.js"></script>
+
+   <link type="text/css" href="/site_static/js/jquery/themes/base/jquery.ui.all.css" rel="Stylesheet" >
+   <link type="text/css" href="/site_static/js/jquery/themes/smoothness/jquery.ui.all.css" rel="Stylesheet" >
+   <script type="text/javascript" src="/static/js/jquery-1.7.js"></script>
+<!--
+   <script type="text/javascript" src="/site_static/js/jquery/jquery-1.4.4.js"></script>
+-->   
+<script type="text/javascript" src="/site_static/js/jquery/ui/jquery-ui-1.8.10.custom.js"></script>
+   <script type="text/javascript" src="/site_static/js/jquery.json-1.3.js"></script>
+   <script type="text/javascript" src="/site_static/js/booki.js"></script>
+
+   <link href="/site_static/css/jquery.bubblepopup.v2.3.1.css" rel="stylesheet" type="text/css" />
+   <script src="/site_static/js/jquery.bubblepopup.v2.3.1.min.js" type="text/javascript"></script>
+
+   <link type="text/css" href="/static/css/booki_fm.css" rel="Stylesheet"/ >
+<style>
+.template {
+	display: none !important;
+}
+
+
+#header {
+    background-color: transparent !important;
+}
+.paginator { padding:.5em .75em; float:left; font:normal .8em arial; }
+ 
+.paginator .prev-na,
+.paginator .next-na {
+	padding:.3em;
+	font-weight: bold;
+/*	font:bold .875em arial; */
+}
+ 
+.paginator .prev-na,
+.paginator .next-na {
+/*	border:1px solid #ccc; 
+	background-color:#f9f9f9; */
+	color:#aaa;
+	font-weight:normal;
+}
+ 
+.paginator .prev a, .paginator .prev a:visited,
+.paginator .next a, .paginator .next a:visited {
+/*	border:1px solid #c2ee62; 
+	background-color:#edfdd0; */
+	color:#234f32;
+	padding:.3em;
+/*	font:bold .875em arial; */
+        font-weight: bold;
+}
+ 
+.paginator .prev, .paginator .prev-na { margin-right:.5em; }
+.paginator .next, .paginator .next-na { margin-left:.5em; }
+ 
+.paginator .page a, .paginator .page a:visited, .paginator .curr {
+	padding:.25em;
+	font-weight: normal;
+/*	font:normal .875em verdana; */
+/*	border:1px solid #C2EE62; 
+	background-color:#EDFDD0; */
+	margin:0em .25em;	
+	color:#006000;
+}
+ 
+.paginator .curr { 
+/*	background-color:#234f32; 
+	color:#fff; */
+	border:1px solid #234f32; 
+	font-weight:bold;
+	font-size:1em;
+}
+ 
+.paginator .page a:hover,
+.paginator .curr a:hover,
+.paginator .prev a:hover,
+.paginator .next a:hover {
+/*	color:#fff;
+	background-color:#234f32;
+	border:1px solid #234f32; */
+}
+</style>
+ <script type="text/javascript">
+      $(function() {
+   $.booki.sputnikDispatcherURL = "/_sputnik/";
+    });
+   </script>
+
+   <script type="text/javascript">
+     $(function() {
+	 // open debug window
+	 $.booki.debug.init();
+	 
+	 
+	 $("A.debug").click(function() {
+	     $("#bookidebug").dialog("open");
+	     return false;
+	 });
+     });
+   </script>
+
+   
+<title>/chapter: F-Granular-Synthesis / CSound</title>
+<link type="text/css" href="/site_static/css/editor.css" rel="Stylesheet" />
+
+<script src="http://assets.annotateit.org/annotator/v1.2.5/annotator-full.min.js"></script>
+<link rel="stylesheet" href="http://assets.annotateit.org/annotator/v1.2.5/annotator.min.css">
+
+
+
+<link rel="alternate" type="application/rss+xml" title="RSS feed for CSound" href="/feeds/rss/book/csound/" /> 
+<link rel="alternate" type="application/atom+xml" title="Atom feed for CSound" href="/feeds/atom/book/csound/" /> 
+
+<link rel="alternate" type="application/rss+xml" title="RSS feed for chapter F-Granular-Synthesis" href="/feeds/rss/chapter/csound/csound/" /> 
+<link rel="alternate" type="application/atom+xml" title="Atom feed for chapter F-Granular-Synthesis" href="/feeds/atom/chapter/csound/csound/" /> 
+
+
+ </head>
+<body onload="prettyPrint()" >
+<!-- testis -->
+
+<script type="text/javascript">
+$(function() {
+    $("#snippetdialog").dialog({autoOpen: false});
+});
+</script>
+
+
+<div id="snippetdialog" title="Basic dialog">
+        <p></p>
+</div>
+
+
+
+<div id="page-container"> 
+<style>
+body
+{
+margin:0;
+padding:0
+}
+#header
+{
+position:absolute;
+top:23px;
+width:100%;
+background-image: url('http://www.flossmanuals.net/_templates/fm_resources/header_bg.gif');
+background-position: 700px 0px; /* this places the orange background at
+an offset, making sure it doesn't underlap the left side of the gif */
+background-repeat: no-repeat;
+}
+
+#fmheader {
+    background-image: url("http://en.flossmanuals.net/_templates/fm_resources/header_bg.gif");
+    background-position: 600px 0;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 23px;
+    width: 100%;
+}
+#header_image
+{
+margin-left: 270px;
+border: 0px
+}
+
+#navigation
+{
+position:absolute;
+top: 80px;
+left: 357px;
+width:50%;
+}
+
+
+#languages
+{
+position:absolute;
+top: 40px;
+left: 740px;
+width:50%;
+}
+</style>
+
+
+
+<!-- Header graphic is common to all pages  -->
+<div id="header"><img id="header_image" alt="FlossManuals menu" src="http://www.flossmanuals.net/_templates/fm_resources/header_menu.gif" height="95" width="465" border="0"></div>
+
+
+<!-- Navigation buttons are language and context specific  -->
+<div id="navigation">
+<a title="Read" href="http://en.flossmanuals.net/index.php"><img src="http://www.flossmanuals.net/_templates/fm_resources/read_en.png" width="65" height="30" border="0" alt="Read"></a>
+<a title="Write" href="http://booki.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/write_active_en.png" width="65" height="30" border="0" alt="Write"></a>
+<a title="Remix" href="http://en.flossmanuals.net/index.php?plugin=remix"><img src="http://www.flossmanuals.net/_templates/fm_resources/remix_en.png" width="65" height="30" border="0" alt="Remix"></a>
+<a title="About" href="http://www.flossmanuals.org"><img src="http://www.flossmanuals.net/_templates/fm_resources/about_en.png" width="65" height="30" border="0" alt="About"></a>
+</div>
+
+<!-- Language buttons are common to all pages  -->
+<div id="languages">
+<a title="English" href="http://en.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/english_button.png" width="65" height="30" border="0" alt="English"></a>
+
+<!-- <a title="Español" href="http://es.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/spanish_button.png" width="65" height="30" border="0" alt="Español"></a> -->
+<a title="فارسی" href="http://fa.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/farsi_button.png" width="65" height="30" border="0" alt="فارسی"></a>
+<a title="Suomi" href="http://fi.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/finnish_button.png" width="65" height="30" border="0" alt="Suomi"></a>
+<br>
+<a title="Français" href="http://fr.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/french_button.png" width="65" height="30" border="0" alt="Français"></a>
+<a title="Nederlands" href="http://nl.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/dutch_button.png" width="65" height="30" border="0" alt="Nederlands"></a>
+<!-- <a title="Pусский" href="http://ru.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/russian_button.png" width="65" height="30" border="0" alt="Pусский"></a> -->
+<a title="Translate" href="http://translate.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/translate_button.png" width="65" height="30" border="0" alt="Translate"></a>
+</div>
+
+<!-- End top bar -->
+
+<!-- nav box + drop shadow -->
+<div class="navbox shadow" style="top:160px;">
+    		<ul>
+
+ 		<li><a href="/accounts/signin/?redirect=/csound/_draft/_v/1.0/f-granular-synthesis/">Sign In</li><li>Register</a></li>
+
+                <li><a href="/list-books">All Manuals</a></li>
+                <li><a href="/list-groups">All Groups</a></li>
+                <li><a href="/list-people/">All People</a></li>
+           	</ul>
+</div>
+<!-- End of nav box -->
+
+
+
+<div class="content-container shadow">
+<!-- Content box and the drop shadow-->
+
+
+
+
+<br clear="all"/>
+   <h1>CSound</h1>
+
+
+<div id="bookmenu"   style="background: url(/site_static/images/draft_bg.png) repeat !important;">
+<ul>
+
+ 
+   <li><b>INTRODUCTION</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/introduction/">PREFACE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/how-to-use-this-manual/">HOW TO USE THIS MANUAL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/on-this-release/">ON THIS RELEASE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/credits/">CREDITS</a></li>
+ 
+
+ 
+   <li><b>01 BASICS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-digital-audio/">A. DIGITAL AUDIO</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-pitch-and-frequency/">B. PITCH AND FREQUENCY</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-intensities/">C. INTENSITIES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/random/">D. RANDOM</a></li>
+ 
+
+ 
+   <li><b>02 QUICK START</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-make-csound-run/">A. MAKE CSOUND RUN</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-csound-syntax/">B. CSOUND SYNTAX</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-configuring-midi/">C. CONFIGURING MIDI</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-live-audio/">D. LIVE AUDIO</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-rendering-to-file/">E. RENDERING TO FILE</a></li>
+ 
+
+ 
+   <li><b>03 CSOUND LANGUAGE</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-initialization-and-performance-pass/">A. INITIALIZATION AND PERFORMANCE PASS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-local-and-global-variables/">B. LOCAL AND GLOBAL VARIABLES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-control-structures/">C. CONTROL STRUCTURES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-function-tables/">D. FUNCTION TABLES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/arrays/">E. ARRAYS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-triggering-instrument-events/">F. LIVE EVENTS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-user-defined-opcodes/">G. USER DEFINED OPCODES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/macros/">H. MACROS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/functional-syntax/">I. FUNCTIONAL SYNTAX</a></li>
+ 
+
+ 
+   <li><b>04 SOUND SYNTHESIS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-additive-synthesis/">A. ADDITIVE SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-subtractive-synthesis/">B. SUBTRACTIVE SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-amplitude-and-ringmodulation/">C. AMPLITUDE AND RING MODULATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-frequency-modulation/">D. FREQUENCY MODULATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-waveshaping/">E. WAVESHAPING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-granular-synthesis/">F. GRANULAR SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/g-physical-modelling/">G. PHYSICAL MODELLING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/scanned-synthesis/">H. SCANNED SYNTHESIS</a></li>
+ 
+
+ 
+   <li><b>05 SOUND MODIFICATION</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-envelopes/">A. ENVELOPES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-panning-and-spatialization/">B. PANNING AND SPATIALIZATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-filters/">C. FILTERS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-delay-and-feedback/">D. DELAY AND FEEDBACK</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-reverberation/">E. REVERBERATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-am-rm-waveshaping/">F. AM / RM / WAVESHAPING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/g-granular-synthesis/">G. GRANULAR SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/h-convolution/">H. CONVOLUTION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/i-fourier-analysis-spectral-processing/">I. FOURIER ANALYSIS / SPECTRAL PROCESSING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/k-ats-resynthesis/">K. ATS RESYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/amplitude-and-pitch-tracking/">L. AMPLITUDE AND PITCH TRACKING</a></li>
+ 
+
+ 
+   <li><b>06 SAMPLES</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-record-and-play-soundfiles/">A. RECORD AND PLAY SOUNDFILES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-record-and-play-buffers/">B. RECORD AND PLAY BUFFERS</a></li>
+ 
+
+ 
+   <li><b>07 MIDI</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-receiving-events-by-midiin/">A. RECEIVING EVENTS BY MIDIIN</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-triggering-instrument-instances/">B. TRIGGERING INSTRUMENT INSTANCES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-working-with-controllers/">C. WORKING WITH CONTROLLERS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-reading-midi-files/">D. READING MIDI FILES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-midi-output/">E. MIDI OUTPUT</a></li>
+ 
+
+ 
+   <li><b>08 OTHER COMMUNICATION</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/osc-and-wii/">A. OPEN SOUND CONTROL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-arduino/">B. CSOUND AND ARDUINO</a></li>
+ 
+
+ 
+   <li><b>09 CSOUND IN OTHER APPLICATIONS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-pd/">A. CSOUND IN PD</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-maxmsp/">B. CSOUND IN MAXMSP</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-ableton-live/">C. CSOUND IN ABLETON LIVE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-csound-as-a-vst-plugin/">D. CSOUND AS A VST PLUGIN</a></li>
+ 
+
+ 
+   <li><b>10 CSOUND FRONTENDS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/qutecsound/">CSOUNDQT</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/cecilia/">CABBAGE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/blue/">BLUE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/winxound/">WINXOUND</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-via-terminal/">CSOUND VIA TERMINAL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/web-based-csound/">WEB BASED CSOUND</a></li>
+ 
+
+ 
+   <li><b>11 CSOUND UTILITIES</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-utilities/">CSOUND UTILITIES</a></li>
+ 
+
+ 
+   <li><b>12 CSOUND AND OTHER PROGRAMMING LANGUAGES</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/the-csound-api/">A. THE CSOUND API</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/using-python-inside-csound/">B. PYTHON INSIDE CSOUND</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-python-in-csoundqt/">C. PYTHON IN CSOUNDQT</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-lua-in-csound/">D. LUA IN CSOUND</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-csound-in-ios/">E. CSOUND IN iOS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-csound-on-android/">F. CSOUND ON ANDROID</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-and-haskell/">G. CSOUND AND HASKELL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/h-csound-and-html/">H. CSOUND AND HTML</a></li>
+ 
+
+ 
+   <li><b>13 EXTENDING CSOUND</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/extending-csound/">EXTENDING CSOUND</a></li>
+ 
+
+ 
+   <li><b>OPCODE GUIDE</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/overview/">OVERVIEW</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/signal-processing-i/">SIGNAL PROCESSING I</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/signal-processing-ii/">SIGNAL PROCESSING II</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/data/">DATA</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/realtime-interaction/">REALTIME INTERACTION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/instrument-control/">INSTRUMENT CONTROL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/math-pythonsystem-plugins/">MATHS, PYTHON/SYSTEM, PLUGINS</a></li>
+ 
+
+ 
+   <li><b>APPENDIX</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/writing-csound-scores-by-hand/">METHODS OF WRITING CSOUND SCORES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/glossary/">GLOSSARY</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/links/">LINKS</a></li>
+ 
+
+</ul>
+</div>
+<div id="bookcontent"   >
+<title>Csound: GRANULARSYNTHESIS</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<h1>GRANULAR SYNTHESIS
+  <br>
+</h1>
+<h2>Concept Behind Granular Synthesis
+</h2>
+<p>Granular synthesis is a technique in which a source sound or waveform is broken into many fragments, often of very short duration, which are then restructured and rearranged according to various patterning and indeterminacy functions.
+</p>
+<p> If we imagine the simplest possible granular synthesis algorithm in which a precise fragment of sound is repeated with regularity, there are two principle attributes of this process that we are most concerned with. Firstly the duration of each sound grain is significant: if the grain duration if very small, typically less than 0.02 seconds, then less of the characteristics of the source sound will be evident. If the grain duration is greater than 0.02 then more of the character of the source sound or waveform will be evident. Secondly the rate at which grains are generated will be significant: if grain generation is below 20 hertz, i.e. less than 20 grains per second, then the stream of grains will be perceived as a rhythmic pulsation; if rate of grain generation increases beyond 20 Hz then individual grains will be harder to distinguish and instead we will begin to perceive a buzzing tone, the fundamental of which will correspond to the frequency of grain generation. Any pitch contained within the source material is not normally perceived as the fundamental of the tone whenever grain generation is periodic, instead the pitch of the source material or waveform will be perceived as a resonance peak (sometimes referred to as a formant); therefore transposition of the source material will result in the shifting of this resonance peak.
+</p>
+<h2>Granular Synthesis Demonstrated Using First Principles
+  <br>
+</h2>
+<p>The following example exemplifies the concepts discussed above. None of Csound's built-in granular synthesis opcodes are used, instead <a href="http://www.csounds.com/manual/html/schedkwhen.html">schedkwhen</a> in instrument 1 is used to precisely control the triggering of grains in instrument 2. Three notes in instrument 1 are called from the score one after the other which in turn generate three streams of grains in instrument 2. The first note demonstrates the transition from pulsation to the perception of a tone as the rate of grain generation extends beyond 20 Hz. The second note demonstrates the loss of influence of the source material as the grain duration is reduced below 0.02 seconds. The third note demonstrates how shifting the pitch of the source material for the grains results in the shifting of a resonance peak in the output tone. In each case information regarding rate of grain generation, duration and fundamental (source material pitch) is output to the terminal every 1/2 second so that the user can observe the changing parameters.
+</p>
+<p> It should also be noted how the amplitude of each grain is enveloped in instrument 2. If grains were left unenveloped they would likely produce clicks on account of discontinuities in the waveform produced at the beginning and ending of each grain.
+</p>
+<p>Granular synthesis in which grain generation occurs with perceivable periodicity is referred to as synchronous granular synthesis. granular synthesis in which this periodicity is not evident is referred to as asynchronous granular synthesis.&nbsp;
+  <br>
+</p>
+<p>
+</p>
+<h4><em><em>EXAMPLE 04F01_GranSynth_basic.csd</em></em>
+</h4>
+<pre>&lt;CsoundSynthesizer&gt;
+
+&lt;CsOptions&gt;
+-odac -m0
+&lt;/CsOptions&gt;
+
+&lt;CsInstruments&gt;
+;Example by Iain McCurdy
+
+sr = 44100
+ksmps = 1
+nchnls = 1
+0dbfs = 1
+
+giSine  ftgen  0,0,4096,10,1
+
+instr 1
+  kRate  expon  p4,p3,p5   ; rate of grain generation
+  kTrig  metro  kRate      ; a trigger to generate grains
+  kDur   expon  p6,p3,p7   ; grain duration
+  kForm  expon  p8,p3,p9   ; formant (spectral centroid)
+   ;                      p1 p2 p3   p4
+  schedkwhen    kTrig,0,0,2, 0, kDur,kForm ;trigger a note(grain) in instr 2
+  ;print data to terminal every 1/2 second
+  printks "Rate:%5.2F  Dur:%5.2F  Formant:%5.2F%n", 0.5, kRate , kDur, kForm
+endin
+
+instr 2
+  iForm =       p4
+  aEnv  linseg  0,0.005,0.2,p3-0.01,0.2,0.005,0
+  aSig  poscil  aEnv, iForm, giSine
+        out     aSig
+endin
+
+&lt;/CsInstruments&gt;
+
+&lt;CsScore&gt;
+;p4 = rate begin
+;p5 = rate end
+;p6 = duration begin
+;p7 = duration end
+;p8 = formant begin
+;p9 = formant end
+; p1 p2 p3 p4 p5  p6   p7    p8  p9
+i 1  0  30 1  100 0.02 0.02  400 400  ;demo of grain generation rate
+i 1  31 10 10 10  0.4  0.01  400 400  ;demo of grain size
+i 1  42 20 50 50  0.02 0.02  100 5000 ;demo of changing formant
+e
+&lt;/CsScore&gt;
+
+&lt;/CsoundSynthesizer&gt;
+</pre>
+<h2>Granular Synthesis of Vowels: FOF
+</h2>
+<p>The principles outlined in the previous example can be extended to imitate vowel sounds produced by the human voice. This type of granular synthesis is referred to as FOF (fonction d'onde formatique) synthesis and is based on work by Xavier Rodet on his CHANT program at IRCAM. Typically five synchronous granular synthesis streams will be used to create five different resonant peaks in a fundamental tone in order to imitate different vowel sounds expressible by the human voice. The most crucial element in defining a vowel imitation is the degree to which the source material within each of the five grain streams is transposed. Bandwidth (essentially grain duration) and intensity (loudness) of each grain stream are also important indicators in defining the resultant sound.&nbsp;
+</p>
+<p>Csound has a number of opcodes that make working with FOF synthesis easier. We will be using <a href="http://www.csounds.com/manual/html/fof.html">fof</a>.
+</p>
+<p>Information regarding frequency, bandwidth and intensity values that will produce various vowel sounds for different voice types can be found in the appendix of the Csound manual <a href="http://www.csounds.com/manual/html/MiscFormants.html">here</a>. These values are stored in function tables in the FOF synthesis example. GEN07, which produces linear break point envelopes, is chosen as we will then be able to morph continuously between vowels.
+</p>
+<h4><em><em><em><em>EXAMPLE 04F02_Fof_vowels.csd</em></em></em></em>
+  <br>
+</h4>
+<pre>&lt;CsoundSynthesizer&gt;
+
+&lt;CsOptions&gt;
+-odac
+&lt;/CsOptions&gt;
+
+&lt;CsInstruments&gt;
+;example by Iain McCurdy
+
+sr = 44100
+ksmps = 16
+nchnls = 2
+0dbfs = 1
+
+;FUNCTION TABLES STORING DATA FOR VARIOUS VOICE FORMANTS
+;BASS
+giBF1 ftgen 0, 0, -5, -2, 600,   400, 250,   400,  350
+giBF2 ftgen 0, 0, -5, -2, 1040, 1620, 1750,  750,  600
+giBF3 ftgen 0, 0, -5, -2, 2250, 2400, 2600, 2400, 2400
+giBF4 ftgen 0, 0, -5, -2, 2450, 2800, 3050, 2600, 2675
+giBF5 ftgen 0, 0, -5, -2, 2750, 3100, 3340, 2900, 2950
+
+giBDb1 ftgen 0, 0, -5, -2,   0,	  0,   0,   0,   0
+giBDb2 ftgen 0, 0, -5, -2,  -7,	-12, -30, -11, -20
+giBDb3 ftgen 0, 0, -5, -2,  -9,	 -9, -16, -21, -32
+giBDb4 ftgen 0, 0, -5, -2,  -9,	-12, -22, -20, -28
+giBDb5 ftgen 0, 0, -5, -2, -20,	-18, -28, -40, -36
+
+giBBW1 ftgen 0, 0, -5, -2,  60,  40,  60,  40,  40
+giBBW2 ftgen 0, 0, -5, -2,  70,  80,  90,  80,  80
+giBBW3 ftgen 0, 0, -5, -2, 110, 100, 100, 100, 100
+giBBW4 ftgen 0, 0, -5, -2, 120, 120, 120, 120, 120
+giBBW5 ftgen 0, 0, -5, -2, 130, 120, 120, 120, 120
+
+;TENOR
+giTF1 ftgen 0, 0, -5, -2,  650,  400,  290,  400,  350
+giTF2 ftgen 0, 0, -5, -2, 1080, 1700, 1870,  800,  600
+giTF3 ftgen 0, 0, -5, -2, 2650,	2600, 2800, 2600, 2700
+giTF4 ftgen 0, 0, -5, -2, 2900,	3200, 3250, 2800, 2900
+giTF5 ftgen 0, 0, -5, -2, 3250,	3580, 3540, 3000, 3300
+
+giTDb1 ftgen 0, 0, -5, -2,   0,   0,   0,   0,   0
+giTDb2 ftgen 0, 0, -5, -2,  -6, -14, -15, -10, -20
+giTDb3 ftgen 0, 0, -5, -2,  -7, -12, -18, -12, -17
+giTDb4 ftgen 0, 0, -5, -2,  -8, -14, -20, -12, -14
+giTDb5 ftgen 0, 0, -5, -2, -22, -20, -30, -26, -26
+
+giTBW1 ftgen 0, 0, -5, -2,  80,	 70,  40,  40,  40
+giTBW2 ftgen 0, 0, -5, -2,  90,	 80,  90,  80,  60
+giTBW3 ftgen 0, 0, -5, -2, 120,	100, 100, 100, 100
+giTBW4 ftgen 0, 0, -5, -2, 130,	120, 120, 120, 120
+giTBW5 ftgen 0, 0, -5, -2, 140,	120, 120, 120, 120
+
+;COUNTER TENOR
+giCTF1 ftgen 0, 0, -5, -2,  660,  440,  270,  430,  370
+giCTF2 ftgen 0, 0, -5, -2, 1120, 1800, 1850,  820,  630
+giCTF3 ftgen 0, 0, -5, -2, 2750, 2700, 2900, 2700, 2750
+giCTF4 ftgen 0, 0, -5, -2, 3000, 3000, 3350, 3000, 3000
+giCTF5 ftgen 0, 0, -5, -2, 3350, 3300, 3590, 3300, 3400
+
+giTBDb1 ftgen 0, 0, -5, -2,   0,   0,   0,   0,   0
+giTBDb2 ftgen 0, 0, -5, -2,  -6, -14, -24, -10, -20
+giTBDb3 ftgen 0, 0, -5, -2, -23, -18, -24, -26, -23
+giTBDb4 ftgen 0, 0, -5, -2, -24, -20, -36, -22, -30
+giTBDb5 ftgen 0, 0, -5, -2, -38, -20, -36, -34, -30
+
+giTBW1 ftgen 0, 0, -5, -2, 80,   70,  40,  40,  40
+giTBW2 ftgen 0, 0, -5, -2, 90,   80,  90,  80,  60
+giTBW3 ftgen 0, 0, -5, -2, 120, 100, 100, 100, 100
+giTBW4 ftgen 0, 0, -5, -2, 130, 120, 120, 120, 120
+giTBW5 ftgen 0, 0, -5, -2, 140, 120, 120, 120, 120
+
+;ALTO
+giAF1 ftgen 0, 0, -5, -2,  800,  400,  350,  450,  325
+giAF2 ftgen 0, 0, -5, -2, 1150, 1600, 1700,  800,  700
+giAF3 ftgen 0, 0, -5, -2, 2800, 2700, 2700, 2830, 2530
+giAF4 ftgen 0, 0, -5, -2, 3500, 3300, 3700, 3500, 2500
+giAF5 ftgen 0, 0, -5, -2, 4950, 4950, 4950, 4950, 4950
+
+giADb1 ftgen 0, 0, -5, -2,   0,   0,   0,   0,   0
+giADb2 ftgen 0, 0, -5, -2,  -4, -24, -20,  -9, -12
+giADb3 ftgen 0, 0, -5, -2, -20, -30, -30, -16, -30
+giADb4 ftgen 0, 0, -5, -2, -36, -35, -36, -28, -40
+giADb5 ftgen 0, 0, -5, -2, -60, -60, -60, -55, -64
+
+giABW1 ftgen 0, 0, -5, -2, 50,   60,  50,  70,  50
+giABW2 ftgen 0, 0, -5, -2, 60,   80, 100,  80,  60
+giABW3 ftgen 0, 0, -5, -2, 170, 120, 120, 100, 170
+giABW4 ftgen 0, 0, -5, -2, 180, 150, 150, 130, 180
+giABW5 ftgen 0, 0, -5, -2, 200, 200, 200, 135, 200
+
+;SOPRANO
+giSF1 ftgen 0, 0, -5, -2,  800,  350,  270,  450,  325
+giSF2 ftgen 0, 0, -5, -2, 1150, 2000, 2140,  800,  700
+giSF3 ftgen 0, 0, -5, -2, 2900, 2800, 2950, 2830, 2700
+giSF4 ftgen 0, 0, -5, -2, 3900, 3600, 3900, 3800, 3800
+giSF5 ftgen 0, 0, -5, -2, 4950, 4950, 4950, 4950, 4950
+
+giSDb1 ftgen 0, 0, -5, -2,   0,   0,   0,   0,   0
+giSDb2 ftgen 0, 0, -5, -2,  -6, -20, -12, -11, -16
+giSDb3 ftgen 0, 0, -5, -2, -32, -15, -26, -22, -35
+giSDb4 ftgen 0, 0, -5, -2, -20, -40, -26, -22, -40
+giSDb5 ftgen 0, 0, -5, -2, -50, -56, -44, -50, -60
+
+giSBW1 ftgen 0, 0, -5, -2,  80,  60,  60,  70,  50
+giSBW2 ftgen 0, 0, -5, -2,  90,  90,  90,  80,  60
+giSBW3 ftgen 0, 0, -5, -2, 120, 100, 100, 100, 170
+giSBW4 ftgen 0, 0, -5, -2, 130, 150, 120, 130, 180
+giSBW5 ftgen 0, 0, -5, -2, 140, 200, 120, 135, 200
+
+gisine ftgen 0, 0, 4096, 10, 1
+giexp ftgen 0, 0, 1024, 19, 0.5, 0.5, 270, 0.5
+
+instr 1
+  kFund    expon     p4,p3,p5               ; fundemental
+  kVow     line      p6,p3,p7               ; vowel select
+  kBW      line      p8,p3,p9               ; bandwidth factor
+  iVoice   =         p10                    ; voice select
+
+  ; read formant cutoff frequenies from tables
+  kForm1   tablei    kVow*5,giBF1+(iVoice*15)
+  kForm2   tablei    kVow*5,giBF1+(iVoice*15)+1
+  kForm3   tablei    kVow*5,giBF1+(iVoice*15)+2
+  kForm4   tablei    kVow*5,giBF1+(iVoice*15)+3
+  kForm5   tablei    kVow*5,giBF1+(iVoice*15)+4
+  ; read formant intensity values from tables
+  kDB1     tablei    kVow*5,giBF1+(iVoice*15)+5
+  kDB2     tablei    kVow*5,giBF1+(iVoice*15)+6
+  kDB3     tablei    kVow*5,giBF1+(iVoice*15)+7
+  kDB4     tablei    kVow*5,giBF1+(iVoice*15)+8
+  kDB5     tablei    kVow*5,giBF1+(iVoice*15)+9
+  ; read formant bandwidths from tables
+  kBW1     tablei    kVow*5,giBF1+(iVoice*15)+10
+  kBW2     tablei    kVow*5,giBF1+(iVoice*15)+11
+  kBW3     tablei    kVow*5,giBF1+(iVoice*15)+12
+  kBW4     tablei    kVow*5,giBF1+(iVoice*15)+13
+  kBW5     tablei    kVow*5,giBF1+(iVoice*15)+14
+  ; create resonant formants using fof opcode
+  koct     =         1	
+  aForm1   fof       ampdb(kDB1),kFund,kForm1,0,kBW1,0.003,0.02,0.007,\
+                       1000,gisine,giexp,3600
+  aForm2   fof       ampdb(kDB2),kFund,kForm2,0,kBW2,0.003,0.02,0.007,\
+                       1000,gisine,giexp,3600
+  aForm3   fof       ampdb(kDB3),kFund,kForm3,0,kBW3,0.003,0.02,0.007,\
+                       1000,gisine,giexp,3600
+  aForm4   fof       ampdb(kDB4),kFund,kForm4,0,kBW4,0.003,0.02,0.007,\
+                       1000,gisine,giexp,3600
+  aForm5   fof       ampdb(kDB5),kFund,kForm5,0,kBW5,0.003,0.02,0.007,\
+                       1000,gisine,giexp,3600
+
+  ; formants are mixed
+  aMix     sum       aForm1,aForm2,aForm3,aForm4,aForm5
+  kEnv     linseg    0,3,1,p3-6,1,3,0     ; an amplitude envelope
+           outs      aMix*kEnv*0.3, aMix*kEnv*0.3 ; send audio to outputs
+endin
+
+&lt;/CsInstruments&gt;
+
+&lt;CsScore&gt;
+; p4 = fundamental begin value (c.p.s.)
+; p5 = fundamental end value
+; p6 = vowel begin value (0 - 1 : a e i o u)
+; p7 = vowel end value
+; p8 = bandwidth factor begin (suggested range 0 - 2)
+; p9 = bandwidth factor end
+; p10 = voice (0=bass; 1=tenor; 2=counter_tenor; 3=alto; 4=soprano)
+
+; p1 p2  p3  p4  p5  p6  p7  p8  p9 p10
+i 1  0   10  50  100 0   1   2   0  0
+i 1  8   .   78  77  1   0   1   0  1
+i 1  16  .   150 118 0   1   1   0  2
+i 1  24  .   200 220 1   0   0.2 0  3
+i 1  32  .   400 800 0   1   0.2 0  4
+e
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+</pre>
+<h2>Asynchronous Granular Synthesis
+</h2>
+<p>The previous two examples have played psychoacoustic phenomena associated with the perception of granular textures that exhibit periodicity and patterns. If we introduce indeterminacy into some of the parameters of granular synthesis we begin to lose the coherence of some of these harmonic structures.
+</p>
+<p>The next example is based on the design of example 04F01.csd. Two streams of grains are generated. The first stream begins as a synchronous stream but as the note progresses the periodicity of grain generation is eroded through the addition of an increasing degree of <a href="http://en.wikipedia.org/wiki/Normal_distribution">gaussian</a><a href="http://en.wikipedia.org/wiki/Normal_distribution"> noise</a>. It will be heard how the tone metamorphosizes from one characterized by steady purity to one of fuzzy airiness. The second the applies a similar process of increasing indeterminacy to the formant parameter (frequency of material within each grain).
+</p>
+<p>Other parameters of granular synthesis such as the amplitude of each grain, grain duration, spatial location etc. can be similarly modulated with random functions to offset the psychoacoustic effects of synchronicity when using constant values.
+</p>
+<h4><em><em><em><em>EXAMPLE 04F03_Asynchronous_GS.csd</em></em></em></em>
+  <br>
+</h4>
+<pre>&lt;CsoundSynthesizer&gt;
+
+&lt;CsOptions&gt;
+-odac
+&lt;/CsOptions&gt;
+
+&lt;CsInstruments&gt;
+;Example by Iain McCurdy
+
+sr = 44100
+ksmps = 1
+nchnls = 1
+0dbfs = 1
+
+giWave  ftgen  0,0,2^10,10,1,1/2,1/4,1/8,1/16,1/32,1/64
+
+instr 1 ;grain generating instrument 1
+  kRate         =          p4
+  kTrig         metro      kRate      ; a trigger to generate grains
+  kDur          =          p5
+  kForm         =          p6
+  ;note delay time (p2) is defined using a random function -
+  ;- beginning with no randomization but then gradually increasing
+  kDelayRange   transeg    0,1,0,0,  p3-1,4,0.03
+  kDelay        gauss      kDelayRange
+  ;                                  p1 p2 p3   p4
+                schedkwhen kTrig,0,0,3, abs(kDelay), kDur,kForm ;trigger a note (grain) in instr 3
+endin
+
+instr 2 ;grain generating instrument 2
+  kRate          =          p4
+  kTrig          metro      kRate      ; a trigger to generate grains
+  kDur           =          p5
+  ;formant frequency (p4) is multiplied by a random function -
+  ;- beginning with no randomization but then gradually increasing
+  kForm          =          p6
+  kFormOSRange  transeg     0,1,0,0,  p3-1,2,12 ;range defined in semitones
+  kFormOS       gauss       kFormOSRange
+  ;                                   p1 p2 p3   p4
+                schedkwhen  kTrig,0,0,3, 0, kDur,kForm*semitone(kFormOS)
+endin
+
+instr 3 ;grain sounding instrument
+  iForm =       p4
+  aEnv  linseg  0,0.005,0.2,p3-0.01,0.2,0.005,0
+  aSig  poscil  aEnv, iForm, giWave
+        out     aSig
+endin
+
+&lt;/CsInstruments&gt;
+
+&lt;CsScore&gt;
+;p4 = rate
+;p5 = duration
+;p6 = formant
+; p1 p2   p3 p4  p5   p6
+i 1  0    12 200 0.02 400
+i 2  12.5 12 200 0.02 400
+e
+&lt;/CsScore&gt;
+
+&lt;/CsoundSynthesizer&gt;
+</pre>
+<h2>Synthesis of Dynamic Sound Spectra: grain3
+</h2>
+<p>The next example introduces another of Csound's built-in granular synthesis opcodes to demonstrate the range of dynamic sound spectra that are possible with granular synthesis.
+</p>
+<p>Several parameters are modulated slowly using Csound's random spline generator <a href="http://www.csounds.com/manual/html/rspline.html">rspline</a>. These parameters are formant frequency, grain duration and grain density (rate of grain generation). The waveform used in generating the content for each grain is randomly chosen using a slow <a href="http://en.wikipedia.org/wiki/Sample_and_hold">sample and hold</a> random function - a new waveform will be selected every 10 seconds. Five waveforms are provided: a sawtooth, a square wave, a triangle wave, a pulse wave and a band limited buzz-like waveform. Some of these waveforms, particularly the sawtooth, square and pulse waveforms, can generate very high overtones, for this reason a high sample rate is recommended to reduce the risk of aliasing (see chapter 01A).
+</p>
+<p>Current values for formant (cps), grain duration, density and waveform are printed to the terminal every second. The key for waveforms is: 1:sawtooth; 2:square; 3:triangle; 4:pulse; 5:buzz.
+</p>
+<h4><em><em><em><em>EXAMPLE 04F04_grain3.csd</em></em></em></em>
+</h4>
+<pre>&lt;CsoundSynthesizer&gt;
+
+&lt;CsOptions&gt;
+-odac
+&lt;/CsOptions&gt;
+
+&lt;CsInstruments&gt;
+;example by Iain McCurdy
+
+sr = 96000
+ksmps = 16
+nchnls = 1
+0dbfs = 1
+
+;waveforms used for granulation
+giSaw   ftgen 1,0,4096,7,0,4096,1
+giSq    ftgen 2,0,4096,7,0,2046,0,0,1,2046,1
+giTri   ftgen 3,0,4096,7,0,2046,1,2046,0
+giPls   ftgen 4,0,4096,7,1,200,1,0,0,4096-200,0
+giBuzz  ftgen 5,0,4096,11,20,1,1
+
+;window function - used as an amplitude envelope for each grain
+;(hanning window)
+giWFn   ftgen 7,0,16384,20,2,1
+
+instr 1
+  ;random spline generates formant values in oct format
+  kOct    rspline 4,8,0.1,0.5
+  ;oct format values converted to cps format
+  kCPS    =       cpsoct(kOct)
+  ;phase location is left at 0 (the beginning of the waveform)
+  kPhs    =       0
+  ;frequency (formant) randomization and phase randomization are not used
+  kFmd    =       0
+  kPmd    =       0
+  ;grain duration and density (rate of grain generation)
+  kGDur   rspline 0.01,0.2,0.05,0.2
+  kDens   rspline 10,200,0.05,0.5
+  ;maximum number of grain overlaps allowed. This is used as a CPU brake
+  iMaxOvr =       1000
+  ;function table for source waveform for content of the grain
+  ;a different waveform chosen once every 10 seconds
+  kFn     randomh 1,5.99,0.1
+  ;print info. to the terminal
+          printks "CPS:%5.2F%TDur:%5.2F%TDensity:%5.2F%TWaveform:%1.0F%n",1,\
+                     kCPS,kGDur,kDens,kFn
+  aSig    grain3  kCPS, kPhs, kFmd, kPmd, kGDur, kDens, iMaxOvr, kFn, giWFn, \
+                    0, 0
+          out     aSig*0.06
+endin
+
+&lt;/CsInstruments&gt;
+
+&lt;CsScore&gt;
+i 1 0 300
+e
+&lt;/CsScore&gt;
+
+&lt;/CsoundSynthesizer&gt;
+
+</pre>
+<p>The final example introduces grain3's two built-in randomizing functions for phase and pitch. Phase refers to the location in the source waveform from which a grain will be read, pitch refers to the pitch of the material within grains. In this example a long note is played, initially no randomization is employed but gradually phase randomization is increased and then reduced back to zero. The same process is applied to the pitch randomization amount parameter. This time grain size is relatively large:0.8 seconds and density correspondingly low: 20 Hz.
+</p>
+<h4><em><em><em><em><em><em><em><em>EXAMPLE 04F05_grain3_random.csd</em></em></em></em></em></em></em></em>
+</h4>
+<pre>&lt;CsoundSynthesizer&gt;
+
+&lt;CsOptions&gt;
+-odac
+&lt;/CsOptions&gt;
+
+&lt;CsInstruments&gt;
+;example by Iain McCurdy
+
+sr = 44100
+ksmps = 16
+nchnls = 1
+0dbfs = 1
+
+;waveforms used for granulation
+giBuzz  ftgen 1,0,4096,11,40,1,0.9
+
+;window function - used as an amplitude envelope for each grain
+;(bartlett window)
+giWFn   ftgen 2,0,16384,20,3,1
+
+instr 1
+  kCPS    =       100
+  kPhs    =       0
+  kFmd    transeg 0,21,0,0, 10,4,15, 10,-4,0
+  kPmd    transeg 0,1,0,0,  10,4,1,  10,-4,0
+  kGDur   =       0.8
+  kDens   =       20
+  iMaxOvr =       1000
+  kFn     =       1
+  ;print info. to the terminal
+          printks "Random Phase:%5.2F%TPitch Random:%5.2F%n",1,kPmd,kFmd
+  aSig    grain3  kCPS, kPhs, kFmd, kPmd, kGDur, kDens, iMaxOvr, kFn, giWFn, 0, 0
+          out     aSig*0.06
+endin
+
+&lt;/CsInstruments&gt;
+
+&lt;CsScore&gt;
+i 1 0 51
+e
+&lt;/CsScore&gt;
+
+&lt;/CsoundSynthesizer&gt;
+</pre>
+<h2>Conclusion
+</h2>
+<p>This chapter has introduced some of the concepts behind the synthesis of new sounds based on simple waveforms by using granular synthesis techniques. Only two of Csound's built-in opcodes for granular synthesis, <a href="http://www.csounds.com/manual/html/fof.html">fof</a> and <a href="http://www.csounds.com/manual/html/grain3.html">grain3</a>, have been used; it is beyond the scope of this work to cover all of the many opcodes for granulation that Csound provides. This chapter has focused mainly on synchronous granular synthesis; chapter 05G, which introduces granulation of recorded sound files, makes greater use of asynchronous granular synthesis for time-stretching and pitch shifting. This chapter will also introduce some of Csound's other opcodes for granular synthesis.
+  <br>
+</p>
+   <hr/>
+    <a href="/csound/_edit/">EDIT</a>
+
+</div>
+
+<script type="text/javascript">
+jQuery(function ($) {
+    $('#bookcontent').annotator()
+   		.annotator('setupPlugins', {}, {
+                Tags: false,
+                Filter: {
+                  addAnnotationFilter: false
+                },
+                Permissions: false,
+                AnnotateItPermissions: {}
+              });
+});
+</script>
+
+
+
+</div>
+<!-- End of content -->
+
+</div>  
+<!-- DEV TOOLS -->
+<div id="bookidebug">
+</div>
+
+<!-- sputnik error page -->
+<div id="dialog-sputnik-qrac" style="display: none"></div>
+</body>
+</html>
+

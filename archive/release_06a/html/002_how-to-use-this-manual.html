@@ -1,0 +1,601 @@
+
+<!DOCTYPE HTML>
+<html>
+ <head>
+   
+
+<link type="text/css" href="/site_static/css/booki.css" rel="Stylesheet" >
+<link type="text/css" href="/site_static/js/jquery/themes/base/jquery.ui.all.css" rel="Stylesheet" >
+<link type="text/css" href="/site_static/js/jquery/themes/smoothness/jquery.ui.all.css" rel="Stylesheet" >
+<script type="text/javascript" src="/site_static/js/jquery/jquery-1.4.4.js"></script>
+<script type="text/javascript" src="/site_static/js/jquery/ui/jquery-ui-1.8.10.custom.js"></script>
+<script type="text/javascript" src="/site_static/js/jquery.json-1.3.js"></script>
+<script type="text/javascript" src="/site_static/js/booki.js"></script>
+<script src="/site_static/js/messaging.js" type="text/javascript"></script>   
+<script type="text/javascript" src="/site_static/js/general.js"></script>
+<link href="/site_static/css/jquery.bubblepopup.v2.3.1.css" rel="stylesheet" type="text/css" />
+<link type="text/css" href="/site_static/css/jquery-ui_overrides.css" rel="Stylesheet" >
+<script src="/site_static/js/jquery.bubblepopup.v2.3.1.min.js" type="text/javascript"></script>
+
+<link rel="SHORTCUT ICON" href="http://write.flossmanuals.net/site_static/images/favicon.ico" type="image/x-icon">
+
+
+<script type="text/javascript">
+  $(function() {
+      $.booki.sputnikDispatcherURL = "/_sputnik/";
+
+      $("#dialog-sputnik-error").dialog({
+          modal: true,
+          autoOpen: false,
+          buttons: {
+            Ok: function() {
+               $(this).dialog('close');
+               window.location = '.';
+            }
+          }
+      });
+  
+      $("FORM.messagefield").messagefield('init', {'view_post': '/messaging/post' });  
+  });
+</script>
+
+
+   
+ <title>/chapter: How-To-Use-This-Manual / CSOUND</title>
+ <link type="text/css" href="/site_static/css/draft.css" rel="Stylesheet" />
+
+ <link rel="alternate" type="application/rss+xml" title="RSS feed for CSOUND" href="/feeds/rss/book/csound/" /> 
+ <link rel="alternate" type="application/atom+xml" title="Atom feed for CSOUND" href="/feeds/atom/book/csound/" /> 
+
+ <link rel="alternate" type="application/rss+xml" title="RSS feed for chapter HOW TO USE THIS MANUAL" href="/feeds/rss/chapter/csound/csound/" /> 
+ <link rel="alternate" type="application/atom+xml" title="Atom feed for chapter HOW TO USE THIS MANUAL" href="/feeds/atom/chapter/csound/csound/" /> 
+ 
+ <script type="text/javascript" src="/site_static/js/draft.js"></script>
+
+
+   <link type="text/css" href="/static/css/_user.css" rel="Stylesheet" >
+ </head>
+<body>
+
+<div class="topbar"> 
+  <div class="logo"><a href="http://write.flossmanuals.net/"></a></div>
+
+  <div class="meta-bar">
+    
+    <ul>
+      <li>
+        <a href="/accounts/signin/?redirect=/csound/_draft/_v/1.0/how-to-use-this-manual/">Sign In / Create Account</a>
+      </li>
+    </ul>
+    
+    <div style="padding-top: 10px; padding-right: 15px;">
+      <br/>
+      
+
+<script>
+  $(function() {
+    var $frm = $("FORM[name=changelang]");
+	
+    $("A[href=#]", $frm).click(function() {
+        var lang = $(this).attr("class").substr(4);
+	
+        $("INPUT[name=language]", $frm).val(lang);
+        $frm.submit();
+	
+        return false;
+    });
+  });
+ </script>
+
+<form name="changelang" method="POST" action="/accounts/i18n/setlang/?language=en-us">
+  <input type="hidden" name="language" value="en-us">
+  
+    &nbsp;English&nbsp;|
+  
+  
+  
+    &nbsp;<a class="langes" href="#">Español</a>&nbsp;|
+  
+
+  
+    &nbsp;<a class="langfr" href="#">Français</a>&nbsp;|
+  
+	
+  
+    &nbsp;<a class="langit" href="#">Italiano</a>&nbsp;|
+  
+	
+  
+    &nbsp;<a class="langpt" href="#">Português</a>&nbsp;|
+  
+	
+  
+    &nbsp;<a class="langru" href="#">Русский</a>&nbsp;|
+  
+	
+  
+    &nbsp;<a class="langsq" href="#">Shqip</a>
+  	
+</form>
+
+    </div>
+    
+    
+  </div><!-- End of .meta-bar -->
+</div><!-- End top bar -->
+
+<div class="menubar shadow">
+  
+  
+  <div class="navbox">
+    <ul>
+      <li><a href="/list-books/">Books</a></li>
+      <li><a href="/list-groups/">Groups</a></li>
+      <li><a href="/list-people/">People</a></li>
+    </ul>      
+  </div><!-- End of .navbox -->       
+</div>
+
+<div class="content-container">
+  <div class="content shadow">
+    <!-- Content box and the drop shadow-->
+    
+
+<h2>CSOUND</h2>
+<div class="padded">
+ <div id="bookmenu" style="background: url(/site_static/images/draft_bg.png) repeat !important;"> 
+  <ul>
+   
+    
+      <li><b>INTRODUCTION</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/preface/">PREFACE</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/how-to-use-this-manual/">HOW TO USE THIS MANUAL</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/on-this-release/">ON THIS RELEASE</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/credits/">CREDITS</a></li>
+    
+   
+    
+      <li><b>01 BASICS</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-digital-audio/">A. DIGITAL AUDIO</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-pitch-and-frequency/">B. PITCH AND FREQUENCY</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-intensities/">C. INTENSITIES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-random/">D. RANDOM</a></li>
+    
+   
+    
+      <li><b>02 QUICK START</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-make-csound-run/">A. MAKE CSOUND RUN</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-csound-syntax/">B. CSOUND SYNTAX</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-configuring-midi/">C. CONFIGURING MIDI</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-live-audio/">D. LIVE AUDIO</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-rendering-to-file/">E. RENDERING TO FILE</a></li>
+    
+   
+    
+      <li><b>03 CSOUND LANGUAGE</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-initialization-and-performance-pass/">A. INITIALIZATION AND PERFORMANCE PASS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-local-and-global-variables/">B. LOCAL AND GLOBAL VARIABLES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-control-structures/">C. CONTROL STRUCTURES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-function-tables/">D. FUNCTION TABLES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-arrays/">E. ARRAYS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/f-live-events/">F. LIVE EVENTS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/g-user-defined-opcodes/">G. USER DEFINED OPCODES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/h-macros/">H. MACROS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/i-functional-syntax/">I. FUNCTIONAL SYNTAX</a></li>
+    
+   
+    
+      <li><b>04 SOUND SYNTHESIS</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-additive-synthesis/">A. ADDITIVE SYNTHESIS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-subtractive-synthesis/">B. SUBTRACTIVE SYNTHESIS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-amplitude-and-ring-modulation/">C. AMPLITUDE AND RING MODULATION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-frequency-modulation/">D. FREQUENCY MODULATION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-waveshaping/">E. WAVESHAPING</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/f-granular-synthesis/">F. GRANULAR SYNTHESIS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/g-physical-modelling/">G. PHYSICAL MODELLING</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/h-scanned-synthesis/">H. SCANNED SYNTHESIS</a></li>
+    
+   
+    
+      <li><b>05 SOUND MODIFICATION</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-envelopes/">A. ENVELOPES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-panning-and-spatialization/">B. PANNING AND SPATIALIZATION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-filters/">C. FILTERS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-delay-and-feedback/">D. DELAY AND FEEDBACK</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-reverberation/">E. REVERBERATION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/f-am-rm-waveshaping/">F. AM / RM / WAVESHAPING</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/g-granular-synthesis/">G. GRANULAR SYNTHESIS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/h-convolution/">H. CONVOLUTION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/i-fourier-analysis-spectral-processing/">I. FOURIER ANALYSIS / SPECTRAL PROCESSING</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/k-ats-resynthesis/">K. ATS RESYNTHESIS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/l-amplitude-and-pitch-tracking/">L. AMPLITUDE AND PITCH TRACKING</a></li>
+    
+   
+    
+      <li><b>06 SAMPLES</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-record-and-play-soundfiles/">A. RECORD AND PLAY SOUNDFILES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-record-and-play-buffers/">B. RECORD AND PLAY BUFFERS</a></li>
+    
+   
+    
+      <li><b>07 MIDI</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-receiving-events-by-midiin/">A. RECEIVING EVENTS BY MIDIIN</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-triggering-instrument-instances/">B. TRIGGERING INSTRUMENT INSTANCES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-working-with-controllers/">C. WORKING WITH CONTROLLERS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-reading-midi-files/">D. READING MIDI FILES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-midi-output/">E. MIDI OUTPUT</a></li>
+    
+   
+    
+      <li><b>08 OTHER COMMUNICATION</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-open-sound-control/">A. OPEN SOUND CONTROL</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-csound-and-arduino/">B. CSOUND AND ARDUINO</a></li>
+    
+   
+    
+      <li><b>09 CSOUND IN OTHER APPLICATIONS</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-csound-in-pd/">A. CSOUND IN PD</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-csound-in-maxmsp/">B. CSOUND IN MAXMSP</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-csound-in-ableton-live/">C. CSOUND IN ABLETON LIVE</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-csound-as-a-vst-plugin/">D. CSOUND AS A VST PLUGIN</a></li>
+    
+   
+    
+      <li><b>10 CSOUND FRONTENDS</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/csoundqt/">CSOUNDQT</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/cabbage/">CABBAGE</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/blue/">BLUE</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/winxound/">WINXOUND</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/csound-via-terminal/">CSOUND VIA TERMINAL</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/web-based-csound/">WEB BASED CSOUND</a></li>
+    
+   
+    
+      <li><b>11 CSOUND UTILITIES</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/csound-utilities/">CSOUND UTILITIES</a></li>
+    
+   
+    
+      <li><b>12 CSOUND AND OTHER PROGRAMMING LANGUAGES</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-the-csound-api/">A. THE CSOUND API</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-python-inside-csound/">B. PYTHON INSIDE CSOUND</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-python-in-csoundqt/">C. PYTHON IN CSOUNDQT</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-lua-in-csound/">D. LUA IN CSOUND</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-csound-in-ios/">E. CSOUND IN iOS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/f-csound-on-android/">F. CSOUND ON ANDROID</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/g-csound-and-haskell/">G. CSOUND AND HASKELL</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/h-csound-and-html/">H. CSOUND AND HTML</a></li>
+    
+   
+    
+      <li><b>13 EXTENDING CSOUND</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/extending-csound/">EXTENDING CSOUND</a></li>
+    
+   
+    
+      <li><b>OPCODE GUIDE</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/overview/">OVERVIEW</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/signal-processing-i/">SIGNAL PROCESSING I</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/signal-processing-ii/">SIGNAL PROCESSING II</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/data/">DATA</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/realtime-interaction/">REALTIME INTERACTION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/instrument-control/">INSTRUMENT CONTROL</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/maths-pythonsystem-plugins/">MATHS, PYTHON/SYSTEM, PLUGINS</a></li>
+    
+   
+    
+      <li><b>APPENDIX</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/methods-of-writing-csound-scores/">METHODS OF WRITING CSOUND SCORES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/glossary/">GLOSSARY</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/links/">LINKS</a></li>
+    
+   
+  </ul>
+ </div>
+ <div id="bookcontent"   style="background: url(/site_static/images/draft_bg.png) repeat !important;">
+   
+
+  <html><body><h1>HOW TO USE THIS MANUAL
+</h1>
+<p>The goal of this manual is to provide a readable introduction to Csound. In no way is it meant as a replacement for the <a href="http://csound.github.io/docs/manual/index.html">Canonical Csound Reference Manual</a>. It is intended as an introduction-tutorial-reference hybrid, gathering together the most important information you will need to work with Csound in a variety of situations. In many places links are provided to other resources such as <a href="http://csound.github.io/docs/manual/index.html">The Canonical Csound Reference Manual</a>, the <a href="http://csoundjournal.com/index.html">Csound Journal</a>, example collections and more.
+</p>
+<p>It is not necessary to read each chapter in sequence, feel free to jump to any chapter that interests you although bear in mind that occasionally a chapter will make reference to a previous one.
+</p>
+<p>If you are new to Csound, the QUICK START chapter will be the best place to go to help you get started. BASICS provides a general introduction to key concepts about digital sound, vital to understanding how Csound deals with audio. The CSOUND LANGUAGE chapter provides greater detail about how Csound works and how to work with Csound.
+</p>
+<p>SOUND SYNTHESIS introduces various methods of creating sound from scratch and SOUND MODIFICATION describes various methods of transforming sounds that already exist. SAMPLES outlines various ways you can record and playback audio samples in Csound; an area that might be of particular interest to those intent on using Csound as a real-time performance instrument. The MIDI and OPEN SOUND CONTROL chapters focus on different methods of controlling Csound using external software or hardware. The final chapters introduce various front-ends that can be used to interface with the Csound engine and Csound's communication with other applications.
+</p>
+<p>If you would like to know more about a topic, and in particular about the use of any opcode, please refer first to the <a href="http://csound.github.io/docs/manual/index.html">Canonical Csound Reference Manual</a>.
+</p>
+<p>All files - examples and audio files - can be downloaded at <a href="http://www.csound-tutorial.net">www.csound-tutorial.net</a> . If you use CsoundQt, you can find all the examples in CsoundQt's examples menu under "Floss Manual Examples". When learning Csound (or any other programming language), you may find it beneficial to type the examples out yourself as it will help you to memorise Csound's syntax as well as how to use its opcodes. The more you get used to typing out Csound code, the more proficient you will become at integrating new techniques as your concentration will shift from the code to the idea behind the code and the easier it will become for you to design your own instruments and compositions.
+  <br></p>
+<p>Like other audio tools, Csound can produce an extreme dynamic range. Be careful when you run the examples! Set the volume on your amplifier low to start with and take special care when using headphones.
+</p>
+<p>You can help to improve this manual either by reporting bugs or by sending requests for new topics or by joining as a writer. Just contact one of the maintainers (see ON THIS RELEASE).
+</p>
+<p>Some issues of this textbook can be ordered as a print-on-demand hard copy at <a href="how-to-use-this-manual/www.lulu.com">www.lulu.com</a>. Just use Lulu's search utility and look for "Csound".
+  <br></p></body></html>
+   
+  </div>
+ </div>
+
+
+  </div>
+</div>
+<!-- End of content -->
+
+
+
+<!-- sputnik error page -->
+<div id="dialog-sputnik-qrac" style="display: none"></div>
+<div id="dialog-sputnik-error" title="Can't communicate with booktype">
+  <p>
+    <span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
+    There has been error in communication with Booktype server.
+    Not sure right now where is the problem.
+  </p>
+  <p>
+    You should refresh this page.
+  </p>
+</div>
+
+
+<ul class="strings template">
+ <li class="ok">OK</li>
+ <li class="back">Back</li>
+ <li class="create">Create</li>
+ <li class="cancel">Cancel</li>
+ <li class="next">Next</li>
+ <li class="import">Import</li>
+ <li class="savechanges">Save changes</li>
+ <li class="errorcreategroup">Couldn't create a group!</li>
+ <li class="msgepub">enter epub URL</li>
+ <li class="msgarchive">enter Archive.org ID</li>
+ <li class="msgwiki">enter Wikibooks URL</li>
+ <li class="msgbooktype">enter Booktype URL</li>
+ <li class="deletebook">Delete book</li>
+</ul>
+
+</body>
+</html>
+

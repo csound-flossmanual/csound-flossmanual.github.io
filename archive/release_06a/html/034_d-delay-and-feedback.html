@@ -1,0 +1,837 @@
+
+<!DOCTYPE HTML>
+<html>
+ <head>
+   
+
+<link type="text/css" href="/site_static/css/booki.css" rel="Stylesheet" >
+<link type="text/css" href="/site_static/js/jquery/themes/base/jquery.ui.all.css" rel="Stylesheet" >
+<link type="text/css" href="/site_static/js/jquery/themes/smoothness/jquery.ui.all.css" rel="Stylesheet" >
+<script type="text/javascript" src="/site_static/js/jquery/jquery-1.4.4.js"></script>
+<script type="text/javascript" src="/site_static/js/jquery/ui/jquery-ui-1.8.10.custom.js"></script>
+<script type="text/javascript" src="/site_static/js/jquery.json-1.3.js"></script>
+<script type="text/javascript" src="/site_static/js/booki.js"></script>
+<script src="/site_static/js/messaging.js" type="text/javascript"></script>   
+<script type="text/javascript" src="/site_static/js/general.js"></script>
+<link href="/site_static/css/jquery.bubblepopup.v2.3.1.css" rel="stylesheet" type="text/css" />
+<link type="text/css" href="/site_static/css/jquery-ui_overrides.css" rel="Stylesheet" >
+<script src="/site_static/js/jquery.bubblepopup.v2.3.1.min.js" type="text/javascript"></script>
+
+<link rel="SHORTCUT ICON" href="http://write.flossmanuals.net/site_static/images/favicon.ico" type="image/x-icon">
+
+
+<script type="text/javascript">
+  $(function() {
+      $.booki.sputnikDispatcherURL = "/_sputnik/";
+
+      $("#dialog-sputnik-error").dialog({
+          modal: true,
+          autoOpen: false,
+          buttons: {
+            Ok: function() {
+               $(this).dialog('close');
+               window.location = '.';
+            }
+          }
+      });
+  
+      $("FORM.messagefield").messagefield('init', {'view_post': '/messaging/post' });  
+  });
+</script>
+
+
+   
+ <title>/chapter: D-Delay-And-Feedback / CSOUND</title>
+ <link type="text/css" href="/site_static/css/draft.css" rel="Stylesheet" />
+
+ <link rel="alternate" type="application/rss+xml" title="RSS feed for CSOUND" href="/feeds/rss/book/csound/" /> 
+ <link rel="alternate" type="application/atom+xml" title="Atom feed for CSOUND" href="/feeds/atom/book/csound/" /> 
+
+ <link rel="alternate" type="application/rss+xml" title="RSS feed for chapter D. DELAY AND FEEDBACK" href="/feeds/rss/chapter/csound/csound/" /> 
+ <link rel="alternate" type="application/atom+xml" title="Atom feed for chapter D. DELAY AND FEEDBACK" href="/feeds/atom/chapter/csound/csound/" /> 
+ 
+ <script type="text/javascript" src="/site_static/js/draft.js"></script>
+
+
+   <link type="text/css" href="/static/css/_user.css" rel="Stylesheet" >
+ </head>
+<body>
+
+<div class="topbar"> 
+  <div class="logo"><a href="http://write.flossmanuals.net/"></a></div>
+
+  <div class="meta-bar">
+    
+    <ul>
+      <li>
+        <a href="/accounts/signin/?redirect=/csound/_draft/_v/1.0/d-delay-and-feedback/">Sign In / Create Account</a>
+      </li>
+    </ul>
+    
+    <div style="padding-top: 10px; padding-right: 15px;">
+      <br/>
+      
+
+<script>
+  $(function() {
+    var $frm = $("FORM[name=changelang]");
+	
+    $("A[href=#]", $frm).click(function() {
+        var lang = $(this).attr("class").substr(4);
+	
+        $("INPUT[name=language]", $frm).val(lang);
+        $frm.submit();
+	
+        return false;
+    });
+  });
+ </script>
+
+<form name="changelang" method="POST" action="/accounts/i18n/setlang/?language=en-us">
+  <input type="hidden" name="language" value="en-us">
+  
+    &nbsp;English&nbsp;|
+  
+  
+  
+    &nbsp;<a class="langes" href="#">Español</a>&nbsp;|
+  
+
+  
+    &nbsp;<a class="langfr" href="#">Français</a>&nbsp;|
+  
+	
+  
+    &nbsp;<a class="langit" href="#">Italiano</a>&nbsp;|
+  
+	
+  
+    &nbsp;<a class="langpt" href="#">Português</a>&nbsp;|
+  
+	
+  
+    &nbsp;<a class="langru" href="#">Русский</a>&nbsp;|
+  
+	
+  
+    &nbsp;<a class="langsq" href="#">Shqip</a>
+  	
+</form>
+
+    </div>
+    
+    
+  </div><!-- End of .meta-bar -->
+</div><!-- End top bar -->
+
+<div class="menubar shadow">
+  
+  
+  <div class="navbox">
+    <ul>
+      <li><a href="/list-books/">Books</a></li>
+      <li><a href="/list-groups/">Groups</a></li>
+      <li><a href="/list-people/">People</a></li>
+    </ul>      
+  </div><!-- End of .navbox -->       
+</div>
+
+<div class="content-container">
+  <div class="content shadow">
+    <!-- Content box and the drop shadow-->
+    
+
+<h2>CSOUND</h2>
+<div class="padded">
+ <div id="bookmenu" style="background: url(/site_static/images/draft_bg.png) repeat !important;"> 
+  <ul>
+   
+    
+      <li><b>INTRODUCTION</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/preface/">PREFACE</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/how-to-use-this-manual/">HOW TO USE THIS MANUAL</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/on-this-release/">ON THIS RELEASE</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/credits/">CREDITS</a></li>
+    
+   
+    
+      <li><b>01 BASICS</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-digital-audio/">A. DIGITAL AUDIO</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-pitch-and-frequency/">B. PITCH AND FREQUENCY</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-intensities/">C. INTENSITIES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-random/">D. RANDOM</a></li>
+    
+   
+    
+      <li><b>02 QUICK START</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-make-csound-run/">A. MAKE CSOUND RUN</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-csound-syntax/">B. CSOUND SYNTAX</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-configuring-midi/">C. CONFIGURING MIDI</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-live-audio/">D. LIVE AUDIO</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-rendering-to-file/">E. RENDERING TO FILE</a></li>
+    
+   
+    
+      <li><b>03 CSOUND LANGUAGE</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-initialization-and-performance-pass/">A. INITIALIZATION AND PERFORMANCE PASS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-local-and-global-variables/">B. LOCAL AND GLOBAL VARIABLES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-control-structures/">C. CONTROL STRUCTURES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-function-tables/">D. FUNCTION TABLES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-arrays/">E. ARRAYS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/f-live-events/">F. LIVE EVENTS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/g-user-defined-opcodes/">G. USER DEFINED OPCODES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/h-macros/">H. MACROS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/i-functional-syntax/">I. FUNCTIONAL SYNTAX</a></li>
+    
+   
+    
+      <li><b>04 SOUND SYNTHESIS</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-additive-synthesis/">A. ADDITIVE SYNTHESIS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-subtractive-synthesis/">B. SUBTRACTIVE SYNTHESIS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-amplitude-and-ring-modulation/">C. AMPLITUDE AND RING MODULATION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-frequency-modulation/">D. FREQUENCY MODULATION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-waveshaping/">E. WAVESHAPING</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/f-granular-synthesis/">F. GRANULAR SYNTHESIS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/g-physical-modelling/">G. PHYSICAL MODELLING</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/h-scanned-synthesis/">H. SCANNED SYNTHESIS</a></li>
+    
+   
+    
+      <li><b>05 SOUND MODIFICATION</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-envelopes/">A. ENVELOPES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-panning-and-spatialization/">B. PANNING AND SPATIALIZATION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-filters/">C. FILTERS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-delay-and-feedback/">D. DELAY AND FEEDBACK</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-reverberation/">E. REVERBERATION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/f-am-rm-waveshaping/">F. AM / RM / WAVESHAPING</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/g-granular-synthesis/">G. GRANULAR SYNTHESIS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/h-convolution/">H. CONVOLUTION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/i-fourier-analysis-spectral-processing/">I. FOURIER ANALYSIS / SPECTRAL PROCESSING</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/k-ats-resynthesis/">K. ATS RESYNTHESIS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/l-amplitude-and-pitch-tracking/">L. AMPLITUDE AND PITCH TRACKING</a></li>
+    
+   
+    
+      <li><b>06 SAMPLES</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-record-and-play-soundfiles/">A. RECORD AND PLAY SOUNDFILES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-record-and-play-buffers/">B. RECORD AND PLAY BUFFERS</a></li>
+    
+   
+    
+      <li><b>07 MIDI</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-receiving-events-by-midiin/">A. RECEIVING EVENTS BY MIDIIN</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-triggering-instrument-instances/">B. TRIGGERING INSTRUMENT INSTANCES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-working-with-controllers/">C. WORKING WITH CONTROLLERS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-reading-midi-files/">D. READING MIDI FILES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-midi-output/">E. MIDI OUTPUT</a></li>
+    
+   
+    
+      <li><b>08 OTHER COMMUNICATION</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-open-sound-control/">A. OPEN SOUND CONTROL</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-csound-and-arduino/">B. CSOUND AND ARDUINO</a></li>
+    
+   
+    
+      <li><b>09 CSOUND IN OTHER APPLICATIONS</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-csound-in-pd/">A. CSOUND IN PD</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-csound-in-maxmsp/">B. CSOUND IN MAXMSP</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-csound-in-ableton-live/">C. CSOUND IN ABLETON LIVE</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-csound-as-a-vst-plugin/">D. CSOUND AS A VST PLUGIN</a></li>
+    
+   
+    
+      <li><b>10 CSOUND FRONTENDS</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/csoundqt/">CSOUNDQT</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/cabbage/">CABBAGE</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/blue/">BLUE</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/winxound/">WINXOUND</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/csound-via-terminal/">CSOUND VIA TERMINAL</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/web-based-csound/">WEB BASED CSOUND</a></li>
+    
+   
+    
+      <li><b>11 CSOUND UTILITIES</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/csound-utilities/">CSOUND UTILITIES</a></li>
+    
+   
+    
+      <li><b>12 CSOUND AND OTHER PROGRAMMING LANGUAGES</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-the-csound-api/">A. THE CSOUND API</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-python-inside-csound/">B. PYTHON INSIDE CSOUND</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-python-in-csoundqt/">C. PYTHON IN CSOUNDQT</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-lua-in-csound/">D. LUA IN CSOUND</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-csound-in-ios/">E. CSOUND IN iOS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/f-csound-on-android/">F. CSOUND ON ANDROID</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/g-csound-and-haskell/">G. CSOUND AND HASKELL</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/h-csound-and-html/">H. CSOUND AND HTML</a></li>
+    
+   
+    
+      <li><b>13 EXTENDING CSOUND</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/extending-csound/">EXTENDING CSOUND</a></li>
+    
+   
+    
+      <li><b>OPCODE GUIDE</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/overview/">OVERVIEW</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/signal-processing-i/">SIGNAL PROCESSING I</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/signal-processing-ii/">SIGNAL PROCESSING II</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/data/">DATA</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/realtime-interaction/">REALTIME INTERACTION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/instrument-control/">INSTRUMENT CONTROL</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/maths-pythonsystem-plugins/">MATHS, PYTHON/SYSTEM, PLUGINS</a></li>
+    
+   
+    
+      <li><b>APPENDIX</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/methods-of-writing-csound-scores/">METHODS OF WRITING CSOUND SCORES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/glossary/">GLOSSARY</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/links/">LINKS</a></li>
+    
+   
+  </ul>
+ </div>
+ <div id="bookcontent"   style="background: url(/site_static/images/draft_bg.png) repeat !important;">
+   
+
+  <html><head><title>Csound: DELAYANDFEEDBACK</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head><body><h1>DELAY AND FEEDBACK
+</h1>
+<p>
+</p>
+<p>A delay in DSP is a special kind of buffer sometimes called a circular buffer. The length of this buffer is finite and must be declared upon initialization as it is stored in RAM. One way to think of the circular buffer is that as new items are added at the beginning of the buffer the oldest items at the end of the buffer are being 'shoved' out.
+</p>
+<p>Besides their typical application for creating echo effects, delays can also be used to implement chorus, flanging, pitch shifting and filtering effects.
+</p>
+<p>Csound offers many opcodes for implementing delays. Some of these offer varying degrees of quality - often balanced against varying degrees of efficiency whilst some are for quite specialized purposes.
+</p>
+<p>To begin with this section is going to focus upon a pair of opcodes, <a href="http://www.csounds.com/manual/html/delayr.html">delayr</a> and <a href="http://www.csounds.com/manual/html/delayw.html">delay<span>w</span></a><em>.</em> Whilst not the most efficient to use in terms of the number of lines of code required, the use of <em>delayr</em> and <em>delayw</em> helps to clearly illustrate how a delay buffer works. Besides this, <em>delayr</em> and <em>delayw</em> actually offer a lot more flexibility and versatility than many of the other delay opcodes.
+</p>
+<p>When using <em>delayr</em> and <em>delayw</em> the establishement of a delay buffer is broken down into two steps: reading from the end of the buffer using <em>delayr</em> (and by doing this defining the length or duration of the buffer) and then writing into the beginning of the buffer using <em>delayw</em>.
+</p>
+<p>The code employed might look like this:
+</p>
+<pre>aSigOut  delayr  1
+         delayw  aSigIn
+</pre>
+<p>where 'aSigIn' is the input signal written into the beginning of the buffer and 'aSigOut' is the output signal read from the end of the buffer. The fact that we declare reading from the buffer before writing to it is sometimes initially confusing but, as alluded to before, one reason this is done is to declare the length of the buffer. The buffer length in this case is 1 second and this will be the apparent time delay between the input audio signal and audio read from the end of the buffer.
+</p>
+<p>The following example implements the delay described above in a .csd file. An input sound of sparse sine tone pulses is created. This is written into the delay buffer from which a new audio signal is created by read from the end of this buffer. The input signal (sometimes referred to as the dry signal) and the delay output signal (sometimes referred to as the wet signal) are mixed and set to the output. The delayed signal is attenuated with respect to the input signal.
+</p>
+<p><strong>   <em>EXAMPLE 05D01_delay.csd</em></strong>
+</p>
+<p>
+</p>
+<pre>&lt;CsoundSynthesizer&gt;
+
+&lt;CsOptions&gt;
+-odac ; activates real time sound output
+&lt;/CsOptions&gt;
+
+&lt;CsInstruments&gt;
+; Example by Iain McCurdy
+
+sr = 44100
+ksmps = 32
+nchnls = 1
+0dbfs = 1
+giSine   ftgen   0, 0, 2^12, 10, 1 ; a sine wave
+
+  instr 1
+; -- create an input signal: short 'blip' sounds --
+kEnv    loopseg  0.5, 0, 0, 0,0.0005, 1 , 0.1, 0, 1.9, 0, 0
+kCps    randomh  400, 600, 0.5
+aEnv    interp   kEnv
+aSig    poscil   aEnv, kCps, giSine
+
+; -- create a delay buffer --
+aBufOut delayr   0.3
+        delayw   aSig
+
+; -- send audio to output (input and output to the buffer are mixed)
+        out      aSig + (aBufOut*0.4)
+  endin
+
+&lt;/CsInstruments&gt;
+
+&lt;CsScore&gt;
+i 1 0 25
+e
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+</pre>
+<p>If we mix some of the delayed signal into the input signal that is written into the buffer then we will delay some of the delayed signal thus creating more than a single echo from each input sound. Typically the sound that is fed back into the delay input is attenuated so that sound cycle through the buffer indefinitely but instead will eventually die away. We can attenuate the feedback signal by multiplying it by a value in the range zero to 1. The rapidity with which echoes will die away is defined by how close the zero this value is. The following example implements a simple delay with feedback.
+</p>
+<p><strong>   <em>EXAMPLE 05D02_delay_feedback.csd</em></strong>
+</p>
+<pre>&lt;CsoundSynthesizer&gt;
+
+&lt;CsOptions&gt;
+-odac ;activates real time sound output
+&lt;/CsOptions&gt;
+
+&lt;CsInstruments&gt;
+;Example by Iain McCurdy
+
+sr = 44100
+ksmps = 32
+nchnls = 1
+0dbfs = 1
+
+giSine   ftgen   0, 0, 2^12, 10, 1  ; a sine wave
+
+  instr 1
+; -- create an input signal: short 'blip' sounds --
+kEnv    loopseg  0.5,0,0,0,0.0005,1,0.1,0,1.9,0,0 ; repeating envelope
+kCps    randomh  400, 600, 0.5                    ; 'held' random values
+aEnv    interp   kEnv                             ; a-rate envelope
+aSig    poscil   aEnv, kCps, giSine               ; generate audio
+
+; -- create a delay buffer --
+iFdback =        0.7                    ; feedback ratio
+aBufOut delayr   0.3                    ; read audio from end of buffer
+; write audio into buffer (mix in feedback signal)
+        delayw   aSig+(aBufOut*iFdback)
+
+; send audio to output (mix the input signal with the delayed signal)
+        out      aSig + (aBufOut*0.4)
+  endin
+
+&lt;/CsInstruments&gt;
+
+&lt;CsScore&gt;
+i 1 0 25
+e
+&lt;/CsScore&gt;
+
+&lt;/CsoundSynthesizer&gt;
+</pre>
+<p>Constructing a delay effect in this way is rather limited as the delay time is static. If we want to change the delay time we need to reinitialise the code that implements the delay buffer. A more flexible approach is to read audio from within the buffer using one of Csounds opcodes for 'tapping' a delay buffer, <em>deltap</em>, <em>deltapi</em>, <em><span>deltap3 or</span></em> <em>deltapx. </em>The opcodes are listed in order of increasing quality which also reflects an increase in computational expense. In the next example a delay tap is inserted within the delay buffer (between the <em>delayr</em> and the <em>delayw</em>) opcodes. As our delay time is modulating quite quickly we will use <em>deltapi</em> which uses linear interpolation as it rebuilds the audio signal whenever the delay time is moving. Note that this time we are not using the audio output from the <em>delayr</em> opcode as we are using the audio output from <em>deltapi</em> instead. The delay time used by <em>deltapi </em>is created by <em>randomi</em> which creates a random function of straight line segments. A-rate is used for the delay time to improve the accuracy of its values, use of k-rate would result in a noticeably poorer sound quality. You will notice that as well as modulating the time gap between echoes, this example also modulates the pitch of the echoes – if the delay tap is static within the buffer there would be no change in pitch, if is moving towards the beginning of the buffer then pitch will rise and if it is moving towards the end of the buffer then pitch will drop. This side effect has led to digital delay buffers being used in the design of many pitch shifting effects.
+</p>
+<p>The user must take care that the delay time demanded from the delay tap does not exceed the length of the buffer as defined in the <em>delayr</em> line. If it does it will attempt to read data beyond the end of the RAM buffer – the results of this are unpredictable. The user must also take care that the delay time does not go below zero, in fact the minumum delay time that will be permissible will be the duration of one k cycle (ksmps/sr).
+</p>
+<p><strong>   <em>EXAMPLE 05D03_deltapi.csd</em></strong>
+</p>
+<pre>&lt;CsoundSynthesizer&gt;
+
+&lt;CsOptions&gt;
+-odac ; activates real time sound output
+&lt;/CsOptions&gt;
+
+&lt;CsInstruments&gt;
+; Example by Iain McCurdy
+
+sr = 44100
+ksmps = 32
+nchnls = 1
+0dbfs = 1
+
+giSine   ftgen   0, 0, 2^12, 10, 1  ; a sine wave
+
+  instr 1
+; -- create an input signal: short 'blip' sounds --
+kEnv          loopseg  0.5,0,0,0,0.0005,1,0.1,0,1.9,0,0
+aEnv          interp   kEnv
+aSig          poscil   aEnv, 500, giSine
+
+aDelayTime    randomi  0.05, 0.2, 1      ; modulating delay time
+; -- create a delay buffer --
+aBufOut       delayr   0.2               ; read audio from end of buffer
+aTap          deltapi  aDelayTime        ; 'tap' the delay buffer
+              delayw   aSig + (aTap*0.9) ; write audio into buffer
+
+; send audio to the output (mix the input signal with the delayed signal)
+              out      aSig + (aTap*0.4)
+  endin
+
+&lt;/CsInstruments&gt;
+
+&lt;CsScore&gt;
+i 1 0 30
+e
+&lt;/CsScore&gt;
+
+&lt;/CsoundSynthesizer&gt;
+</pre>
+<p>We are not limited to inserting only a single delay tap within the buffer. If we add further taps we create what is known as a multi-tap delay. The following example implements a multi-tap delay with three delay taps. Note that only the final delay (the one closest to the end of the buffer) is fed back into the input in order to create feedback but all three taps are mixed and sent to the output. There is no reason not to experiment with arrangements other than this but this one is most typical.
+</p>
+<p><strong>   <em>EXAMPLE 05D04_multi-tap_delay.csd</em></strong>
+</p>
+<p>
+</p>
+<pre>&lt;CsoundSynthesizer&gt;
+
+&lt;CsOptions&gt;
+-odac ; activates real time sound output
+&lt;/CsOptions&gt;
+
+&lt;CsInstruments&gt;
+; Example by Iain McCurdy
+
+sr = 44100
+ksmps = 32
+nchnls = 1
+0dbfs = 1
+
+giSine   ftgen   0, 0, 2^12, 10, 1 ; a sine wave
+
+  instr 1
+; -- create an input signal: short 'blip' sounds --
+kEnv    loopseg  0.5,0,0,0,0.0005,1,0.1,0,1.9,0,0; repeating envelope
+kCps    randomh  400, 1000, 0.5                 ; 'held' random values
+aEnv    interp   kEnv                           ; a-rate envelope
+aSig    poscil   aEnv, kCps, giSine             ; generate audio
+
+; -- create a delay buffer --
+aBufOut delayr   0.5                    ; read audio end buffer
+aTap1   deltap   0.1373                 ; delay tap 1
+aTap2   deltap   0.2197                 ; delay tap 2
+aTap3   deltap   0.4139                 ; delay tap 3
+        delayw   aSig + (aTap3*0.4)     ; write audio into buffer
+
+; send audio to the output (mix the input signal with the delayed signals)
+        out      aSig + ((aTap1+aTap2+aTap3)*0.4)
+  endin
+
+&lt;/CsInstruments&gt;
+
+&lt;CsScore&gt;
+i 1 0 25
+e
+&lt;/CsScore&gt;
+
+&lt;/CsoundSynthesizer&gt;
+</pre>
+<p>As mentioned at the top of this section many familiar effects are actually created from using delay buffers in various ways. We will briefly look at one of these effects: the flanger. Flanging derives from a phenomenon which occurs when the delay time becomes so short that we begin to no longer perceive individual echoes but instead a stack of harmonically related resonances are perceived the frequencies of which are in simple ratio with 1/delay_time. This effect is known as a comb filter. When the delay time is slowly modulated and the resonances shifting up and down in sympathy the effect becomes known as a flanger. In this example the delay time of the flanger is modulated using an LFO that employs a U-shaped parabola as its waveform as this seems to provide the smoothest comb filter modulations.
+</p>
+<p><strong>   <em>EXAMPLE 05D05_flanger.csd</em></strong>
+</p>
+<pre>&lt;CsoundSynthesizer&gt;
+
+&lt;CsOptions&gt;
+-odac ; activates real time sound output
+&lt;/CsOptions&gt;
+
+&lt;CsInstruments&gt;
+;Example by Iain McCurdy
+
+sr = 44100
+ksmps = 32
+nchnls = 1
+0dbfs = 1
+
+giSine   ftgen   0, 0, 2^12, 10, 1                 ; a sine wave
+giLFOShape  ftgen   0, 0, 2^12, 19, 0.5, 1, 180, 1 ; u-shaped parabola
+
+  instr 1
+aSig    pinkish  0.1                               ; pink noise
+
+aMod    poscil   0.005, 0.05, giLFOShape           ; delay time LFO
+iOffset =        ksmps/sr                          ; minimum delay time
+kFdback linseg   0.8,(p3/2)-0.5,0.95,1,-0.95       ; feedback
+
+; -- create a delay buffer --
+aBufOut delayr   0.5                   ; read audio from end buffer
+aTap    deltap3  aMod + iOffset        ; tap audio from within buffer
+        delayw   aSig + (aTap*kFdback) ; write audio into buffer
+
+; send audio to the output (mix the input signal with the delayed signal)
+        out      aSig + aTap
+  endin
+
+&lt;/CsInstruments&gt;
+
+&lt;CsScore&gt;
+i 1 0 25
+e
+&lt;/CsScore&gt;
+
+&lt;/CsoundSynthesizer&gt;
+
+</pre>Delay buffers can be used to implement a wide variety of signal processing effects beyond simple echo effects. This chapter has introduced the basics of working with Csound's delay opcodes and also hinted at some of the further possibilities available.
+<br><p>
+</p></body></html>
+   
+  </div>
+ </div>
+
+
+  </div>
+</div>
+<!-- End of content -->
+
+
+
+<!-- sputnik error page -->
+<div id="dialog-sputnik-qrac" style="display: none"></div>
+<div id="dialog-sputnik-error" title="Can't communicate with booktype">
+  <p>
+    <span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
+    There has been error in communication with Booktype server.
+    Not sure right now where is the problem.
+  </p>
+  <p>
+    You should refresh this page.
+  </p>
+</div>
+
+
+<ul class="strings template">
+ <li class="ok">OK</li>
+ <li class="back">Back</li>
+ <li class="create">Create</li>
+ <li class="cancel">Cancel</li>
+ <li class="next">Next</li>
+ <li class="import">Import</li>
+ <li class="savechanges">Save changes</li>
+ <li class="errorcreategroup">Couldn't create a group!</li>
+ <li class="msgepub">enter epub URL</li>
+ <li class="msgarchive">enter Archive.org ID</li>
+ <li class="msgwiki">enter Wikibooks URL</li>
+ <li class="msgbooktype">enter Booktype URL</li>
+ <li class="deletebook">Delete book</li>
+</ul>
+
+</body>
+</html>
+

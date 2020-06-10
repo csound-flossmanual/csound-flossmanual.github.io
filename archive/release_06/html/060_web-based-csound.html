@@ -1,0 +1,1057 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html>
+ <head>
+   <link type="text/css" href="http://www.flossmanuals.net/_templates/prettify/src/prettify.css" rel="Stylesheet" />
+   <script type="text/javascript" src="http://www.flossmanuals.net/_templates/prettify/src/prettify.js"></script>
+
+   <link type="text/css" href="/site_static/js/jquery/themes/base/jquery.ui.all.css" rel="Stylesheet" >
+   <link type="text/css" href="/site_static/js/jquery/themes/smoothness/jquery.ui.all.css" rel="Stylesheet" >
+   <script type="text/javascript" src="/static/js/jquery-1.7.js"></script>
+<!--
+   <script type="text/javascript" src="/site_static/js/jquery/jquery-1.4.4.js"></script>
+-->   
+<script type="text/javascript" src="/site_static/js/jquery/ui/jquery-ui-1.8.10.custom.js"></script>
+   <script type="text/javascript" src="/site_static/js/jquery.json-1.3.js"></script>
+   <script type="text/javascript" src="/site_static/js/booki.js"></script>
+
+   <link href="/site_static/css/jquery.bubblepopup.v2.3.1.css" rel="stylesheet" type="text/css" />
+   <script src="/site_static/js/jquery.bubblepopup.v2.3.1.min.js" type="text/javascript"></script>
+
+   <link type="text/css" href="/static/css/booki_fm.css" rel="Stylesheet"/ >
+<style>
+.template {
+	display: none !important;
+}
+
+
+#header {
+    background-color: transparent !important;
+}
+.paginator { padding:.5em .75em; float:left; font:normal .8em arial; }
+ 
+.paginator .prev-na,
+.paginator .next-na {
+	padding:.3em;
+	font-weight: bold;
+/*	font:bold .875em arial; */
+}
+ 
+.paginator .prev-na,
+.paginator .next-na {
+/*	border:1px solid #ccc; 
+	background-color:#f9f9f9; */
+	color:#aaa;
+	font-weight:normal;
+}
+ 
+.paginator .prev a, .paginator .prev a:visited,
+.paginator .next a, .paginator .next a:visited {
+/*	border:1px solid #c2ee62; 
+	background-color:#edfdd0; */
+	color:#234f32;
+	padding:.3em;
+/*	font:bold .875em arial; */
+        font-weight: bold;
+}
+ 
+.paginator .prev, .paginator .prev-na { margin-right:.5em; }
+.paginator .next, .paginator .next-na { margin-left:.5em; }
+ 
+.paginator .page a, .paginator .page a:visited, .paginator .curr {
+	padding:.25em;
+	font-weight: normal;
+/*	font:normal .875em verdana; */
+/*	border:1px solid #C2EE62; 
+	background-color:#EDFDD0; */
+	margin:0em .25em;	
+	color:#006000;
+}
+ 
+.paginator .curr { 
+/*	background-color:#234f32; 
+	color:#fff; */
+	border:1px solid #234f32; 
+	font-weight:bold;
+	font-size:1em;
+}
+ 
+.paginator .page a:hover,
+.paginator .curr a:hover,
+.paginator .prev a:hover,
+.paginator .next a:hover {
+/*	color:#fff;
+	background-color:#234f32;
+	border:1px solid #234f32; */
+}
+</style>
+ <script type="text/javascript">
+      $(function() {
+   $.booki.sputnikDispatcherURL = "/_sputnik/";
+    });
+   </script>
+
+   <script type="text/javascript">
+     $(function() {
+	 // open debug window
+	 $.booki.debug.init();
+	 
+	 
+	 $("A.debug").click(function() {
+	     $("#bookidebug").dialog("open");
+	     return false;
+	 });
+     });
+   </script>
+
+   
+<title>/chapter: Web-Based-Csound / CSound</title>
+<link type="text/css" href="/site_static/css/editor.css" rel="Stylesheet" />
+
+<script src="http://assets.annotateit.org/annotator/v1.2.5/annotator-full.min.js"></script>
+<link rel="stylesheet" href="http://assets.annotateit.org/annotator/v1.2.5/annotator.min.css">
+
+
+
+<link rel="alternate" type="application/rss+xml" title="RSS feed for CSound" href="/feeds/rss/book/csound/" /> 
+<link rel="alternate" type="application/atom+xml" title="Atom feed for CSound" href="/feeds/atom/book/csound/" /> 
+
+<link rel="alternate" type="application/rss+xml" title="RSS feed for chapter Web-Based-Csound" href="/feeds/rss/chapter/csound/csound/" /> 
+<link rel="alternate" type="application/atom+xml" title="Atom feed for chapter Web-Based-Csound" href="/feeds/atom/chapter/csound/csound/" /> 
+
+
+ </head>
+<body onload="prettyPrint()" >
+<!-- testis -->
+
+<script type="text/javascript">
+$(function() {
+    $("#snippetdialog").dialog({autoOpen: false});
+});
+</script>
+
+
+<div id="snippetdialog" title="Basic dialog">
+        <p></p>
+</div>
+
+
+
+<div id="page-container"> 
+<style>
+body
+{
+margin:0;
+padding:0
+}
+#header
+{
+position:absolute;
+top:23px;
+width:100%;
+background-image: url('http://www.flossmanuals.net/_templates/fm_resources/header_bg.gif');
+background-position: 700px 0px; /* this places the orange background at
+an offset, making sure it doesn't underlap the left side of the gif */
+background-repeat: no-repeat;
+}
+
+#fmheader {
+    background-image: url("http://en.flossmanuals.net/_templates/fm_resources/header_bg.gif");
+    background-position: 600px 0;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 23px;
+    width: 100%;
+}
+#header_image
+{
+margin-left: 270px;
+border: 0px
+}
+
+#navigation
+{
+position:absolute;
+top: 80px;
+left: 357px;
+width:50%;
+}
+
+
+#languages
+{
+position:absolute;
+top: 40px;
+left: 740px;
+width:50%;
+}
+</style>
+
+
+
+<!-- Header graphic is common to all pages  -->
+<div id="header"><img id="header_image" alt="FlossManuals menu" src="http://www.flossmanuals.net/_templates/fm_resources/header_menu.gif" height="95" width="465" border="0"></div>
+
+
+<!-- Navigation buttons are language and context specific  -->
+<div id="navigation">
+<a title="Read" href="http://en.flossmanuals.net/index.php"><img src="http://www.flossmanuals.net/_templates/fm_resources/read_en.png" width="65" height="30" border="0" alt="Read"></a>
+<a title="Write" href="http://booki.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/write_active_en.png" width="65" height="30" border="0" alt="Write"></a>
+<a title="Remix" href="http://en.flossmanuals.net/index.php?plugin=remix"><img src="http://www.flossmanuals.net/_templates/fm_resources/remix_en.png" width="65" height="30" border="0" alt="Remix"></a>
+<a title="About" href="http://www.flossmanuals.org"><img src="http://www.flossmanuals.net/_templates/fm_resources/about_en.png" width="65" height="30" border="0" alt="About"></a>
+</div>
+
+<!-- Language buttons are common to all pages  -->
+<div id="languages">
+<a title="English" href="http://en.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/english_button.png" width="65" height="30" border="0" alt="English"></a>
+
+<!-- <a title="Español" href="http://es.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/spanish_button.png" width="65" height="30" border="0" alt="Español"></a> -->
+<a title="فارسی" href="http://fa.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/farsi_button.png" width="65" height="30" border="0" alt="فارسی"></a>
+<a title="Suomi" href="http://fi.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/finnish_button.png" width="65" height="30" border="0" alt="Suomi"></a>
+<br>
+<a title="Français" href="http://fr.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/french_button.png" width="65" height="30" border="0" alt="Français"></a>
+<a title="Nederlands" href="http://nl.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/dutch_button.png" width="65" height="30" border="0" alt="Nederlands"></a>
+<!-- <a title="Pусский" href="http://ru.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/russian_button.png" width="65" height="30" border="0" alt="Pусский"></a> -->
+<a title="Translate" href="http://translate.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/translate_button.png" width="65" height="30" border="0" alt="Translate"></a>
+</div>
+
+<!-- End top bar -->
+
+<!-- nav box + drop shadow -->
+<div class="navbox shadow" style="top:160px;">
+    		<ul>
+
+ 		<li><a href="/accounts/signin/?redirect=/csound/_draft/_v/1.0/web-based-csound/">Sign In</li><li>Register</a></li>
+
+                <li><a href="/list-books">All Manuals</a></li>
+                <li><a href="/list-groups">All Groups</a></li>
+                <li><a href="/list-people/">All People</a></li>
+           	</ul>
+</div>
+<!-- End of nav box -->
+
+
+
+<div class="content-container shadow">
+<!-- Content box and the drop shadow-->
+
+
+
+
+<br clear="all"/>
+   <h1>CSound</h1>
+
+
+<div id="bookmenu"   style="background: url(/site_static/images/draft_bg.png) repeat !important;">
+<ul>
+
+ 
+   <li><b>INTRODUCTION</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/introduction/">PREFACE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/how-to-use-this-manual/">HOW TO USE THIS MANUAL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/on-this-release/">ON THIS RELEASE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/credits/">CREDITS</a></li>
+ 
+
+ 
+   <li><b>01 BASICS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-digital-audio/">A. DIGITAL AUDIO</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-pitch-and-frequency/">B. PITCH AND FREQUENCY</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-intensities/">C. INTENSITIES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/random/">D. RANDOM</a></li>
+ 
+
+ 
+   <li><b>02 QUICK START</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-make-csound-run/">A. MAKE CSOUND RUN</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-csound-syntax/">B. CSOUND SYNTAX</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-configuring-midi/">C. CONFIGURING MIDI</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-live-audio/">D. LIVE AUDIO</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-rendering-to-file/">E. RENDERING TO FILE</a></li>
+ 
+
+ 
+   <li><b>03 CSOUND LANGUAGE</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-initialization-and-performance-pass/">A. INITIALIZATION AND PERFORMANCE PASS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-local-and-global-variables/">B. LOCAL AND GLOBAL VARIABLES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-control-structures/">C. CONTROL STRUCTURES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-function-tables/">D. FUNCTION TABLES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/arrays/">E. ARRAYS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-triggering-instrument-events/">F. LIVE EVENTS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-user-defined-opcodes/">G. USER DEFINED OPCODES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/macros/">H. MACROS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/functional-syntax/">I. FUNCTIONAL SYNTAX</a></li>
+ 
+
+ 
+   <li><b>04 SOUND SYNTHESIS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-additive-synthesis/">A. ADDITIVE SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-subtractive-synthesis/">B. SUBTRACTIVE SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-amplitude-and-ringmodulation/">C. AMPLITUDE AND RING MODULATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-frequency-modulation/">D. FREQUENCY MODULATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-waveshaping/">E. WAVESHAPING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-granular-synthesis/">F. GRANULAR SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/g-physical-modelling/">G. PHYSICAL MODELLING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/scanned-synthesis/">H. SCANNED SYNTHESIS</a></li>
+ 
+
+ 
+   <li><b>05 SOUND MODIFICATION</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-envelopes/">A. ENVELOPES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-panning-and-spatialization/">B. PANNING AND SPATIALIZATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-filters/">C. FILTERS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-delay-and-feedback/">D. DELAY AND FEEDBACK</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-reverberation/">E. REVERBERATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-am-rm-waveshaping/">F. AM / RM / WAVESHAPING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/g-granular-synthesis/">G. GRANULAR SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/h-convolution/">H. CONVOLUTION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/i-fourier-analysis-spectral-processing/">I. FOURIER ANALYSIS / SPECTRAL PROCESSING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/k-ats-resynthesis/">K. ATS RESYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/amplitude-and-pitch-tracking/">L. AMPLITUDE AND PITCH TRACKING</a></li>
+ 
+
+ 
+   <li><b>06 SAMPLES</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-record-and-play-soundfiles/">A. RECORD AND PLAY SOUNDFILES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-record-and-play-buffers/">B. RECORD AND PLAY BUFFERS</a></li>
+ 
+
+ 
+   <li><b>07 MIDI</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-receiving-events-by-midiin/">A. RECEIVING EVENTS BY MIDIIN</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-triggering-instrument-instances/">B. TRIGGERING INSTRUMENT INSTANCES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-working-with-controllers/">C. WORKING WITH CONTROLLERS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-reading-midi-files/">D. READING MIDI FILES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-midi-output/">E. MIDI OUTPUT</a></li>
+ 
+
+ 
+   <li><b>08 OTHER COMMUNICATION</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/osc-and-wii/">A. OPEN SOUND CONTROL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-arduino/">B. CSOUND AND ARDUINO</a></li>
+ 
+
+ 
+   <li><b>09 CSOUND IN OTHER APPLICATIONS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-pd/">A. CSOUND IN PD</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-maxmsp/">B. CSOUND IN MAXMSP</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-ableton-live/">C. CSOUND IN ABLETON LIVE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-csound-as-a-vst-plugin/">D. CSOUND AS A VST PLUGIN</a></li>
+ 
+
+ 
+   <li><b>10 CSOUND FRONTENDS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/qutecsound/">CSOUNDQT</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/cecilia/">CABBAGE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/blue/">BLUE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/winxound/">WINXOUND</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-via-terminal/">CSOUND VIA TERMINAL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/web-based-csound/">WEB BASED CSOUND</a></li>
+ 
+
+ 
+   <li><b>11 CSOUND UTILITIES</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-utilities/">CSOUND UTILITIES</a></li>
+ 
+
+ 
+   <li><b>12 CSOUND AND OTHER PROGRAMMING LANGUAGES</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/the-csound-api/">A. THE CSOUND API</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/using-python-inside-csound/">B. PYTHON INSIDE CSOUND</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-python-in-csoundqt/">C. PYTHON IN CSOUNDQT</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-lua-in-csound/">D. LUA IN CSOUND</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-csound-in-ios/">E. CSOUND IN iOS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-csound-on-android/">F. CSOUND ON ANDROID</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-and-haskell/">G. CSOUND AND HASKELL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/h-csound-and-html/">H. CSOUND AND HTML</a></li>
+ 
+
+ 
+   <li><b>13 EXTENDING CSOUND</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/extending-csound/">EXTENDING CSOUND</a></li>
+ 
+
+ 
+   <li><b>OPCODE GUIDE</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/overview/">OVERVIEW</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/signal-processing-i/">SIGNAL PROCESSING I</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/signal-processing-ii/">SIGNAL PROCESSING II</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/data/">DATA</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/realtime-interaction/">REALTIME INTERACTION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/instrument-control/">INSTRUMENT CONTROL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/math-pythonsystem-plugins/">MATHS, PYTHON/SYSTEM, PLUGINS</a></li>
+ 
+
+ 
+   <li><b>APPENDIX</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/writing-csound-scores-by-hand/">METHODS OF WRITING CSOUND SCORES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/glossary/">GLOSSARY</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/links/">LINKS</a></li>
+ 
+
+</ul>
+</div>
+<div id="bookcontent"   >
+<h1>WEB BASED CSOUND
+</h1>
+<h2>Using Csound via UDP with the --port Option
+</h2>
+<p> The --port=N option allows users to send orchestras to be compiled on-the-fly by Csound via UDP connection. This way, Csound can be started with no instruments, and will listen to messages sent to it. Many programs are capable of sending UDP messages, and scripting languages, such as Python, can also be used for this purpose. The simplest way of trying out this option is via the netcat program, which can be used in the terminal via the nc command.
+</p>
+<p>Let's explore this as an example of the --port option. First, Csound is started with the following command:
+</p>
+<pre>$ csound -odac --port=1234</pre>
+<p>Alternatively, if using a frontend such as CsoundQT, it is possible run an empty CSD, with the --port in its CsOptions field:
+</p>
+<pre>&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+--port=1234
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;</pre>
+<p>This will start Csound in a daemon mode, waiting for any UDP messages in port 1234. Now with netcat, orchestra code can be sent to Csound. A basic option is to use it interactively in the terminal, with a heredocument command (&lt;&lt;) to indicate the end of the orchestra we are sending:
+</p>
+<pre>$ nc -u 127.0.0.1 1234 &lt;&lt; EOF
+&gt; instr 1
+&gt; a1 oscili p4*0dbfs,p5
+&gt; out a1
+&gt; endin
+&gt; schedule 1,0,1,0.5,440
+&gt; EOF</pre>
+<p>Csound will respond with a 440Hz sinewave. The ctl-c key combination can be used to close nc and go back to the shell prompt. Alternatively, we could write our orchestra code to a file and then send it to Csound via
+  <br />the following command (orch is the name of our file):
+</p>
+<pre>$ nc -u 127.0.0.1 1234 &lt; orch</pre>
+<p>Csound performance can be stopped in the usual way via ctl-c in the terminal, or through the dedicated
+  <br />transport controls in a frontend. We can also close the server it via a special UDP message:
+</p>
+<pre><span style="background-color: red; color: white; font-weight: bold">ERROR WITH MACRO close</span></pre>
+<p>However, this will not close Csound, but just stop the UDP server.
+</p>
+<p>
+  <br />
+</p>
+<h2>pNaCl - Csound for Portable Native Client
+</h2>
+<p>Native Client (NaCl) is a sandboxing technology developed by Google that allows C/C++ modules to extend the support provided by HTML5. Portable Native Client (pNaCl) is one of the toolchains in the NaCl SDK (the others are newlib and glibc). The advantage of pNaCl over the other options is that it only requires a single module to be built for all supported architectures.
+</p>
+<p>The other major advantage is that pNaCl is, as of Google Chrome 31, enabled by default in the browser. This means that users just need to load a page containing the pNaCl application and it will work. pNaCl modules are compiled to llvm bytecode that is translated to a native binary by the browser. To check whether your version of Chrome supports pNaCl, use the following address:&nbsp;
+</p>
+<pre>chrome://nacl
+</pre>
+<p>The pNaCl Csound implementation allows users to embed the system in web pages. With a minimal use of Javascript, it is possible to create applications and frontends for Csound, to be run inside a web browser (Chrome, Chromium).&nbsp;
+</p>
+<p>A binary package for pNaCl-Csound can be found in the Csound releases <a href="http://sourceforge.net/projects/csound/files/csound6" class="url"><span class="cmtt-10x-x-109">http://sourceforge.net/projects/csound/files/csound6</span></a>
+</p>
+<h3>
+  <p>Running the example application
+    <br />
+  </p>
+</h3>
+<p>NaCl pages need to be served over http, which means they will not work when opened as local files. For this you will need a http server. A minimal one, written in Python, can be found in the NaCl SDK <a href="https://developer.chrome.com/native-client/sdk/download" class="url"><span class="cmtt-10x-x-109">https://developer.chrome.com/native-client/sdk/download</span></a>.&nbsp;
+</p>
+<h3>
+</h3>
+<h3 class="sectionHead">Csound pNaCl module reference
+</h3>
+<p>The interface to Csound is found in the csound.js javascript file. Csound is ready on module load, and can accept control messages from then on.&nbsp;
+</p>
+<h4>
+</h4>
+<h4 class="subsectionHead">Control functions
+</h4>
+<p>The following control functions can be used to interact with Csound:
+</p>
+<ul>
+  <li><strong>csound.Play()</strong> - starts performance</li>
+  <li><strong>csound.PlayCsd(s)</strong> - starts performance from a CSD file s, which can be in ./http/ (ORIGIN server) or ./local/ (local sandbox).</li>
+  <li><strong>csound.RenderCsd(s)</strong> - renders a CSD file s, which can be in ./http/ (ORIGIN server) or ./local/ (local sandbox), with no RT audio output. The “finished render” message is issued on completion.</li>
+  <li><strong>csound.Pause()</strong> - pauses performance</li>
+  <li><strong>csound.StartAudioInput()</strong> - switches on audio input (available in Chrome version 36 onwards)</li>
+  <li><strong>csound.CompileOrc(s)</strong> - compiles the Csound code in the string s</li>
+  <li><strong>csound.ReadScore(s)</strong> - reads the score in the string s (with preprocessing support)</li>
+  <li><strong>csound.Event(s)</strong> - sends in the line events contained in the string s (no preprocessing)</li>
+  <li><strong>csound.SetChannel(name, value)</strong> - sends the control channel name the value value.</li>
+  <li><strong>csound.SetStringChannel(name, string)</strong> - sends the string channel name the string string.</li>
+  <li><strong>csound.SetTable(num, pos, value)</strong> - sets the table name at index pos the value value.</li>
+  <li><strong>csound.RequestTable(num)</strong> - requests the table data for table num. The “Table::Complete” message is issued on completion.</li>
+  <li><strong>csound.GetTableData()</strong> - returns the most recently requested table data as an ArrayObject.</li>
+  <li><strong>MIDIin(byte1, byte2, byte3)</strong> - sends a MIDI in message to Csound.</li>
+  <li><strong>NoteOn(channel,number,velocity)</strong> - sends a Note ON message to Csound.</li>
+  <li><strong>NoteOff(channel,number,velocity)</strong> - sends a Note OFF message to Csound.</li>
+  <li><strong>PolyAftertouch(channel,number,aftertouch)</strong> - sends a polyphonic aftertouch message to Csound.</li>
+  <li><strong>ControlChange(channel,control,amount)</strong> - sends a control change message to Csound.</li>
+  <li><strong>ProgramChange(channel,control)</strong> - sends a program change message to Csound.</li>
+  <li><strong>Aftertouch(channel,amount)</strong> - sends a mono aftertouch message to Csound.</li>
+  <li><strong>PitchBend(channel,fine,coarse)</strong> - sends a pitchbend message to Csound</li>
+</ul>
+<h4>Filesystem functions&nbsp;
+</h4>
+<p>In order to facilitate access to files, the following filesystem functions can be used:&nbsp;
+</p>
+<ul>
+  <li><strong>csound.CopyToLocal(src, dest)</strong> - copies the file src in the ORIGIN directory to the local file dest, which can be accessed at ./local/dest. The “Complete” message is issued on completion.</li>
+  <li><strong>csound.CopyUrlToLocal(url,dest)</strong> - copies the url url to the local file dest, which can be accessed at ./local/dest. Currently only ORIGIN and CORS urls are allowed remotely, but local files can also be passed if encoded as urls with the webkitURL.createObjectURL() javascript method. The “Complete” message is issued on completion.</li>
+  <li><strong>csound.RequestFileFromLocal(src)</strong> - requests the data from the local file src. The “Complete” message is issued on completion.</li>
+  <li><strong>csound.GetFileData()</strong> - returns the most recently requested file data as an ArrayObject.
+  <br /></li>
+</ul>
+<h4>Callbacks
+</h4>
+<p> The csound.js module will call the following window functions when it starts:
+</p>
+<ul>
+  <li><strong>function moduleDidLoad()</strong>: this is called as soon as the module is loaded</li>
+  <li><strong>function handleMessage(message)</strong>: called when there are messages from Csound (pnacl module). The string message.data contains the message.</li>
+  <li><strong>function attachListeners()</strong>: this is called when listeners for different events are to be attached.
+  <br /></li>
+</ul>
+<p>You should implement these functions in your HTML page script, in order to use the Csound javascript interface. In addition to the above, Csound javascript module messages are always sent to the HTML element with id=‘console’, which is normally of type <span class="cmmi-10x-x-109">&lt;</span>div<span class="cmmi-10x-x-109">&gt; </span>or <span class="cmmi-10x-x-109">&lt;</span>textarea<span class="cmmi-10x-x-109">&gt;</span>.&nbsp;
+</p>
+<h3>Example
+</h3>
+<p>Here is a minimal HTML example showing the use of Csound.
+</p>
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;!--
+ Csound pnacl minimal example
+ Copyright (C) 2013 V Lazzarini
+--&gt;
+&lt;head&gt;
+ &lt;title&gt;Minimal Csound Example&lt;/title&gt;
+ &lt;script type="text/javascript" src="csound.js"&gt;&lt;/script&gt;
+ &lt;script type="text/javascript"&gt;
+ // called by csound.js
+function moduleDidLoad() {
+  csound.Play();
+  csound.CompileOrc(
+  "instr 1 \n" +
+  "icps = 440+rnd(440) \n" +
+  "chnset icps, \"freq\" \n" +
+  "a1 oscili 0.1, icps\n" +
+  "outs a1,a1 \n" +
+  "endin");
+  document.getElementById("tit").innerHTML = "Click on the page below to play";
+ }
+ function attachListeners() {
+   document.getElementById("mess").
+       addEventListener("click",Play);
+ }
+ function handleMessage(message) {
+   var mess = message.data;
+   if(mess.slice(0,11) == "::control::") {
+   var messField = document.getElementById("console")
+   messField.innerText = mess.slice(11);
+   }
+   else {
+   var messField = document.getElementById("mess")
+   messField.innerText += mess;
+   csound.RequestChannel("freq");
+  }
+ }
+
+ // click handler
+ function Play() {
+   csound.Event("i 1 0 5");
+ }
+ &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div id="console"&gt;&lt;/div&gt;
+   &lt;h3 id="tit"&gt; &lt;/h3&gt;
+  &lt;div id="mess"&gt;
+
+  &lt;/div&gt;
+  &lt;!--pNaCl csound module--&gt;
+  &lt;div id="engine"&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<h3>Limitations
+  <br />
+</h3>
+<p>The following limitations apply:
+</p>
+<ul>
+  <li>MIDI is implemented so that Csound MIDI opcodes can be used. MIDI hardware interface needs to be provided in Javascript by another library (e.g. WebMIDI).</li>
+  <li>no plugins, as pNaCl does not support dlopen() and friends. This means some opcodes are not available as they reside in plugin libraries. It might be possible to add some of these opcodes statically to the Csound pNaCl library in the future.
+  <br /></li>
+</ul>
+<p>More information on Csound for pNaCl can be found <a href="http://vlazzarini.github.io/">http://vlazzarini.github.io/</a>.
+</p>
+<p><img src="static/pNaCl.png" />&nbsp;
+</p>
+<p>&nbsp;
+</p>
+<h2 id="csoundemscripten-a-javascript-library-for-csound-on-the-web">libcsound.js - Csound as a Javascript Library
+</h2>
+<h3 id="introduction">Introduction
+</h3>
+<h3 id="introduction"><span style="font-weight: normal;"><span style="font-family: trebuchet, verdana, sans-serif; font-size: 12px;">The javascript build of Csound allows any standards compliant web browser to run an instance of Csound in a web page without the need for plugins or add ons. This is made possible by using </span><a href="http://Emscripten.org" style="font-family: trebuchet, verdana, sans-serif; font-size: 12px;">Emscripten</a><span style="font-family: trebuchet, verdana, sans-serif; font-size: 12px;">, a program that can convert software written in C (such as Csound) into Javascript, allowing it to be run natively within any web browser that supports modern web standards.</span></span>
+</h3>
+<h3 id="caveats">Caveats
+</h3>
+<p>The javascript build of Csound is currently in early stages of development and therefore there are a number of caveats and limitations with its current implementation which should be noted.
+</p>
+<ul>
+  <li>
+  <p>Emscripten generates a highly optimisable subset of Javascript called <a href="http://asmjs.org"><em>asm.js</em></a>. This allows Javascript engines which have been optimised for this subset to achieve substantial performance increases over other Javascript engines. At this time the only Javascript engine that supports asm.js optimisations is the Spider Monkey engine which is part of Firefox. Therefore the Emscripten build of Csound will perform best on the current version of Firefox.
+  </p></li>
+  <li>
+  <p>At this time, due to the design of the Web Audio API, the Csound javascript library can only execute within the main thread of a web page. This means that it must pause execution of any performance when any other process that uses the main thread (such as the UI) needs to execute. This can cause dropouts and/or glitching of the audio during a performance.
+  </p></li>
+  <li>
+  <p>As this project is in its infancy, there are a minimal number of routines implemented so far in order to instantiate, compile and perform a .csd file. Additional routines will be added over time as the project matures.
+  </p></li>
+</ul>
+<h3 id="getting-csoundemscripten">Getting libcsound.js
+</h3>
+<p>The javascript build of Csound now comes as part of the regular distribution of the Csound source code. It can be found in the <em>emscripten </em>folder which also contains a markdown file that gives the instructions on how to compile the javascript library.&nbsp;
+</p>
+<h3 id="using-csoundemscripten">Using libcsound.js
+</h3>
+<p>In order to demonstrate how to use the Csound javascript library, what follows is a tutorial which shows the steps necessary to create a simple website that can open .csd files, compile them, and play them back from the browser.
+</p>
+<h4 id="create-a-simple-website">Create a simple website
+</h4>
+<p>First create a new folder for the website and copy the libcsound.js and libcsound.js.mem&nbsp; files from the emscripten/dist directory into the new websites directory. Next, create an index.html file at the top level of the new websites directory that contains the following minimal html code:
+</p>
+<pre><code class="html">&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv="content-type" content="text/html; charset=utf-8"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4 id="instantiate-csound">Instantiate Csound
+</h4>
+<p>We need to write some Javascript to create an instance of CsoundObj, so within the body tags ad new script tags and insert the following code:
+</p>
+<pre><code class="html">&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv="content-type" content="text/html; charset=utf-8"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script src="libcsound.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+Module['noExitRuntime'] = true;
+Module['_main'] = function() {
+
+    var csoundObj = new CsoundObj();
+
+};
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>The <em>Module</em>&nbsp;functions within this code are related to how emscripten built javascript libraries execute when a webpage is loaded. The <em>noExitRuntime</em>&nbsp;variable sets whether the emscripten runtime environment is exited once the main function has finished executing. The <em>_main</em>&nbsp;variable is actually a function that is executed as soon as the webpage has finished loading.&nbsp;Csound itself is instantiated using a constructor for the <em>CsoundObj</em>&nbsp;object. This object provides all the methods for directly interacting with the current running instance of csound.
+</p>
+<p>The Javascript console of the web browser should now show some messages that give the version number of Csound, the build date and the version of libsndfile being used by Csound.
+</p>
+<p>&nbsp;<strong>Upload .csd file to Javascript File System</strong>
+</p>
+<p>In order to run a .csd file from the Csound javascript library, we first need to upload the file from the local file system to the javascript virtual file system. In the emscripten/examples directory there is the <em>FileManager.js </em>file&nbsp;that provides an object which&nbsp;greatly simplifies the process of uploading files to the virtual file system. Copy <em>FileManager.js </em>to the root directory of the web page.
+</p>
+<pre>&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv="content-type" content="text/html; charset=utf-8"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script src="libcsound.js"&gt;&lt;/script&gt;
+&lt;script src="FileManager.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+Module['noExitRuntime'] = true;
+Module['_main'] = function() {
+
+    var csoundObj = new CsoundObj();
+
+    var fileManger = new FileManager(['csd'], console.log);
+
+    fileManger.fileUploadFromServer("test.csd", function() {
+
+        csoundObj.compileCSD("test.csd");
+    });
+};
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p>As can be seen in the code above, the file manager is instantiated with two arguments. The first argument is an array of strings which tells the file manager instance which file extensions that are permitted to be uploaded. The second argument is the function with which the file manger will print error messages, in this case it will print to the javascript console. The file managers upload method also takes two arguments. The first argument is the files path relative to the website root directory and the second is the function to execute when the file has been successfully uploaded. In this case when the file has been uploaded csound will compile the .csd file.
+</p>
+<p>If the web page is reloaded now, the file <em>test.csd </em>will be uploaded to the javascript file system and csound will compile it making it ready for performance.
+</p>
+<h3><strong>Running Csound&nbsp;</strong>
+</h3>
+<p>Once the .csd file has been compiled csound can execute a performance. In the following code we will create an html button and add some code to the button so that when pressed it will run a performance of csound.&nbsp;
+</p>
+<pre>&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv="content-type" content="text/html; charset=utf-8"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script src="libcsound.js"&gt;&lt;/script&gt;
+&lt;script src="FileManager.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+Module['noExitRuntime'] = true;
+Module['_main'] = function() {
+
+    var csoundObj = new CsoundObj();
+
+    var fileManger = new FileManager(['csd'], console.log);
+
+    fileManger.fileUploadFromServer("test.csd", function() {
+
+        csoundObj.compileCSD("test.csd");
+    });
+
+    var startButton = document.createElement("BUTTON");
+    startButton.innerHTML = "Start Csound";
+    startButton.onclick = function() {
+
+        csoundObj.start();
+    };
+
+    document.body.appendChild(startButton);
+};
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;<span style="line-height: 1.5em; font-family: trebuchet, verdana, sans-serif;">&nbsp;</span></pre>
+<p>Here we can see that the button <em>startButton</em>&nbsp;is instantiated using the <em>document.createElement </em>method. The buttons label is set using the <em>innerHTML </em>method, and we can set the buttons action by defining a function and assigning it to the buttons <em>onclick</em>&nbsp;method. The function simply calls the <em>start</em>&nbsp;method from <em>CsoundObj. </em>The button is then added to the DOM using <em>document.body.appendChild</em>.&nbsp;
+</p>
+<p>If the page is reloaded there should now be a button present that is labelled with the text "Start Csound". When the button is pressed csound should perform the .csd file which was uploaded to the javascript file system.&nbsp;
+</p>
+<h4 id="implement-file-upload-facility" style="text-align: left;"><span style="font-family: Arial, verdana, sans-serif; font-size: 14px;">CsoundOb</span><span style="font-family: Arial, verdana, sans-serif; font-size: 14px;">j.js Reference</span>
+</h4>
+<p><strong><em>CsoundObj.compileCSD(fileName)</em></strong>
+</p>
+<p>This method takes as its argument the address of a CSD file <em>fileName</em> and compiles it for performance. The CSD file must be present in Emscripten's javascript virtual filesystem.
+</p>
+<hr />
+<p><strong><em>CsoundObj.disableAudioInput()</em></strong>
+</p>
+<p>This method disables audio input to the web browser. Audio input will not be available to the running Csound instance
+</p>
+<hr />
+<p><strong><em>CsoundObj.enableAudioInput()</em></strong>
+</p>
+<p>This method enables audio input to the web browser. When called, it triggers a permissions dialogue in the host web browser requesting permission to allow audio input. If permission is granted, audio input is available for the running Csound instance.&nbsp;
+</p>
+<hr />
+<p><strong><em>CsoundObj.enableMidiInput()</em></strong>
+</p>
+<p>This method enables Midi input to the web browser. When activated on supported browsers (currently only Chrome supports web midi) it is possible for the running instance of Csound to receive midi messages from a compatible input device.
+</p>
+<hr />
+<p><strong><em>CsoundObj.evaluateCode()</em></strong>
+</p>
+<p>This method takes a string of Csound orchestra code and evaluates it on the fly. Any instruments contained in the code will be created and added to the running Csound process.
+</p>
+<hr />
+<p><strong><em>CsoundObj.readScore()</em></strong>
+</p>
+<p>
+</p>
+<p>This method takes a string of Csound score code and evaluates it.
+</p>
+<hr />
+<p><strong><em>CsoundObj.render()</em></strong>
+</p>
+<p>This method renders the currently compiled .csd file as quickly as possible. This method is currently only used to evaluate the performance of libcsound.js and is of no practical use to end users.
+</p>
+<hr />
+<p><strong><em>CsoundObj.reset()</em></strong>
+</p>
+<p>This method resets the currently running instance of Csound. This method should be called before a new .csd file needs to be read and compiled for performance.
+</p>
+<hr />
+<p><strong><em>CsoundObj.setControlChannel()</em></strong>
+</p>
+<p>This method sets a named Csound control channel to a specified value.
+</p>
+<hr />
+<p><strong><em>CsoundObj.setControlChannel()</em></strong>
+</p>
+<p>This method gets the current value of a named Csound control channel.&nbsp;
+</p>
+<hr />
+<p><strong><em>CsoundObj.start()</em></strong>
+</p>
+<p>This method starts a performance of a compiled .csd file.
+</p>
+   <hr/>
+    <a href="/csound/_edit/">EDIT</a>
+
+</div>
+
+<script type="text/javascript">
+jQuery(function ($) {
+    $('#bookcontent').annotator()
+   		.annotator('setupPlugins', {}, {
+                Tags: false,
+                Filter: {
+                  addAnnotationFilter: false
+                },
+                Permissions: false,
+                AnnotateItPermissions: {}
+              });
+});
+</script>
+
+
+
+</div>
+<!-- End of content -->
+
+</div>  
+<!-- DEV TOOLS -->
+<div id="bookidebug">
+</div>
+
+<!-- sputnik error page -->
+<div id="dialog-sputnik-qrac" style="display: none"></div>
+</body>
+</html>
+

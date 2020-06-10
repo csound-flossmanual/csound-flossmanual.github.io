@@ -1,0 +1,698 @@
+
+<!DOCTYPE HTML>
+<html>
+ <head>
+   
+
+<link type="text/css" href="/site_static/css/booki.css" rel="Stylesheet" >
+<link type="text/css" href="/site_static/js/jquery/themes/base/jquery.ui.all.css" rel="Stylesheet" >
+<link type="text/css" href="/site_static/js/jquery/themes/smoothness/jquery.ui.all.css" rel="Stylesheet" >
+<script type="text/javascript" src="/site_static/js/jquery/jquery-1.4.4.js"></script>
+<script type="text/javascript" src="/site_static/js/jquery/ui/jquery-ui-1.8.10.custom.js"></script>
+<script type="text/javascript" src="/site_static/js/jquery.json-1.3.js"></script>
+<script type="text/javascript" src="/site_static/js/booki.js"></script>
+<script src="/site_static/js/messaging.js" type="text/javascript"></script>   
+<script type="text/javascript" src="/site_static/js/general.js"></script>
+<link href="/site_static/css/jquery.bubblepopup.v2.3.1.css" rel="stylesheet" type="text/css" />
+<link type="text/css" href="/site_static/css/jquery-ui_overrides.css" rel="Stylesheet" >
+<script src="/site_static/js/jquery.bubblepopup.v2.3.1.min.js" type="text/javascript"></script>
+
+<link rel="SHORTCUT ICON" href="http://write.flossmanuals.net/site_static/images/favicon.ico" type="image/x-icon">
+
+
+<script type="text/javascript">
+  $(function() {
+      $.booki.sputnikDispatcherURL = "/_sputnik/";
+
+      $("#dialog-sputnik-error").dialog({
+          modal: true,
+          autoOpen: false,
+          buttons: {
+            Ok: function() {
+               $(this).dialog('close');
+               window.location = '.';
+            }
+          }
+      });
+  
+      $("FORM.messagefield").messagefield('init', {'view_post': '/messaging/post' });  
+  });
+</script>
+
+
+   
+ <title>/chapter: Cabbage / CSOUND</title>
+ <link type="text/css" href="/site_static/css/draft.css" rel="Stylesheet" />
+
+ <link rel="alternate" type="application/rss+xml" title="RSS feed for CSOUND" href="/feeds/rss/book/csound/" /> 
+ <link rel="alternate" type="application/atom+xml" title="Atom feed for CSOUND" href="/feeds/atom/book/csound/" /> 
+
+ <link rel="alternate" type="application/rss+xml" title="RSS feed for chapter CABBAGE" href="/feeds/rss/chapter/csound/csound/" /> 
+ <link rel="alternate" type="application/atom+xml" title="Atom feed for chapter CABBAGE" href="/feeds/atom/chapter/csound/csound/" /> 
+ 
+ <script type="text/javascript" src="/site_static/js/draft.js"></script>
+
+
+   <link type="text/css" href="/static/css/_user.css" rel="Stylesheet" >
+ </head>
+<body>
+
+<div class="topbar"> 
+  <div class="logo"><a href="http://write.flossmanuals.net/"></a></div>
+
+  <div class="meta-bar">
+    
+    <ul>
+      <li>
+        <a href="/accounts/signin/?redirect=/csound/_draft/_v/1.0/cabbage/">Sign In / Create Account</a>
+      </li>
+    </ul>
+    
+    <div style="padding-top: 10px; padding-right: 15px;">
+      <br/>
+      
+
+<script>
+  $(function() {
+    var $frm = $("FORM[name=changelang]");
+	
+    $("A[href=#]", $frm).click(function() {
+        var lang = $(this).attr("class").substr(4);
+	
+        $("INPUT[name=language]", $frm).val(lang);
+        $frm.submit();
+	
+        return false;
+    });
+  });
+ </script>
+
+<form name="changelang" method="POST" action="/accounts/i18n/setlang/?language=en-us">
+  <input type="hidden" name="language" value="en-us">
+  
+    &nbsp;English&nbsp;|
+  
+  
+  
+    &nbsp;<a class="langes" href="#">Español</a>&nbsp;|
+  
+
+  
+    &nbsp;<a class="langfr" href="#">Français</a>&nbsp;|
+  
+	
+  
+    &nbsp;<a class="langit" href="#">Italiano</a>&nbsp;|
+  
+	
+  
+    &nbsp;<a class="langpt" href="#">Português</a>&nbsp;|
+  
+	
+  
+    &nbsp;<a class="langru" href="#">Русский</a>&nbsp;|
+  
+	
+  
+    &nbsp;<a class="langsq" href="#">Shqip</a>
+  	
+</form>
+
+    </div>
+    
+    
+  </div><!-- End of .meta-bar -->
+</div><!-- End top bar -->
+
+<div class="menubar shadow">
+  
+  
+  <div class="navbox">
+    <ul>
+      <li><a href="/list-books/">Books</a></li>
+      <li><a href="/list-groups/">Groups</a></li>
+      <li><a href="/list-people/">People</a></li>
+    </ul>      
+  </div><!-- End of .navbox -->       
+</div>
+
+<div class="content-container">
+  <div class="content shadow">
+    <!-- Content box and the drop shadow-->
+    
+
+<h2>CSOUND</h2>
+<div class="padded">
+ <div id="bookmenu" style="background: url(/site_static/images/draft_bg.png) repeat !important;"> 
+  <ul>
+   
+    
+      <li><b>INTRODUCTION</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/preface/">PREFACE</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/how-to-use-this-manual/">HOW TO USE THIS MANUAL</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/on-this-release/">ON THIS RELEASE</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/credits/">CREDITS</a></li>
+    
+   
+    
+      <li><b>01 BASICS</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-digital-audio/">A. DIGITAL AUDIO</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-pitch-and-frequency/">B. PITCH AND FREQUENCY</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-intensities/">C. INTENSITIES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-random/">D. RANDOM</a></li>
+    
+   
+    
+      <li><b>02 QUICK START</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-make-csound-run/">A. MAKE CSOUND RUN</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-csound-syntax/">B. CSOUND SYNTAX</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-configuring-midi/">C. CONFIGURING MIDI</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-live-audio/">D. LIVE AUDIO</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-rendering-to-file/">E. RENDERING TO FILE</a></li>
+    
+   
+    
+      <li><b>03 CSOUND LANGUAGE</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-initialization-and-performance-pass/">A. INITIALIZATION AND PERFORMANCE PASS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-local-and-global-variables/">B. LOCAL AND GLOBAL VARIABLES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-control-structures/">C. CONTROL STRUCTURES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-function-tables/">D. FUNCTION TABLES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-arrays/">E. ARRAYS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/f-live-events/">F. LIVE EVENTS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/g-user-defined-opcodes/">G. USER DEFINED OPCODES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/h-macros/">H. MACROS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/i-functional-syntax/">I. FUNCTIONAL SYNTAX</a></li>
+    
+   
+    
+      <li><b>04 SOUND SYNTHESIS</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-additive-synthesis/">A. ADDITIVE SYNTHESIS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-subtractive-synthesis/">B. SUBTRACTIVE SYNTHESIS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-amplitude-and-ring-modulation/">C. AMPLITUDE AND RING MODULATION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-frequency-modulation/">D. FREQUENCY MODULATION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-waveshaping/">E. WAVESHAPING</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/f-granular-synthesis/">F. GRANULAR SYNTHESIS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/g-physical-modelling/">G. PHYSICAL MODELLING</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/h-scanned-synthesis/">H. SCANNED SYNTHESIS</a></li>
+    
+   
+    
+      <li><b>05 SOUND MODIFICATION</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-envelopes/">A. ENVELOPES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-panning-and-spatialization/">B. PANNING AND SPATIALIZATION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-filters/">C. FILTERS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-delay-and-feedback/">D. DELAY AND FEEDBACK</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-reverberation/">E. REVERBERATION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/f-am-rm-waveshaping/">F. AM / RM / WAVESHAPING</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/g-granular-synthesis/">G. GRANULAR SYNTHESIS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/h-convolution/">H. CONVOLUTION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/i-fourier-analysis-spectral-processing/">I. FOURIER ANALYSIS / SPECTRAL PROCESSING</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/k-ats-resynthesis/">K. ATS RESYNTHESIS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/l-amplitude-and-pitch-tracking/">L. AMPLITUDE AND PITCH TRACKING</a></li>
+    
+   
+    
+      <li><b>06 SAMPLES</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-record-and-play-soundfiles/">A. RECORD AND PLAY SOUNDFILES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-record-and-play-buffers/">B. RECORD AND PLAY BUFFERS</a></li>
+    
+   
+    
+      <li><b>07 MIDI</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-receiving-events-by-midiin/">A. RECEIVING EVENTS BY MIDIIN</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-triggering-instrument-instances/">B. TRIGGERING INSTRUMENT INSTANCES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-working-with-controllers/">C. WORKING WITH CONTROLLERS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-reading-midi-files/">D. READING MIDI FILES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-midi-output/">E. MIDI OUTPUT</a></li>
+    
+   
+    
+      <li><b>08 OTHER COMMUNICATION</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-open-sound-control/">A. OPEN SOUND CONTROL</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-csound-and-arduino/">B. CSOUND AND ARDUINO</a></li>
+    
+   
+    
+      <li><b>09 CSOUND IN OTHER APPLICATIONS</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-csound-in-pd/">A. CSOUND IN PD</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-csound-in-maxmsp/">B. CSOUND IN MAXMSP</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-csound-in-ableton-live/">C. CSOUND IN ABLETON LIVE</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-csound-as-a-vst-plugin/">D. CSOUND AS A VST PLUGIN</a></li>
+    
+   
+    
+      <li><b>10 CSOUND FRONTENDS</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/csoundqt/">CSOUNDQT</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/cabbage/">CABBAGE</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/blue/">BLUE</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/winxound/">WINXOUND</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/csound-via-terminal/">CSOUND VIA TERMINAL</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/web-based-csound/">WEB BASED CSOUND</a></li>
+    
+   
+    
+      <li><b>11 CSOUND UTILITIES</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/csound-utilities/">CSOUND UTILITIES</a></li>
+    
+   
+    
+      <li><b>12 CSOUND AND OTHER PROGRAMMING LANGUAGES</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-the-csound-api/">A. THE CSOUND API</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-python-inside-csound/">B. PYTHON INSIDE CSOUND</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-python-in-csoundqt/">C. PYTHON IN CSOUNDQT</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-lua-in-csound/">D. LUA IN CSOUND</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-csound-in-ios/">E. CSOUND IN iOS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/f-csound-on-android/">F. CSOUND ON ANDROID</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/g-csound-and-haskell/">G. CSOUND AND HASKELL</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/h-csound-and-html/">H. CSOUND AND HTML</a></li>
+    
+   
+    
+      <li><b>13 EXTENDING CSOUND</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/extending-csound/">EXTENDING CSOUND</a></li>
+    
+   
+    
+      <li><b>OPCODE GUIDE</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/overview/">OVERVIEW</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/signal-processing-i/">SIGNAL PROCESSING I</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/signal-processing-ii/">SIGNAL PROCESSING II</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/data/">DATA</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/realtime-interaction/">REALTIME INTERACTION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/instrument-control/">INSTRUMENT CONTROL</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/maths-pythonsystem-plugins/">MATHS, PYTHON/SYSTEM, PLUGINS</a></li>
+    
+   
+    
+      <li><b>APPENDIX</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/methods-of-writing-csound-scores/">METHODS OF WRITING CSOUND SCORES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/glossary/">GLOSSARY</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/links/">LINKS</a></li>
+    
+   
+  </ul>
+ </div>
+ <div id="bookcontent"   style="background: url(/site_static/images/draft_bg.png) repeat !important;">
+   
+
+  <html><body><div align="center"><img src="static/hlogo_blue_text.png" height="114" width="420"><br></div>Cabbage is a Csound frontend that provides users with the means to work with Csound, to develop audio plugins and standalone software across the three major operating systems. Whilst Cabbage makes use of underlying plugin technologies, such as Steinberg's VST SDK, ASIO, etc, Csound is used to process all incoming and outgoing audio, therefore existing Csound instruments can be adapted to work with Cabbage with relative ease. Cabbage also provides a growing palette of GUI widgets ranging from simple sliders to XY-pads and graph tables. All GUI widgets in a Cabbage plugin can be controlled via host automation in a plugin host, thereby providing a quick and effective means of automating Csound instrument parameters in both commercial and non-commercial DAWs. A user-forum exists at <a href="http://www.thecabbagefoundation.org">www.thecabbagefoundation.org</a>, and users are invited to discuss, contribute, and share instruments and music.
+<br><h2>The Cabbage Standalone Host.
+</h2>The main Cabbage application that launches when you open Cabbage is known as the standalone host. This simple application 'hosts' Cabbage plugins in the same way any DAW hosts a plugin, but it is restricted to one plugin at a time (the host can be instantiated multiple times however). The host also features a source code editor for editing your code, and it also allows users to enter a GUI designer mode within which they can design interfaces using a simple drag-and-drop system. Access to the Csound output console and Reference Manual through the Cabbage host facilitate debugging and learning and the host also facilitates control of audio and MIDI settings used by Csound. If a user wishes to make their Cabbage patch available as a plugin for use within other software they can use the 'Export' option which will prompt them to export their instrument as an audio plugin. In addition to interacting with hosts via audio and MIDI connections, Cabbage plugins can also respond to host controls such as tempo, song position and play/stop status. The plugin formats are currently restricted to VST and Linux Native VST. Whilst the main purpose of the Cabbage standalone host is for prototyping and development, it can also be used as a fully blown production environment depending on the complexity of the hosted instrument.
+<br><br><div align="center"><img src="static/slide-2.jpg" height="285" width="531"><br>An example of the GUI and source code editor.
+  <br></div>
+<h2>Cabbage Instruments.
+</h2>Cabbage instruments are nothing more than Csound instruments with an additional &lt;Cabbage&gt;&lt;/Cabbage&gt; section that exists outside of the &lt;CsoundSynthesizer&gt; tags. Each line of text in this section defines a GUI widget. Special identifiers can be used to control the look and behavior of each widget. This text ultimately defines how the graphical interface will look but recent innovations facilitate the modification of widget appearance from within the Csound orchestra. This opens up interesting possibilities including dynamically hiding and showing parts of the GUI and moving and resizing widgets during performance time. Instruments can be exported as either effects or synths. Effects process incoming audio, while synths won't produce any sound until they are triggered via the MIDI widget, or a MIDI keyboard. Cabbage makes no differentiation between synths and effects, but VST hosts do, so one must be careful when exporting instruments. A full list of available widgets, identifiers and parameters can be found in the Cabbage reference manual that comes with all Cabbage binaries.
+<br><br><h3>A Basic Cabbage Synthesiser
+</h3>Example code to create the most basic Cabbage synthesiser is presented below. This instrument uses the MIDI interop command line flags to pipe MIDI data directly to p-fields in instrument 1. In this case all MIDI pitch data is sent directly to p4, and all MIDI amplitude data is sent to p5. (An alternative approach is to use Csounds opcodes <a href="http://www.csounds.com/manual/html/cpsmidi.html" target="" title="">cpsmidi</a>, <a href="http://www.csounds.com/manual/html/ampmidi.html" target="" title="">ampmidi</a> etc. to read midi data into an instrument.) MIDI data sent on channel 1 will cause instrument 1 to play. Data sent on channel 2 will cause instrument 2 to play. If one prefers they may use the massign opcode rather than the MIDI interop flags, but regardless of what mechanism is used, you still need to declare "-+RTMIDI=NULL -M0" in the CsOptions.
+<br><br><pre>&lt;Cabbage&gt;
+form size(400, 120), caption("Simple Synth"), pluginID("plu1")
+keyboard bounds(0, 0, 380, 100)
+&lt;/Cabbage&gt;
+&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+-n -d -+rtmidi=NULL -M0 --midi-key-cps=4 --midi-velocity-amp=5
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+sr = 44100
+ksmps = 64
+nchnls = 2
+0dbfs=1
+
+instr 1
+kenv linenr p5, 0.1, .25, 0.01
+a1 oscil kenv*k1, p4, 1
+outs a1, a1
+endin
+
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+f1 0 1024 10 1
+f0 3600
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;         </pre>
+<br>You will notice that a -n and -d are passed to Csound in the &lt;CsOptions&gt; section. -n stops Csound from writing audio to disk. This must be used when Cabbage is managing audio. If users wish to use Csound audio IO modules they need to disable Cabbage audio from the settings menu. The -d prevents any FLTK widgets from displaying. You will also notice that our instrument is stereo. ALL Cabbage instruments operate in stereo.
+<br><br><h3>Controlling Your Instrument
+</h3>
+<br>The most obvious limitation to the above instrument is that users cannot interact directly with Csound. In order to do this one can use a Csound channel opcode and a Cabbage control such as a slider. Any control that is to interact with Csound must have a channel identifier.
+<br><br>When one supplies a channel name to the channel() identifier Csound will listen for data being sent on that channel through the use of the named channel opcodes. In order to retrieve data from the named channel bus in Csound one can use the chnget opcode. It is defined in the Csound reference manual as:
+<br><br><pre>kval chnget Sname</pre>
+<br>Sname is the name of the channel. This same name must be passed to the channel() identifier in the corresponding &lt;Cabbage&gt; section. Cabbage only works with the chnget/chnset method of sending and receiving channel data. The invalue and outvalue opcodes are not supported.
+<br><br>The previous example can be modified so that a slider now controls the volume of our oscillator.
+<br><br><pre>&lt;Cabbage&gt;
+form size(400, 170), caption("Simple Synth"), pluginID("plu1")
+hslider  bounds(0, 110, 380, 50), channel("gain"), range(0, 1, .5), textBox(1)
+keyboard bounds(0, 0, 380, 100)
+&lt;/Cabbage&gt;
+&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+-n -d -+rtmidi=NULL -M0 --midi-key-cps=4 --midi-velocity-amp=5
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+sr = 44100
+ksmps = 64
+nchnls = 2
+0dbfs=1
+
+instr 1
+k1 chnget "gain"
+kenv linenr p5, 0.1, 1, 0.1
+a1 oscil kenv*k1, p4, 1
+outs a1, a1
+endin
+
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+f1 0 1024 10 1
+f0 3600
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;</pre>
+<div align="center"><img src="static/simpleSynth_1.PNG" height="127" width="253"><br></div>
+<br>In the example above we use a <a href="http://www.thecabbagefoundation.org/documentation.php#x35" target="" title="">hslider</a> control which is a horizontal slider. The bounds() identifier sets up the position and size of the widget. The most important identifier is channel(). It is passed a string "gain". This is the same string we pass to <a href="http://www.csounds.com/manual/html/chnget.html" target="" title="">chnget</a> in our Csound code. When a user moves the slider, the current position of the slider is sent to Csound on a channel named "gain". Without the channel() identifier no communication would take place between the Cabbage control and Csound. The keyboard widget can be used en lieu of a real MIDI keyboard when testing plugins. It is also possible to move Cabbage widgets from within the Csound orchestra using the <a href="http://www.csounds.com/manual/html/chnset.html" target="" title="">chnset</a> opcode.<br><br><br><h3>A basic Cabbage effect
+</h3>
+<br>Cabbage effects are used to process incoming audio. To do so one must make sure they can access the incoming audio stream. Any of Csound's signal input opcodes can be used for this. The examples that come with Cabbage use both the ins and inch opcodes to retrieve the incoming audio signal. The following code is for a simple reverb unit. It accepts a stereo input and outputs a stereo signal.
+<br><br><pre>&lt;Cabbage&gt;
+form caption("Reverb") size(230, 130)
+groupbox text("Stereo Reverb"), bounds(0, 0, 200, 100)
+rslider channel("size"), bounds(10, 25, 70, 70), text("Size"), range(0, 2, 0.2)
+rslider channel("fco"), bounds(70, 25, 70, 70), text("Cut-off"), range(0, 22000, 10000)
+rslider channel("gain"), bounds(130, 25, 70, 70), text("Gain"), range(0, 1, 0.5)
+&lt;/Cabbage&gt;
+&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+-d -n
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+; Initialize the global variables.
+sr = 44100
+ksmps = 32
+nchnls = 2
+
+instr 1
+kfdback chnget "size"
+kfco chnget "fco"
+kgain chnget "gain"
+ainL inch 1
+ainR inch 2
+aoutL, aoutR reverbsc ainL, ainR, kfdback, kfco
+outs aoutL*kgain, aoutR*kgain
+endin
+
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+f1 0 4096 10 1
+i1 0 1000
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt; </pre>
+<br>The above instrument uses 3 sliders to control the reverb size, the cut-off frequency for the internal low-pass filters, and the overall gain. The range() identifier is used with each slider to specify the min, max and starting value of the sliders. If you compare the two score sections in the above instruments you will notice that the synth instrument does not use any i-statement. Instead it uses an f0 3600. This tells Csound to wait for 3600 seconds before exiting. (In recent versions of Csound this step is no longer necessary to sustain performance.) Because synth instruments are controlled via MIDI we don’t need to use an i-statement in the score. In the audio effect example we use an i-statement with a long duration so that the effect runs without stopping for a long time, typically longer than a user session in a DAW. <br><br><div align="center">
+  <p><img src="static/simpleReverb_1.PNG" height="96" width="142"></p>
+  <h2 align="left">Recent Innovations</h2><h3 style="text-align: left; ">gentable widget</h3><p style="text-align: left; ">The gentable widget can be used to display any Csound function table.</p><p style="text-align: left; "><img src="static/CabbageGentable.png"><br></p><p style="text-align: left; ">gentable views can be updated during performance in order to reflect any changes that may have been made to their contents by the Csound orchestra. Updating is actuated by using the gentable widget's so-called 'ident' channel (a channel that is used exclusively for changing the appearance of widgets and that is channel separate from the normal value channel).</p><p style="text-align: left; ">It is also possible to modify the contents of a some function tables that are represented using gentable by clicking and dragging upon their GUI representations. This feature is a work in progress and is currently only available with GEN 02, 05 and 07. </p><h3 style="text-align: left; ">soundfiler widget</h3><p align="left">Whilst audio files stored in GEN 01 function tables can be viewed using gentable it is more efficient (particularly with longer files) to do this using the 'soundfiler' widget.</p><p style="text-align: left; "><img src="static/CabbageSoundfiler.png"></p><p style="text-align: left; "></p><p style="text-align: left; ">soundfiler also facilitates zooming into and out of the viewed waveform and a portion of the waveform can be highlighted using click and drag. The start and end points of this highlighted region can be read into Csound and used, for example, as loop points. An example of this can be found in the Table3FilePlayer example in Cabbage's built-in examples in the File Players subsection. A 'scrubber' (a vertical line through the waveform) can also be displayed to indicate playback position.</p><p style="text-align: left;">Using soundfiler in combination with a button widget, we can open a browser and browse for a new sound file during performance. All of the examples in Examples&gt;FilePlayers make use of this possibility.</p><h3 style="text-align: left;">widgetarray</h3><p style="text-align: left; ">The widgetarray identifier can be used with most widgets to generate large numbers of widgets in a single step.</p><p><img src="static/CabbageWidgetArray.png"><br></p><p></p><p style="text-align: left; ">The screenshot from the example shown above (which can be found in Cabbage's built-in examples in the 'FunAndGames' subsection) employs 300 image widgets to create the stars and the UFO and these are generated in a single line of code. Each individual widget can be addressed from within the Csound orchestra using a numbered identity channel, thereby they can be individually repositioned or modified in any other way. This process can be simplified by using looping procedures.</p><h3 style="text-align: left; ">texteditor</h3><p style="text-align: left; ">The texteditor widget can be used to directly type in a string on the computer keyboard which can then be sent to Csound. An example use of this is to type in score events in real time (exemplified in the example RealTimeScoreEvents in the the 'Instructional' subsection in Cabbage's built-in examples.)</p><h3 style="text-align: left; ">plants and popups </h3><p style="text-align: left; ">Cabbage 'plants' provides a convenient mechanism with which GUI elements which belong together in some way can be grouped. An example of this might be the various widgets pertaining to the values used by an envelope. Thereafter if becomes easier to modify the grouped widgets en masse: to move them somewhere else in the gui or to hide or reveal them completely.</p><p style="text-align: left; ">An more elaborate function is to hold a plant in a completely separate GUI window that can be launched using a 'pop-up' button. An example of this is the 'Clavinet' instrument in the 'Synths' subsection in Cabbage's built-in examples.</p><h3 style="text-align: left; ">Range sliders</h3><p style="text-align: left; ">A special type of slider (horizontal or vertical but not rotary 'r' type) employs two control knobs so that it can output two values.</p><p style="text-align: center;"><img src="static/CabbageRangeSlider.png"> </p><p style="text-align: left; ">This widget can be seen in action in the example DelayGrain in the 'Effects' subsection in Cabbage's built-in examples.</p><h3 style="text-align: left; ">Reserved Channels</h3><p style="text-align: left; ">Reserved channels in Cabbage provide a means of reading in a variety of data beyond that of the Cabbage GUI widgets. This includes providing a means of reading in mouse position and mouse button activations and also tempo, song position and start/stop/record status (if used as a plugin within a host). These channels are read using the chnset opcode. </p><p style="text-align: left; ">More information on any of these features can be found in the Cabbage reference manual which comes built into Cabbage or can be found <a href="http://thecabbagefoundation.org/documentation.php" target="" title="">here</a>.  </p><p align="left"><span style="font-family: Arial, verdana, sans-serif; font-size: 18px; font-weight: bold;">Where can I Download Cabbage? </span></p>
+  <p align="left">Cabbage is hosted on GitHub, and pre-compiled binaries for Windows and OSX can be found at:
+    <br><a href="https://github.com/cabbageaudio/cabbage/releases">https://github.com/cabbageaudio/cabbage/releases</a>
+    <br>If you run Linux you will need to build Cabbage yourself, but instructions are included with the source code. You will need to have Csound installed.
+  </p>
+  <p><br></p>
+</div></body></html>
+   
+  </div>
+ </div>
+
+
+  </div>
+</div>
+<!-- End of content -->
+
+
+
+<!-- sputnik error page -->
+<div id="dialog-sputnik-qrac" style="display: none"></div>
+<div id="dialog-sputnik-error" title="Can't communicate with booktype">
+  <p>
+    <span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
+    There has been error in communication with Booktype server.
+    Not sure right now where is the problem.
+  </p>
+  <p>
+    You should refresh this page.
+  </p>
+</div>
+
+
+<ul class="strings template">
+ <li class="ok">OK</li>
+ <li class="back">Back</li>
+ <li class="create">Create</li>
+ <li class="cancel">Cancel</li>
+ <li class="next">Next</li>
+ <li class="import">Import</li>
+ <li class="savechanges">Save changes</li>
+ <li class="errorcreategroup">Couldn't create a group!</li>
+ <li class="msgepub">enter epub URL</li>
+ <li class="msgarchive">enter Archive.org ID</li>
+ <li class="msgwiki">enter Wikibooks URL</li>
+ <li class="msgbooktype">enter Booktype URL</li>
+ <li class="deletebook">Delete book</li>
+</ul>
+
+</body>
+</html>
+

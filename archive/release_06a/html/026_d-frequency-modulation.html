@@ -1,0 +1,902 @@
+
+<!DOCTYPE HTML>
+<html>
+ <head>
+   
+
+<link type="text/css" href="/site_static/css/booki.css" rel="Stylesheet" >
+<link type="text/css" href="/site_static/js/jquery/themes/base/jquery.ui.all.css" rel="Stylesheet" >
+<link type="text/css" href="/site_static/js/jquery/themes/smoothness/jquery.ui.all.css" rel="Stylesheet" >
+<script type="text/javascript" src="/site_static/js/jquery/jquery-1.4.4.js"></script>
+<script type="text/javascript" src="/site_static/js/jquery/ui/jquery-ui-1.8.10.custom.js"></script>
+<script type="text/javascript" src="/site_static/js/jquery.json-1.3.js"></script>
+<script type="text/javascript" src="/site_static/js/booki.js"></script>
+<script src="/site_static/js/messaging.js" type="text/javascript"></script>   
+<script type="text/javascript" src="/site_static/js/general.js"></script>
+<link href="/site_static/css/jquery.bubblepopup.v2.3.1.css" rel="stylesheet" type="text/css" />
+<link type="text/css" href="/site_static/css/jquery-ui_overrides.css" rel="Stylesheet" >
+<script src="/site_static/js/jquery.bubblepopup.v2.3.1.min.js" type="text/javascript"></script>
+
+<link rel="SHORTCUT ICON" href="http://write.flossmanuals.net/site_static/images/favicon.ico" type="image/x-icon">
+
+
+<script type="text/javascript">
+  $(function() {
+      $.booki.sputnikDispatcherURL = "/_sputnik/";
+
+      $("#dialog-sputnik-error").dialog({
+          modal: true,
+          autoOpen: false,
+          buttons: {
+            Ok: function() {
+               $(this).dialog('close');
+               window.location = '.';
+            }
+          }
+      });
+  
+      $("FORM.messagefield").messagefield('init', {'view_post': '/messaging/post' });  
+  });
+</script>
+
+
+   
+ <title>/chapter: D-Frequency-Modulation / CSOUND</title>
+ <link type="text/css" href="/site_static/css/draft.css" rel="Stylesheet" />
+
+ <link rel="alternate" type="application/rss+xml" title="RSS feed for CSOUND" href="/feeds/rss/book/csound/" /> 
+ <link rel="alternate" type="application/atom+xml" title="Atom feed for CSOUND" href="/feeds/atom/book/csound/" /> 
+
+ <link rel="alternate" type="application/rss+xml" title="RSS feed for chapter D. FREQUENCY MODULATION" href="/feeds/rss/chapter/csound/csound/" /> 
+ <link rel="alternate" type="application/atom+xml" title="Atom feed for chapter D. FREQUENCY MODULATION" href="/feeds/atom/chapter/csound/csound/" /> 
+ 
+ <script type="text/javascript" src="/site_static/js/draft.js"></script>
+
+
+   <link type="text/css" href="/static/css/_user.css" rel="Stylesheet" >
+ </head>
+<body>
+
+<div class="topbar"> 
+  <div class="logo"><a href="http://write.flossmanuals.net/"></a></div>
+
+  <div class="meta-bar">
+    
+    <ul>
+      <li>
+        <a href="/accounts/signin/?redirect=/csound/_draft/_v/1.0/d-frequency-modulation/">Sign In / Create Account</a>
+      </li>
+    </ul>
+    
+    <div style="padding-top: 10px; padding-right: 15px;">
+      <br/>
+      
+
+<script>
+  $(function() {
+    var $frm = $("FORM[name=changelang]");
+	
+    $("A[href=#]", $frm).click(function() {
+        var lang = $(this).attr("class").substr(4);
+	
+        $("INPUT[name=language]", $frm).val(lang);
+        $frm.submit();
+	
+        return false;
+    });
+  });
+ </script>
+
+<form name="changelang" method="POST" action="/accounts/i18n/setlang/?language=en-us">
+  <input type="hidden" name="language" value="en-us">
+  
+    &nbsp;English&nbsp;|
+  
+  
+  
+    &nbsp;<a class="langes" href="#">Español</a>&nbsp;|
+  
+
+  
+    &nbsp;<a class="langfr" href="#">Français</a>&nbsp;|
+  
+	
+  
+    &nbsp;<a class="langit" href="#">Italiano</a>&nbsp;|
+  
+	
+  
+    &nbsp;<a class="langpt" href="#">Português</a>&nbsp;|
+  
+	
+  
+    &nbsp;<a class="langru" href="#">Русский</a>&nbsp;|
+  
+	
+  
+    &nbsp;<a class="langsq" href="#">Shqip</a>
+  	
+</form>
+
+    </div>
+    
+    
+  </div><!-- End of .meta-bar -->
+</div><!-- End top bar -->
+
+<div class="menubar shadow">
+  
+  
+  <div class="navbox">
+    <ul>
+      <li><a href="/list-books/">Books</a></li>
+      <li><a href="/list-groups/">Groups</a></li>
+      <li><a href="/list-people/">People</a></li>
+    </ul>      
+  </div><!-- End of .navbox -->       
+</div>
+
+<div class="content-container">
+  <div class="content shadow">
+    <!-- Content box and the drop shadow-->
+    
+
+<h2>CSOUND</h2>
+<div class="padded">
+ <div id="bookmenu" style="background: url(/site_static/images/draft_bg.png) repeat !important;"> 
+  <ul>
+   
+    
+      <li><b>INTRODUCTION</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/preface/">PREFACE</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/how-to-use-this-manual/">HOW TO USE THIS MANUAL</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/on-this-release/">ON THIS RELEASE</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/credits/">CREDITS</a></li>
+    
+   
+    
+      <li><b>01 BASICS</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-digital-audio/">A. DIGITAL AUDIO</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-pitch-and-frequency/">B. PITCH AND FREQUENCY</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-intensities/">C. INTENSITIES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-random/">D. RANDOM</a></li>
+    
+   
+    
+      <li><b>02 QUICK START</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-make-csound-run/">A. MAKE CSOUND RUN</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-csound-syntax/">B. CSOUND SYNTAX</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-configuring-midi/">C. CONFIGURING MIDI</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-live-audio/">D. LIVE AUDIO</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-rendering-to-file/">E. RENDERING TO FILE</a></li>
+    
+   
+    
+      <li><b>03 CSOUND LANGUAGE</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-initialization-and-performance-pass/">A. INITIALIZATION AND PERFORMANCE PASS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-local-and-global-variables/">B. LOCAL AND GLOBAL VARIABLES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-control-structures/">C. CONTROL STRUCTURES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-function-tables/">D. FUNCTION TABLES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-arrays/">E. ARRAYS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/f-live-events/">F. LIVE EVENTS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/g-user-defined-opcodes/">G. USER DEFINED OPCODES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/h-macros/">H. MACROS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/i-functional-syntax/">I. FUNCTIONAL SYNTAX</a></li>
+    
+   
+    
+      <li><b>04 SOUND SYNTHESIS</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-additive-synthesis/">A. ADDITIVE SYNTHESIS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-subtractive-synthesis/">B. SUBTRACTIVE SYNTHESIS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-amplitude-and-ring-modulation/">C. AMPLITUDE AND RING MODULATION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-frequency-modulation/">D. FREQUENCY MODULATION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-waveshaping/">E. WAVESHAPING</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/f-granular-synthesis/">F. GRANULAR SYNTHESIS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/g-physical-modelling/">G. PHYSICAL MODELLING</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/h-scanned-synthesis/">H. SCANNED SYNTHESIS</a></li>
+    
+   
+    
+      <li><b>05 SOUND MODIFICATION</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-envelopes/">A. ENVELOPES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-panning-and-spatialization/">B. PANNING AND SPATIALIZATION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-filters/">C. FILTERS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-delay-and-feedback/">D. DELAY AND FEEDBACK</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-reverberation/">E. REVERBERATION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/f-am-rm-waveshaping/">F. AM / RM / WAVESHAPING</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/g-granular-synthesis/">G. GRANULAR SYNTHESIS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/h-convolution/">H. CONVOLUTION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/i-fourier-analysis-spectral-processing/">I. FOURIER ANALYSIS / SPECTRAL PROCESSING</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/k-ats-resynthesis/">K. ATS RESYNTHESIS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/l-amplitude-and-pitch-tracking/">L. AMPLITUDE AND PITCH TRACKING</a></li>
+    
+   
+    
+      <li><b>06 SAMPLES</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-record-and-play-soundfiles/">A. RECORD AND PLAY SOUNDFILES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-record-and-play-buffers/">B. RECORD AND PLAY BUFFERS</a></li>
+    
+   
+    
+      <li><b>07 MIDI</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-receiving-events-by-midiin/">A. RECEIVING EVENTS BY MIDIIN</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-triggering-instrument-instances/">B. TRIGGERING INSTRUMENT INSTANCES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-working-with-controllers/">C. WORKING WITH CONTROLLERS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-reading-midi-files/">D. READING MIDI FILES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-midi-output/">E. MIDI OUTPUT</a></li>
+    
+   
+    
+      <li><b>08 OTHER COMMUNICATION</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-open-sound-control/">A. OPEN SOUND CONTROL</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-csound-and-arduino/">B. CSOUND AND ARDUINO</a></li>
+    
+   
+    
+      <li><b>09 CSOUND IN OTHER APPLICATIONS</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-csound-in-pd/">A. CSOUND IN PD</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-csound-in-maxmsp/">B. CSOUND IN MAXMSP</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-csound-in-ableton-live/">C. CSOUND IN ABLETON LIVE</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-csound-as-a-vst-plugin/">D. CSOUND AS A VST PLUGIN</a></li>
+    
+   
+    
+      <li><b>10 CSOUND FRONTENDS</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/csoundqt/">CSOUNDQT</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/cabbage/">CABBAGE</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/blue/">BLUE</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/winxound/">WINXOUND</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/csound-via-terminal/">CSOUND VIA TERMINAL</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/web-based-csound/">WEB BASED CSOUND</a></li>
+    
+   
+    
+      <li><b>11 CSOUND UTILITIES</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/csound-utilities/">CSOUND UTILITIES</a></li>
+    
+   
+    
+      <li><b>12 CSOUND AND OTHER PROGRAMMING LANGUAGES</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-the-csound-api/">A. THE CSOUND API</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-python-inside-csound/">B. PYTHON INSIDE CSOUND</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-python-in-csoundqt/">C. PYTHON IN CSOUNDQT</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-lua-in-csound/">D. LUA IN CSOUND</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-csound-in-ios/">E. CSOUND IN iOS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/f-csound-on-android/">F. CSOUND ON ANDROID</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/g-csound-and-haskell/">G. CSOUND AND HASKELL</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/h-csound-and-html/">H. CSOUND AND HTML</a></li>
+    
+   
+    
+      <li><b>13 EXTENDING CSOUND</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/extending-csound/">EXTENDING CSOUND</a></li>
+    
+   
+    
+      <li><b>OPCODE GUIDE</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/overview/">OVERVIEW</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/signal-processing-i/">SIGNAL PROCESSING I</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/signal-processing-ii/">SIGNAL PROCESSING II</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/data/">DATA</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/realtime-interaction/">REALTIME INTERACTION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/instrument-control/">INSTRUMENT CONTROL</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/maths-pythonsystem-plugins/">MATHS, PYTHON/SYSTEM, PLUGINS</a></li>
+    
+   
+    
+      <li><b>APPENDIX</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/methods-of-writing-csound-scores/">METHODS OF WRITING CSOUND SCORES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/glossary/">GLOSSARY</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/links/">LINKS</a></li>
+    
+   
+  </ul>
+ </div>
+ <div id="bookcontent"   style="background: url(/site_static/images/draft_bg.png) repeat !important;">
+   
+
+  <p>Csound: FREQUENCYMODULATION</p>
+<h1>FREQUENCY MODULATION</h1>
+<h2>From Vibrato to the Emergence of Sidebands</h2>
+<p>A vibrato is a periodical change of pitch, normally less than a halftone and with a slow changing-rate (around 5Hz). Frequency modulation is usually implemented using sine-wave oscillators.</p>
+<p><strong><em>EXAMPLE 04D01_Vibrato.csd</em></strong>&nbsp; </p>
+<pre style="margin: 0px; text-indent: 0px;">&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+-o dac
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+sr = 48000
+ksmps = 32
+nchnls = 2
+0dbfs = 1
+
+instr 1
+aMod poscil 10, 5 , 1  ; 5 Hz vibrato with 10 Hz modulation-width
+aCar poscil 0.3, 440+aMod, 1  ; -&gt; vibrato between 430-450 Hz
+outs aCar, aCar
+endin
+
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+f 1 0 1024 10 1 		;Sine wave for table 1
+i 1 0 2
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+; written by Alex Hofmann (Mar. 2011)
+</pre>
+<p>As the depth of modulation is increased, it becomes harder to perceive the base-frequency, but it is still vibrato. <br /><br /><strong><em>EXAMPLE 04D02_Vibrato_deep.csd</em></strong> </p>
+<pre style="margin: 0px; text-indent: 0px;">&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+-o dac
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+sr = 48000
+ksmps = 32
+nchnls = 2
+0dbfs = 1
+
+instr 1
+aMod poscil 90, 5 , 1 ; modulate 90Hz -&gt;vibrato from 350 to 530 hz
+aCar poscil 0.3, 440+aMod, 1
+outs aCar, aCar
+endin
+
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+f 1 0 1024 10 1 		;Sine wave for table 1
+i 1 0 2
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+; written by Alex Hofmann (Mar. 2011)
+
+</pre>
+<h2>The Simple Modulator-&gt;Carrier Pairing</h2>
+<p>Increasing the modulation-rate leads to a different effect. Frequency-modulation with more than 20Hz is no longer recognized as vibrato. The main-oscillator frequency lays in the middle of the sound and sidebands appear above and below. The number of sidebands is related to the modulation amplitude, later this is controlled by the so called <em>modulation-index</em>.</p>
+<p><strong><em>EXAMPLE 04D03_FM_index.csd</em></strong></p>
+<pre style="margin: 0px; text-indent: 0px;">&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+-o dac
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+sr = 48000
+ksmps = 32
+nchnls = 2
+0dbfs = 1
+
+instr 1
+aRaise linseg 2, 10, 100    ;increase modulation from 2Hz to 100Hz
+aMod poscil 10, aRaise , 1
+aCar poscil 0.3, 440+aMod, 1
+outs aCar, aCar
+endin
+
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+f 1 0 1024 10 1 		;Sine wave for table 1
+i 1 0 12
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+; written by Alex Hofmann (Mar. 2011)</pre>
+<p>Hereby the main-oscillator is called <em>carrier</em> and the one changing the carriers frequency is the <em>modulator</em>. The <em>modulation-index</em>:<strong> I = mod-amp/mod-freq</strong>. Making changes to the modulation-index, changes the amount of overtones, but not the overall volume. That gives the possibility produce drastic timbre-changes without the risk of distortion. </p>
+<p>When <em>carrier</em> and <em>modulator</em> frequency have integer ratios like 1:1, 2:1, 3:2, 5:4.. the sidebands build a harmonic series, which leads to a sound with clear fundamental pitch.</p>
+<p><strong><em>EXAMPLE 04D04_Harmonic_FM.csd</em></strong> </p>
+<pre>&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+-o dac
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+sr = 48000
+ksmps = 32
+nchnls = 2
+0dbfs = 1
+
+instr 1
+kCarFreq = 660     ; 660:440 = 3:2 -&gt; harmonic spectrum
+kModFreq = 440
+kIndex = 15        ; high Index.. try lower values like 1, 2, 3..
+kIndexM = 0
+kMaxDev = kIndex*kModFreq
+kMinDev = kIndexM*kModFreq
+kVarDev = kMaxDev-kMinDev
+kModAmp = kMinDev+kVarDev
+aModulator poscil kModAmp, kModFreq, 1
+aCarrier poscil 0.3, kCarFreq+aModulator, 1
+outs aCarrier, aCarrier
+endin
+
+
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+f 1 0 1024 10 1 		;Sine wave for table 1
+i 1 0 15
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+; written by Alex Hofmann (Mar. 2011)
+</pre>
+<p>Otherwise the spectrum of the sound is inharmonic, which makes it metallic or noisy. <br /> Raising the <em>modulation-index</em>, shifts the energy into the side-bands. The side-bands distance is:&nbsp; <strong>Distance in Hz = (carrierFreq)-(k*modFreq) | k = {1, 2, 3, 4 ..}</strong></p>
+<p>This calculation can result in negative frequencies. Those become reflected at zero, but with inverted phase! So negative frequencies can erase existing ones. Frequencies over Nyquist-frequency (half of samplingrate) "fold over" (aliasing). </p>
+<h2>The John Chowning FM Model of a Trumpet</h2>
+<p>Composer and researcher Jown Chowning worked on the first digital implementation of FM in the 1970's. </p>
+<p>Using envelopes to control the <em>modulation index</em> and the overall amplitude gives you the possibility to create evolving sounds with enormous spectral variations. Chowning showed these possibilities in his pieces, where he let the sounds transform. In the piece <em>Sabelithe</em> a drum sound morphes over the time into a trumpet tone.</p>
+<p><strong><em>EXAMPLE 04D05_Trumpet_FM.csd</em></strong>&nbsp; </p>
+<pre>&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+-o dac
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+sr = 48000
+ksmps = 32
+nchnls = 2
+0dbfs = 1
+
+instr 1  ; simple way to generate a trumpet-like sound
+kCarFreq = 440
+kModFreq = 440
+kIndex = 5
+kIndexM = 0
+kMaxDev = kIndex*kModFreq
+kMinDev = kIndexM * kModFreq
+kVarDev = kMaxDev-kMinDev
+aEnv expseg .001, 0.2, 1, p3-0.3, 1, 0.2, 0.001
+aModAmp = kMinDev+kVarDev*aEnv
+aModulator poscil aModAmp, kModFreq, 1
+aCarrier poscil 0.3*aEnv, kCarFreq+aModulator, 1
+outs aCarrier, aCarrier
+endin
+
+
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+f 1 0 1024 10 1 		;Sine wave for table 1
+i 1 0 2
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+; written by Alex Hofmann (Mar. 2011)
+</pre>
+<p>&nbsp;</p>
+<p>The following example uses the same instrument, with different settings to generate a bell-like sound:</p>
+<p><strong><em>EXAMPLE 04D06_Bell_FM.csd</em></strong></p>
+<pre>&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+-o dac
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+sr = 48000
+ksmps = 32
+nchnls = 2
+0dbfs = 1
+
+instr 1  ; bell-like sound
+kCarFreq = 200  ; 200/280 = 5:7 -&gt; inharmonic spectrum
+kModFreq = 280
+kIndex = 12
+kIndexM = 0
+kMaxDev = kIndex*kModFreq
+kMinDev = kIndexM * kModFreq
+kVarDev = kMaxDev-kMinDev
+aEnv expseg .001, 0.001, 1, 0.3, 0.5, 8.5, .001
+aModAmp = kMinDev+kVarDev*aEnv
+aModulator poscil aModAmp, kModFreq, 1
+aCarrier poscil 0.3*aEnv, kCarFreq+aModulator, 1
+outs aCarrier, aCarrier
+endin
+
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+f 1 0 1024 10 1 		;Sine wave for table 1
+i 1 0 9
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+; written by Alex Hofmann (Mar. 2011)
+
+</pre>
+<h2>More Complex FM Algorithms</h2>
+<p>Combining more than two oscillators (operators) is called complex FM synthesis. Operators can be connected in different combinations often 4-6 operators are used. The carrier is always the last operator in the row. Changing it's pitch, shifts the whole sound. All other operators are modulators, changing their pitch alters the sound-spectrum. </p>
+<h4>Two into One: M1+M2 -&gt; C</h4>
+<p>The principle here is, that (M1:C) and (M2:C) will be separate modulations and later added together.&nbsp; </p>
+<p><strong><em>EXAMPLE 04D07_Added_FM.csd</em></strong>&nbsp; </p>
+<pre>&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+-o dac
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+sr = 48000
+ksmps = 32
+nchnls = 2
+0dbfs = 1
+
+instr 1
+aMod1 poscil 200, 700, 1
+aMod2 poscil 1800, 290, 1
+aSig poscil 0.3, 440+aMod1+aMod2, 1
+outs aSig, aSig
+endin
+
+
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+f 1 0 1024 10 1 		;Sine wave for table 1
+i 1 0 3
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+; written by Alex Hofmann (Mar. 2011)
+</pre>
+<h4>In series: M1-&gt;M2-&gt;C</h4>
+<p>This is much more complicated to calculate and sound-timbre becomes harder to predict, because M1:M2 produces a complex spectrum (W), which then modulates the carrier (W:C).</p>
+<p><strong><em>EXAMPLE 04D08_Serial_FM.csd</em></strong>&nbsp; </p>
+<pre>&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+-o dac
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+sr = 48000
+ksmps = 32
+nchnls = 2
+0dbfs = 1
+
+instr 1
+aMod1 poscil 200, 700, 1
+aMod2 poscil 1800, 290+aMod1, 1
+aSig poscil 0.3, 440+aMod2, 1
+outs aSig, aSig
+endin
+
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+f 1 0 1024 10 1 		;Sine wave for table 1
+i 1 0 3
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+; written by Alex Hofmann (Mar. 2011)
+</pre>
+<p>&nbsp;</p>
+<h2>Phase Modulation - the Yamaha DX7 and Feedback FM</h2>
+<p>There is a strong relation between frequency modulation and phase modulation, as both techniques influence the oscillator's pitch, and the resulting timbre modifications are the same.</p>
+<p>If you'd like to build a feedbacking FM system, it will happen that the self-modulation comes to a zero point, which stops the oscillator forever. To avoid this, it is more practical to modulate the carriers table-lookup phase, instead of its pitch. </p>
+<p>Even the most famous FM-synthesizer Yamaha DX7 is based on the phase-modulation (PM) technique, because this allows feedback. The DX7 provides 7 operators, and offers 32 routing combinations of these. (http://yala.freeservers.com/t2synths.htm#DX7)</p>
+<p>To build a PM-synth in Csound <em><span style="text-decoration: underline;">tablei</span></em> opcode needs to be used as oscillator. In order to step through the f-table, a <span style="text-decoration: underline;"><em>phasor</em></span> will output the necessary steps.</p>
+<p><strong><em>EXAMPLE 04D09_PhaseMod.csd</em></strong>&nbsp; </p>
+<pre>&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+-o dac
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+sr = 48000
+ksmps = 32
+nchnls = 2
+0dbfs = 1
+
+instr 1  ; simple PM-Synth
+kCarFreq = 200
+kModFreq = 280
+kModFactor = kCarFreq/kModFreq
+kIndex = 12/6.28   ;  12/2pi to convert from radians to norm. table index
+aEnv expseg .001, 0.001, 1, 0.3, 0.5, 8.5, .001
+aModulator poscil kIndex*aEnv, kModFreq, 1
+aPhase phasor kCarFreq
+aCarrier tablei aPhase+aModulator, 1, 1, 0, 1
+outs (aCarrier*aEnv), (aCarrier*aEnv)
+endin
+
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+f 1 0 1024 10 1 		;Sine wave for table 1
+i 1 0 9
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+; written by Alex Hofmann (Mar. 2011)
+</pre>
+<p>Let's use the possibilities of self-modulation (feedback-modulation) of the oscillator. So in the following example, the oscillator is both <em>modulator</em> and <em>carrier</em>. To control the amount of modulation, an envelope scales the feedback.</p>
+<p><strong><em>EXAMPLE 04D10_Feedback_modulation.csd</em></strong></p>
+<pre>&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+-o dac
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+sr = 48000
+ksmps = 32
+nchnls = 2
+0dbfs = 1
+
+instr 1  ; feedback PM
+kCarFreq = 200
+kFeedbackAmountEnv linseg 0, 2, 0.2, 0.1, 0.3, 0.8, 0.2, 1.5, 0
+aAmpEnv expseg .001, 0.001, 1, 0.3, 0.5, 8.5, .001
+aPhase phasor kCarFreq
+aCarrier init 0 ; init for feedback
+aCarrier tablei aPhase+(aCarrier*kFeedbackAmountEnv), 1, 1, 0, 1
+outs aCarrier*aAmpEnv, aCarrier*aAmpEnv
+endin
+
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+f 1 0 1024 10 1 		;Sine wave for table 1
+i 1 0 9
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+; written by Alex Hofmann (Mar. 2011)
+</pre>
+   
+  </div>
+ </div>
+
+
+  </div>
+</div>
+<!-- End of content -->
+
+
+
+<!-- sputnik error page -->
+<div id="dialog-sputnik-qrac" style="display: none"></div>
+<div id="dialog-sputnik-error" title="Can't communicate with booktype">
+  <p>
+    <span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
+    There has been error in communication with Booktype server.
+    Not sure right now where is the problem.
+  </p>
+  <p>
+    You should refresh this page.
+  </p>
+</div>
+
+
+<ul class="strings template">
+ <li class="ok">OK</li>
+ <li class="back">Back</li>
+ <li class="create">Create</li>
+ <li class="cancel">Cancel</li>
+ <li class="next">Next</li>
+ <li class="import">Import</li>
+ <li class="savechanges">Save changes</li>
+ <li class="errorcreategroup">Couldn't create a group!</li>
+ <li class="msgepub">enter epub URL</li>
+ <li class="msgarchive">enter Archive.org ID</li>
+ <li class="msgwiki">enter Wikibooks URL</li>
+ <li class="msgbooktype">enter Booktype URL</li>
+ <li class="deletebook">Delete book</li>
+</ul>
+
+</body>
+</html>
+

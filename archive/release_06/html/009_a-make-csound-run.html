@@ -1,0 +1,877 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html>
+ <head>
+   <link type="text/css" href="http://www.flossmanuals.net/_templates/prettify/src/prettify.css" rel="Stylesheet" />
+   <script type="text/javascript" src="http://www.flossmanuals.net/_templates/prettify/src/prettify.js"></script>
+
+   <link type="text/css" href="/site_static/js/jquery/themes/base/jquery.ui.all.css" rel="Stylesheet" >
+   <link type="text/css" href="/site_static/js/jquery/themes/smoothness/jquery.ui.all.css" rel="Stylesheet" >
+   <script type="text/javascript" src="/static/js/jquery-1.7.js"></script>
+<!--
+   <script type="text/javascript" src="/site_static/js/jquery/jquery-1.4.4.js"></script>
+-->   
+<script type="text/javascript" src="/site_static/js/jquery/ui/jquery-ui-1.8.10.custom.js"></script>
+   <script type="text/javascript" src="/site_static/js/jquery.json-1.3.js"></script>
+   <script type="text/javascript" src="/site_static/js/booki.js"></script>
+
+   <link href="/site_static/css/jquery.bubblepopup.v2.3.1.css" rel="stylesheet" type="text/css" />
+   <script src="/site_static/js/jquery.bubblepopup.v2.3.1.min.js" type="text/javascript"></script>
+
+   <link type="text/css" href="/static/css/booki_fm.css" rel="Stylesheet"/ >
+<style>
+.template {
+	display: none !important;
+}
+
+
+#header {
+    background-color: transparent !important;
+}
+.paginator { padding:.5em .75em; float:left; font:normal .8em arial; }
+ 
+.paginator .prev-na,
+.paginator .next-na {
+	padding:.3em;
+	font-weight: bold;
+/*	font:bold .875em arial; */
+}
+ 
+.paginator .prev-na,
+.paginator .next-na {
+/*	border:1px solid #ccc; 
+	background-color:#f9f9f9; */
+	color:#aaa;
+	font-weight:normal;
+}
+ 
+.paginator .prev a, .paginator .prev a:visited,
+.paginator .next a, .paginator .next a:visited {
+/*	border:1px solid #c2ee62; 
+	background-color:#edfdd0; */
+	color:#234f32;
+	padding:.3em;
+/*	font:bold .875em arial; */
+        font-weight: bold;
+}
+ 
+.paginator .prev, .paginator .prev-na { margin-right:.5em; }
+.paginator .next, .paginator .next-na { margin-left:.5em; }
+ 
+.paginator .page a, .paginator .page a:visited, .paginator .curr {
+	padding:.25em;
+	font-weight: normal;
+/*	font:normal .875em verdana; */
+/*	border:1px solid #C2EE62; 
+	background-color:#EDFDD0; */
+	margin:0em .25em;	
+	color:#006000;
+}
+ 
+.paginator .curr { 
+/*	background-color:#234f32; 
+	color:#fff; */
+	border:1px solid #234f32; 
+	font-weight:bold;
+	font-size:1em;
+}
+ 
+.paginator .page a:hover,
+.paginator .curr a:hover,
+.paginator .prev a:hover,
+.paginator .next a:hover {
+/*	color:#fff;
+	background-color:#234f32;
+	border:1px solid #234f32; */
+}
+</style>
+ <script type="text/javascript">
+      $(function() {
+   $.booki.sputnikDispatcherURL = "/_sputnik/";
+    });
+   </script>
+
+   <script type="text/javascript">
+     $(function() {
+	 // open debug window
+	 $.booki.debug.init();
+	 
+	 
+	 $("A.debug").click(function() {
+	     $("#bookidebug").dialog("open");
+	     return false;
+	 });
+     });
+   </script>
+
+   
+<title>/chapter: A-Make-Csound-Run / CSound</title>
+<link type="text/css" href="/site_static/css/editor.css" rel="Stylesheet" />
+
+<script src="http://assets.annotateit.org/annotator/v1.2.5/annotator-full.min.js"></script>
+<link rel="stylesheet" href="http://assets.annotateit.org/annotator/v1.2.5/annotator.min.css">
+
+
+
+<link rel="alternate" type="application/rss+xml" title="RSS feed for CSound" href="/feeds/rss/book/csound/" /> 
+<link rel="alternate" type="application/atom+xml" title="Atom feed for CSound" href="/feeds/atom/book/csound/" /> 
+
+<link rel="alternate" type="application/rss+xml" title="RSS feed for chapter A-Make-Csound-Run" href="/feeds/rss/chapter/csound/csound/" /> 
+<link rel="alternate" type="application/atom+xml" title="Atom feed for chapter A-Make-Csound-Run" href="/feeds/atom/chapter/csound/csound/" /> 
+
+
+ </head>
+<body onload="prettyPrint()" >
+<!-- testis -->
+
+<script type="text/javascript">
+$(function() {
+    $("#snippetdialog").dialog({autoOpen: false});
+});
+</script>
+
+
+<div id="snippetdialog" title="Basic dialog">
+        <p></p>
+</div>
+
+
+
+<div id="page-container"> 
+<style>
+body
+{
+margin:0;
+padding:0
+}
+#header
+{
+position:absolute;
+top:23px;
+width:100%;
+background-image: url('http://www.flossmanuals.net/_templates/fm_resources/header_bg.gif');
+background-position: 700px 0px; /* this places the orange background at
+an offset, making sure it doesn't underlap the left side of the gif */
+background-repeat: no-repeat;
+}
+
+#fmheader {
+    background-image: url("http://en.flossmanuals.net/_templates/fm_resources/header_bg.gif");
+    background-position: 600px 0;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 23px;
+    width: 100%;
+}
+#header_image
+{
+margin-left: 270px;
+border: 0px
+}
+
+#navigation
+{
+position:absolute;
+top: 80px;
+left: 357px;
+width:50%;
+}
+
+
+#languages
+{
+position:absolute;
+top: 40px;
+left: 740px;
+width:50%;
+}
+</style>
+
+
+
+<!-- Header graphic is common to all pages  -->
+<div id="header"><img id="header_image" alt="FlossManuals menu" src="http://www.flossmanuals.net/_templates/fm_resources/header_menu.gif" height="95" width="465" border="0"></div>
+
+
+<!-- Navigation buttons are language and context specific  -->
+<div id="navigation">
+<a title="Read" href="http://en.flossmanuals.net/index.php"><img src="http://www.flossmanuals.net/_templates/fm_resources/read_en.png" width="65" height="30" border="0" alt="Read"></a>
+<a title="Write" href="http://booki.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/write_active_en.png" width="65" height="30" border="0" alt="Write"></a>
+<a title="Remix" href="http://en.flossmanuals.net/index.php?plugin=remix"><img src="http://www.flossmanuals.net/_templates/fm_resources/remix_en.png" width="65" height="30" border="0" alt="Remix"></a>
+<a title="About" href="http://www.flossmanuals.org"><img src="http://www.flossmanuals.net/_templates/fm_resources/about_en.png" width="65" height="30" border="0" alt="About"></a>
+</div>
+
+<!-- Language buttons are common to all pages  -->
+<div id="languages">
+<a title="English" href="http://en.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/english_button.png" width="65" height="30" border="0" alt="English"></a>
+
+<!-- <a title="Español" href="http://es.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/spanish_button.png" width="65" height="30" border="0" alt="Español"></a> -->
+<a title="فارسی" href="http://fa.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/farsi_button.png" width="65" height="30" border="0" alt="فارسی"></a>
+<a title="Suomi" href="http://fi.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/finnish_button.png" width="65" height="30" border="0" alt="Suomi"></a>
+<br>
+<a title="Français" href="http://fr.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/french_button.png" width="65" height="30" border="0" alt="Français"></a>
+<a title="Nederlands" href="http://nl.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/dutch_button.png" width="65" height="30" border="0" alt="Nederlands"></a>
+<!-- <a title="Pусский" href="http://ru.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/russian_button.png" width="65" height="30" border="0" alt="Pусский"></a> -->
+<a title="Translate" href="http://translate.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/translate_button.png" width="65" height="30" border="0" alt="Translate"></a>
+</div>
+
+<!-- End top bar -->
+
+<!-- nav box + drop shadow -->
+<div class="navbox shadow" style="top:160px;">
+    		<ul>
+
+ 		<li><a href="/accounts/signin/?redirect=/csound/_draft/_v/1.0/a-make-csound-run/">Sign In</li><li>Register</a></li>
+
+                <li><a href="/list-books">All Manuals</a></li>
+                <li><a href="/list-groups">All Groups</a></li>
+                <li><a href="/list-people/">All People</a></li>
+           	</ul>
+</div>
+<!-- End of nav box -->
+
+
+
+<div class="content-container shadow">
+<!-- Content box and the drop shadow-->
+
+
+
+
+<br clear="all"/>
+   <h1>CSound</h1>
+
+
+<div id="bookmenu"   style="background: url(/site_static/images/draft_bg.png) repeat !important;">
+<ul>
+
+ 
+   <li><b>INTRODUCTION</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/introduction/">PREFACE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/how-to-use-this-manual/">HOW TO USE THIS MANUAL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/on-this-release/">ON THIS RELEASE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/credits/">CREDITS</a></li>
+ 
+
+ 
+   <li><b>01 BASICS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-digital-audio/">A. DIGITAL AUDIO</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-pitch-and-frequency/">B. PITCH AND FREQUENCY</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-intensities/">C. INTENSITIES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/random/">D. RANDOM</a></li>
+ 
+
+ 
+   <li><b>02 QUICK START</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-make-csound-run/">A. MAKE CSOUND RUN</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-csound-syntax/">B. CSOUND SYNTAX</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-configuring-midi/">C. CONFIGURING MIDI</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-live-audio/">D. LIVE AUDIO</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-rendering-to-file/">E. RENDERING TO FILE</a></li>
+ 
+
+ 
+   <li><b>03 CSOUND LANGUAGE</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-initialization-and-performance-pass/">A. INITIALIZATION AND PERFORMANCE PASS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-local-and-global-variables/">B. LOCAL AND GLOBAL VARIABLES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-control-structures/">C. CONTROL STRUCTURES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-function-tables/">D. FUNCTION TABLES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/arrays/">E. ARRAYS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-triggering-instrument-events/">F. LIVE EVENTS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-user-defined-opcodes/">G. USER DEFINED OPCODES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/macros/">H. MACROS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/functional-syntax/">I. FUNCTIONAL SYNTAX</a></li>
+ 
+
+ 
+   <li><b>04 SOUND SYNTHESIS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-additive-synthesis/">A. ADDITIVE SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-subtractive-synthesis/">B. SUBTRACTIVE SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-amplitude-and-ringmodulation/">C. AMPLITUDE AND RING MODULATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-frequency-modulation/">D. FREQUENCY MODULATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-waveshaping/">E. WAVESHAPING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-granular-synthesis/">F. GRANULAR SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/g-physical-modelling/">G. PHYSICAL MODELLING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/scanned-synthesis/">H. SCANNED SYNTHESIS</a></li>
+ 
+
+ 
+   <li><b>05 SOUND MODIFICATION</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-envelopes/">A. ENVELOPES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-panning-and-spatialization/">B. PANNING AND SPATIALIZATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-filters/">C. FILTERS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-delay-and-feedback/">D. DELAY AND FEEDBACK</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-reverberation/">E. REVERBERATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-am-rm-waveshaping/">F. AM / RM / WAVESHAPING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/g-granular-synthesis/">G. GRANULAR SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/h-convolution/">H. CONVOLUTION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/i-fourier-analysis-spectral-processing/">I. FOURIER ANALYSIS / SPECTRAL PROCESSING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/k-ats-resynthesis/">K. ATS RESYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/amplitude-and-pitch-tracking/">L. AMPLITUDE AND PITCH TRACKING</a></li>
+ 
+
+ 
+   <li><b>06 SAMPLES</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-record-and-play-soundfiles/">A. RECORD AND PLAY SOUNDFILES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-record-and-play-buffers/">B. RECORD AND PLAY BUFFERS</a></li>
+ 
+
+ 
+   <li><b>07 MIDI</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-receiving-events-by-midiin/">A. RECEIVING EVENTS BY MIDIIN</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-triggering-instrument-instances/">B. TRIGGERING INSTRUMENT INSTANCES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-working-with-controllers/">C. WORKING WITH CONTROLLERS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-reading-midi-files/">D. READING MIDI FILES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-midi-output/">E. MIDI OUTPUT</a></li>
+ 
+
+ 
+   <li><b>08 OTHER COMMUNICATION</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/osc-and-wii/">A. OPEN SOUND CONTROL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-arduino/">B. CSOUND AND ARDUINO</a></li>
+ 
+
+ 
+   <li><b>09 CSOUND IN OTHER APPLICATIONS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-pd/">A. CSOUND IN PD</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-maxmsp/">B. CSOUND IN MAXMSP</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-ableton-live/">C. CSOUND IN ABLETON LIVE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-csound-as-a-vst-plugin/">D. CSOUND AS A VST PLUGIN</a></li>
+ 
+
+ 
+   <li><b>10 CSOUND FRONTENDS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/qutecsound/">CSOUNDQT</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/cecilia/">CABBAGE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/blue/">BLUE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/winxound/">WINXOUND</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-via-terminal/">CSOUND VIA TERMINAL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/web-based-csound/">WEB BASED CSOUND</a></li>
+ 
+
+ 
+   <li><b>11 CSOUND UTILITIES</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-utilities/">CSOUND UTILITIES</a></li>
+ 
+
+ 
+   <li><b>12 CSOUND AND OTHER PROGRAMMING LANGUAGES</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/the-csound-api/">A. THE CSOUND API</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/using-python-inside-csound/">B. PYTHON INSIDE CSOUND</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-python-in-csoundqt/">C. PYTHON IN CSOUNDQT</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-lua-in-csound/">D. LUA IN CSOUND</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-csound-in-ios/">E. CSOUND IN iOS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-csound-on-android/">F. CSOUND ON ANDROID</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-and-haskell/">G. CSOUND AND HASKELL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/h-csound-and-html/">H. CSOUND AND HTML</a></li>
+ 
+
+ 
+   <li><b>13 EXTENDING CSOUND</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/extending-csound/">EXTENDING CSOUND</a></li>
+ 
+
+ 
+   <li><b>OPCODE GUIDE</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/overview/">OVERVIEW</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/signal-processing-i/">SIGNAL PROCESSING I</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/signal-processing-ii/">SIGNAL PROCESSING II</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/data/">DATA</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/realtime-interaction/">REALTIME INTERACTION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/instrument-control/">INSTRUMENT CONTROL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/math-pythonsystem-plugins/">MATHS, PYTHON/SYSTEM, PLUGINS</a></li>
+ 
+
+ 
+   <li><b>APPENDIX</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/writing-csound-scores-by-hand/">METHODS OF WRITING CSOUND SCORES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/glossary/">GLOSSARY</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/links/">LINKS</a></li>
+ 
+
+</ul>
+</div>
+<div id="bookcontent"   >
+<title>Csound: MakeCsoundRun</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<h1>MAKE CSOUND RUN
+</h1>
+<h2>
+</h2>
+<h2> Csound and Frontends
+</h2>
+<p>The core element of Csound is an audio engine for the Csound language. It has no graphical interface and it is designed to take Csound text files (called ".csd" files) and produce audio, either in realtime, or by writing to a file. It can still be used in this way, but most users nowadays prefer to use Csound via a frontend. A frontend is an application which assists you in writing code and running Csound. Beyond the functions of a simple text editor, a frontend environment will offer colour coded highlighting of language specific keywords and quick access to an integrated help system. A frontend can also expand possibilities by providing tools to build interactive interfaces as well, sometimes, as advanced compositional tools.
+</p>
+<p>In 2009 the Csound developers decided to include <a href="http://qutecsound.sourceforge.net">CsoundQt</a> as the standard frontend to be included with the Csound distribution, so you will already have this frontend if you have installed any of the recent pre-built versions of Csound. Conversely if you install a frontend you will require a separate installation of Csound in order for it to function. If you experience any problems with CsoundQt, or simply prefer another frontend design, try <a href="http://winxound.codeplex.com">WinXound</a>, <a href="http://code.google.com/p/cabbage/">Cabbage</a> or <a href="http://blue.kunstmusik.com/">Blue</a> as alternative.&nbsp;
+  <br />
+</p>
+<h2>About Csound6...
+</h2>
+<p>Csound6 has been released in spring 2013. It has a lot of new features like on-the-fly recompilation of Csound code (enabling forms of live-coding), arrays, new syntax for using opcodes, a redesigned C/C++ API, better threading for usage with multi-core processors, better real-time performance, etc.
+</p>
+<h2>How to Download and Install Csound
+</h2>
+<p>To get Csound you first need to download the package for your system from the SourceForge page:&nbsp; <a target="_blank" href="http://sourceforge.net/projects/csound/files/csound5/">http://sourceforge.net/projects/csound/files/csound6</a>
+  <br />
+</p>
+<p>There are many files here, so here are some guidelines to help you choose the appropriate version.
+</p>
+<h3>Windows
+</h3>
+<p>Windows installers are the ones ending in <em>.exe</em>. Look for the latest version of Csound, and find a file which should be called something like: <em>Setup_Csound6_6.02.0.exe</em>. One important thing to note is the final letter of the installer name, which can be "d" or "f". This specifies the computation precision of the Csound engine. Float precision (32-bit float) is marked with "f" and double precision (64-bit float) is marked "d". This is important to bear in mind, as a frontend which works with the "floats" version will not run if you have the "doubles" version installed. <em><span style="font-style: italic;"></span></em>More recent versions of the pre-built Windows installer have only been released in the "doubles" version.<em>
+  <br /></em>
+</p>
+<p>After you have downloaded the installer, you might find it easiest just to launch the executable installer and follow the instructions accepting the defaults. You can, however, modify the components that will be installed during the installation process (utilities, front-ends, documentation etc.) creating either a fully-featured installation or a super-light installation with just the bare bones.
+</p>
+<p align="center"><img src="static/Install_Components.png" height="347" width="451" />
+  <br />
+</p>
+<p>You may also find it useful to install the Python opcodes at the this stage - selected under "Csound interfaces". If you choose to do this however you will have to separately install <a href="http://www.python.org/getit/">Python itself</a>. You will need to install Python in any case if you plan to use the CsoundQt front end, as the current version of CsoundQt requires Python. (As of March 2013, Version 2.7 of Python is the correct choice.)
+  <br />
+</p>
+<p>Csound will, by default, install into your Program Files folder, but you may prefer to install directly into a folder in the root directory of your C: drive.
+  <br />
+</p>
+<p>Once installation has completed, you can find a Csound folder in your Start Menu containing short-cuts to various items of documentation and Csound front-ends.
+</p>
+<p align="center"><img src="static/Csound_Start_Menu.png" height="359" width="314" />
+  <br />
+</p>
+<p>The Windows installer will not create any desktop shortcuts but you can easily do this yourself&nbsp; by right-clicking the CsoundQt executable (for example) and selecting "create shortcut". Drag the newly created shortcut onto your desktop.
+  <br />
+</p>
+<h3>Mac OS X
+</h3>
+<p>The Mac OS X installers are the files ending in <em>.dmg</em>. Look for the latest version of Csound for your particular system, for example a Universal binary for 10.9 will be called something like: <em>Csound6.02.0-OSX10.9-x86_64.dmg</em>. When you double click the downloaded file, you will have a disk image on your desktop, with the Csound installer, CsoundQt and a readme file. Double-click the installer and follow the instructions. Csound and the basic Csound utilities will be installed. To install the CsoundQt frontend, you only need to move it to your Applications folder.
+</p>
+<h3>Linux and others
+</h3>
+<p>Csound is available from the official package repositories for many distributions like OpenSuse, Debian, Ubuntu, Fedora, Archlinux and Gentoo. If there are no binary packages for your platform, or you need a more recent version, you can get the source package from the SourceForge page and build from source. You will find the most recent build instructions in the<a href="http://github.com/csound/csound/blob/develop/BUILD.md"> Build.md</a> file in the Csound sources or in the <a title="github wiki" href="https://github.com/csound/csound/wiki">Github Csound Wiki</a>.
+</p>
+<p>After installing git, you can use this command to clone the Csound6 repository, if you like to have access to the latest (perhaps unstable) sources:
+  <br />
+</p>
+<pre>git clone git://github.com/csound/csound.git
+</pre>
+<p>
+</p>
+<p>The develop sources can be found on the develop branch: <a title="develop" href="https://github.com/csound/csound/tree/develop">https://github.com/csound/csound/tree/develop</a><a title="develop tree" href="http://sourceforge.net/p/csound/csound6-git/ci/develop/tree/"></a>.&nbsp; There you will find a button Download Snapshot, that will allow you to download the latest sources.
+</p>
+<p>In the develop branch you will find a file called "BUILD.md". This file contains the latest instructions on how to build Csound6 for
+</p>
+<p>
+</p>
+<ul>
+  <li>
+  <p>Debian/Ubuntu Linux
+  </p></li>
+  <li>
+  <p>Mac OS X using Homebrew
+  </p></li>
+  <li>
+  <p>General Instructions for Linux without Root access
+  </p></li>
+  <li>
+  <p>Raspberry PI standard OS
+  </p></li>
+  <li>
+  <p>Fedora 18
+  </p></li>
+</ul>
+<h3>iOS
+  <br />
+</h3>
+<p>If you would just like to run Csound on your iPad, there is an app for that called CsoundPad:
+  <br />http://itunes.apple.com/app/csoundpad/id861008380?mt=8#
+</p>
+<p>If you are a developer, Csound can be run in an iOS app that you're programming by including the Csound-for-iOS files in your Xcode project.&nbsp; The zip archive for these files is included in the same directory that other releases are available in, for example for version 6.05 of Csound, the files are here:
+  <br />http://sourceforge.net/projects/csound/files/csound6/Csound6.05/
+  <br />The "csound-iOS-6.05.0.zip" file contains an archive of an example project and PDF manual.
+</p>
+<p style="margin: 0px; line-height: normal; font-family: Helvetica; ">Some sample projects:
+</p>
+<ul>
+  <li>AudioKit (<a href="http://audiokit.io/">http://audiokit.io</a>) is an Objective-C and Swift framework for building iOS and OSX apps using Csound as the audio engine.</li>
+</ul>
+<p style="margin: 0px; line-height: normal; font-family: Verdana; ">
+</p>
+<ul>
+  <li>csGrain, developed by the Boulanger Labs (<a href="http://www.boulangerlabs.com" title="Boulanger Labs">http://www.boulangerlabs.com</a>), is a complex audio effects app that works with audio files or live audio input.</li>
+  <li>Portable Dandy, an innovative sampler synthesiser for iOS (see <a href="http://www.barefoot-coders.com" title="Barefoot-Coders">http://www.barefoot-coders.com</a>).</li>
+  <li>iPulsaret, an impressive synthesizer app (see <a href="http://www.densitytigs.com" title="Density Tigs">http://www.densitytigs.com</a>).&nbsp;</li>
+</ul>
+<p>
+</p>
+<h3>Android
+</h3>
+<p>The Android files for Csound are found in a subfolder of the Csound files on SourceForge. You will find the Android files in the version folder in <a href="http://sourceforge.net/projects/csound/files/csound6/">http://sourceforge.net/projects/csound/files/csound6/</a>.
+</p>
+<p>Two files are of interest here (in the Csound6 folder). One is a CSD player which executes Csound files on an Android device&nbsp;(the CSD player app is called&nbsp;Csound6.apk).
+</p>
+<p>The other file of possible interest to is csound-android-X.XX.XX.zip (where X.XX.XX is the version number), this file contains an Android port of the Csound programming library and sample Android projects. The source code for the CSD player mentioned above, is one of the sample projects.&nbsp;This file should not be installed on an Android device.
+</p>
+<p>To install the&nbsp;CsoundApp-XXX.apk&nbsp;on an Android device the following steps are taken:
+</p>
+<ol>
+  <li>The&nbsp;CsoundApp-XXX.apk&nbsp;file is copied onto the Android device,&nbsp;for example&nbsp;/mnt/sdcard/download or something similar.</li>
+  <li>One or more CSD files (not included in the distribution) should be copied to the device's shared storage location: this is usually&nbsp;anywhere in or below /mnt/sdcard</li>
+  <li>Launch a file explorer app on the device and navigate to the folder containing the file&nbsp;CsoundApp-XXX.apk (copied in step 1). Select the apk file and when prompted, select to install it.&nbsp;The app is installed as "CSD Player".</li>
+  <li>In the device's app browser (the screen which is used to launch all the apps on the device) run the "CSD Player" app.</li>
+  <li>CSD Player displays its initial screen. Tap the "Browse" button to find a CSD file to play on your device: CSD Player displays a file browser starting at the&nbsp;device's shared storage location (usually&nbsp;/mnt/sdcard). Select a csd file that you have copied to the device (step 2).</li>
+  <li>Tap the play toggle to play the selected CSD.
+  <br /></li>
+</ol>
+<div>
+  <p>If you want to use Csound6 on Android, have a look at chapter 12F in this manual, which describes everything in detail.
+    <br />
+  </p>
+  <p>On Google's Play Store there are some apps that use Csound. Below is a small sample of such apps:
+  </p>
+  <ul>
+    <li>DIY Sound Salad, developed by Zatchu <a href="http://www.zatchu.com" title="Zatchu">(http://zatchu.com/category/story/</a>), is a multi sample record and playback app. Quite enjoyable to use.</li>
+  </ul>
+  <ul>
+    <li>Chime Pad, developed by Arthur B. Hunkins (<a href="http://www.arthunkins.com" title="Arthur B. Hunkins">http://www.arthunkins.com</a>), is a soothing chime player app.</li>
+  </ul>
+  <ul>
+    <li>Mono Dot Micro, developed by Acoustic Orchard (<a href="http://acousticorchard.com/microsynth/market" title="Acoustic Audio">http://acousticorchard.com/microsynth/market</a>), this app is a 2 oscillator synthesiser, with effects.</li>
+  </ul>
+  <ul>
+    <li>Psycho Flute developed by Brian Redfern (source code available at <a href="http://github.com/bredfern/PsychoFlute" title="Project source code">http://github.com/bredfern/PsychoFlute</a>), it is a "physical modelling flute synth". Both fun and interesting.</li>
+  </ul>
+  <p>
+  </p>
+</div>
+<p>
+</p>
+<h2>Install Problems?
+</h2>
+<p>If, for any reason, you can't find the CsoundQt (formerly QuteCsound) frontend on your system after install, or if you want to install the most recent version of CsoundQt, or if you prefer another frontend altogether: see the CSOUND FRONTENDS section of this manual for further information. If you have any install problems, consider joining the <a href="http://www.csounds.com/community">Csound Mailing List</a> to report your issues, or write a mail to one of the maintainers (see ON THIS RELEASE).
+  <br />
+</p>
+<h2>The Csound Reference Manual
+</h2>
+<p>The Csound Reference Manual is an indispensable companion to Csound. It is available in various formats from the same place as the Csound installers, and it is installed with the packages for OS X and Windows. It can also be browsed online at <a href="http://csound.github.io/docs/manual/index.html">http://csound.github.io/docs/manual/index.html</a>. Many frontends will provide you with direct and easy access to it.
+</p>
+<h2>How to Execute a Simple Example
+</h2>
+<p>
+</p>
+<h3><strong>Using CsoundQt</strong>
+</h3>
+<p> Run CsoundQt. Go into the CsoundQt menubar and choose: Examples-&gt;Getting started...-&gt; Basics-&gt; HelloWorld
+</p>
+<p>You will see a very basic Csound file (.csd) with a lot of comments in green.
+</p>
+<p>Click on the "RUN" icon in the CsoundQt control bar to start the realtime Csound engine. You should hear a 440 Hz sine wave.
+</p>
+<p>You can also run the Csound engine in the terminal from within QuteCsound. Just click on "Run in Term". A console will pop up and Csound will be executed as an independent process. The result should be the same - the 440 Hz "beep".
+</p>
+<h3><strong>Using the Terminal / Console</strong>
+</h3>
+<p>1. Save the following code in any plain text editor as HelloWorld.csd.
+</p>
+<p>&nbsp;&nbsp; <em><strong>EXAMPLE 02A01_HelloWorld.csd</strong></em>&nbsp;
+  <br />
+</p>
+<p>
+</p>
+<pre>&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+-odac
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+;Example by Alex Hofmann
+instr 1
+aSin&nbsp;&nbsp;&nbsp;   poscil    0dbfs/4, 440
+          out       aSin
+endin
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+i 1 0 1
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;</pre>
+<p> 2. Open the Terminal / Prompt / Console
+</p>
+<p>3. Type: <em>csound /full/path/HelloWorld.csd</em>
+</p>
+<p>where <em> /full/path/HelloWorld.csd</em> is the complete path to your file. You also execute this file by just typing <em>csound </em>then dragging the file into the terminal window and then hitting return.
+  <br />
+</p>You should hear a 440 Hz tone.
+<br />
+<h2>
+</h2>
+   <hr/>
+    <a href="/csound/_edit/">EDIT</a>
+
+</div>
+
+<script type="text/javascript">
+jQuery(function ($) {
+    $('#bookcontent').annotator()
+   		.annotator('setupPlugins', {}, {
+                Tags: false,
+                Filter: {
+                  addAnnotationFilter: false
+                },
+                Permissions: false,
+                AnnotateItPermissions: {}
+              });
+});
+</script>
+
+
+
+</div>
+<!-- End of content -->
+
+</div>  
+<!-- DEV TOOLS -->
+<div id="bookidebug">
+</div>
+
+<!-- sputnik error page -->
+<div id="dialog-sputnik-qrac" style="display: none"></div>
+</body>
+</html>
+

@@ -1,0 +1,850 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html>
+ <head>
+   <link type="text/css" href="http://www.flossmanuals.net/_templates/prettify/src/prettify.css" rel="Stylesheet" />
+   <script type="text/javascript" src="http://www.flossmanuals.net/_templates/prettify/src/prettify.js"></script>
+
+   <link type="text/css" href="/site_static/js/jquery/themes/base/jquery.ui.all.css" rel="Stylesheet" >
+   <link type="text/css" href="/site_static/js/jquery/themes/smoothness/jquery.ui.all.css" rel="Stylesheet" >
+   <script type="text/javascript" src="/static/js/jquery-1.7.js"></script>
+<!--
+   <script type="text/javascript" src="/site_static/js/jquery/jquery-1.4.4.js"></script>
+-->   
+<script type="text/javascript" src="/site_static/js/jquery/ui/jquery-ui-1.8.10.custom.js"></script>
+   <script type="text/javascript" src="/site_static/js/jquery.json-1.3.js"></script>
+   <script type="text/javascript" src="/site_static/js/booki.js"></script>
+
+   <link href="/site_static/css/jquery.bubblepopup.v2.3.1.css" rel="stylesheet" type="text/css" />
+   <script src="/site_static/js/jquery.bubblepopup.v2.3.1.min.js" type="text/javascript"></script>
+
+   <link type="text/css" href="/static/css/booki_fm.css" rel="Stylesheet"/ >
+<style>
+.template {
+	display: none !important;
+}
+
+
+#header {
+    background-color: transparent !important;
+}
+.paginator { padding:.5em .75em; float:left; font:normal .8em arial; }
+ 
+.paginator .prev-na,
+.paginator .next-na {
+	padding:.3em;
+	font-weight: bold;
+/*	font:bold .875em arial; */
+}
+ 
+.paginator .prev-na,
+.paginator .next-na {
+/*	border:1px solid #ccc; 
+	background-color:#f9f9f9; */
+	color:#aaa;
+	font-weight:normal;
+}
+ 
+.paginator .prev a, .paginator .prev a:visited,
+.paginator .next a, .paginator .next a:visited {
+/*	border:1px solid #c2ee62; 
+	background-color:#edfdd0; */
+	color:#234f32;
+	padding:.3em;
+/*	font:bold .875em arial; */
+        font-weight: bold;
+}
+ 
+.paginator .prev, .paginator .prev-na { margin-right:.5em; }
+.paginator .next, .paginator .next-na { margin-left:.5em; }
+ 
+.paginator .page a, .paginator .page a:visited, .paginator .curr {
+	padding:.25em;
+	font-weight: normal;
+/*	font:normal .875em verdana; */
+/*	border:1px solid #C2EE62; 
+	background-color:#EDFDD0; */
+	margin:0em .25em;	
+	color:#006000;
+}
+ 
+.paginator .curr { 
+/*	background-color:#234f32; 
+	color:#fff; */
+	border:1px solid #234f32; 
+	font-weight:bold;
+	font-size:1em;
+}
+ 
+.paginator .page a:hover,
+.paginator .curr a:hover,
+.paginator .prev a:hover,
+.paginator .next a:hover {
+/*	color:#fff;
+	background-color:#234f32;
+	border:1px solid #234f32; */
+}
+</style>
+ <script type="text/javascript">
+      $(function() {
+   $.booki.sputnikDispatcherURL = "/_sputnik/";
+    });
+   </script>
+
+   <script type="text/javascript">
+     $(function() {
+	 // open debug window
+	 $.booki.debug.init();
+	 
+	 
+	 $("A.debug").click(function() {
+	     $("#bookidebug").dialog("open");
+	     return false;
+	 });
+     });
+   </script>
+
+   
+<title>/chapter: Math-Pythonsystem-Plugins / CSound</title>
+<link type="text/css" href="/site_static/css/editor.css" rel="Stylesheet" />
+
+<script src="http://assets.annotateit.org/annotator/v1.2.5/annotator-full.min.js"></script>
+<link rel="stylesheet" href="http://assets.annotateit.org/annotator/v1.2.5/annotator.min.css">
+
+
+
+<link rel="alternate" type="application/rss+xml" title="RSS feed for CSound" href="/feeds/rss/book/csound/" /> 
+<link rel="alternate" type="application/atom+xml" title="Atom feed for CSound" href="/feeds/atom/book/csound/" /> 
+
+<link rel="alternate" type="application/rss+xml" title="RSS feed for chapter Math-Pythonsystem-Plugins" href="/feeds/rss/chapter/csound/csound/" /> 
+<link rel="alternate" type="application/atom+xml" title="Atom feed for chapter Math-Pythonsystem-Plugins" href="/feeds/atom/chapter/csound/csound/" /> 
+
+
+ </head>
+<body onload="prettyPrint()" >
+<!-- testis -->
+
+<script type="text/javascript">
+$(function() {
+    $("#snippetdialog").dialog({autoOpen: false});
+});
+</script>
+
+
+<div id="snippetdialog" title="Basic dialog">
+        <p></p>
+</div>
+
+
+
+<div id="page-container"> 
+<style>
+body
+{
+margin:0;
+padding:0
+}
+#header
+{
+position:absolute;
+top:23px;
+width:100%;
+background-image: url('http://www.flossmanuals.net/_templates/fm_resources/header_bg.gif');
+background-position: 700px 0px; /* this places the orange background at
+an offset, making sure it doesn't underlap the left side of the gif */
+background-repeat: no-repeat;
+}
+
+#fmheader {
+    background-image: url("http://en.flossmanuals.net/_templates/fm_resources/header_bg.gif");
+    background-position: 600px 0;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 23px;
+    width: 100%;
+}
+#header_image
+{
+margin-left: 270px;
+border: 0px
+}
+
+#navigation
+{
+position:absolute;
+top: 80px;
+left: 357px;
+width:50%;
+}
+
+
+#languages
+{
+position:absolute;
+top: 40px;
+left: 740px;
+width:50%;
+}
+</style>
+
+
+
+<!-- Header graphic is common to all pages  -->
+<div id="header"><img id="header_image" alt="FlossManuals menu" src="http://www.flossmanuals.net/_templates/fm_resources/header_menu.gif" height="95" width="465" border="0"></div>
+
+
+<!-- Navigation buttons are language and context specific  -->
+<div id="navigation">
+<a title="Read" href="http://en.flossmanuals.net/index.php"><img src="http://www.flossmanuals.net/_templates/fm_resources/read_en.png" width="65" height="30" border="0" alt="Read"></a>
+<a title="Write" href="http://booki.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/write_active_en.png" width="65" height="30" border="0" alt="Write"></a>
+<a title="Remix" href="http://en.flossmanuals.net/index.php?plugin=remix"><img src="http://www.flossmanuals.net/_templates/fm_resources/remix_en.png" width="65" height="30" border="0" alt="Remix"></a>
+<a title="About" href="http://www.flossmanuals.org"><img src="http://www.flossmanuals.net/_templates/fm_resources/about_en.png" width="65" height="30" border="0" alt="About"></a>
+</div>
+
+<!-- Language buttons are common to all pages  -->
+<div id="languages">
+<a title="English" href="http://en.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/english_button.png" width="65" height="30" border="0" alt="English"></a>
+
+<!-- <a title="Español" href="http://es.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/spanish_button.png" width="65" height="30" border="0" alt="Español"></a> -->
+<a title="فارسی" href="http://fa.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/farsi_button.png" width="65" height="30" border="0" alt="فارسی"></a>
+<a title="Suomi" href="http://fi.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/finnish_button.png" width="65" height="30" border="0" alt="Suomi"></a>
+<br>
+<a title="Français" href="http://fr.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/french_button.png" width="65" height="30" border="0" alt="Français"></a>
+<a title="Nederlands" href="http://nl.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/dutch_button.png" width="65" height="30" border="0" alt="Nederlands"></a>
+<!-- <a title="Pусский" href="http://ru.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/russian_button.png" width="65" height="30" border="0" alt="Pусский"></a> -->
+<a title="Translate" href="http://translate.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/translate_button.png" width="65" height="30" border="0" alt="Translate"></a>
+</div>
+
+<!-- End top bar -->
+
+<!-- nav box + drop shadow -->
+<div class="navbox shadow" style="top:160px;">
+    		<ul>
+
+ 		<li><a href="/accounts/signin/?redirect=/csound/_draft/_v/1.0/math-pythonsystem-plugins/">Sign In</li><li>Register</a></li>
+
+                <li><a href="/list-books">All Manuals</a></li>
+                <li><a href="/list-groups">All Groups</a></li>
+                <li><a href="/list-people/">All People</a></li>
+           	</ul>
+</div>
+<!-- End of nav box -->
+
+
+
+<div class="content-container shadow">
+<!-- Content box and the drop shadow-->
+
+
+
+
+<br clear="all"/>
+   <h1>CSound</h1>
+
+
+<div id="bookmenu"   style="background: url(/site_static/images/draft_bg.png) repeat !important;">
+<ul>
+
+ 
+   <li><b>INTRODUCTION</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/introduction/">PREFACE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/how-to-use-this-manual/">HOW TO USE THIS MANUAL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/on-this-release/">ON THIS RELEASE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/credits/">CREDITS</a></li>
+ 
+
+ 
+   <li><b>01 BASICS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-digital-audio/">A. DIGITAL AUDIO</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-pitch-and-frequency/">B. PITCH AND FREQUENCY</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-intensities/">C. INTENSITIES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/random/">D. RANDOM</a></li>
+ 
+
+ 
+   <li><b>02 QUICK START</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-make-csound-run/">A. MAKE CSOUND RUN</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-csound-syntax/">B. CSOUND SYNTAX</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-configuring-midi/">C. CONFIGURING MIDI</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-live-audio/">D. LIVE AUDIO</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-rendering-to-file/">E. RENDERING TO FILE</a></li>
+ 
+
+ 
+   <li><b>03 CSOUND LANGUAGE</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-initialization-and-performance-pass/">A. INITIALIZATION AND PERFORMANCE PASS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-local-and-global-variables/">B. LOCAL AND GLOBAL VARIABLES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-control-structures/">C. CONTROL STRUCTURES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-function-tables/">D. FUNCTION TABLES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/arrays/">E. ARRAYS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-triggering-instrument-events/">F. LIVE EVENTS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-user-defined-opcodes/">G. USER DEFINED OPCODES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/macros/">H. MACROS</a></li>
+ 
+
+ 
+   <li><b>04 SOUND SYNTHESIS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-additive-synthesis/">A. ADDITIVE SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-subtractive-synthesis/">B. SUBTRACTIVE SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-amplitude-and-ringmodulation/">C. AMPLITUDE AND RING MODULATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-frequency-modulation/">D. FREQUENCY MODULATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-waveshaping/">E. WAVESHAPING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-granular-synthesis/">F. GRANULAR SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/g-physical-modelling/">G. PHYSICAL MODELLING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/scanned-synthesis/">H. SCANNED SYNTHESIS</a></li>
+ 
+
+ 
+   <li><b>05 SOUND MODIFICATION</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-envelopes/">A. ENVELOPES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-panning-and-spatialization/">B. PANNING AND SPATIALIZATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-filters/">C. FILTERS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-delay-and-feedback/">D. DELAY AND FEEDBACK</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-reverberation/">E. REVERBERATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-am-rm-waveshaping/">F. AM / RM / WAVESHAPING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/g-granular-synthesis/">G. GRANULAR SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/h-convolution/">H. CONVOLUTION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/i-fourier-analysis-spectral-processing/">I. FOURIER ANALYSIS / SPECTRAL PROCESSING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/k-ats-resynthesis/">K. ATS RESYNTHESIS</a></li>
+ 
+
+ 
+   <li><b>06 SAMPLES</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-record-and-play-soundfiles/">A. RECORD AND PLAY SOUNDFILES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-record-and-play-buffers/">B. RECORD AND PLAY BUFFERS</a></li>
+ 
+
+ 
+   <li><b>07 MIDI</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-receiving-events-by-midiin/">A. RECEIVING EVENTS BY MIDIIN</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-triggering-instrument-instances/">B. TRIGGERING INSTRUMENT INSTANCES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-working-with-controllers/">C. WORKING WITH CONTROLLERS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-reading-midi-files/">D. READING MIDI FILES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-midi-output/">E. MIDI OUTPUT</a></li>
+ 
+
+ 
+   <li><b>08 OTHER COMMUNICATION</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/osc-and-wii/">A. OPEN SOUND CONTROL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-arduino/">B. CSOUND AND ARDUINO</a></li>
+ 
+
+ 
+   <li><b>09 CSOUND IN OTHER APPLICATIONS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-pd/">A. CSOUND IN PD</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-maxmsp/">B. CSOUND IN MAXMSP</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-ableton-live/">C. CSOUND IN ABLETON LIVE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-csound-as-a-vst-plugin/">D. CSOUND AS A VST PLUGIN</a></li>
+ 
+
+ 
+   <li><b>10 CSOUND FRONTENDS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/qutecsound/">CSOUNDQT</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/cecilia/">CABBAGE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/blue/">BLUE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/winxound/">WINXOUND</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-via-terminal/">CSOUND VIA TERMINAL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/web-based-csound/">WEB BASED CSOUND</a></li>
+ 
+
+ 
+   <li><b>11 CSOUND UTILITIES</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-utilities/">CSOUND UTILITIES</a></li>
+ 
+
+ 
+   <li><b>12 CSOUND AND OTHER PROGRAMMING LANGUAGES</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/the-csound-api/">A. THE CSOUND API</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/using-python-inside-csound/">B. PYTHON INSIDE CSOUND</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-python-in-csoundqt/">C. PYTHON IN CSOUNDQT</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-lua-in-csound/">D. LUA IN CSOUND</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-csound-in-ios/">E. CSOUND IN iOS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-csound-on-android/">F. CSOUND ON ANDROID</a></li>
+ 
+
+ 
+   <li><b>13 EXTENDING CSOUND</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/extending-csound/">EXTENDING CSOUND</a></li>
+ 
+
+ 
+   <li><b>OPCODE GUIDE</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/overview/">OVERVIEW</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/signal-processing-i/">SIGNAL PROCESSING I</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/signal-processing-ii/">SIGNAL PROCESSING II</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/data/">DATA</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/realtime-interaction/">REALTIME INTERACTION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/instrument-control/">INSTRUMENT CONTROL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/math-pythonsystem-plugins/">MATHS, PYTHON/SYSTEM, PLUGINS</a></li>
+ 
+
+ 
+   <li><b>APPENDIX</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/writing-csound-scores-by-hand/">METHODS OF WRITING CSOUND SCORES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/glossary/">GLOSSARY</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/links/">LINKS</a></li>
+ 
+
+</ul>
+</div>
+<div id="bookcontent"   >
+<h1>OPCODE GUIDE: MATH, PYTHON/ SYSTEM, PLUGINS
+</h1>
+<h2>MATH
+</h2>
+<ul>
+  <li>
+  <h2>MATHEMATICAL CALCULATIONS
+  </h2>
+  <ul>
+    <li>
+    <h3>Arithmetic Operations
+      <br />
+    </h3>
+    <p><a href="http://www.csounds.com/manual/html/adds.html"><strong>+</strong></a>, <a href="http://www.csounds.com/manual/html/subtracts.html"><strong>-</strong></a>, <a href="http://www.csounds.com/manual/html/multiplies.html"><strong>*</strong></a>, <a href="http://www.csounds.com/manual/html/divides.html"><strong>/</strong></a>, <a href="http://www.csounds.com/manual/html/raises.html"><strong>^</strong></a>, <a href="http://www.csounds.com/manual/html/modulus.html"><strong>%</strong></a> are the usual signs for addition, subtraction, multiplication, division, raising to a power and modulo. The precedence is like that used in common mathematics (* binds stronger than + etc.), but you can change this behaviour with parentheses: 2^(1/12) returns 2 raised by 1/12 (= the 12st root of 2), while 2^1/12 returns 2 raised by 1, and the result divided by 12.
+    </p>
+    <p><strong><a href="http://www.csounds.com/manual/html/exp.html">exp(x)</a></strong>, <a href="http://www.csounds.com/manual/html/log.html"><strong>log(x)</strong></a>, <a href="http://www.csounds.com/manual/html/log10.html"><strong>log10(x)</strong></a> and <a href="http://www.csounds.com/manual/html/sqrt.html"><strong>sqrt(x)</strong></a> return e raised to the xth power, the natural log of x, the base 10 log of x, and the square root of x.
+      <br />
+    </p>
+    <p> <a href="http://www.csounds.com/manual/html/abs.html"><strong>abs(x)</strong></a> returns the absolute value of a number.
+      <br />
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/int.html"><strong>int(x)</strong></a> and <a href="http://www.csounds.com/manual/html/frac.html"><strong>frac(x)</strong></a> return the integer respective the fractional part of a number.
+      <br />
+    </p> <a href="http://www.csounds.com/manual/html/round.html"><strong>round(x)</strong></a>, <a href="http://www.csounds.com/manual/html/ceil.html"><strong>ceil(x)</strong></a>, <a href="http://www.csounds.com/manual/html/floor.html"><strong>floor(x)</strong></a> round a number to the nearest, the next higher or the next lower integer.</li>
+    <li>
+    <h3>Trigonometric Functions
+    </h3>
+    <p><a href="http://www.csounds.com/manual/html/sin.html"><strong>sin(x)</strong></a>, <a href="http://www.csounds.com/manual/html/cos.html"><strong>cos(x)</strong></a>, <a href="http://www.csounds.com/manual/html/tan.html"><strong>tan(x)</strong></a> perform a sine, cosine or tangent function.
+      <br />
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/sinh.html"><strong>sinh(x)</strong></a>, <a href="http://www.csounds.com/manual/html/cosh.html"><strong>cosh(x)</strong></a>, <a href="http://www.csounds.com/manual/html/tanh.html"><strong>tanh(x)</strong></a> perform a hyperbolic sine, cosine or tangent function.
+      <br />
+    </p> <a href="http://www.csounds.com/manual/html/sininv.html"><strong>sininv(x)</strong></a>, <a href="http://www.csounds.com/manual/html/cosinv.html"><strong>cosinv(x)</strong></a>, <a href="http://www.csounds.com/manual/html/taninv.html"><strong>taninv(x)</strong></a> and <a href="http://www.csounds.com/manual/html/taninv2.html"><strong>taninv2(x)</strong></a> perform the arcsine, arccosine and arctangent functions.</li>
+    <li>
+    <h3>Logic Operators
+    </h3>
+    <p><a href="http://www.csounds.com/manual/html/opand.html"> </a><a href="http://www.csounds.com/manual/html/opand.html"><strong>&amp;&amp;</strong></a> and <a href="http://www.csounds.com/manual/html/opor.html"><strong>||</strong></a>&nbsp; are the symbols for a logical "and" and "or". Note that you can use here parentheses for defining the precedence, too, for instance: if (ival1 &lt; 10 &amp;&amp; ival2 &gt; 5) || (ival1 &gt; 20 &amp;&amp; ival2 &lt; 0) then ...
+    </p></li>
+  </ul></li>
+</ul>
+<h4>
+</h4>
+<ul>
+  <li>
+  <h2>CONVERTERS
+  </h2>
+  <ul>
+    <li>
+    <h3>MIDI To Frequency&nbsp;
+    </h3>
+    <p><a href="http://www.csounds.com/manual/html/cpsmidi.html"> </a>
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/cpsmidi.html"><strong>cpsmidi</strong></a> converts a MIDI note number from a triggered instrument to the frequency in Hertz.
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/cpsmidinn.html"><strong>cpsmidinn</strong></a> does the same for any input values (i- or k-rate).
+    </p>
+    <p>Other opcodes convert to Csound's pitch- or octave-class system. They can be found <a href="http://www.csounds.com/manual/html/PitchTop.html#PitchFuncs">here</a>.
+    </p>
+    <p>
+    </p></li>
+  </ul>
+  <ul>
+    <li>
+    <h3>Frequency To MIDI
+    </h3>
+    <p>Csound has no own opcode for the conversion of a frequency to a midi note number, because this is a rather simple calculation. You can find a User Defined Opcode for <a href="http://www.csounds.com/udo/displayOpcode.php?opcode_id=123">rounding to the next possible midi note number</a> or for the <a href="http://www.csounds.com/udo/displayOpcode.php?opcode_id=124">exact translation to a midi note number and a cent value as fractional part</a>.
+    </p>
+    <p>
+    </p>
+    <h4>
+    </h4>
+    <h4>
+    </h4></li>
+    <li>
+    <h3>Cent Values To Frequency&nbsp;
+    </h3>
+    <p><a href="http://www.csounds.com/manual/html/cent.html"> </a><a href="http://www.csounds.com/manual/html/cent.html"><strong>cent</strong></a> converts a cent value to a multiplier. For instance, <em>cent(1200)</em> returns 2, <em>cent(100)</em> returns 1.059403. If you multiply this with the frequency you reference to, you get frequency of the note which corresponds to the cent interval.
+    </p>
+    <h4>
+    </h4></li>
+    <li>
+    <h3>Amplitude Converters
+    </h3>
+    <p><a href="http://www.csounds.com/manual/html/ampdb.html"> </a>
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/ampdb.html"><strong>ampdb</strong></a> returns the amplitude equivalent of the dB value. <em>ampdb(0)</em> returns 1, <em>ampdb(-6)</em> returns 0.501187, and so on.
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/ampdbfs.html"><strong>ampdbfs</strong></a> returns the amplitude equivalent of the dB value, according to what has been set as <a href="http://www.csounds.com/manual/html/0dbfs.html">0dbfs</a> (1 is recommended, the default is 15bit = 32768). So ampdbfs(-6) returns 0.501187 for 0dbfs=1, but 16422.904297 for 0dbfs=32768.
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/dbamp.html"><strong>dbamp</strong></a> returns the decibel equivalent of the amplitude value, where an amplitude of 1 is the maximum. So dbamp(1) -&gt; 0 and dbamp(0.5) -&gt; -6.020600.
+    </p> <a href="http://www.csounds.com/manual/html/dbfsamp.html"><strong>dbfsamp</strong></a> returns the decibel equivalent of the amplitude value set by the <a href="http://www.csounds.com/manual/html/0dbfs.html">0dbfs</a> statement. So dbfsamp(10) is 20.000002 for 0dbfs=0 but -70.308998 for 0dbfs=32768.
+    <p>
+    </p>
+    <h4>
+    </h4></li>
+    <li>
+    <h3>Scaling&nbsp;
+    </h3>
+    <p>Scaling of signals from an input range to an output range, like the "scale" object in Max/MSP, is not implemented in Csound, because it is a rather simple calculation. It is available as User Defined Opcode: <a href="http://www.csounds.com/udo/displayOpcode.php?opcode_id=125">Scali</a> (i-rate), <a href="http://www.csounds.com/udo/displayOpcode.php?opcode_id=126">Scalk</a> (k-rate) or <a href="http://www.csounds.com/udo/displayOpcode.php?opcode_id=127">Scala</a> (a-rate).
+      <br />
+    </p>
+    <p>
+    </p></li>
+  </ul></li>
+</ul>
+<p id="alexbreak">
+</p>
+<h2>PYTHON AND SYSTEM
+</h2>
+<ul>
+  <li>
+  <h2>PYTHON OPCODES
+  </h2>
+  <h4>
+  </h4>
+  <p><a href="http://www.csounds.com/manual/html/pyinit.html"> </a>
+  </p>
+  <p><a href="http://www.csounds.com/manual/html/pyinit.html"><strong>pyinit</strong></a> initializes the Python interpreter.
+    <br />
+  </p>
+  <p><a href="http://www.csounds.com/manual/html/pyrun.html"><strong>pyrun</strong></a> runs a Python statement or block of statements.
+  </p>
+  <p> <a href="http://www.csounds.com/manual/html/pyexec.html"><strong>pyexec</strong></a> executes a script from a file at k-time, i-time or if a trigger has been received.
+  </p>
+  <p><a href="http://www.csounds.com/manual/html/pycall.html"><strong>pycall</strong></a> invokes the specified Python callable at k-time or i-time.
+  </p>
+  <p><a href="http://www.csounds.com/manual/html/pyeval.html"><strong>pyeval</strong></a> evaluates a generic Python expression and stores the result in a Csound k- or i-variable, with optional trigger.
+  </p>
+  <p><a href="http://www.csounds.com/manual/html/pyassign.html"><strong>pyassign</strong></a> assigns the value of the given Csound variable to a Python variable possibly destroying its previous content.
+  </p>
+  <p>
+  </p></li>
+</ul>
+<h4>
+</h4>
+<ul>
+  <li>
+  <h2>SYSTEM OPCODES
+  </h2>
+  <p><a href="http://www.csounds.com/manual/html/getcfg.html"> </a>
+  </p>
+  <p><a href="http://www.csounds.com/manual/html/getcfg.html"><strong>getcfg</strong></a> returns various Csound configuration settings as a string at init time.
+  </p>
+  <p><a href="http://www.csounds.com/manual/html/system.html"><strong>system</strong></a> / <a href="http://www.csounds.com/manual/html/system.html"><strong>system_i</strong></a> call an external program via the system call.
+  </p>
+  <p>
+  </p></li>
+</ul>
+<h2>PLUGINS
+  <br />
+</h2>
+<ul>
+  <li>
+  <h2>PLUGIN HOSTING
+  </h2>
+  <ul>
+    <li>
+    <h3>LADSPA
+    </h3>
+    <p><a href="http://www.csounds.com/manual/html/dssiinit.html"> </a>
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/dssiinit.html"><strong>dssiinit</strong></a> loads a plugin.
+    </p>
+    <p> <a href="http://www.csounds.com/manual/html/dssiactivate.html"><strong>dssiactivate</strong></a> activates or deactivates a plugin if it has this facility.
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/dssilist.html"><strong>dssilist</strong></a> lists all available plugins found in the LADSPA_PATH and DSSI_PATH global variables.
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/dssiaudio.html"><strong>dssiaudio</strong></a> processes audio using a plugin.
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/dssictls.html"><strong>dssictls</strong></a> sends control information to a plugin's control port.
+    </p>
+    <p>
+    </p></li>
+    <li>
+    <h3>VST
+    </h3>
+    <p> <a href="http://www.csounds.com/manual/html/vstinit.html"> </a>
+    </p>
+    <p> <a href="http://www.csounds.com/manual/html/vstinit.html"><strong>vstinit</strong></a> loads a plugin.
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/vstaudio.html"><strong>vstaudio</strong></a> / <a href="http://www.csounds.com/manual/html/vstaudio.html"><strong>vstaudiog</strong></a> return a plugin's output.
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/vstmidiout.html"><strong>vstmidiout</strong></a> sends midi data to a plugin.
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/vstparamset.html"><strong>vstparamset</strong></a> / <a href="http://www.csounds.com/manual/html/vstparamget.html"><strong>vstparamget</strong></a> sends and receives automation data to and from the plugin.
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/vstnote.html"><strong>vstnote</strong></a> sends a midi note with a definite duration.
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/vstinfo.html"><strong>vstinfo</strong></a> outputs the parameter and program names for a plugin.
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/vstbankload.html"><strong>vstbankload</strong></a> loads an .fxb bank.
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/vstprogset.html"><strong>vstprogset</strong></a> sets the program in a .fxb bank.
+    </p> <a href="http://www.csounds.com/manual/html/vstedit.html"><strong>vstedit</strong></a> opens the GUI editor for the plugin, when available.
+    <p>
+    </p></li>
+  </ul></li>
+</ul>
+   <hr/>
+    <a href="/csound/_edit/">EDIT</a>
+
+</div>
+
+<script type="text/javascript">
+jQuery(function ($) {
+    $('#bookcontent').annotator()
+   		.annotator('setupPlugins', {}, {
+                Tags: false,
+                Filter: {
+                  addAnnotationFilter: false
+                },
+                Permissions: false,
+                AnnotateItPermissions: {}
+              });
+});
+</script>
+
+
+
+</div>
+<!-- End of content -->
+
+</div>  
+<!-- DEV TOOLS -->
+<div id="bookidebug">
+</div>
+
+<!-- sputnik error page -->
+<div id="dialog-sputnik-qrac" style="display: none"></div>
+</body>
+</html>
+

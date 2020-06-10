@@ -1,0 +1,871 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html>
+ <head>
+   <link type="text/css" href="http://www.flossmanuals.net/_templates/prettify/src/prettify.css" rel="Stylesheet" />
+   <script type="text/javascript" src="http://www.flossmanuals.net/_templates/prettify/src/prettify.js"></script>
+
+   <link type="text/css" href="/site_static/js/jquery/themes/base/jquery.ui.all.css" rel="Stylesheet" >
+   <link type="text/css" href="/site_static/js/jquery/themes/smoothness/jquery.ui.all.css" rel="Stylesheet" >
+   <script type="text/javascript" src="/static/js/jquery-1.7.js"></script>
+<!--
+   <script type="text/javascript" src="/site_static/js/jquery/jquery-1.4.4.js"></script>
+-->   
+<script type="text/javascript" src="/site_static/js/jquery/ui/jquery-ui-1.8.10.custom.js"></script>
+   <script type="text/javascript" src="/site_static/js/jquery.json-1.3.js"></script>
+   <script type="text/javascript" src="/site_static/js/booki.js"></script>
+
+   <link href="/site_static/css/jquery.bubblepopup.v2.3.1.css" rel="stylesheet" type="text/css" />
+   <script src="/site_static/js/jquery.bubblepopup.v2.3.1.min.js" type="text/javascript"></script>
+
+   <link type="text/css" href="/static/css/booki_fm.css" rel="Stylesheet"/ >
+<style>
+.template {
+	display: none !important;
+}
+
+
+#header {
+    background-color: transparent !important;
+}
+.paginator { padding:.5em .75em; float:left; font:normal .8em arial; }
+ 
+.paginator .prev-na,
+.paginator .next-na {
+	padding:.3em;
+	font-weight: bold;
+/*	font:bold .875em arial; */
+}
+ 
+.paginator .prev-na,
+.paginator .next-na {
+/*	border:1px solid #ccc; 
+	background-color:#f9f9f9; */
+	color:#aaa;
+	font-weight:normal;
+}
+ 
+.paginator .prev a, .paginator .prev a:visited,
+.paginator .next a, .paginator .next a:visited {
+/*	border:1px solid #c2ee62; 
+	background-color:#edfdd0; */
+	color:#234f32;
+	padding:.3em;
+/*	font:bold .875em arial; */
+        font-weight: bold;
+}
+ 
+.paginator .prev, .paginator .prev-na { margin-right:.5em; }
+.paginator .next, .paginator .next-na { margin-left:.5em; }
+ 
+.paginator .page a, .paginator .page a:visited, .paginator .curr {
+	padding:.25em;
+	font-weight: normal;
+/*	font:normal .875em verdana; */
+/*	border:1px solid #C2EE62; 
+	background-color:#EDFDD0; */
+	margin:0em .25em;	
+	color:#006000;
+}
+ 
+.paginator .curr { 
+/*	background-color:#234f32; 
+	color:#fff; */
+	border:1px solid #234f32; 
+	font-weight:bold;
+	font-size:1em;
+}
+ 
+.paginator .page a:hover,
+.paginator .curr a:hover,
+.paginator .prev a:hover,
+.paginator .next a:hover {
+/*	color:#fff;
+	background-color:#234f32;
+	border:1px solid #234f32; */
+}
+</style>
+ <script type="text/javascript">
+      $(function() {
+   $.booki.sputnikDispatcherURL = "/_sputnik/";
+    });
+   </script>
+
+   <script type="text/javascript">
+     $(function() {
+	 // open debug window
+	 $.booki.debug.init();
+	 
+	 
+	 $("A.debug").click(function() {
+	     $("#bookidebug").dialog("open");
+	     return false;
+	 });
+     });
+   </script>
+
+   
+<title>/chapter: F-Csound-On-Android / CSound</title>
+<link type="text/css" href="/site_static/css/editor.css" rel="Stylesheet" />
+
+<script src="http://assets.annotateit.org/annotator/v1.2.5/annotator-full.min.js"></script>
+<link rel="stylesheet" href="http://assets.annotateit.org/annotator/v1.2.5/annotator.min.css">
+
+
+
+<link rel="alternate" type="application/rss+xml" title="RSS feed for CSound" href="/feeds/rss/book/csound/" /> 
+<link rel="alternate" type="application/atom+xml" title="Atom feed for CSound" href="/feeds/atom/book/csound/" /> 
+
+<link rel="alternate" type="application/rss+xml" title="RSS feed for chapter F-Csound-On-Android" href="/feeds/rss/chapter/csound/csound/" /> 
+<link rel="alternate" type="application/atom+xml" title="Atom feed for chapter F-Csound-On-Android" href="/feeds/atom/chapter/csound/csound/" /> 
+
+
+ </head>
+<body onload="prettyPrint()" >
+<!-- testis -->
+
+<script type="text/javascript">
+$(function() {
+    $("#snippetdialog").dialog({autoOpen: false});
+});
+</script>
+
+
+<div id="snippetdialog" title="Basic dialog">
+        <p></p>
+</div>
+
+
+
+<div id="page-container"> 
+<style>
+body
+{
+margin:0;
+padding:0
+}
+#header
+{
+position:absolute;
+top:23px;
+width:100%;
+background-image: url('http://www.flossmanuals.net/_templates/fm_resources/header_bg.gif');
+background-position: 700px 0px; /* this places the orange background at
+an offset, making sure it doesn't underlap the left side of the gif */
+background-repeat: no-repeat;
+}
+
+#fmheader {
+    background-image: url("http://en.flossmanuals.net/_templates/fm_resources/header_bg.gif");
+    background-position: 600px 0;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 23px;
+    width: 100%;
+}
+#header_image
+{
+margin-left: 270px;
+border: 0px
+}
+
+#navigation
+{
+position:absolute;
+top: 80px;
+left: 357px;
+width:50%;
+}
+
+
+#languages
+{
+position:absolute;
+top: 40px;
+left: 740px;
+width:50%;
+}
+</style>
+
+
+
+<!-- Header graphic is common to all pages  -->
+<div id="header"><img id="header_image" alt="FlossManuals menu" src="http://www.flossmanuals.net/_templates/fm_resources/header_menu.gif" height="95" width="465" border="0"></div>
+
+
+<!-- Navigation buttons are language and context specific  -->
+<div id="navigation">
+<a title="Read" href="http://en.flossmanuals.net/index.php"><img src="http://www.flossmanuals.net/_templates/fm_resources/read_en.png" width="65" height="30" border="0" alt="Read"></a>
+<a title="Write" href="http://booki.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/write_active_en.png" width="65" height="30" border="0" alt="Write"></a>
+<a title="Remix" href="http://en.flossmanuals.net/index.php?plugin=remix"><img src="http://www.flossmanuals.net/_templates/fm_resources/remix_en.png" width="65" height="30" border="0" alt="Remix"></a>
+<a title="About" href="http://www.flossmanuals.org"><img src="http://www.flossmanuals.net/_templates/fm_resources/about_en.png" width="65" height="30" border="0" alt="About"></a>
+</div>
+
+<!-- Language buttons are common to all pages  -->
+<div id="languages">
+<a title="English" href="http://en.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/english_button.png" width="65" height="30" border="0" alt="English"></a>
+
+<!-- <a title="Español" href="http://es.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/spanish_button.png" width="65" height="30" border="0" alt="Español"></a> -->
+<a title="فارسی" href="http://fa.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/farsi_button.png" width="65" height="30" border="0" alt="فارسی"></a>
+<a title="Suomi" href="http://fi.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/finnish_button.png" width="65" height="30" border="0" alt="Suomi"></a>
+<br>
+<a title="Français" href="http://fr.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/french_button.png" width="65" height="30" border="0" alt="Français"></a>
+<a title="Nederlands" href="http://nl.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/dutch_button.png" width="65" height="30" border="0" alt="Nederlands"></a>
+<!-- <a title="Pусский" href="http://ru.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/russian_button.png" width="65" height="30" border="0" alt="Pусский"></a> -->
+<a title="Translate" href="http://translate.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/translate_button.png" width="65" height="30" border="0" alt="Translate"></a>
+</div>
+
+<!-- End top bar -->
+
+<!-- nav box + drop shadow -->
+<div class="navbox shadow" style="top:160px;">
+    		<ul>
+
+ 		<li><a href="/accounts/signin/?redirect=/csound/_draft/_v/1.0/f-csound-on-android/">Sign In</li><li>Register</a></li>
+
+                <li><a href="/list-books">All Manuals</a></li>
+                <li><a href="/list-groups">All Groups</a></li>
+                <li><a href="/list-people/">All People</a></li>
+           	</ul>
+</div>
+<!-- End of nav box -->
+
+
+
+<div class="content-container shadow">
+<!-- Content box and the drop shadow-->
+
+
+
+
+<br clear="all"/>
+   <h1>CSound</h1>
+
+
+<div id="bookmenu"   style="background: url(/site_static/images/draft_bg.png) repeat !important;">
+<ul>
+
+ 
+   <li><b>INTRODUCTION</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/introduction/">PREFACE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/how-to-use-this-manual/">HOW TO USE THIS MANUAL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/on-this-release/">ON THIS RELEASE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/credits/">CREDITS</a></li>
+ 
+
+ 
+   <li><b>01 BASICS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-digital-audio/">A. DIGITAL AUDIO</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-pitch-and-frequency/">B. PITCH AND FREQUENCY</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-intensities/">C. INTENSITIES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/random/">D. RANDOM</a></li>
+ 
+
+ 
+   <li><b>02 QUICK START</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-make-csound-run/">A. MAKE CSOUND RUN</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-csound-syntax/">B. CSOUND SYNTAX</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-configuring-midi/">C. CONFIGURING MIDI</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-live-audio/">D. LIVE AUDIO</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-rendering-to-file/">E. RENDERING TO FILE</a></li>
+ 
+
+ 
+   <li><b>03 CSOUND LANGUAGE</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-initialization-and-performance-pass/">A. INITIALIZATION AND PERFORMANCE PASS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-local-and-global-variables/">B. LOCAL AND GLOBAL VARIABLES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-control-structures/">C. CONTROL STRUCTURES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-function-tables/">D. FUNCTION TABLES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/arrays/">E. ARRAYS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-triggering-instrument-events/">F. LIVE EVENTS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-user-defined-opcodes/">G. USER DEFINED OPCODES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/macros/">H. MACROS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/functional-syntax/">I. FUNCTIONAL SYNTAX</a></li>
+ 
+
+ 
+   <li><b>04 SOUND SYNTHESIS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-additive-synthesis/">A. ADDITIVE SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-subtractive-synthesis/">B. SUBTRACTIVE SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-amplitude-and-ringmodulation/">C. AMPLITUDE AND RING MODULATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-frequency-modulation/">D. FREQUENCY MODULATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-waveshaping/">E. WAVESHAPING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-granular-synthesis/">F. GRANULAR SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/g-physical-modelling/">G. PHYSICAL MODELLING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/scanned-synthesis/">H. SCANNED SYNTHESIS</a></li>
+ 
+
+ 
+   <li><b>05 SOUND MODIFICATION</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-envelopes/">A. ENVELOPES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-panning-and-spatialization/">B. PANNING AND SPATIALIZATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-filters/">C. FILTERS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-delay-and-feedback/">D. DELAY AND FEEDBACK</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-reverberation/">E. REVERBERATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-am-rm-waveshaping/">F. AM / RM / WAVESHAPING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/g-granular-synthesis/">G. GRANULAR SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/h-convolution/">H. CONVOLUTION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/i-fourier-analysis-spectral-processing/">I. FOURIER ANALYSIS / SPECTRAL PROCESSING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/k-ats-resynthesis/">K. ATS RESYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/amplitude-and-pitch-tracking/">L. AMPLITUDE AND PITCH TRACKING</a></li>
+ 
+
+ 
+   <li><b>06 SAMPLES</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-record-and-play-soundfiles/">A. RECORD AND PLAY SOUNDFILES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-record-and-play-buffers/">B. RECORD AND PLAY BUFFERS</a></li>
+ 
+
+ 
+   <li><b>07 MIDI</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-receiving-events-by-midiin/">A. RECEIVING EVENTS BY MIDIIN</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-triggering-instrument-instances/">B. TRIGGERING INSTRUMENT INSTANCES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-working-with-controllers/">C. WORKING WITH CONTROLLERS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-reading-midi-files/">D. READING MIDI FILES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-midi-output/">E. MIDI OUTPUT</a></li>
+ 
+
+ 
+   <li><b>08 OTHER COMMUNICATION</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/osc-and-wii/">A. OPEN SOUND CONTROL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-arduino/">B. CSOUND AND ARDUINO</a></li>
+ 
+
+ 
+   <li><b>09 CSOUND IN OTHER APPLICATIONS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-pd/">A. CSOUND IN PD</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-maxmsp/">B. CSOUND IN MAXMSP</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-ableton-live/">C. CSOUND IN ABLETON LIVE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-csound-as-a-vst-plugin/">D. CSOUND AS A VST PLUGIN</a></li>
+ 
+
+ 
+   <li><b>10 CSOUND FRONTENDS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/qutecsound/">CSOUNDQT</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/cecilia/">CABBAGE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/blue/">BLUE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/winxound/">WINXOUND</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-via-terminal/">CSOUND VIA TERMINAL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/web-based-csound/">WEB BASED CSOUND</a></li>
+ 
+
+ 
+   <li><b>11 CSOUND UTILITIES</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-utilities/">CSOUND UTILITIES</a></li>
+ 
+
+ 
+   <li><b>12 CSOUND AND OTHER PROGRAMMING LANGUAGES</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/the-csound-api/">A. THE CSOUND API</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/using-python-inside-csound/">B. PYTHON INSIDE CSOUND</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-python-in-csoundqt/">C. PYTHON IN CSOUNDQT</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-lua-in-csound/">D. LUA IN CSOUND</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-csound-in-ios/">E. CSOUND IN iOS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-csound-on-android/">F. CSOUND ON ANDROID</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-and-haskell/">G. CSOUND AND HASKELL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/h-csound-and-html/">H. CSOUND AND HTML</a></li>
+ 
+
+ 
+   <li><b>13 EXTENDING CSOUND</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/extending-csound/">EXTENDING CSOUND</a></li>
+ 
+
+ 
+   <li><b>OPCODE GUIDE</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/overview/">OVERVIEW</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/signal-processing-i/">SIGNAL PROCESSING I</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/signal-processing-ii/">SIGNAL PROCESSING II</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/data/">DATA</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/realtime-interaction/">REALTIME INTERACTION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/instrument-control/">INSTRUMENT CONTROL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/math-pythonsystem-plugins/">MATHS, PYTHON/SYSTEM, PLUGINS</a></li>
+ 
+
+ 
+   <li><b>APPENDIX</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/writing-csound-scores-by-hand/">METHODS OF WRITING CSOUND SCORES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/glossary/">GLOSSARY</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/links/">LINKS</a></li>
+ 
+
+</ul>
+</div>
+<div id="bookcontent"   >
+<h1>F. CSOUND ON ANDROID</h1><h2>Introduction</h2><p>Now that we have spent some time with Csound on Android, we have come to realize that a high end smartphone, not to mention a tablet, is in every sense of the word a real computer. The limits to what can be programmed on it are indefinable. On a high-end personal computer, it is easier to type, and Csound runs quite a bit faster; but there is no&nbsp;<em>essential</em>&nbsp;difference between running Csound on a computer and running it on a smartphone.</p><p>Csound has been available on the Android platform since 2012 (Csound 5.19), thanks to the work of Victor Lazzarini and Steven Yi. Csound 6 was ported to Android, and enhanced, by Michael Gogins and Steven Yi in the summer of 2013. This chapter is about Csound 6 for Android, or just Csound for Android.</p><p>The following packages are available for Android:</p><p></p><ol><li>The CsoundAndroid library, which is intended to be used by developers for creating apps based on Csound.</li><li>The Csound6 app, which is a self-contained environment for creating, editing, debugging, and performing Csound pieces on Android. (It used to be called the CSDPlayer, but has since been enhanced to support editing and other features.) The app includes a number of built-in example pieces.</li></ol><p>These packages are available for download from the SourceForge site's file pages at&nbsp;<a href="http://sourceforge.net/projects/csound/files/csound6/">http://sourceforge.net/projects/csound/files/csound6/</a>.&nbsp;</p><p></p><p>For more information about these packages, download them and consult the documentation contained therein.</p><h2>The Csound6 app&nbsp;</h2><p>The Csound6 app (or Csound for Android) permits the user, on any Android device that is powerful enough, including most tablets and the most powerful smartphones, to do most things that can be done with Csound on any other platform such as OS X, Windows, or Linux. This includes creating Csound pieces, editing them, debugging them, and performing them, either in real time to audio output or to a soundfile for later playback. </p><p>The app has a built-in, pre-configured user interface with five sliders, five push buttons, one trackpad, and a 3 dimensional accelerometer that are pre-assigned to control channels which can be read using Csound's chnget opcode.</p><p>The app also contains an embedded Web browser, based on WebKit, that can parse, interpret, and present HTML and JavaScript code that is contained in the &lt;html&gt; element of the CSD file. The embedded browser implements most features of the HTML5 standard. Selected commonly used functions from the Csound API are available from JavaScript embedded in this &lt;html&gt; code, and can be used to control Csound from HTML user interfaces, generate scores, and do many other things. For a more complete introduction to the use of HTML with Csound, see Chapter 12, Section H, <strong><em>Csound and HTML</em></strong>. On Android, if the &lt;html&gt; element is present in the CSD file, the built-in widgets will be replaced by a Web page that will be constructed from the code in the &lt;html&gt; element of the CSD.</p><p>The app also has some limitations and missing features compared with the longer-established platforms. These include:</p><p></p><ol><li>There is no real-time MIDI input or output.</li><li>Audio input is not accurately synchronized with audio output.</li><li>Many plugin opcodes are missing, including most opcodes involved with using other plugin formats or inter-process communications.&nbsp;</li></ol><p>However, some of the more useful plugins are indeed available on Android:</p><p></p><p></p><ol><li>The signal flow graph opcodes for routing audio from instruments to effects, etc.</li><li>The FluidSynth opcodes for playing SoundFonts.&nbsp;</li><li>The Lua opcodes for running Lua code in Csound and even defining new Csound opcodes in Lua.</li><li>The Open Sound Control (OSC) opcodes.</li><li>The libstdutil library, which enables Csound to be used for various time/frequency analysis and resynthesis tasks, and for other purposes.</li></ol><h2>Installing the App</h2><p>There are two ways to install the Csound6 app. You can download it using your device, or you can download it to a computer and transfer it to your device. These methods are presented below.</p><h3>Preparing Your Device&nbsp;</h3><p>Using the Csound6 app is similar to using an application on a regular computer. You need to be able to browse the file system, and you need to be able to edit csd files.</p><p>There are a number of free and paid apps that give users the ability to browse the Linux file system that exists on all Android devices. If you don't already have such a utility, you should install a file browser that provides access to as much as possible of the file system on your device, including system storage and external store such as an SD card. I have found that the free <a href="https://play.google.com/store/apps/details?id=com.agilesoftresource&amp;hl=en" target="" title="">AndroZip </a>app can do this.</p><p>There also is an increasing number of free and paid text editors for Android. The one that I chose to use for developing, testing, and using the Csound6 app is the free version of the <a href="https://play.google.com/store/apps/details?id=jp.sblo.pandora.jota&amp;hl=en" target="" title="">Jota </a>text editor. There are also various enhanced paid versions of this app, and of course you may find some other editor more suitable to your purposes. Other editors should also be able to work with Csound, although they have only very lightly been tested.</p><p>When you use Csound, the command for editing csd files will transparently invoke the editor, as though it was an integral part of the app. This kind of integration is an appealing feature of the Android operating system.</p><p>If you render soundfiles, they take up a lot of space. For example, CD-quality stereo soundfiles (44.1 KHz, 16 bit) take up about 10 megabytes per minute of sound. Higher quality or more channels take up even more room. But even without extra storage, a modern smartphone should have gigabytes, thousands of megabytes, of free storage. This is actually enough to make an entire album of pieces.</p><p>On most devices, installing extra storage is easy and not very expensive. I recommend obtaining the largest possible SD card, if your device supports them. This will vastly expand the amount of available space, up to 32 or 64 gigabytes or even more.</p><p><span style="font-family: Arial, verdana, sans-serif; font-size: 14px; font-weight: bold;">Download to Device</span></p><p>To download the Csound6 app to your device, go online using Google Search or a Web browser. You can find the application package file, Csound6.apk, on <a href="http://sourceforge.net/" target="" title="">SourceForge</a>, on the Csound project site, on the <a href="http://sourceforge.net/projects/csound/files/?source=navbar" target="" title="">File </a>page (you may first have to allow your android to install an app which is not in Google Play).&nbsp;The app will be on one of the more recent releases of <a href="http://sourceforge.net/projects/csound/files/csound6/" target="" title="">Csound 6</a>. For example, you can find it at <a href="http://sourceforge.net/projects/csound/files/csound6/Csound6.00.1/Csound6.apk/download" target="" title="" style="width: 50%; height: auto;">Csound6.apk</a>. But you should look for the latest release and use that.&nbsp;</p><p>Click on the filename to download the package. The download will happen in the background. You can then go to the notifications bar of your device and click on the downloaded file. You will be presented with one or more options for how to install it. The installer will ask for certain permissions, which you need to grant.</p><h3>Transfer from a Computer</h3><p>It's also easy to download the Csound6.apk file to a personal computer. Once you have downloaded the file from SourceForge, connect your device to the computer with a USB cable. The file system of the device should then automatically be mounted on the file system of the computer. Find the Csound6.apk in the computer's download directory, and copy the Csound6.apk file. Find your device's download directory, and paste the Csound.apk file there.</p><p>Then you will need to use a file browser that is actually on your device, such as AndropZip. Browse to your Download directory, select the Csound6.apk file, and you should be presented with a choice of actions. Select the Install action. The installer will ask for certain permissions, which you should give.</p><h2>User Interface</h2><p><img src="static/Csound6_User_Guide_html_773f6605.png">&nbsp;</p><p>&nbsp;</p><ul>
+	<li><p style="margin-top: 0.08in; margin-bottom: 0in"><em><strong>New</strong></em>
+	– creates a blank template CSD file in the root directory of the
+	user's storage for the user to edit. The CSD file will be remembered
+	and performed by Csound.</p></li><li><p style="margin-top: 0.08in; margin-bottom: 0in"><em><strong>Open </strong></em>–
+	opens
+	an existing CSD file in the root directory of the user's storage.
+	The user's storage filesystem can be navigated to find other files.</p></li><li><p style="margin-top: 0.08in; margin-bottom: 0in"><em><strong>Edit</strong></em>
+	– opens a text editor to edit the current CSD file. Be sure to
+	save the file before you perform it! I recommend the free, open
+	source <a href="https://play.google.com/store/apps/details?id=jp.sblo.pandora.jota&amp;hl=en">Jota</a>
+	text editor on smartphones and, though I haven't tried Jota on
+	tablets, it probably works well there as well.</p></li><li><p style="margin-top: 0.08in; margin-bottom: 0in"><em><strong>Start/Stop</strong></em>
+	– if a CSD file has been loaded, pushing the button starts running Csound; if Csound
+	is running, pushing the button stops Csound. If the <font face="Courier New, monospace">&lt;CsOptions&gt;</font>
+	element of the CSD file contains <font face="Courier New, monospace">-odac</font>,
+	Csound's audio output will go to the device audio output. If the
+	element contains <font face="Courier New, monospace">-osoundfilename</font>,
+	Csound's audio output will go to the file <font face="Courier New, monospace">soundfilename</font>,
+	which should be a valid Linux pathname in the user's storage
+	filesystem.</p></li></ul>
+<p style="margin-top: 0.08in; margin-bottom: 0in">The widgets are
+assigned control channel names <font face="Courier New, monospace">slider1</font>
+through <font face="Courier New, monospace">slider5</font>, <font face="Courier New, monospace">butt1</font>
+through <font face="Courier New, monospace">butt5</font>, <font face="Courier New, monospace">trackpad.x</font>,
+and <font face="Courier New, monospace">trackpad.y</font>. In
+addition, the accelerometer on the Android device is available as
+<font face="Courier New, monospace">accelerometerX</font>,
+<font face="Courier New, monospace">accelerometerY</font>, and
+<font face="Courier New, monospace">accelerometerZ</font>.
+</p>
+<p style="margin-top: 0.08in; margin-bottom: 0in">The values of these
+widgets are normalized between 0 and 1, and can be read into Csound
+during performance using the <font face="Courier New, monospace">chnget</font>
+opcode, like this:
+</p>
+<p style="margin-top: 0.08in; margin-bottom: 0in"><font face="Courier New, monospace">kslider1_value
+chnget “slider1”</font></p>
+<p style="margin-top: 0.08in; margin-bottom: 0in">The area below the
+trackpad prints messages output by Csound as it runs.</p><h3>The Settings Menu&nbsp;</h3><p>The Settings menu on your device offers the following choices:</p><p></p><ul><li><em style="font-weight: bold;">Examples</em> contains a number of example pieces that are built in to the app. Selecting an example will load it into Csound for performance or editing.</li><li><em><strong>User guide</strong></em> links to this chapter of this online manual.</li><li><em><strong>Csound help</strong></em> links to the online Csound Reference Manual.</li><li><em><strong>About Csound</strong></em> links to the csounds.com Web site, which acts as a portal for all things concerning Csound.</li><li><em><strong>Settings </strong></em>opens a dialog for setting environment variables that specify default locations for soundfiles, samples, scores, and so on. In the Csound6 app, these environment variables are configured by Android app settings.</li></ul><p></p><h3>Configuring Default Directories&nbsp;</h3><p>Run the Csound6 app, invoke the menu button, and choose <em><strong>Settings</strong></em>. You will be given choices for specifying an (additional) <em>Plugins </em>directory, a soundfile <em>Output </em>directory, a <em>Samples</em> directory, an <em>Analysis </em>directory, and an <em>Include </em>directory for score and orchestra files to be <font face="courier new, courier, monospace">#included</font> by a Csound piece.</p><p><span style="font-family: trebuchet, verdana, sans-serif; font-size: 12px;">These settings are not required, but they can make using Csound easier and faster to use.&nbsp;</span></p><h2><span style="font-size: 18px;">Loading and Performing a Piece&nbsp;</span></h2><h3>Example Pieces&nbsp;</h3><p style="margin-top: 0.08in; margin-bottom: 0in;">From the app's menu, select the <strong><em>Examples </em></strong>command, then select one of the listed examples, for example <strong><em>Xanadu </em></strong>by Joseph Kung. You may then click on the <em><strong>Start </strong></em>button to perform the example, or the <em><strong>Edit </strong></em>button to view the code for the piece. If you want to experiment with the piece, you can use the <em><strong>Save as...</strong></em> button to save a copy on your device's file system under a different name. You can then edit the piece and save your changes.</p><h3>Running an Existing Piece&nbsp;</h3><p>If you have access to a mixer and monitor speakers, or even a home stereo system, or even a boom box, you can hook up your device's headphone jack to your sound system with an adapter cable. Most devices have reasonably high quality audio playback capabilities, so this can work quite well.</p><p>Just to prove that everything is working, start the Csound app. Go to the app menu, select the <em><strong>Examples </strong></em>item, select the <em><strong>Xanadu </strong></em>example, and it will be loaded into Csound. Then click on the <em style="font-weight: bold;">Start</em> button. Its name should change to <em style="font-weight: bold;">Stop</em>, and Csound's runtime messages should begin to scroll down the black pane at the bottom of the screen. At the same time, you should hear the piece play. You can stop the performance at any time by selecting the <em style="font-weight: bold;">Stop</em>&nbsp;button, or you can let the performance complete on its own. </p><p>That's all there is to it. You can scroll up and down in the messages pane if you need to find a particular message, such as an error or warning.</p><p>If you want to look at the text of the piece, or edit it, select the <em style="font-weight: bold;">Edit</em>&nbsp;button. If you have installed Jota, that editor should open with the text of the piece, which you can save, or not. You can edit the piece with the this editor, and any changes you make and save will be performed the next time you start the piece.</p><h2>Creating a New Piece</h2>
+<p style="margin-top: 0.08in; margin-bottom: 0in">This example will
+take you through the process of creating a new Csound piece, step by
+step. Obviously, this piece is not going to reveal anything like the
+full power of Csound. It is only intended to get you to the point of
+being able to create, edit, and run a Csound piece that will actually
+make sound on your Android device – from scratch.</p>
+<p style="margin-top: 0.08in; margin-bottom: 0in">Before you get
+started, install the <a href="https://play.google.com/store/apps/details?id=jp.sblo.pandora.jota&amp;hl=en">Jota</a>
+text editor on your device. Other text editors might work with the
+Csound app, but this one is known to work.</p>
+<p style="margin-top: 0.08in; margin-bottom: 0in">Run the Csound6
+app...</p>
+<p style="margin-top: 0.08in; margin-bottom: 0in">Select the <em><strong>New</strong>
+</em>button. You should be presented with an input dialog asking you for a
+filename for your piece. Type in <font face="Courier New, monospace">toot.csd</font>,
+and select the <em><strong>Ok</strong> </em>button. The file will be stored in the root
+directory of your user storage on your device. You can save the file
+to another place using Jota's <em><strong>File</strong> </em>menu, if you like.</p>
+<p style="margin-top: 0.08in; margin-bottom: 0in">The text editor
+should open with a “template” CSD file. Your job is to fill out
+this template to hear something.</p>
+<p style="margin-top: 0.08in; margin-bottom: 0in">Create a blank line
+between <font face="Courier New, monospace">&lt;CsOptions&gt;</font>
+and <font face="Courier New, monospace">&lt;/CsOptions&gt;</font>,
+and type <font face="Courier New, monospace">-odac -d -m3</font>.
+This means send audio to the real-time output (<font face="Courier New, monospace">-odac</font>),
+do not display any function tables (<font face="Courier New, monospace">-d</font>),
+and log some informative messages during Csound's performance (<font face="Courier New, monospace">-m3</font>).</p>
+<p style="margin-top: 0.08in; margin-bottom: 0in">Create a blank line
+between <font face="Courier New, monospace">&lt;CsInstruments&gt;</font>
+and <font face="Courier New, monospace">&lt;/CsInstruments&gt;</font>
+and type the following text:</p>
+<pre class="western">sr = 44100<br>ksmps = 32<br>nchnls = 1<br>0dbfs = 1<br>instr 1<br>asignal poscil 0.2, 440<br>out asignal<br>endin</pre><p style="margin-top: 0.08in; margin-bottom: 0in">This is just about the simplest possible Csound orchestra. The
+orchestra header specifies an audio signal sampling rate of 44,100
+frames per second, with 10 audio frames per control signal sample,
+and one channel of audio output. The instrument is just a simple sine
+oscillator. It plays a tone at concert A.</p>
+<p style="margin-top: 0.08in; margin-bottom: 0in">Create a blank line
+between <font face="Courier New, monospace">&lt;CsScore&gt;</font>
+and <font face="Courier New, monospace">&lt;/CsScore&gt;</font> and
+type:</p>
+<pre class="western" style="margin-top: 0.08in; margin-bottom: 0.08in">i1 0 5</pre><p style="margin-top: 0.08in; margin-bottom: 0in">
+This means play instrument 1 starting at time 0 for 5 seconds.</p>
+<p style="margin-top: 0.08in; margin-bottom: 0in">Select the text
+editor's <em><strong>Save</strong> </em>button and then its <em><strong>Quit</strong> </em>button.</p>
+<p style="margin-top: 0.08in; margin-bottom: 0in">Select the Csound
+app's <em><strong>Start</strong> </em>button. You should hear a loud sine tone for 5
+seconds.</p>
+<p style="margin-top: 0.08in; margin-bottom: 0in">If you want to save
+your audio output to a soundfile named <font face="Courier New, monospace">test.wav</font>,
+change <font face="Courier New, monospace">-odac</font> above to
+<font face="Courier New, monospace">-o/sdcard/test.wav</font>.</p>
+<p style="margin-top: 0.08in; margin-bottom: 0in">That's it!</p>
+<h2>Using the Widgets</h2><p>This chapter shows how to use the built-in widgets of the Csound for Android app for controlling Csound in performance. For instructions on how to use the &lt;html&gt; element of the CSD file to create custom user interfaces, see the "Csound and HTML" chapter of this book.&nbsp;</p><p>The Csound for Android app provides access to a set of predefined on-screen widgets, as well as to the accelerometer on the device. All of these controllers are permanently assigned to pre-defined control channels with pre-defined names, and mapped to a pre-defined range of values, from 0 to 1.</p><p>All of this pre-definition... this is both good and bad. I have found, following the example of Iain McCurdy who has graciously contributed a number of the examples for the app, an approach that simplifies using the controllers. For an example of this approach in action, look at the source code for the <font face="courier new, courier, monospace">Gogins/Drone-IV.csd</font> example.</p><p>You should be able to cut and paste this code into your own pieces without many changes.&nbsp;</p><p>The first step is to declare one global variable for each of the control channels, with the same name as the control channel, at the top of the orchestra header, initialized to a value of zero:</p><pre>gkslider1 init 0<br>gkslider2 init 0<br>gkslider3 init 0<br>gkslider4 init 0<br>gkslider5 init 0<br>gkbutt1 init 0<br>gkbutt2 init 0<br>gkbutt3 init 0<br>gkbutt4 init 0<br>gkbutt5 init 0<br>gktrackpadx init 0<br>gktrackpady init 0<br>gkaccelerometerx init 0<br>gkaccelerometery init 0<br>gkaccelerometerz init 0</pre><p>Then write an "always-on" instrument that reads each of these control channels into each of those global variables. At the top of the orchestra header:</p><pre>alwayson "Controls"</pre><p>As the next to last instrument in your orchestra:&nbsp;</p><pre>instr Controls<br>gkslider1 chnget "slider1"<br>gkslider2 chnget "slider2"<br>gkslider3 chnget "slider3"<br>gkslider4 chnget "slider4"<br>gkslider5 chnget "slider5"<br>gkbutt1 chnget "butt1"<br>gkbutt2 chnget "butt2"<br>gkbutt3 chnget "butt3"<br>gkbutt4 chnget "butt4"<br>gkbutt5 chnget "butt5"<br>gktrackpadx chnget "trackpad.x"<br>gktrackpady chnget "trackpad.y"<br>gkaccelerometerx chnget "accelerometerX"<br>gkaccelerometery chnget "accelerometerY"<br>gkaccelerometerz chnget "accelerometerZ"<br>endin</pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p style="margin: 0px;">So far, everything is common to all pieces. Now, for each specific piece and specific set of instruments, write another always-on instrument that will map the controller values to the names and ranges required for your actual instruments. This code, in addition, can make use of the peculiar button widgets, which only signal changes of state and do not report continuously whether they are "on" or "off." These examples are from <font face="courier new, courier, monospace">Gogins/Drone-IV.csd</font>.</p><p>At the top of the orchestra header:</p><pre><p style="margin: 0px;">alwayson "VariablesForControls"</p></pre><p>As the very last instrument in your orchestra:</p><pre>instr VariablesForControls<br>if gkslider1 &gt; 0 then<br> 	gkFirstHarmonic = gkslider1 * 2<br>	gkgrainDensity = gkslider1 * 400<br>	gkratio2 = gkslider1 ;1/3<br>endif<br>if gkslider2 &gt; 0 then<br> 	gkDistortFactor = gkslider2 * 2<br>	gkgrainDuration = 0.005 + gkslider2 / 2<br>	gkindex1 = gkslider2 * 4<br>endif<br>if gkslider3 &gt; 0 then<br> 	gkVolume = gkslider3 * 5<br>	gkgrainAmplitudeRange = gkslider3 * 300<br>	gkindex2 = gkslider3 ;0.0125<br>endif<br>if gkslider4 &gt; 0 then<br>	gkgrainFrequencyRange = gkslider4 / 10<br>endif<br>if gktrackpady &gt; 0 then<br> 	gkDelayModulation = gktrackpady * 2<br> 	; gkGain = gktrackpady * 2 - 1<br>endif<br>if gktrackpadx &gt; 0 then<br> 	gkReverbFeedback = (3/4) + (gktrackpadx / 4)<br> 	; gkCenterHz = 100 + gktrackpadx * 3000<br>endif<br>kbutt1 trigger gkbutt1, .5, 0<br>if kbutt1 &gt; 0 then<br> 	gkbritels = gkbritels / 1.5<br> 	gkbritehs = gkbritehs / 1.5<br> 	; gkQ = gkQ / 2<br>endif<br>kbutt2 trigger gkbutt2, .5, 0<br>if kbutt2 &gt; 0 then<br> 	gkbritels = gkbritels * 1.5<br> 	gkbritehs = gkbritehs * 1.5<br> 	; gkQ = gkQ * 2<br>endif<br>endin</pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p style="margin: 0px;">Now, the controllers are re-mapped to sensible ranges, and have names that make sense for your intruments. They can be used as follows. Note particularly that, just above the instrument definition, in other words actually in the orchestra header, these global variables are initialized with values that will work in performance, in case the user does not set up the widgets in appropriate positions before starting Csound. This is necessary because the widgets in the Csound6 app, unlike say the widgets in CsoundQt, do not "remember" their positions and values from performance to performance.</p><pre>gkratio1 init 1<br>gkratio2 init 1/3<br>gkindex1 init 1<br>gkindex2 init 0.0125<br>instr Phaser<br>insno = p1<br>istart = p2<br>iduration = p3<br>ikey = p4<br>ivelocity = p5<br>iphase = p6<br>ipan = p7<br>iamp = ampdb(ivelocity) * 8<br>iattack = gioverlap<br>idecay = gioverlap<br>isustain = p3 - gioverlap<br>p3 = iattack + isustain + idecay<br>kenvelope transeg 0.0, iattack / 2.0, 1.5, iamp / 2.0, iattack / 2.0, -1.5, iamp, isustain, 0.0, iamp, idecay / 2.0, 1.5, iamp / 2.0, idecay / 2.0, -1.5, 0<br>ihertz = cpsmidinn(ikey)<br>print insno, istart, iduration, ikey, ihertz, ivelocity, iamp, iphase, ipan<br>isine ftgenonce 0,0,65536,10,1<br>khertz = ihertz<br>ifunction1 = isine<br>ifunction2 = isine<br>a1,a2 crosspm gkratio1, gkratio2, gkindex1, gkindex2, khertz, ifunction1, ifunction2<br>aleft, aright pan2 a1+a2, ipan<br>adamping linseg 0, 0.03, 1, p3 - 0.1, 1, 0.07, 0<br>aleft = adamping * aleft * kenvelope<br>aright = adamping * aright * kenvelope<br>outleta "outleft", aleft<br>outleta "outright", aright<br>endin</pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p style="margin: 0px;"><br></p>
+<p style="margin: 0px;"><br></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h3><br></h3><p></p>
+   <hr/>
+    <a href="/csound/_edit/">EDIT</a>
+
+</div>
+
+<script type="text/javascript">
+jQuery(function ($) {
+    $('#bookcontent').annotator()
+   		.annotator('setupPlugins', {}, {
+                Tags: false,
+                Filter: {
+                  addAnnotationFilter: false
+                },
+                Permissions: false,
+                AnnotateItPermissions: {}
+              });
+});
+</script>
+
+
+
+</div>
+<!-- End of content -->
+
+</div>  
+<!-- DEV TOOLS -->
+<div id="bookidebug">
+</div>
+
+<!-- sputnik error page -->
+<div id="dialog-sputnik-qrac" style="display: none"></div>
+</body>
+</html>
+

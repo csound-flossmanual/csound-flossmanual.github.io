@@ -1,0 +1,994 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html>
+ <head>
+   <link type="text/css" href="http://www.flossmanuals.net/_templates/prettify/src/prettify.css" rel="Stylesheet" />
+   <script type="text/javascript" src="http://www.flossmanuals.net/_templates/prettify/src/prettify.js"></script>
+
+   <link type="text/css" href="/site_static/js/jquery/themes/base/jquery.ui.all.css" rel="Stylesheet" >
+   <link type="text/css" href="/site_static/js/jquery/themes/smoothness/jquery.ui.all.css" rel="Stylesheet" >
+   <script type="text/javascript" src="/static/js/jquery-1.7.js"></script>
+<!--
+   <script type="text/javascript" src="/site_static/js/jquery/jquery-1.4.4.js"></script>
+-->   
+<script type="text/javascript" src="/site_static/js/jquery/ui/jquery-ui-1.8.10.custom.js"></script>
+   <script type="text/javascript" src="/site_static/js/jquery.json-1.3.js"></script>
+   <script type="text/javascript" src="/site_static/js/booki.js"></script>
+
+   <link href="/site_static/css/jquery.bubblepopup.v2.3.1.css" rel="stylesheet" type="text/css" />
+   <script src="/site_static/js/jquery.bubblepopup.v2.3.1.min.js" type="text/javascript"></script>
+
+   <link type="text/css" href="/static/css/booki_fm.css" rel="Stylesheet"/ >
+<style>
+.template {
+	display: none !important;
+}
+
+
+#header {
+    background-color: transparent !important;
+}
+.paginator { padding:.5em .75em; float:left; font:normal .8em arial; }
+ 
+.paginator .prev-na,
+.paginator .next-na {
+	padding:.3em;
+	font-weight: bold;
+/*	font:bold .875em arial; */
+}
+ 
+.paginator .prev-na,
+.paginator .next-na {
+/*	border:1px solid #ccc; 
+	background-color:#f9f9f9; */
+	color:#aaa;
+	font-weight:normal;
+}
+ 
+.paginator .prev a, .paginator .prev a:visited,
+.paginator .next a, .paginator .next a:visited {
+/*	border:1px solid #c2ee62; 
+	background-color:#edfdd0; */
+	color:#234f32;
+	padding:.3em;
+/*	font:bold .875em arial; */
+        font-weight: bold;
+}
+ 
+.paginator .prev, .paginator .prev-na { margin-right:.5em; }
+.paginator .next, .paginator .next-na { margin-left:.5em; }
+ 
+.paginator .page a, .paginator .page a:visited, .paginator .curr {
+	padding:.25em;
+	font-weight: normal;
+/*	font:normal .875em verdana; */
+/*	border:1px solid #C2EE62; 
+	background-color:#EDFDD0; */
+	margin:0em .25em;	
+	color:#006000;
+}
+ 
+.paginator .curr { 
+/*	background-color:#234f32; 
+	color:#fff; */
+	border:1px solid #234f32; 
+	font-weight:bold;
+	font-size:1em;
+}
+ 
+.paginator .page a:hover,
+.paginator .curr a:hover,
+.paginator .prev a:hover,
+.paginator .next a:hover {
+/*	color:#fff;
+	background-color:#234f32;
+	border:1px solid #234f32; */
+}
+</style>
+ <script type="text/javascript">
+      $(function() {
+   $.booki.sputnikDispatcherURL = "/_sputnik/";
+    });
+   </script>
+
+   <script type="text/javascript">
+     $(function() {
+	 // open debug window
+	 $.booki.debug.init();
+	 
+	 
+	 $("A.debug").click(function() {
+	     $("#bookidebug").dialog("open");
+	     return false;
+	 });
+     });
+   </script>
+
+   
+<title>/chapter: Signal-Processing-I / CSound</title>
+<link type="text/css" href="/site_static/css/editor.css" rel="Stylesheet" />
+
+<script src="http://assets.annotateit.org/annotator/v1.2.5/annotator-full.min.js"></script>
+<link rel="stylesheet" href="http://assets.annotateit.org/annotator/v1.2.5/annotator.min.css">
+
+
+
+<link rel="alternate" type="application/rss+xml" title="RSS feed for CSound" href="/feeds/rss/book/csound/" /> 
+<link rel="alternate" type="application/atom+xml" title="Atom feed for CSound" href="/feeds/atom/book/csound/" /> 
+
+<link rel="alternate" type="application/rss+xml" title="RSS feed for chapter Signal-Processing-I" href="/feeds/rss/chapter/csound/csound/" /> 
+<link rel="alternate" type="application/atom+xml" title="Atom feed for chapter Signal-Processing-I" href="/feeds/atom/chapter/csound/csound/" /> 
+
+
+ </head>
+<body onload="prettyPrint()" >
+<!-- testis -->
+
+<script type="text/javascript">
+$(function() {
+    $("#snippetdialog").dialog({autoOpen: false});
+});
+</script>
+
+
+<div id="snippetdialog" title="Basic dialog">
+        <p></p>
+</div>
+
+
+
+<div id="page-container"> 
+<style>
+body
+{
+margin:0;
+padding:0
+}
+#header
+{
+position:absolute;
+top:23px;
+width:100%;
+background-image: url('http://www.flossmanuals.net/_templates/fm_resources/header_bg.gif');
+background-position: 700px 0px; /* this places the orange background at
+an offset, making sure it doesn't underlap the left side of the gif */
+background-repeat: no-repeat;
+}
+
+#fmheader {
+    background-image: url("http://en.flossmanuals.net/_templates/fm_resources/header_bg.gif");
+    background-position: 600px 0;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 23px;
+    width: 100%;
+}
+#header_image
+{
+margin-left: 270px;
+border: 0px
+}
+
+#navigation
+{
+position:absolute;
+top: 80px;
+left: 357px;
+width:50%;
+}
+
+
+#languages
+{
+position:absolute;
+top: 40px;
+left: 740px;
+width:50%;
+}
+</style>
+
+
+
+<!-- Header graphic is common to all pages  -->
+<div id="header"><img id="header_image" alt="FlossManuals menu" src="http://www.flossmanuals.net/_templates/fm_resources/header_menu.gif" height="95" width="465" border="0"></div>
+
+
+<!-- Navigation buttons are language and context specific  -->
+<div id="navigation">
+<a title="Read" href="http://en.flossmanuals.net/index.php"><img src="http://www.flossmanuals.net/_templates/fm_resources/read_en.png" width="65" height="30" border="0" alt="Read"></a>
+<a title="Write" href="http://booki.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/write_active_en.png" width="65" height="30" border="0" alt="Write"></a>
+<a title="Remix" href="http://en.flossmanuals.net/index.php?plugin=remix"><img src="http://www.flossmanuals.net/_templates/fm_resources/remix_en.png" width="65" height="30" border="0" alt="Remix"></a>
+<a title="About" href="http://www.flossmanuals.org"><img src="http://www.flossmanuals.net/_templates/fm_resources/about_en.png" width="65" height="30" border="0" alt="About"></a>
+</div>
+
+<!-- Language buttons are common to all pages  -->
+<div id="languages">
+<a title="English" href="http://en.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/english_button.png" width="65" height="30" border="0" alt="English"></a>
+
+<!-- <a title="Español" href="http://es.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/spanish_button.png" width="65" height="30" border="0" alt="Español"></a> -->
+<a title="فارسی" href="http://fa.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/farsi_button.png" width="65" height="30" border="0" alt="فارسی"></a>
+<a title="Suomi" href="http://fi.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/finnish_button.png" width="65" height="30" border="0" alt="Suomi"></a>
+<br>
+<a title="Français" href="http://fr.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/french_button.png" width="65" height="30" border="0" alt="Français"></a>
+<a title="Nederlands" href="http://nl.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/dutch_button.png" width="65" height="30" border="0" alt="Nederlands"></a>
+<!-- <a title="Pусский" href="http://ru.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/russian_button.png" width="65" height="30" border="0" alt="Pусский"></a> -->
+<a title="Translate" href="http://translate.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/translate_button.png" width="65" height="30" border="0" alt="Translate"></a>
+</div>
+
+<!-- End top bar -->
+
+<!-- nav box + drop shadow -->
+<div class="navbox shadow" style="top:160px;">
+    		<ul>
+
+ 		<li><a href="/accounts/signin/?redirect=/csound/_draft/_v/1.0/signal-processing-i/">Sign In</li><li>Register</a></li>
+
+                <li><a href="/list-books">All Manuals</a></li>
+                <li><a href="/list-groups">All Groups</a></li>
+                <li><a href="/list-people/">All People</a></li>
+           	</ul>
+</div>
+<!-- End of nav box -->
+
+
+
+<div class="content-container shadow">
+<!-- Content box and the drop shadow-->
+
+
+
+
+<br clear="all"/>
+   <h1>CSound</h1>
+
+
+<div id="bookmenu"   style="background: url(/site_static/images/draft_bg.png) repeat !important;">
+<ul>
+
+ 
+   <li><b>INTRODUCTION</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/introduction/">PREFACE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/how-to-use-this-manual/">HOW TO USE THIS MANUAL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/on-this-release/">ON THIS RELEASE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/credits/">CREDITS</a></li>
+ 
+
+ 
+   <li><b>01 BASICS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-digital-audio/">A. DIGITAL AUDIO</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-pitch-and-frequency/">B. PITCH AND FREQUENCY</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-intensities/">C. INTENSITIES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/random/">D. RANDOM</a></li>
+ 
+
+ 
+   <li><b>02 QUICK START</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-make-csound-run/">A. MAKE CSOUND RUN</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-csound-syntax/">B. CSOUND SYNTAX</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-configuring-midi/">C. CONFIGURING MIDI</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-live-audio/">D. LIVE AUDIO</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-rendering-to-file/">E. RENDERING TO FILE</a></li>
+ 
+
+ 
+   <li><b>03 CSOUND LANGUAGE</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-initialization-and-performance-pass/">A. INITIALIZATION AND PERFORMANCE PASS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-local-and-global-variables/">B. LOCAL AND GLOBAL VARIABLES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-control-structures/">C. CONTROL STRUCTURES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-function-tables/">D. FUNCTION TABLES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/arrays/">E. ARRAYS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-triggering-instrument-events/">F. LIVE EVENTS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-user-defined-opcodes/">G. USER DEFINED OPCODES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/macros/">H. MACROS</a></li>
+ 
+
+ 
+   <li><b>04 SOUND SYNTHESIS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-additive-synthesis/">A. ADDITIVE SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-subtractive-synthesis/">B. SUBTRACTIVE SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-amplitude-and-ringmodulation/">C. AMPLITUDE AND RING MODULATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-frequency-modulation/">D. FREQUENCY MODULATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-waveshaping/">E. WAVESHAPING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-granular-synthesis/">F. GRANULAR SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/g-physical-modelling/">G. PHYSICAL MODELLING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/scanned-synthesis/">H. SCANNED SYNTHESIS</a></li>
+ 
+
+ 
+   <li><b>05 SOUND MODIFICATION</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-envelopes/">A. ENVELOPES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-panning-and-spatialization/">B. PANNING AND SPATIALIZATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-filters/">C. FILTERS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-delay-and-feedback/">D. DELAY AND FEEDBACK</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-reverberation/">E. REVERBERATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-am-rm-waveshaping/">F. AM / RM / WAVESHAPING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/g-granular-synthesis/">G. GRANULAR SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/h-convolution/">H. CONVOLUTION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/i-fourier-analysis-spectral-processing/">I. FOURIER ANALYSIS / SPECTRAL PROCESSING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/k-ats-resynthesis/">K. ATS RESYNTHESIS</a></li>
+ 
+
+ 
+   <li><b>06 SAMPLES</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-record-and-play-soundfiles/">A. RECORD AND PLAY SOUNDFILES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-record-and-play-buffers/">B. RECORD AND PLAY BUFFERS</a></li>
+ 
+
+ 
+   <li><b>07 MIDI</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-receiving-events-by-midiin/">A. RECEIVING EVENTS BY MIDIIN</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-triggering-instrument-instances/">B. TRIGGERING INSTRUMENT INSTANCES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-working-with-controllers/">C. WORKING WITH CONTROLLERS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-reading-midi-files/">D. READING MIDI FILES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-midi-output/">E. MIDI OUTPUT</a></li>
+ 
+
+ 
+   <li><b>08 OTHER COMMUNICATION</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/osc-and-wii/">A. OPEN SOUND CONTROL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-arduino/">B. CSOUND AND ARDUINO</a></li>
+ 
+
+ 
+   <li><b>09 CSOUND IN OTHER APPLICATIONS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-pd/">A. CSOUND IN PD</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-maxmsp/">B. CSOUND IN MAXMSP</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-ableton-live/">C. CSOUND IN ABLETON LIVE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-csound-as-a-vst-plugin/">D. CSOUND AS A VST PLUGIN</a></li>
+ 
+
+ 
+   <li><b>10 CSOUND FRONTENDS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/qutecsound/">CSOUNDQT</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/cecilia/">CABBAGE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/blue/">BLUE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/winxound/">WINXOUND</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-via-terminal/">CSOUND VIA TERMINAL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/web-based-csound/">WEB BASED CSOUND</a></li>
+ 
+
+ 
+   <li><b>11 CSOUND UTILITIES</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-utilities/">CSOUND UTILITIES</a></li>
+ 
+
+ 
+   <li><b>12 CSOUND AND OTHER PROGRAMMING LANGUAGES</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/the-csound-api/">A. THE CSOUND API</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/using-python-inside-csound/">B. PYTHON INSIDE CSOUND</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-python-in-csoundqt/">C. PYTHON IN CSOUNDQT</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-lua-in-csound/">D. LUA IN CSOUND</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-csound-in-ios/">E. CSOUND IN iOS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-csound-on-android/">F. CSOUND ON ANDROID</a></li>
+ 
+
+ 
+   <li><b>13 EXTENDING CSOUND</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/extending-csound/">EXTENDING CSOUND</a></li>
+ 
+
+ 
+   <li><b>OPCODE GUIDE</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/overview/">OVERVIEW</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/signal-processing-i/">SIGNAL PROCESSING I</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/signal-processing-ii/">SIGNAL PROCESSING II</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/data/">DATA</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/realtime-interaction/">REALTIME INTERACTION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/instrument-control/">INSTRUMENT CONTROL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/math-pythonsystem-plugins/">MATHS, PYTHON/SYSTEM, PLUGINS</a></li>
+ 
+
+ 
+   <li><b>APPENDIX</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/writing-csound-scores-by-hand/">METHODS OF WRITING CSOUND SCORES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/glossary/">GLOSSARY</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/links/">LINKS</a></li>
+ 
+
+</ul>
+</div>
+<div id="bookcontent"   >
+<h1>OPCODE GUIDE: BASIC SIGNAL PROCESSING
+</h1>
+<p>&nbsp;
+</p>
+<ul>
+  <li>
+  <h2>OSCILLATORS AND PHASORS
+  </h2>
+  <ul>
+    <li>
+    <h3>Standard Oscillators
+    </h3>
+    <p><a href="http://www.csounds.com/manual/html/oscils.html"><strong>oscils</strong></a> is a very <strong>simple sine oscillator</strong> which is ideally suited for quick tests. It needs no function table, but offers just i-rate input arguments.
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/ftgen.html"><strong>ftgen</strong></a> generates a function table, which is needed by any oscillator except <a href="http://www.csounds.com/manual/html/oscils.html">oscils</a>. The <a href="http://www.csounds.com/manual/html/ScoreGenRef.html">GEN Routines</a> fill the function table with any desired waveform, either a sine wave or any other curve. Refer to the <a href="http://en.flossmanuals.net/bin/view/Csound/FUNCTIONTABLES">function table chapter</a> of this manual for more information.
+      <br />
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/poscil.html"><strong>poscil</strong></a> can be recommended as <strong>standard oscillator</strong> because it is very precise, in particular for long tables and low frequencies. It provides linear interpolation, any rate its amplitude and frequency input arguments, and works also for non-power-of-two tables. <a href="http://www.csounds.com/manual/html/poscil3.html">poscil3</a> provides cubic interpolation, but has just k-rate input. <strong>Other common oscillators</strong> are <a href="http://www.csounds.com/manual/html/oscili.html">oscili</a> and <a href="http://www.csounds.com/manual/html/oscil3.html">oscil3</a>. They are less precise than poscil/poscili, but you can skip the initialization which can be useful in certain situations. The <a href="http://www.csounds.com/manual/html/oscil.html">oscil</a> opcode does not provide any interpolation, so it should usually be avoided. <strong>More</strong> Csound oscillators can be found <a href="http://www.csounds.com/manual/html/SiggenBasic.html">here</a>.
+    </p>
+    <p>
+    </p></li>
+    <li>
+    <h3>Dynamic Spectrum Oscillators
+    </h3>
+    <p> <a href="http://www.csounds.com/manual/html/buzz.html"> </a>
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/buzz.html"><strong>buzz</strong></a> and <a href="http://www.csounds.com/manual/html/gbuzz.html"><strong>gbuzz</strong></a> generate a set of harmonically related cosine partials.
+    </p>
+    <p> <a href="http://www.csounds.com/manual/html/mpulse.html"><strong>mpulse</strong></a> generates a set of impulses of user-definable amplitude and interval gap between impulses.
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/vco.html"><strong>vco</strong></a> and <a href="http://www.csounds.com/manual/html/vco2.html"><strong>vco2</strong></a> implement band-limited, analogue modelled oscillators that can use variety of standard waveforms.
+    </p>
+    <p>
+    </p></li>
+    <li>
+    <h4>Phasors
+    </h4>
+    <p><a href="http://www.csounds.com/manual/html/phasor.html"> </a><a href="http://www.csounds.com/manual/html/phasor.html"><strong>phasor</strong></a> produces the typical moving phase values between 0 and 1. The more complex <a href="http://www.csounds.com/manual/html/syncphasor.html">syncphasor</a> lets you synchronize more than one phasor precisely.
+    </p></li>
+  </ul></li>
+</ul>
+<ul>
+  <li>
+  <h2>RANDOM AND NOISE GENERATORS
+  </h2>
+  <p>
+  </p>
+  <p><a href="http://www.csounds.com/manual/html/seed.html"> </a>
+  </p>
+  <p><a href="http://www.csounds.com/manual/html/seed.html"><strong>seed</strong></a> sets the seed value for the majority of the Csound (pseudo) random number generators. A seed value of zero will seed random number generators from the system clock thereby guaranteeing a different result each time Csound is run, while any other seed value generates the same random values each time.
+    <br />
+  </p>
+  <p><a href="http://www.csounds.com/manual/html/rand.html"><strong>rand</strong></a> is the usual opcode for uniformly distributed bipolar random values. If you give 1 as input argument (called "amp"), you will get values between -1 and +1. <strong><a href="http://www.csounds.com/manual/html/randi.html">randi</a></strong> interpolates between values which are generated with a variable frequency. <strong><a href="http://www.csounds.com/manual/html/randh.html">randh</a></strong> holds the value until the next one is generated (sample and hold). You can control the seed value by an input argument (a value greater than 1 seeds from current time), you can decide whether to generate 16bit or 31bit random numbers and you can add an offset.
+    <br />
+  </p>
+  <p>
+  </p>
+  <p><strong><a href="http://www.csounds.com/manual/html/rnd31.html">rnd31</a></strong> can output all rates of variables (i-rate variables are not supported by rand). It also gives the user control over the random distribution, but has no offset parameter.
+  </p>
+  <p><a href="http://www.csounds.com/manual/html/random.html"><strong>random</strong></a> provides extra conveniece in that the user can define both the minimum and a maximum of the distribution as input argument; <em>rand</em> and <em>rnd31</em> only output bipolar ranges and we define amplitude. It can also be used for all rates, but you have no direct seed input, and the <a href="http://www.csounds.com/manual/html/randomi.html">randomi</a>/<a href="http://www.csounds.com/manual/html/randomh.html">randomh</a> variants always start from the lower border, instead anywhere between the borders.
+  </p>
+  <p><strong><a href="http://www.csounds.com/manual/html/pinkish.html">pinkish</a></strong> produces pink noise at audio-rate (white noise can be produced using <em>rand</em> or <em>noise</em>).
+  </p>
+  <p>There are many more random opcodes worth investigating. <a href="http://www.csounds.com/manual/html/SiggenNoise.html">Here</a> is an overview. A number of GEN routines are also used for generating random distributions. They can be found in the <a href="http://www.csounds.com/manual/html/ScoreGenRef.html">GEN Routines overview</a>.
+  </p>
+  <p>
+  </p></li>
+</ul>
+<ul>
+  <li>
+  <h2>ENVELOPES
+  </h2>
+  <ul>
+    <li>
+    <h3>Simple Standard Envelopes
+    </h3>
+    <p><a href="http://www.csounds.com/manual/html/linen.html"> </a>
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/linen.html"><strong>linen</strong></a> applies a linear rise (fade in) and decay (fade out) to a signal. It is very easy to use, as you put the raw audio signal in and get the enveloped signal out.
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/linenr.html"><strong>linenr</strong></a> does the same for any note whose duration is not known when they begin. This could mean MIDI notes or events triggered in real time. linenr begins the final stage of the envelope only when that event is turned off (released). The penultimate value is held until this release is received.
+    </p>
+    <p><strong><a href="http://www.csounds.com/manual/html/adsr.html">adsr</a></strong> calculates the classic attack-decay-sustain-release envelope. The result is to be multiplied with the audio signal to get the enveloped signal.
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/madsr.html"><strong>madsr</strong></a> does the same for notes triggered in real time (functioning in a similar way to linenr explained above).
+    </p>
+    <p>Other standard envelope generators can be found in the <a href="http://www.csounds.com/manual/html/SiggenEnvelope.html">Envelope Generators overview</a> of the Canonical Csound Manual.
+    </p>
+    <p>
+    </p></li>
+    <li>
+    <h3>Envelopes By Linear And Exponential Generators&nbsp;
+    </h3>
+    <p>
+    </p>
+    <p><strong><a href="http://www.csounds.com/manual/html/linseg.html">linseg</a></strong> creates one or more segments of lines between specified points.
+    </p>
+    <p><strong><a href="http://www.csounds.com/manual/html/expseg.html">expseg</a></strong> does the same but with exponential segments. Note that zero values or crossing the zero axis are illegal.
+    </p>
+    <p><strong><a href="http://www.csounds.com/manual/html/transeg.html">transeg</a></strong> is particularly flexible as you can specify the shape of each segment individually (continuously from convex to linear to concave).
+    </p>
+    <p>All of these opcodes have 'r' variants (<a href="http://www.csounds.com/manual/html/linsegr.html">linsegr</a>, <a href="http://www.csounds.com/manual/html/expsegr.html">expsegr</a>, <a href="http://en.flossmanuals.net/bin/view/Csound/transegr">transegr</a>) for MIDI or other real time triggered events. ('r' stands for 'release'.)
+      <br />
+    </p>
+    <p>More opcodes for generating envelopes can be found in <a href="http://www.csounds.com/manual/html/SiggenLineexp.html">this</a> overview.
+    </p>
+    <p>
+    </p></li>
+    <li>
+    <h3>Envelopes By Function Tables
+    </h3>
+    <p>Any function table (or part of it) can be used as envelope. Once a function table has been created using <a href="http://www.csounds.com/manual/html/ftgen.html">ftgen</a> or a <a href="http://www.csounds.com/manual/html/ScoreGenRef.html">GEN Routine</a> it can then be read using an oscillator, and multiply the result with the audio signal you want to envelope.&nbsp;
+      <br />
+    </p></li>
+  </ul></li>
+</ul>
+<h4>
+</h4>
+<ul>
+  <li>
+  <h2>DELAYS
+  </h2>
+  <ul>
+    <li>
+    <h3>Audio Delays
+    </h3>
+    <p>The <strong>vdelay family</strong> of opcodes are easy to use and implement all the necessary features expected when working with delays:
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/vdelay.html"><strong>vdelay</strong></a> implements a variable delay at audio rate with linear interpolation.
+    </p>
+    <p> <a href="http://www.csounds.com/manual/html/vdelay.html"><strong>vdelay3</strong></a> offers cubic interpolation.
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/vdelayx.html"><strong>vdelayx</strong></a> has an even higher quality interpolation (and is for this reason slower). <a href="http://www.csounds.com/manual/html/vdelayxs.html">vdelayxs</a> lets you input and output two channels, and <a href="http://www.csounds.com/manual/html/vdelayxq.html">vdelayxq</a> four.
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/vdelayw.html"><strong>vdelayw</strong></a> changes the position of the write tap in the delay line instead of the read tap. <a href="http://www.csounds.com/manual/html/vdelayws.html">vdelayws</a> is for stereo, and <a href="http://www.csounds.com/manual/html/vdelaywq.html">vdelaywq</a> for quadro.
+    </p>
+    <p>The <strong>delayr/delayw</strong> opcodes establishes a delay line in a more complicated way. The advantage is that you can have as many taps in one delay line as you need.
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/delayr.html"><strong>delayr</strong></a> establishes a delay line and reads from the end of it.
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/delayw.html"><strong>delayw</strong></a> writes an audio signal to the delay line.
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/deltap.html"><strong>deltap</strong></a>, <a href="http://www.csounds.com/manual/html/deltapi.html"><strong>deltapi</strong></a>, <a href="http://www.csounds.com/manual/html/deltap3.html"><strong>deltap3</strong></a>, <a href="http://www.csounds.com/manual/html/deltapx.html"><strong>deltapx</strong></a> and <a href="http://www.csounds.com/manual/html/deltapxw.html"><strong>deltapxw</strong></a> function in a similar manner to the relevant opcodes of the vdelay family (see above) bearing the same suffixes.
+    </p> <a href="http://www.csounds.com/manual/html/deltapn.html"><strong>deltapn</strong></a> offers a tap delay measured in samples, not seconds. This might be more useful in the design of filters
+    <br /></li>
+    <li>
+    <h3>Control Delays
+    </h3>
+    <p><a href="http://www.csounds.com/manual/html/delayk.html"> </a><a href="http://www.csounds.com/manual/html/delayk.html"><strong>delk</strong></a> and <a href="http://www.csounds.com/manual/html/delayk.html"><strong>vdel_k</strong></a> let you delay any k-signal by some time interval (useful, for instance, as a kind of 'wait' function).
+    </p></li>
+  </ul></li>
+</ul>
+<h4>
+</h4>
+<ul>
+  <li>
+  <h2>FILTERS
+  </h2>
+  <p>Csound boasts an extensive range of filters and they can all be perused on the Csound Manual pages for <a href="http://www.csounds.com/manual/html/SigmodStandard.html">Standard Filters</a> and <a href="http://www.csounds.com/manual/html/SigmodSpeciali.html">Specialized Filters</a>. Here, some of the most frequently used filters are mentioned, and some tips are given. Note that filters usually change the signal level, so you may also find the <a href="http://www.csounds.com/manual/html/balance.html">balance</a> opcode useful.
+  </p>
+  <ul>
+    <li>
+    <h3>Low Pass Filters
+    </h3>
+    <p><a href="http://www.csounds.com/manual/html/tone.html"> </a>
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/tone.html"><strong>tone</strong></a> is a first order recursive low pass filter. <a href="http://www.csounds.com/manual/html/tonex.html">tonex</a> implements a series of tone filters.
+      <br />
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/butterlp.html"><strong>butlp</strong></a> is a second order low pass Butterworth filter.
+    </p> <a href="http://www.csounds.com/manual/html/clfilt.html"><strong>clfilt</strong></a> lets you choose between different filter types and different numbers of poles in the design.
+    <p>
+    </p></li>
+  </ul>
+  <ul>
+    <li>
+    <h3>High Pass Filters
+    </h3>
+    <p><a href="http://www.csounds.com/manual/html/atone.html"> </a>
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/atone.html"><strong>atone</strong></a> is a first order recursive high pass filter. <a href="http://www.csounds.com/manual/html/atonex.html">atonex</a> implements a series of atone filters.
+      <br />
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/butterhp.html"><strong>buthp</strong></a> is a second order high pass Butterworth filter.
+    </p><a href="http://www.csounds.com/manual/html/clfilt.html"><strong>clfilt</strong></a> lets you choose between different filter types and different numbers of poles in the design.
+    <p>
+    </p></li>
+  </ul>
+  <ul>
+    <li>
+    <h3>Band Pass And Resonant Filters
+    </h3>
+    <p><a href="http://www.csounds.com/manual/html/reson.html"> </a>
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/reson.html"><strong>reson</strong></a> is a second order resonant filter. <a href="http://www.csounds.com/manual/html/resonx.html">resonx</a> implements a series of reson filters, while <a href="http://www.csounds.com/manual/html/resony.html">resony</a> emulates a bank of second order bandpass filters in parallel. <a href="http://www.csounds.com/manual/html/resonr.html">resonr</a> and <a href="http://www.csounds.com/manual/html/resonz.html">resonz</a> are variants of reson with variable frequency response.
+      <br />
+    </p> <a href="http://www.csounds.com/manual/html/butterbp.html"><strong>butbp</strong></a> is a second order band-pass Butterworth filter.
+    <p>
+    </p></li>
+  </ul>
+  <ul>
+    <li>
+    <h3>Band Reject Filters
+    </h3>
+    <p><a href="http://www.csounds.com/manual/html/areson.html"> </a>
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/areson.html"><strong>areson</strong></a> is the complement of the reson filter. &nbsp;
+    </p>
+    <p> <a href="http://www.csounds.com/manual/html/butterbp.html"><strong>butbr</strong></a> is a band-reject butterworth filter.
+    </p>
+    <p>
+    </p></li>
+    <li>
+    <h3>Filters For Smoothing Control Signals
+    </h3>
+    <p><a href="http://www.csounds.com/manual/html/port.html"> </a><a href="http://www.csounds.com/manual/html/port.html"><strong>port</strong></a> and <a href="http://www.csounds.com/manual/html/portk.html"><strong>portk</strong></a> are very frequently used to smooth control signals which are received by MIDI or widgets.
+    </p></li>
+  </ul></li>
+</ul>
+<h4>
+</h4>
+<ul>
+  <li>
+  <h2>REVERB
+  </h2>
+  <p>Note that you can easily work in Csound with convolution reverbs based on impulse response files, for instance with <a href="http://www.csounds.com/manual/html/pconvolve.html">pconvolve</a>.&nbsp;
+  </p>
+  <p><a href="http://www.csounds.com/manual/html/freeverb.html"><strong>freeverb</strong></a> is the implementation of Jezar's well-known free (stereo) reverb.
+  </p>
+  <p> <a href="http://www.csounds.com/manual/html/reverbsc.html"><strong>reverbsc</strong></a> is a stereo FDN reverb, based on work of Sean Costello.
+  </p>
+  <p><a href="http://www.csounds.com/manual/html/reverb.html"><strong>reverb</strong></a> and <a href="http://www.csounds.com/manual/html/nreverb.html"><strong>nreverb</strong></a> are the traditional Csound reverb units.
+  </p> <a href="http://www.csounds.com/manual/html/babo.html"><strong>babo</strong></a> is a physical model reverberator ("ball within the box").</li>
+</ul>
+<ul>
+  <li>
+  <h2>SIGNAL MEASUREMENT, DYNAMIC PROCESSING, SAMPLE LEVEL OPERATIONS
+  </h2>
+  <ul>
+    <li>
+    <h3> Amplitude Measurement And Amplitude Envelope Following
+    </h3>
+    <p><a href="http://www.csounds.com/manual/html/rms.html"><strong>rms</strong></a> determines the root-mean-square amplitude of an audio signal.
+    </p>
+    <p> <strong><a href="http://www.csounds.com/manual/html/balance.html">balance</a></strong> adjusts the amplitudes of an audio signal according to the rms amplitudes of another audio signal.
+      <br />
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/follow.html"><strong>follow</strong></a> / <a href="http://www.csounds.com/manual/html/follow2.html"><strong>follow2</strong></a> are envelope followers which report the average amplitude in a certain time span (follow) or according to an attack/decay rate (follow2).
+      <br />
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/peak.html"><strong>peak</strong></a> reports the highest absolute amplitude value received.
+      <br />
+    </p> <a href="http://www.csounds.com/manual/html/max_k.html"><strong>max_k</strong></a> outputs the local maximum or minimum value of an incoming audio signal, checked in a certain time interval.
+    <p>
+    </p></li>
+  </ul>
+  <ul>
+    <li>
+    <h3>Pitch Estimation
+    </h3>
+    <p><a href="http://www.csounds.com/manual/html/ptrack.html"> </a>
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/ptrack.html"><strong>ptrack</strong></a>, <a href="http://www.csounds.com/manual/html/pitch.html"><strong>pitch</strong></a> and <a href="http://www.csounds.com/manual/html/pitchamdf.html"><strong>pitchamdf</strong></a> track the pitch of an incoming audio signal, using different methods.
+      <br />
+    </p> <a href="http://www.csounds.com/manual/html/pvscent.html"><strong>pvscent</strong></a> calculates the spectral centroid for FFT streaming signals (see below under "FFT And Spectral Processing")
+    <p>
+    </p></li>
+  </ul>
+  <ul>
+    <li>
+    <h3>Tempo Estimation
+    </h3>
+    <p><a href="http://www.csounds.com/manual/html/tempest.html"> </a><a href="http://www.csounds.com/manual/html/tempest.html"><strong>tempest</strong></a> estimates the tempo of beat patterns in a control signal. &nbsp;
+    </p></li>
+    <li>
+    <h3>Dynamic Processing
+    </h3>
+    <p><a href="http://www.csounds.com/manual/html/compress.html"> </a>
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/compress.html"><strong>compress</strong></a> compresses, limits, expands, ducks or gates an audio signal.
+      <br />
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/dam.html"><strong>dam</strong></a> is a dynamic compressor/expander.
+      <br />
+    </p> <a href="http://www.csounds.com/manual/html/clip.html"><strong>clip</strong></a> clips an a-rate signal to a predefined limit, in a “soft” manner.
+    <p>
+    </p></li>
+    <li>
+    <h3>Sample Level Operations
+    </h3>
+    <p><a href="http://www.csounds.com/manual/html/limit.html"> </a>
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/limit.html"><strong>limit</strong></a> sets the lower and upper limits of an incoming value (all rates).
+      <br />
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/samphold.html"><strong>samphold</strong></a> performs a sample-and-hold operation on its a- or k-input.
+      <br />
+    </p> <a href="http://www.csounds.com/manual/html/vaget.html"><strong>vaget</strong></a> / <a href="http://www.csounds.com/manual/html/vaset.html"><strong>vaset</strong></a> allow getting and setting certain samples of an audio vector at k-rate.</li>
+  </ul></li>
+</ul>
+<ul>
+  <li>
+  <h2>&nbsp;SPATIALIZATION
+  </h2>
+  <ul>
+    <li>
+    <h3>Panning
+    </h3>
+    <p><a href="http://www.csounds.com/manual/html/pan2.html"> </a>
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/pan2.html"><strong>pan2</strong></a> distributes a mono audio signal across two channels according to a variety of panning laws.
+      <br />
+    </p> <a href="http://www.csounds.com/manual/html/pan.html"><strong>pan</strong></a> distributes a mono audio signal amongst four channels.
+    <p>
+    </p></li>
+  </ul>
+  <ul>
+    <li>
+    <h3>VBAP
+    </h3>
+    <p><a href="http://www.csounds.com/manual/html/vpaplsinit.html"> </a>
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/vpaplsinit.html"><strong>vbaplsinit</strong></a> configures VBAP output according to loudspeaker parameters for a 2- or 3-dimensional space.
+      <br />
+    </p> <a href="http://www.csounds.com/manual/html/vpap4.html"><strong>vbap4</strong></a> / <a href="http://www.csounds.com/manual/html/vbap8.html"><strong>vbap8</strong></a> / <a href="http://www.csounds.com/manual/html/vbap16.html"><strong>vbap16</strong></a> distributes an audio signal among up to 16 channels, with k-rate control over azimut, elevation and spread.
+    <p>
+    </p></li>
+    <li>
+    <h3>Ambisonics
+    </h3>
+    <p><a href="http://www.csounds.com/manual/html/bformenc1.html"> </a>
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/bformenc1.html"><strong>bformenc1</strong></a><strong></strong> encodes an audio signal to the Ambisonics B format.
+      <br />
+    </p> <a href="http://www.csounds.com/manual/html/bformdec1.html"><strong>bformdec1</strong></a> decodes Ambisonics B format signals to loudspeaker signals in different possible configurations.</li>
+    <li>
+    <h3>Binaural / HRTF
+    </h3>
+    <p><a href="http://www.csounds.com/manual/html/hrtfstat.html"> </a><a href="http://www.csounds.com/manual/html/hrtfstat.html"><strong>hrtfstat</strong></a>, <a href="http://www.csounds.com/manual/html/hrtfmove.html"><strong>hrtfmove</strong></a> and <a href="http://www.csounds.com/manual/html/hrtfmove2.html"><strong>hrtfmove2</strong></a> are opcodes for creating 3d binaural audio for headphones. <a href="http://www.csounds.com/manual/html/hrtfer.html">hrtfer</a> is an older implementation. All of these opcodes require data files containing information about the sound shadowing qualities of the human head and ears.
+    </p></li>
+  </ul></li>
+</ul>
+   <hr/>
+    <a href="/csound/_edit/">EDIT</a>
+
+</div>
+
+<script type="text/javascript">
+jQuery(function ($) {
+    $('#bookcontent').annotator()
+   		.annotator('setupPlugins', {}, {
+                Tags: false,
+                Filter: {
+                  addAnnotationFilter: false
+                },
+                Permissions: false,
+                AnnotateItPermissions: {}
+              });
+});
+</script>
+
+
+
+</div>
+<!-- End of content -->
+
+</div>  
+<!-- DEV TOOLS -->
+<div id="bookidebug">
+</div>
+
+<!-- sputnik error page -->
+<div id="dialog-sputnik-qrac" style="display: none"></div>
+</body>
+</html>
+

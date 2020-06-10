@@ -1,0 +1,975 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html>
+ <head>
+   <link type="text/css" href="http://www.flossmanuals.net/_templates/prettify/src/prettify.css" rel="Stylesheet" />
+   <script type="text/javascript" src="http://www.flossmanuals.net/_templates/prettify/src/prettify.js"></script>
+
+   <link type="text/css" href="/site_static/js/jquery/themes/base/jquery.ui.all.css" rel="Stylesheet" >
+   <link type="text/css" href="/site_static/js/jquery/themes/smoothness/jquery.ui.all.css" rel="Stylesheet" >
+   <script type="text/javascript" src="/static/js/jquery-1.7.js"></script>
+<!--
+   <script type="text/javascript" src="/site_static/js/jquery/jquery-1.4.4.js"></script>
+-->   
+<script type="text/javascript" src="/site_static/js/jquery/ui/jquery-ui-1.8.10.custom.js"></script>
+   <script type="text/javascript" src="/site_static/js/jquery.json-1.3.js"></script>
+   <script type="text/javascript" src="/site_static/js/booki.js"></script>
+
+   <link href="/site_static/css/jquery.bubblepopup.v2.3.1.css" rel="stylesheet" type="text/css" />
+   <script src="/site_static/js/jquery.bubblepopup.v2.3.1.min.js" type="text/javascript"></script>
+
+   <link type="text/css" href="/static/css/booki_fm.css" rel="Stylesheet"/ >
+<style>
+.template {
+	display: none !important;
+}
+
+
+#header {
+    background-color: transparent !important;
+}
+.paginator { padding:.5em .75em; float:left; font:normal .8em arial; }
+ 
+.paginator .prev-na,
+.paginator .next-na {
+	padding:.3em;
+	font-weight: bold;
+/*	font:bold .875em arial; */
+}
+ 
+.paginator .prev-na,
+.paginator .next-na {
+/*	border:1px solid #ccc; 
+	background-color:#f9f9f9; */
+	color:#aaa;
+	font-weight:normal;
+}
+ 
+.paginator .prev a, .paginator .prev a:visited,
+.paginator .next a, .paginator .next a:visited {
+/*	border:1px solid #c2ee62; 
+	background-color:#edfdd0; */
+	color:#234f32;
+	padding:.3em;
+/*	font:bold .875em arial; */
+        font-weight: bold;
+}
+ 
+.paginator .prev, .paginator .prev-na { margin-right:.5em; }
+.paginator .next, .paginator .next-na { margin-left:.5em; }
+ 
+.paginator .page a, .paginator .page a:visited, .paginator .curr {
+	padding:.25em;
+	font-weight: normal;
+/*	font:normal .875em verdana; */
+/*	border:1px solid #C2EE62; 
+	background-color:#EDFDD0; */
+	margin:0em .25em;	
+	color:#006000;
+}
+ 
+.paginator .curr { 
+/*	background-color:#234f32; 
+	color:#fff; */
+	border:1px solid #234f32; 
+	font-weight:bold;
+	font-size:1em;
+}
+ 
+.paginator .page a:hover,
+.paginator .curr a:hover,
+.paginator .prev a:hover,
+.paginator .next a:hover {
+/*	color:#fff;
+	background-color:#234f32;
+	border:1px solid #234f32; */
+}
+</style>
+ <script type="text/javascript">
+      $(function() {
+   $.booki.sputnikDispatcherURL = "/_sputnik/";
+    });
+   </script>
+
+   <script type="text/javascript">
+     $(function() {
+	 // open debug window
+	 $.booki.debug.init();
+	 
+	 
+	 $("A.debug").click(function() {
+	     $("#bookidebug").dialog("open");
+	     return false;
+	 });
+     });
+   </script>
+
+   
+<title>/chapter: E-Reverberation / CSound</title>
+<link type="text/css" href="/site_static/css/editor.css" rel="Stylesheet" />
+
+<script src="http://assets.annotateit.org/annotator/v1.2.5/annotator-full.min.js"></script>
+<link rel="stylesheet" href="http://assets.annotateit.org/annotator/v1.2.5/annotator.min.css">
+
+
+
+<link rel="alternate" type="application/rss+xml" title="RSS feed for CSound" href="/feeds/rss/book/csound/" /> 
+<link rel="alternate" type="application/atom+xml" title="Atom feed for CSound" href="/feeds/atom/book/csound/" /> 
+
+<link rel="alternate" type="application/rss+xml" title="RSS feed for chapter E-Reverberation" href="/feeds/rss/chapter/csound/csound/" /> 
+<link rel="alternate" type="application/atom+xml" title="Atom feed for chapter E-Reverberation" href="/feeds/atom/chapter/csound/csound/" /> 
+
+
+ </head>
+<body onload="prettyPrint()" >
+<!-- testis -->
+
+<script type="text/javascript">
+$(function() {
+    $("#snippetdialog").dialog({autoOpen: false});
+});
+</script>
+
+
+<div id="snippetdialog" title="Basic dialog">
+        <p></p>
+</div>
+
+
+
+<div id="page-container"> 
+<style>
+body
+{
+margin:0;
+padding:0
+}
+#header
+{
+position:absolute;
+top:23px;
+width:100%;
+background-image: url('http://www.flossmanuals.net/_templates/fm_resources/header_bg.gif');
+background-position: 700px 0px; /* this places the orange background at
+an offset, making sure it doesn't underlap the left side of the gif */
+background-repeat: no-repeat;
+}
+
+#fmheader {
+    background-image: url("http://en.flossmanuals.net/_templates/fm_resources/header_bg.gif");
+    background-position: 600px 0;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 23px;
+    width: 100%;
+}
+#header_image
+{
+margin-left: 270px;
+border: 0px
+}
+
+#navigation
+{
+position:absolute;
+top: 80px;
+left: 357px;
+width:50%;
+}
+
+
+#languages
+{
+position:absolute;
+top: 40px;
+left: 740px;
+width:50%;
+}
+</style>
+
+
+
+<!-- Header graphic is common to all pages  -->
+<div id="header"><img id="header_image" alt="FlossManuals menu" src="http://www.flossmanuals.net/_templates/fm_resources/header_menu.gif" height="95" width="465" border="0"></div>
+
+
+<!-- Navigation buttons are language and context specific  -->
+<div id="navigation">
+<a title="Read" href="http://en.flossmanuals.net/index.php"><img src="http://www.flossmanuals.net/_templates/fm_resources/read_en.png" width="65" height="30" border="0" alt="Read"></a>
+<a title="Write" href="http://booki.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/write_active_en.png" width="65" height="30" border="0" alt="Write"></a>
+<a title="Remix" href="http://en.flossmanuals.net/index.php?plugin=remix"><img src="http://www.flossmanuals.net/_templates/fm_resources/remix_en.png" width="65" height="30" border="0" alt="Remix"></a>
+<a title="About" href="http://www.flossmanuals.org"><img src="http://www.flossmanuals.net/_templates/fm_resources/about_en.png" width="65" height="30" border="0" alt="About"></a>
+</div>
+
+<!-- Language buttons are common to all pages  -->
+<div id="languages">
+<a title="English" href="http://en.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/english_button.png" width="65" height="30" border="0" alt="English"></a>
+
+<!-- <a title="Español" href="http://es.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/spanish_button.png" width="65" height="30" border="0" alt="Español"></a> -->
+<a title="فارسی" href="http://fa.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/farsi_button.png" width="65" height="30" border="0" alt="فارسی"></a>
+<a title="Suomi" href="http://fi.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/finnish_button.png" width="65" height="30" border="0" alt="Suomi"></a>
+<br>
+<a title="Français" href="http://fr.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/french_button.png" width="65" height="30" border="0" alt="Français"></a>
+<a title="Nederlands" href="http://nl.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/dutch_button.png" width="65" height="30" border="0" alt="Nederlands"></a>
+<!-- <a title="Pусский" href="http://ru.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/russian_button.png" width="65" height="30" border="0" alt="Pусский"></a> -->
+<a title="Translate" href="http://translate.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/translate_button.png" width="65" height="30" border="0" alt="Translate"></a>
+</div>
+
+<!-- End top bar -->
+
+<!-- nav box + drop shadow -->
+<div class="navbox shadow" style="top:160px;">
+    		<ul>
+
+ 		<li><a href="/accounts/signin/?redirect=/csound/_draft/_v/1.0/e-reverberation/">Sign In</li><li>Register</a></li>
+
+                <li><a href="/list-books">All Manuals</a></li>
+                <li><a href="/list-groups">All Groups</a></li>
+                <li><a href="/list-people/">All People</a></li>
+           	</ul>
+</div>
+<!-- End of nav box -->
+
+
+
+<div class="content-container shadow">
+<!-- Content box and the drop shadow-->
+
+
+
+
+<br clear="all"/>
+   <h1>CSound</h1>
+
+
+<div id="bookmenu"   style="background: url(/site_static/images/draft_bg.png) repeat !important;">
+<ul>
+
+ 
+   <li><b>INTRODUCTION</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/introduction/">PREFACE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/how-to-use-this-manual/">HOW TO USE THIS MANUAL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/on-this-release/">ON THIS RELEASE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/credits/">CREDITS</a></li>
+ 
+
+ 
+   <li><b>01 BASICS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-digital-audio/">A. DIGITAL AUDIO</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-pitch-and-frequency/">B. PITCH AND FREQUENCY</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-intensities/">C. INTENSITIES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/random/">D. RANDOM</a></li>
+ 
+
+ 
+   <li><b>02 QUICK START</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-make-csound-run/">A. MAKE CSOUND RUN</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-csound-syntax/">B. CSOUND SYNTAX</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-configuring-midi/">C. CONFIGURING MIDI</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-live-audio/">D. LIVE AUDIO</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-rendering-to-file/">E. RENDERING TO FILE</a></li>
+ 
+
+ 
+   <li><b>03 CSOUND LANGUAGE</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-initialization-and-performance-pass/">A. INITIALIZATION AND PERFORMANCE PASS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-local-and-global-variables/">B. LOCAL AND GLOBAL VARIABLES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-control-structures/">C. CONTROL STRUCTURES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-function-tables/">D. FUNCTION TABLES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/arrays/">E. ARRAYS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-triggering-instrument-events/">F. LIVE EVENTS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-user-defined-opcodes/">G. USER DEFINED OPCODES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/macros/">H. MACROS</a></li>
+ 
+
+ 
+   <li><b>04 SOUND SYNTHESIS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-additive-synthesis/">A. ADDITIVE SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-subtractive-synthesis/">B. SUBTRACTIVE SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-amplitude-and-ringmodulation/">C. AMPLITUDE AND RING MODULATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-frequency-modulation/">D. FREQUENCY MODULATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-waveshaping/">E. WAVESHAPING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-granular-synthesis/">F. GRANULAR SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/g-physical-modelling/">G. PHYSICAL MODELLING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/scanned-synthesis/">H. SCANNED SYNTHESIS</a></li>
+ 
+
+ 
+   <li><b>05 SOUND MODIFICATION</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-envelopes/">A. ENVELOPES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-panning-and-spatialization/">B. PANNING AND SPATIALIZATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-filters/">C. FILTERS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-delay-and-feedback/">D. DELAY AND FEEDBACK</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-reverberation/">E. REVERBERATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-am-rm-waveshaping/">F. AM / RM / WAVESHAPING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/g-granular-synthesis/">G. GRANULAR SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/h-convolution/">H. CONVOLUTION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/i-fourier-analysis-spectral-processing/">I. FOURIER ANALYSIS / SPECTRAL PROCESSING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/k-ats-resynthesis/">K. ATS RESYNTHESIS</a></li>
+ 
+
+ 
+   <li><b>06 SAMPLES</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-record-and-play-soundfiles/">A. RECORD AND PLAY SOUNDFILES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-record-and-play-buffers/">B. RECORD AND PLAY BUFFERS</a></li>
+ 
+
+ 
+   <li><b>07 MIDI</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-receiving-events-by-midiin/">A. RECEIVING EVENTS BY MIDIIN</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-triggering-instrument-instances/">B. TRIGGERING INSTRUMENT INSTANCES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-working-with-controllers/">C. WORKING WITH CONTROLLERS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-reading-midi-files/">D. READING MIDI FILES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-midi-output/">E. MIDI OUTPUT</a></li>
+ 
+
+ 
+   <li><b>08 OTHER COMMUNICATION</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/osc-and-wii/">A. OPEN SOUND CONTROL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-arduino/">B. CSOUND AND ARDUINO</a></li>
+ 
+
+ 
+   <li><b>09 CSOUND IN OTHER APPLICATIONS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-pd/">A. CSOUND IN PD</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-maxmsp/">B. CSOUND IN MAXMSP</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-ableton-live/">C. CSOUND IN ABLETON LIVE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-csound-as-a-vst-plugin/">D. CSOUND AS A VST PLUGIN</a></li>
+ 
+
+ 
+   <li><b>10 CSOUND FRONTENDS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/qutecsound/">CSOUNDQT</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/cecilia/">CABBAGE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/blue/">BLUE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/winxound/">WINXOUND</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-via-terminal/">CSOUND VIA TERMINAL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/web-based-csound/">WEB BASED CSOUND</a></li>
+ 
+
+ 
+   <li><b>11 CSOUND UTILITIES</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-utilities/">CSOUND UTILITIES</a></li>
+ 
+
+ 
+   <li><b>12 CSOUND AND OTHER PROGRAMMING LANGUAGES</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/the-csound-api/">A. THE CSOUND API</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/using-python-inside-csound/">B. PYTHON INSIDE CSOUND</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-python-in-csoundqt/">C. PYTHON IN CSOUNDQT</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-lua-in-csound/">D. LUA IN CSOUND</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-csound-in-ios/">E. CSOUND IN iOS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-csound-on-android/">F. CSOUND ON ANDROID</a></li>
+ 
+
+ 
+   <li><b>13 EXTENDING CSOUND</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/extending-csound/">EXTENDING CSOUND</a></li>
+ 
+
+ 
+   <li><b>OPCODE GUIDE</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/overview/">OVERVIEW</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/signal-processing-i/">SIGNAL PROCESSING I</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/signal-processing-ii/">SIGNAL PROCESSING II</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/data/">DATA</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/realtime-interaction/">REALTIME INTERACTION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/instrument-control/">INSTRUMENT CONTROL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/math-pythonsystem-plugins/">MATHS, PYTHON/SYSTEM, PLUGINS</a></li>
+ 
+
+ 
+   <li><b>APPENDIX</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/writing-csound-scores-by-hand/">METHODS OF WRITING CSOUND SCORES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/glossary/">GLOSSARY</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/links/">LINKS</a></li>
+ 
+
+</ul>
+</div>
+<div id="bookcontent"   >
+<title>Csound: REVERBERATION</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<h1>REVERBERATION
+</h1>
+<p>Reverb is the effect a room or space has on a sound where the sound we perceive is a mixture of the direct sound and the dense overlapping echoes of that sound reflecting off walls and objects within the space.
+</p>
+<p>Csound's earliest reverb opcodes are <em>reverb</em><span> and </span><em>nreverb</em><span>. By today's standards these sound rather crude and as a consequence modern Csound users tend to prefer the more recent opcodes </span><em>freeverb</em><span> and </span><em>reverbsc</em><span>.</span>
+</p>
+<p>The typical way to use a reverb is to run as a effect throughout the entire Csound performance and to send it audio from other instruments to which it adds reverb. This is more efficient than initiating a new reverb effect for every note that is played. This arrangement is a reflection of how a reverb effect would be used with a mixing desk in a conventional studio. There are several methods of sending audio from sound producing instruments to the reverb instrument, three of which will be introduced in the coming examples
+</p>
+<p>The first method uses Csound's global variables so that an audio variable created in one instrument and be read in another instrument. There are several points to highlight here. First the global audio variable that is use to send audio the reverb instrument is initialized to zero (silence) in the header area of the orchestra.
+</p>
+<p>This is done so that if no sound generating instruments are playing at the beginning of the performance this variable still exists and has a value. An error would result otherwise and Csound would not run. When audio is written into this variable in the sound generating instrument it is added to the current value of the global variable.
+</p>
+<p>This is done in order to permit polyphony and so that the state of this variable created by other sound producing instruments is not overwritten. Finally it is important that the global variable is cleared (assigned a value of zero) when it is finished with at the end of the reverb instrument. If this were not done then the variable would quickly 'explode' (get astronomically high) as all previous instruments are merely adding values to it rather that redeclaring it. Clearing could be done simply by setting to zero<span> but the </span><em>clear</em><span> opcode might prove useful in the future as it provides us with the opportunity to clear many variables simultaneously.</span>
+</p>
+<p><span>This example uses the <a href="http://www.csounds.com/manual/html/freeverb.html">freeverb</a></span><span> opcode and is based on a plugin of the same name. Freeverb has a smooth reverberant tail and is perhaps similar in sound to a plate reverb. It provides us with two main parameters of control: 'room size' which is essentially a control of the amount of internal feedback and therefore reverb time, and 'high frequency damping' which controls the amount of attenuation of high frequencies. Both there parameters should be set within the range 0 to 1. For room size a value of zero results in a very short reverb and a value of 1 results in a very long reverb. For high frequency damping a value of zero provides minimum damping of higher frequencies giving the impression of a space with hard walls, a value of 1 provides maximum high frequency damping thereby giving the impression of a space with soft surfaces such as thick carpets and heavy curtains.</span>
+</p>
+<p id="alexbreak">
+</p>
+<p><strong>&nbsp;&nbsp; <em>EXAMPLE 05E01_freeverb.csd</em></strong>
+</p>
+<p>
+</p>
+<pre>&lt;CsoundSynthesizer&gt;
+
+&lt;CsOptions&gt;
+-odac ; activates real time sound output
+&lt;/CsOptions&gt;
+
+&lt;CsInstruments&gt;
+;Example by Iain McCurdy
+
+sr =  44100
+ksmps = 32
+nchnls = 2
+0dbfs = 1
+
+gaRvbSend    init      0 ; global audio variable initialized to zero
+
+  instr 1 ; sound generating instrument (sparse noise bursts)
+kEnv         loopseg   0.5,0,0,1,0.003,1,0.0001,0,0.9969,0,0; amp. env.
+aSig         pinkish   kEnv              ; noise pulses
+             outs      aSig, aSig        ; audio to outs
+iRvbSendAmt  =         0.8               ; reverb send amount (0 - 1)
+; add some of the audio from this instrument to the global reverb send variable
+gaRvbSend    =         gaRvbSend + (aSig * iRvbSendAmt)
+  endin
+
+  instr 5 ; reverb - always on
+kroomsize    init      0.85          ; room size (range 0 to 1)
+kHFDamp      init      0.5           ; high freq. damping (range 0 to 1)
+; create reverberated version of input signal (note stereo input and output)
+aRvbL,aRvbR  freeverb  gaRvbSend, gaRvbSend,kroomsize,kHFDamp
+             outs      aRvbL, aRvbR ; send audio to outputs
+             clear     gaRvbSend    ; clear global audio variable
+  endin
+
+&lt;/CsInstruments&gt;
+
+&lt;CsScore&gt;
+i 1 0 300 ; noise pulses (input sound)
+i 5 0 300 ; start reverb
+e
+&lt;/CsScore&gt;
+
+&lt;/CsoundSynthesizer&gt;
+</pre>
+<p>The next example uses Csound's zak patching system to send audio from one instrument to another. The zak system is a little like a patch bay you might find in a recording studio. Zak channels can be a, k or i-rate. These channels will be addressed using numbers so it will be important to keep track of what each numbered channel is used for. Our example will be very simple in that we will only be using one zak audio channel. Before using any of the zak opcodes for reading and writing data we must initialize zak storage space. This is done in the orchestra header area using the <a href="http://www.csounds.com/manual/html/zakinit.html">zakinit</a> opcode. This opcode initializes both a and k rate channels; we must intialize at least one of each even if we don't require both.
+</p>
+<pre>zakinit    1, 1
+</pre>
+<p>
+</p>
+<p>The audio from the sound generating instrument is mixed into a zak audio channel the <a href="http://www.csounds.com/manual/html/zawm.html">zawm</a> opcode like this:
+</p>
+<pre>zawm&nbsp;&nbsp;&nbsp; aSig * iRvbSendAmt, 1</pre>
+<p>This channel is read from in the reverb instrument using the <a href="http://www.csounds.com/manual/html/zar.html">zar</a> opcode like this:
+</p>
+<pre>aInSig&nbsp; zar&nbsp;&nbsp; 1
+</pre>
+<p>
+</p>
+<p>Because audio is begin mixed into our zak channel but it is never redefined (only mixed into) it needs to be cleared after we have finished with it. This is accomplished at the bottom of the reverb instrument using the <a href="http://www.csounds.com/manual/html/zacl.html">zacl</a> opcode like this:
+</p>
+<pre>zacl      0, 1
+</pre>
+<p>
+</p>
+<p>This example uses the <a href="http://www.csounds.com/manual/html/reverbsc.html">reverbsc</a> opcode. It too has a stereo input and output. The arguments that define its character are feedback level and cutoff frequency. Feedback level should be in the range zero to 1 and controls reverb time. Cutoff frequency should be within the range of human hearing (20Hz -20kHz) and less than the Nyqvist frequency (sr/2) - it controls the cutoff frequencies of low pass filters within the algorithm.
+</p>
+<p><strong>&nbsp;&nbsp; <em>EXAMPLE 05E02_reverbsc.csd</em></strong>
+</p>
+<pre>&lt;CsoundSynthesizer&gt;
+
+&lt;CsOptions&gt;
+-odac ; activates real time sound output
+&lt;/CsOptions&gt;
+
+&lt;CsInstruments&gt;
+; Example by Iain McCurdy
+
+sr =  44100
+ksmps = 32
+nchnls = 2
+0dbfs = 1
+
+; initialize zak space  - one a-rate and one k-rate variable.
+; We will only be using the a-rate variable.
+             zakinit   1, 1
+
+  instr 1 ; sound generating instrument - sparse noise bursts
+kEnv         loopseg   0.5,0, 0,1,0.003,1,0.0001,0,0.9969,0,0; amp. env.
+aSig         pinkish   kEnv       ; pink noise pulses
+             outs      aSig, aSig ; send audio to outputs
+iRvbSendAmt  =         0.8        ; reverb send amount (0 - 1)
+; write to zak audio channel 1 with mixing
+             zawm      aSig*iRvbSendAmt, 1
+  endin
+
+  instr 5 ; reverb - always on
+aInSig       zar       1    ; read first zak audio channel
+kFblvl       init      0.88 ; feedback level - i.e. reverb time
+kFco         init      8000 ; cutoff freq. of a filter within the reverb
+; create reverberated version of input signal (note stereo input and output)
+aRvbL,aRvbR  reverbsc  aInSig, aInSig, kFblvl, kFco
+             outs      aRvbL, aRvbR ; send audio to outputs
+             zacl      0, 1         ; clear zak audio channels
+  endin
+
+&lt;/CsInstruments&gt;
+
+&lt;CsScore&gt;
+i 1 0 10 ; noise pulses (input sound)
+i 5 0 12 ; start reverb
+e
+&lt;/CsScore&gt;
+
+&lt;/CsoundSynthesizer&gt;
+</pre><em>reverbsc</em><span> contains a mechanism to modulate delay times internally which has the effect of harmonically blurring sounds the longer they are reverberated. This contrasts with </span><em>freeverb</em><span>'s rather static reverberant tail. On the other hand </span><em>screverb</em><span>'s tail is not as smooth as that of </span><em>freeverb, </em><span>inidividual echoes are sometimes discernible so it may not be as well suited to the reverberation of percussive sounds. Also be aware that as well as reducing the reverb time, the feedback level parameter reduces the overall amplitude of the effect to the point where a setting of 1 will result in silence from the opcode.</span>
+<p>A more recent option for sending sound from instrument to instrument in Csound is to use the <em>chn...</em> opcodes. These opcodes can also be used to allow Csound to interface with external programs using the software bus and the Csound API.
+</p>
+<p>
+</p>
+<p><strong>&nbsp;&nbsp; <em>EXAMPLE 05E03_reverb_with_chn.csd</em></strong>
+</p>
+<pre>&lt;CsoundSynthesizer&gt;
+
+&lt;CsOptions&gt;
+-odac ; activates real time sound output
+&lt;/CsOptions&gt;
+
+&lt;CsInstruments&gt;
+; Example by Iain McCurdy
+
+sr =  44100
+ksmps = 32
+nchnls = 2
+0dbfs = 1
+
+  instr 1 ; sound generating instrument - sparse noise bursts
+kEnv         loopseg   0.5,0, 0,1,0.003,1,0.0001,0,0.9969,0,0 ; amp. envelope
+aSig         pinkish   kEnv                                 ; noise pulses
+             outs      aSig, aSig                           ; audio to outs
+iRvbSendAmt  =         0.4                        ; reverb send amount (0 - 1)
+;write audio into the named software channel:
+             chnmix    aSig*iRvbSendAmt, "ReverbSend"
+  endin
+
+  instr 5 ; reverb (always on)
+aInSig       chnget    "ReverbSend"   ; read audio from the named channel
+kTime        init      4              ; reverb time
+kHDif        init      0.5            ; 'high frequency diffusion' (0 - 1)
+aRvb         nreverb   aInSig, kTime, kHDif ; create reverb signal
+outs         aRvb, aRvb               ; send audio to outputs
+             chnclear  "ReverbSend"   ; clear the named channel
+endin
+
+&lt;/CsInstruments&gt;
+
+&lt;CsScore&gt;
+i 1 0 10 ; noise pulses (input sound)
+i 5 0 12 ; start reverb
+e
+&lt;/CsScore&gt;
+
+&lt;/CsoundSynthesizer&gt;
+</pre>
+<h2>The Schroeder Reverb Design
+</h2>
+<p> Many reverb algorithms including Csound's freeverb, reverb and reverbn are based on what is known as the Schroeder reverb design. This was a design proposed in the early 1960s by the physicist Manfred Schroeder. In the Schroeder reverb a signal is passed into four parallel comb filters the outputs of which are summed and then passed through two allpass filters as shown in the diagram below. Essentially the comb filters provide the body of the reverb effect and the allpass filters smear their resultant sound to reduce ringing artefacts the comb filters might produce. More modern designs might extent the number of filters used in an attempt to create smoother results. The freeverb opcode employs eight parallel comb filters followed by four series allpass filters on each channel. The two main indicators of poor implementations of the Schoeder reverb are individual echoes being excessively apparent and ringing artefacts. The results produced by the freeverb opcode are very smooth but a criticism might be that it is lacking in character and is more suggestive of a plate reverb than of a real room.
+</p>
+<p><img style="width: 550px; height: 241px;" alt="schroeder.jpg" src="static/Csound-Picts-05_SoundMod-schroeder-en.jpg" />
+  <br />
+  <br />The next example implements the basic Schroeder reverb with four parallel comb filters followed by three series allpass filters. This also proves a useful exercise in routing audio signals within Csound. Perhaps the most crucial element of the Schroeder reverb is the choice of loop times for the comb and allpass filters – careful choices here should obviate the undesirable artefacts mentioned in the previous paragraph. If loop times are too long individual echoes will become apparent, if they are too short the characteristic ringing of comb filters will become apparent. If loop times between filters differ too much the outputs from the various filters will not fuse. It is also important that the loop times are prime numbers so that echoes between different filters do not reinforce each other. It may also be necessary to adjust loop times when implementing very short reverbs or very long reverbs. The duration of the reverb is effectively determined by the reverb times for the comb filters. There is certainly scope for experimentation with the design of this example and exploration of settings other than the ones suggested here.
+  <br />
+  <br />This example consists of five instruments. The fifth instrument implements the reverb algorithm described above. The first four instruments act as a kind of generative drum machine to provide source material for the reverb. Generally sharp percussive sounds provide the sternest test of a reverb effect. Instrument 1 triggers the various synthesized drum sounds (bass drum, snare and closed hi-hat) produced by instruments 2 to 4.
+  <br />
+</p>
+<h4>
+</h4>
+<p><strong><em>&nbsp; EXAMPLE 05E04_schroeder_reverb.csd </em></strong>
+</p>
+<h4>
+</h4>
+<pre>&lt;CsoundSynthesizer&gt;
+
+&lt;CsOptions&gt;
+-odac -m0
+; activate real time sound output and suppress note printing
+&lt;/CsOptions&gt;
+
+&lt;CsInstruments&gt;
+;Example by Iain McCurdy
+
+sr =  44100
+ksmps = 1
+nchnls = 2
+0dbfs = 1
+
+giSine       ftgen       0, 0, 2^12, 10, 1 ; a sine wave
+gaRvbSend    init        0                 ; global audio variable initialized
+giRvbSendAmt init        0.4               ; reverb send amount (range 0 - 1)
+
+  instr 1 ; trigger drum hits
+ktrigger    metro       5                  ; rate of drum strikes
+kdrum       random      2, 4.999           ; randomly choose which drum to hit
+            schedkwhen  ktrigger, 0, 0, kdrum, 0, 0.1 ; strike a drum
+  endin
+
+  instr 2 ; sound 1 - bass drum
+iamp        random      0, 0.5               ; amplitude randomly chosen
+p3          =           0.2                  ; define duration for this sound
+aenv        line        1,p3,0.001           ; amplitude envelope (percussive)
+icps        exprand     30                   ; cycles-per-second offset
+kcps        expon       icps+120,p3,20       ; pitch glissando
+aSig        oscil       aenv*0.5*iamp,kcps,giSine  ; oscillator
+            outs        aSig, aSig           ; send audio to outputs
+gaRvbSend   =           gaRvbSend + (aSig * giRvbSendAmt) ; add to send
+  endin
+
+  instr 3 ; sound 3 - snare
+iAmp        random      0, 0.5                   ; amplitude randomly chosen
+p3          =           0.3                      ; define duration
+aEnv        expon       1, p3, 0.001             ; amp. envelope (percussive)
+aNse        noise       1, 0                     ; create noise component
+iCps        exprand     20                       ; cps offset
+kCps        expon       250 + iCps, p3, 200+iCps ; create tone component gliss.
+aJit        randomi     0.2, 1.8, 10000          ; jitter on freq.
+aTne        oscil       aEnv, kCps*aJit, giSine  ; create tone component
+aSig        sum         aNse*0.1, aTne           ; mix noise and tone components
+aRes        comb        aSig, 0.02, 0.0035       ; comb creates a 'ring'
+aSig        =           aRes * aEnv * iAmp       ; apply env. and amp. factor
+            outs        aSig, aSig               ; send audio to outputs
+gaRvbSend   =           gaRvbSend + (aSig * giRvbSendAmt); add to send
+  endin
+
+  instr 4 ; sound 4 - closed hi-hat
+iAmp        random      0, 1.5               ; amplitude randomly chosen
+p3          =           0.1                  ; define duration for this sound
+aEnv        expon       1,p3,0.001           ; amplitude envelope (percussive)
+aSig        noise       aEnv, 0              ; create sound for closed hi-hat
+aSig        buthp       aSig*0.5*iAmp, 12000 ; highpass filter sound
+aSig        buthp       aSig,          12000 ; -and again to sharpen cutoff
+            outs        aSig, aSig           ; send audio to outputs
+gaRvbSend   =           gaRvbSend + (aSig * giRvbSendAmt) ; add to send
+  endin
+
+
+  instr 5 ; schroeder reverb - always on
+; read in variables from the score
+kRvt        =           p4
+kMix        =           p5
+
+; print some information about current settings gleaned from the score
+            prints      "Type:"
+            prints      p6
+            prints      "\\nReverb Time:%2.1f\\nDry/Wet Mix:%2.1f\\n\\n",p4,p5
+
+; four parallel comb filters
+a1          comb        gaRvbSend, kRvt, 0.0297; comb filter 1
+a2          comb        gaRvbSend, kRvt, 0.0371; comb filter 2
+a3          comb        gaRvbSend, kRvt, 0.0411; comb filter 3
+a4          comb        gaRvbSend, kRvt, 0.0437; comb filter 4
+asum        sum         a1,a2,a3,a4 ; sum (mix) the outputs of all comb filters
+
+; two allpass filters in series
+a5          alpass      asum, 0.1, 0.005 ; send mix through first allpass filter
+aOut        alpass      a5, 0.1, 0.02291 ; send 1st allpass through 2nd allpass
+
+amix        ntrpol      gaRvbSend, aOut, kMix  ; create a dry/wet mix
+            outs        amix, amix             ; send audio to outputs
+            clear       gaRvbSend              ; clear global audio variable
+  endin
+
+&lt;/CsInstruments&gt;
+
+&lt;CsScore&gt;
+; room reverb
+i 1  0 10                     ; start drum machine trigger instr
+i 5  0 11 1 0.5 "Room Reverb" ; start reverb
+
+; tight ambience
+i 1 11 10                          ; start drum machine trigger instr
+i 5 11 11 0.3 0.9 "Tight Ambience" ; start reverb
+
+; long reverb (low in the mix)
+i 1 22 10                                      ; start drum machine
+i 5 22 15 5 0.1 "Long Reverb (Low In the Mix)" ; start reverb
+
+; very long reverb (high in the mix)
+i 1 37 10                                            ; start drum machine
+i 5 37 25 8 0.9 "Very Long Reverb (High in the Mix)" ; start reverb
+e
+&lt;/CsScore&gt;
+
+&lt;/CsoundSynthesizer&gt;
+</pre>
+<p>This chapter has introduced some of the more recent Csound opcodes for delay-line based reverb algorithms which in most situations can be used to provide high quality and efficient reverberation. Convolution offers a whole new approach for the creation of realistic reverbs that imitate actual spaces - this technique is demonstrated in the <a href="http://en.flossmanuals.net/csound/ch038_h-convolution/">Convolution</a> chapter.
+  <br />
+</p>
+<p>
+</p>
+   <hr/>
+    <a href="/csound/_edit/">EDIT</a>
+
+</div>
+
+<script type="text/javascript">
+jQuery(function ($) {
+    $('#bookcontent').annotator()
+   		.annotator('setupPlugins', {}, {
+                Tags: false,
+                Filter: {
+                  addAnnotationFilter: false
+                },
+                Permissions: false,
+                AnnotateItPermissions: {}
+              });
+});
+</script>
+
+
+
+</div>
+<!-- End of content -->
+
+</div>  
+<!-- DEV TOOLS -->
+<div id="bookidebug">
+</div>
+
+<!-- sputnik error page -->
+<div id="dialog-sputnik-qrac" style="display: none"></div>
+</body>
+</html>
+

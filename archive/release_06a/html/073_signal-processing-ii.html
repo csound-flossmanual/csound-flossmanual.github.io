@@ -1,0 +1,758 @@
+
+<!DOCTYPE HTML>
+<html>
+ <head>
+   
+
+<link type="text/css" href="/site_static/css/booki.css" rel="Stylesheet" >
+<link type="text/css" href="/site_static/js/jquery/themes/base/jquery.ui.all.css" rel="Stylesheet" >
+<link type="text/css" href="/site_static/js/jquery/themes/smoothness/jquery.ui.all.css" rel="Stylesheet" >
+<script type="text/javascript" src="/site_static/js/jquery/jquery-1.4.4.js"></script>
+<script type="text/javascript" src="/site_static/js/jquery/ui/jquery-ui-1.8.10.custom.js"></script>
+<script type="text/javascript" src="/site_static/js/jquery.json-1.3.js"></script>
+<script type="text/javascript" src="/site_static/js/booki.js"></script>
+<script src="/site_static/js/messaging.js" type="text/javascript"></script>   
+<script type="text/javascript" src="/site_static/js/general.js"></script>
+<link href="/site_static/css/jquery.bubblepopup.v2.3.1.css" rel="stylesheet" type="text/css" />
+<link type="text/css" href="/site_static/css/jquery-ui_overrides.css" rel="Stylesheet" >
+<script src="/site_static/js/jquery.bubblepopup.v2.3.1.min.js" type="text/javascript"></script>
+
+<link rel="SHORTCUT ICON" href="http://write.flossmanuals.net/site_static/images/favicon.ico" type="image/x-icon">
+
+
+<script type="text/javascript">
+  $(function() {
+      $.booki.sputnikDispatcherURL = "/_sputnik/";
+
+      $("#dialog-sputnik-error").dialog({
+          modal: true,
+          autoOpen: false,
+          buttons: {
+            Ok: function() {
+               $(this).dialog('close');
+               window.location = '.';
+            }
+          }
+      });
+  
+      $("FORM.messagefield").messagefield('init', {'view_post': '/messaging/post' });  
+  });
+</script>
+
+
+   
+ <title>/chapter: Signal-Processing-Ii / CSOUND</title>
+ <link type="text/css" href="/site_static/css/draft.css" rel="Stylesheet" />
+
+ <link rel="alternate" type="application/rss+xml" title="RSS feed for CSOUND" href="/feeds/rss/book/csound/" /> 
+ <link rel="alternate" type="application/atom+xml" title="Atom feed for CSOUND" href="/feeds/atom/book/csound/" /> 
+
+ <link rel="alternate" type="application/rss+xml" title="RSS feed for chapter SIGNAL PROCESSING II" href="/feeds/rss/chapter/csound/csound/" /> 
+ <link rel="alternate" type="application/atom+xml" title="Atom feed for chapter SIGNAL PROCESSING II" href="/feeds/atom/chapter/csound/csound/" /> 
+ 
+ <script type="text/javascript" src="/site_static/js/draft.js"></script>
+
+
+   <link type="text/css" href="/static/css/_user.css" rel="Stylesheet" >
+ </head>
+<body>
+
+<div class="topbar"> 
+  <div class="logo"><a href="http://write.flossmanuals.net/"></a></div>
+
+  <div class="meta-bar">
+    
+    <ul>
+      <li>
+        <a href="/accounts/signin/?redirect=/csound/_draft/_v/1.0/signal-processing-ii/">Sign In / Create Account</a>
+      </li>
+    </ul>
+    
+    <div style="padding-top: 10px; padding-right: 15px;">
+      <br/>
+      
+
+<script>
+  $(function() {
+    var $frm = $("FORM[name=changelang]");
+	
+    $("A[href=#]", $frm).click(function() {
+        var lang = $(this).attr("class").substr(4);
+	
+        $("INPUT[name=language]", $frm).val(lang);
+        $frm.submit();
+	
+        return false;
+    });
+  });
+ </script>
+
+<form name="changelang" method="POST" action="/accounts/i18n/setlang/?language=en-us">
+  <input type="hidden" name="language" value="en-us">
+  
+    &nbsp;English&nbsp;|
+  
+  
+  
+    &nbsp;<a class="langes" href="#">Español</a>&nbsp;|
+  
+
+  
+    &nbsp;<a class="langfr" href="#">Français</a>&nbsp;|
+  
+	
+  
+    &nbsp;<a class="langit" href="#">Italiano</a>&nbsp;|
+  
+	
+  
+    &nbsp;<a class="langpt" href="#">Português</a>&nbsp;|
+  
+	
+  
+    &nbsp;<a class="langru" href="#">Русский</a>&nbsp;|
+  
+	
+  
+    &nbsp;<a class="langsq" href="#">Shqip</a>
+  	
+</form>
+
+    </div>
+    
+    
+  </div><!-- End of .meta-bar -->
+</div><!-- End top bar -->
+
+<div class="menubar shadow">
+  
+  
+  <div class="navbox">
+    <ul>
+      <li><a href="/list-books/">Books</a></li>
+      <li><a href="/list-groups/">Groups</a></li>
+      <li><a href="/list-people/">People</a></li>
+    </ul>      
+  </div><!-- End of .navbox -->       
+</div>
+
+<div class="content-container">
+  <div class="content shadow">
+    <!-- Content box and the drop shadow-->
+    
+
+<h2>CSOUND</h2>
+<div class="padded">
+ <div id="bookmenu" style="background: url(/site_static/images/draft_bg.png) repeat !important;"> 
+  <ul>
+   
+    
+      <li><b>INTRODUCTION</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/preface/">PREFACE</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/how-to-use-this-manual/">HOW TO USE THIS MANUAL</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/on-this-release/">ON THIS RELEASE</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/credits/">CREDITS</a></li>
+    
+   
+    
+      <li><b>01 BASICS</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-digital-audio/">A. DIGITAL AUDIO</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-pitch-and-frequency/">B. PITCH AND FREQUENCY</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-intensities/">C. INTENSITIES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-random/">D. RANDOM</a></li>
+    
+   
+    
+      <li><b>02 QUICK START</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-make-csound-run/">A. MAKE CSOUND RUN</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-csound-syntax/">B. CSOUND SYNTAX</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-configuring-midi/">C. CONFIGURING MIDI</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-live-audio/">D. LIVE AUDIO</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-rendering-to-file/">E. RENDERING TO FILE</a></li>
+    
+   
+    
+      <li><b>03 CSOUND LANGUAGE</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-initialization-and-performance-pass/">A. INITIALIZATION AND PERFORMANCE PASS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-local-and-global-variables/">B. LOCAL AND GLOBAL VARIABLES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-control-structures/">C. CONTROL STRUCTURES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-function-tables/">D. FUNCTION TABLES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-arrays/">E. ARRAYS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/f-live-events/">F. LIVE EVENTS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/g-user-defined-opcodes/">G. USER DEFINED OPCODES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/h-macros/">H. MACROS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/i-functional-syntax/">I. FUNCTIONAL SYNTAX</a></li>
+    
+   
+    
+      <li><b>04 SOUND SYNTHESIS</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-additive-synthesis/">A. ADDITIVE SYNTHESIS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-subtractive-synthesis/">B. SUBTRACTIVE SYNTHESIS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-amplitude-and-ring-modulation/">C. AMPLITUDE AND RING MODULATION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-frequency-modulation/">D. FREQUENCY MODULATION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-waveshaping/">E. WAVESHAPING</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/f-granular-synthesis/">F. GRANULAR SYNTHESIS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/g-physical-modelling/">G. PHYSICAL MODELLING</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/h-scanned-synthesis/">H. SCANNED SYNTHESIS</a></li>
+    
+   
+    
+      <li><b>05 SOUND MODIFICATION</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-envelopes/">A. ENVELOPES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-panning-and-spatialization/">B. PANNING AND SPATIALIZATION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-filters/">C. FILTERS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-delay-and-feedback/">D. DELAY AND FEEDBACK</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-reverberation/">E. REVERBERATION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/f-am-rm-waveshaping/">F. AM / RM / WAVESHAPING</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/g-granular-synthesis/">G. GRANULAR SYNTHESIS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/h-convolution/">H. CONVOLUTION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/i-fourier-analysis-spectral-processing/">I. FOURIER ANALYSIS / SPECTRAL PROCESSING</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/k-ats-resynthesis/">K. ATS RESYNTHESIS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/l-amplitude-and-pitch-tracking/">L. AMPLITUDE AND PITCH TRACKING</a></li>
+    
+   
+    
+      <li><b>06 SAMPLES</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-record-and-play-soundfiles/">A. RECORD AND PLAY SOUNDFILES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-record-and-play-buffers/">B. RECORD AND PLAY BUFFERS</a></li>
+    
+   
+    
+      <li><b>07 MIDI</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-receiving-events-by-midiin/">A. RECEIVING EVENTS BY MIDIIN</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-triggering-instrument-instances/">B. TRIGGERING INSTRUMENT INSTANCES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-working-with-controllers/">C. WORKING WITH CONTROLLERS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-reading-midi-files/">D. READING MIDI FILES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-midi-output/">E. MIDI OUTPUT</a></li>
+    
+   
+    
+      <li><b>08 OTHER COMMUNICATION</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-open-sound-control/">A. OPEN SOUND CONTROL</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-csound-and-arduino/">B. CSOUND AND ARDUINO</a></li>
+    
+   
+    
+      <li><b>09 CSOUND IN OTHER APPLICATIONS</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-csound-in-pd/">A. CSOUND IN PD</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-csound-in-maxmsp/">B. CSOUND IN MAXMSP</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-csound-in-ableton-live/">C. CSOUND IN ABLETON LIVE</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-csound-as-a-vst-plugin/">D. CSOUND AS A VST PLUGIN</a></li>
+    
+   
+    
+      <li><b>10 CSOUND FRONTENDS</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/csoundqt/">CSOUNDQT</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/cabbage/">CABBAGE</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/blue/">BLUE</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/winxound/">WINXOUND</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/csound-via-terminal/">CSOUND VIA TERMINAL</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/web-based-csound/">WEB BASED CSOUND</a></li>
+    
+   
+    
+      <li><b>11 CSOUND UTILITIES</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/csound-utilities/">CSOUND UTILITIES</a></li>
+    
+   
+    
+      <li><b>12 CSOUND AND OTHER PROGRAMMING LANGUAGES</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-the-csound-api/">A. THE CSOUND API</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-python-inside-csound/">B. PYTHON INSIDE CSOUND</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-python-in-csoundqt/">C. PYTHON IN CSOUNDQT</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-lua-in-csound/">D. LUA IN CSOUND</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-csound-in-ios/">E. CSOUND IN iOS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/f-csound-on-android/">F. CSOUND ON ANDROID</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/g-csound-and-haskell/">G. CSOUND AND HASKELL</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/h-csound-and-html/">H. CSOUND AND HTML</a></li>
+    
+   
+    
+      <li><b>13 EXTENDING CSOUND</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/extending-csound/">EXTENDING CSOUND</a></li>
+    
+   
+    
+      <li><b>OPCODE GUIDE</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/overview/">OVERVIEW</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/signal-processing-i/">SIGNAL PROCESSING I</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/signal-processing-ii/">SIGNAL PROCESSING II</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/data/">DATA</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/realtime-interaction/">REALTIME INTERACTION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/instrument-control/">INSTRUMENT CONTROL</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/maths-pythonsystem-plugins/">MATHS, PYTHON/SYSTEM, PLUGINS</a></li>
+    
+   
+    
+      <li><b>APPENDIX</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/methods-of-writing-csound-scores/">METHODS OF WRITING CSOUND SCORES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/glossary/">GLOSSARY</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/links/">LINKS</a></li>
+    
+   
+  </ul>
+ </div>
+ <div id="bookcontent"   style="background: url(/site_static/images/draft_bg.png) repeat !important;">
+   
+
+  <html><head><title>Csound: OpcodeGuideII</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head><body><h1>OPCODE GUIDE: ADVANCED SIGNAL PROCESSING
+</h1>
+<p> 
+</p>
+<ul><li>
+  <h2>MODULATION AND DISTORTION
+  </h2>
+  <ul><li>
+    <h3>Frequency Modulation
+    </h3>
+    <p><a href="http://www.csounds.com/manual/html/foscil.html"><strong>foscil</strong></a> and <a href="http://www.csounds.com/manual/html/foscili.html"><strong>foscili</strong></a> implement composite units for FM in the Chowning setup.
+      <br></p>
+    <p><a href="http://www.csounds.com/manual/html/crossfm.html"><strong>crossfm</strong></a>, <a href="http://www.csounds.com/manual/html/crossfm.html"><strong>crossfmi</strong></a>, <a href="http://www.csounds.com/manual/html/crossfm.html"><strong>crosspm</strong></a>, <a href="http://www.csounds.com/manual/html/crossfm.html"><strong>crosspmi</strong></a>, <a href="http://www.csounds.com/manual/html/crossfm.html"><strong>crossfmpm</strong></a> and <a href="http://www.csounds.com/manual/html/crossfm.html"><strong>crossfmpmi</strong></a> are different units for cross-frequency and cross-phase modulation.
+    </p></li>
+    <li>
+    <h3>Distortion And Wave Shaping
+    </h3>
+    <p>
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/distort.html"> </a>
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/distort.html"><strong>distort</strong></a> and <a href="http://www.csounds.com/manual/html/distort1.html"><strong>distort1</strong></a> perform waveshaping using a function table (distort) or by modified hyperbolic tangent distortion (distort1).
+      <br></p>
+    <p>
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/powershape.html"><strong>powershape</strong></a> waveshapes a signal by raising it to a variable exponent.
+    </p>
+    <p> <a href="http://www.csounds.com/manual/html/polynomial.html"><strong>polynomial</strong></a> efficiently evaluates a polynomial of arbitrary order.
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/chebyshevpoly.html"><strong>chebyshevpoly</strong></a> efficiently evaluates the sum of Chebyshev polynomials of arbitrary order.
+      <br></p><a href="http://www.csounds.com/manual/html/GEN03.html">GEN03</a>, <a href="http://www.csounds.com/manual/html/GEN13.html">GEN13</a>, <a href="http://www.csounds.com/manual/html/GEN14.html">GEN14</a> and <a href="http://www.csounds.com/manual/html/GEN15.html">GEN15</a> are also used for waveshaping.
+    <p>
+    </p></li>
+    <li>
+    <h3>Flanging, Phasing, Phase Shaping
+    </h3>
+    <p><a href="http://www.csounds.com/manual/html/flanger.html"> </a>
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/flanger.html"><strong>flanger</strong></a> implements a user controllable flanger.
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/harmon.html"><strong>harmon</strong></a> analyzes an audio input and generates harmonizing voices in synchrony.
+      <br></p>
+    <p><a href="http://www.csounds.com/manual/html/phaser1.html"><strong>phaser1</strong></a> and <a href="http://www.csounds.com/manual/html/phaser2.html"><strong>phaser2</strong></a> implement first- or second-order allpass filters arranged in a series.
+      <br></p> <a href="http://www.csounds.com/manual/html/pdclip.html"><strong>pdclip</strong></a>, <a href="http://www.csounds.com/manual/html/pdhalf.html"><strong>pdhalf</strong></a> and <a href="http://www.csounds.com/manual/html/pdhalfy.html"><strong>pdhalfy</strong></a> are useful for phase distortion synthesis.
+    <p>
+    </p></li>
+    <li>
+    <h3>Doppler Shift
+    </h3>
+    <p><a href="http://www.csounds.com/manual/html/doppler.html"> </a><a href="http://www.csounds.com/manual/html/doppler.html"><strong>doppler </strong></a> lets you calculate the doppler shift depending on the position of the sound source and the microphone.
+    </p></li>
+  </ul></li>
+</ul><ul><li>
+  <h2>GRANULAR SYNTHESIS
+  </h2>
+  <p><a href="http://www.csounds.com/manual/html/partikkel.html"> </a>
+  </p>
+  <p><a href="http://www.csounds.com/manual/html/partikkel.html"><strong>partikkel</strong></a> is the most flexible opcode for granular synthesis. You should be able to do everything you like in this field. The only drawback is the large number of input arguments, so you may want to use other opcodes for certain purposes.
+  </p>
+  <p>You can find a list of other relevant opcodes <a href="http://www.csounds.com/manual/html/SiggenGranular.html">here</a>. 
+  </p>
+  <p><a href="http://www.csounds.com/manual/html/sndwarp.html"><strong>sndwarp</strong></a> focusses granular synthesis on time stretching and/or pitch modifications. Compare <a href="http://www.csounds.com/manual/html/waveset.html">waveset</a> and the pvs-opcodes <a href="http://www.csounds.com/manual/html/pvsfread.html">pvsfread</a>, <a href="http://www.csounds.com/manual/html/pvsdiskin.html">pvsdiskin</a>, <a href="http://www.csounds.com/manual/html/pvscale.html">pvscale</a>, <a href="http://www.csounds.com/manual/html/pvshift.html">pvshift</a> for other implementations of time and/or pitch modifications.
+  </p>
+  <p>
+  </p></li>
+</ul><ul><li>
+  <h2>CONVOLUTION
+  </h2>
+  <p><a href="http://www.csounds.com/manual/html/pconvolve.html"> </a>
+  </p>
+  <p><a href="http://www.csounds.com/manual/html/pconvolve.html"><strong>pconvolve</strong></a> performs convolution based on a uniformly partitioned overlap-save algorithm.
+    <br></p>
+  <p><a href="http://www.csounds.com/manual/html/ftconv.html"><strong>ftconv</strong></a> is similar to pconvolve, but you can also use parts of the impulse response file, instead of reading the whole file. It also permits the use of multichannel impulse files (up to 8-channels) to create multichannel outputs.
+    <br></p> <a href="http://www.csounds.com/manual/html/dconv.html"><strong>dconv</strong></a> performs direct convolution. </li>
+</ul><ul><li>
+  <h2>FFT AND SPECTRAL PROCESSING
+  </h2>
+  <ul><li>
+    <h3>Realtime Analysis And Resynthesis
+    </h3>
+    <p><a href="http://www.csounds.com/manual/html/pvsanal.html"> </a>
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/pvsanal.html"><strong>pvsanal</strong></a> performs a Fast Fourier Transformation of an audio stream (a-signal) and stores the result in an f-variable.
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/pvstanal.html"><strong>pvstanal</strong></a> creates an f-signal directly from a sound file which is stored in a function table (usually via GEN01). 
+      <br></p>
+    <p><a href="http://www.csounds.com/manual/html/pvsynth.html"><strong>pvsynth</strong></a> performs an Inverse FFT (takes a f-signal and returns an audio-signal).
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/pvsadsynth.html"><strong>pvsadsyn</strong></a> is similar to pvsynth, but resynthesizes with a bank of oscillators, instead of direct IFFT.
+    </p>
+    <p>
+    </p></li>
+    <li>
+    <h3>Writing FFT Data To a File and Reading From it
+    </h3>
+    <p><a href="http://www.csounds.com/manual/html/pvsfwrite.html"> </a>
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/pvsfwrite.html"><strong>pvsfwrite</strong></a> writes an f-signal (= the FFT data) from inside Csound to a file. This file has the PVOCEX format and uses the file extension .pvx.
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/pvanal.html">pvanal</a> actually does the same as Csound <a href="http://www.csounds.com/manual/html/UtilityTop.html">Utility</a> (a seperate program which can be called in QuteCsound or via the Terminal). In this case, the input is an audio file.
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/pvsfread.html"><strong>pvsfread</strong></a> reads the FFT data from an existing .pvx file. This file can be generated by the Csound Utility pvanal. Reading of the file is carried out using a time pointer.
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/pvsdiskin.html"><strong>pvsdiskin</strong></a> is similar to pvsfread, but reading is done by a speed argument.
+    </p>
+    <p>
+    </p></li>
+    <li>
+    <h3>Writing FFT Data To a Buffer and Reading From it 
+    </h3>
+    <p><a href="http://www.csounds.com/manual/html/pvsbuffer.html"> </a>
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/pvsbuffer.html"><strong>pvsbuffer</strong></a> writes an f-signal into a circular buffer that it also creates.
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/pvsbufread.html"><strong>pvsbufread</strong></a> reads an f-signal from a buffer which was created by pvsbuffer.
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/pvsftw.html"><strong>pvsftw</strong></a> writes amplitude and/or frequency data from a f-signal to a function table.
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/pvsftr.html"><strong>pvsftr</strong></a> transforms amplitude and/or frequency data from a function table to a f-signal.
+    </p>
+    <p>
+    </p></li>
+    <li>
+    <h3>FFT Info 
+    </h3>
+    <p><a href="http://www.csounds.com/manual/html/pvsinfo.html"> </a>
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/pvsinfo.html"><strong>pvsinfo</strong></a> gets information, either from a realtime f-signal or from a .pvx file.
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/pvsbin.html"><strong>pvsbin</strong></a> gets the amplitude and frequency values from a single bin of an f-signal.
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/pvscent.html"><strong>pvscent</strong></a> calculates the spectral centroid of a signal.
+      <br></p>
+    <p>
+    </p>
+    <p>
+    </p></li>
+    <li>
+    <h3>Manipulating FFT Signals 
+    </h3>
+    <p><a href="http://www.csounds.com/manual/html/pvscale.html"> </a>
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/pvscale.html"><strong>pvscale</strong></a> transposes the frequency components of a f-stream by simple multiplication.
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/pvshift.html"><strong>pvshift</strong></a> changes the frequency components of a f-stream by adding a shift value, starting at a certain bin.
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/pvsbandp.html"><strong>pvsbandp</strong></a> and <a href="http://www.csounds.com/manual/html/pvsbandr.html"><strong>pvsbandr</strong></a> applies a band pass and band reject filter to the frequency components of a f-signal.
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/pvsmix.html"><strong>pvsmix</strong></a>, <a href="http://www.csounds.com/manual/html/pvscross.html"><strong>pvscross</strong></a>, <a href="http://www.csounds.com/manual/html/pvsfilter.html"><strong>pvsfilter</strong></a>, <a href="http://www.csounds.com/manual/html/pvsvoc.html"><strong>pvsvoc</strong></a> and <a href="http://en.flossmanuals.net/bin/view/Csound/pvsmorph"><strong>pvsmorph</strong></a> perform different methods of cross synthesis between two f-signals.
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/pvsfreeze.html"><strong>pvsfreeze</strong></a> freezes the amplitude and/or frequency of an f-signal according to a k-rate trigger.
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/pvsmaska.html"><strong>pvsmaska</strong></a>, <a href="http://www.csounds.com/manual/html/pvsblur.html"><strong>pvsblur</strong></a>, <a href="http://www.csounds.com/manual/html/pvstencil.html"><strong>pvstencil</strong></a>, <a href="http://www.csounds.com/manual/html/pvsarp.html"><strong>pvsarp</strong></a>, <a href="http://www.csounds.com/manual/html/pvsmooth.html"><strong>pvsmooth</strong></a> perform a variety of other manipulations on a stream of FFT data.
+    </p>
+    <p>
+    </p></li>
+  </ul></li>
+</ul><p>
+</p>
+<h4>
+</h4>
+<ul><li>
+  <h2>PHYSICAL MODELS AND FM INSTRUMENTS
+  </h2>
+  <ul><li>
+    <h3>Waveguide Physical Modelling
+    </h3>
+    <p>see <a href="http://www.csounds.com/manual/html/SiggenWavguide.html">here</a>  and <a href="http://www.csounds.com/manual/html/SigmodWavguide.html">here</a> 
+      <br></p></li>
+    <li>
+    <h3>FM Instrument Models
+    </h3>
+    <p>see <a href="http://www.csounds.com/manual/html/SiggenFmsynth.html">here</a>
+    </p></li>
+  </ul></li>
+</ul><h3>
+</h3></body></html>
+   
+  </div>
+ </div>
+
+
+  </div>
+</div>
+<!-- End of content -->
+
+
+
+<!-- sputnik error page -->
+<div id="dialog-sputnik-qrac" style="display: none"></div>
+<div id="dialog-sputnik-error" title="Can't communicate with booktype">
+  <p>
+    <span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
+    There has been error in communication with Booktype server.
+    Not sure right now where is the problem.
+  </p>
+  <p>
+    You should refresh this page.
+  </p>
+</div>
+
+
+<ul class="strings template">
+ <li class="ok">OK</li>
+ <li class="back">Back</li>
+ <li class="create">Create</li>
+ <li class="cancel">Cancel</li>
+ <li class="next">Next</li>
+ <li class="import">Import</li>
+ <li class="savechanges">Save changes</li>
+ <li class="errorcreategroup">Couldn't create a group!</li>
+ <li class="msgepub">enter epub URL</li>
+ <li class="msgarchive">enter Archive.org ID</li>
+ <li class="msgwiki">enter Wikibooks URL</li>
+ <li class="msgbooktype">enter Booktype URL</li>
+ <li class="deletebook">Delete book</li>
+</ul>
+
+</body>
+</html>
+

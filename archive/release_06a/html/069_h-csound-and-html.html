@@ -1,0 +1,847 @@
+
+<!DOCTYPE HTML>
+<html>
+ <head>
+   
+
+<link type="text/css" href="/site_static/css/booki.css" rel="Stylesheet" >
+<link type="text/css" href="/site_static/js/jquery/themes/base/jquery.ui.all.css" rel="Stylesheet" >
+<link type="text/css" href="/site_static/js/jquery/themes/smoothness/jquery.ui.all.css" rel="Stylesheet" >
+<script type="text/javascript" src="/site_static/js/jquery/jquery-1.4.4.js"></script>
+<script type="text/javascript" src="/site_static/js/jquery/ui/jquery-ui-1.8.10.custom.js"></script>
+<script type="text/javascript" src="/site_static/js/jquery.json-1.3.js"></script>
+<script type="text/javascript" src="/site_static/js/booki.js"></script>
+<script src="/site_static/js/messaging.js" type="text/javascript"></script>   
+<script type="text/javascript" src="/site_static/js/general.js"></script>
+<link href="/site_static/css/jquery.bubblepopup.v2.3.1.css" rel="stylesheet" type="text/css" />
+<link type="text/css" href="/site_static/css/jquery-ui_overrides.css" rel="Stylesheet" >
+<script src="/site_static/js/jquery.bubblepopup.v2.3.1.min.js" type="text/javascript"></script>
+
+<link rel="SHORTCUT ICON" href="http://write.flossmanuals.net/site_static/images/favicon.ico" type="image/x-icon">
+
+
+<script type="text/javascript">
+  $(function() {
+      $.booki.sputnikDispatcherURL = "/_sputnik/";
+
+      $("#dialog-sputnik-error").dialog({
+          modal: true,
+          autoOpen: false,
+          buttons: {
+            Ok: function() {
+               $(this).dialog('close');
+               window.location = '.';
+            }
+          }
+      });
+  
+      $("FORM.messagefield").messagefield('init', {'view_post': '/messaging/post' });  
+  });
+</script>
+
+
+   
+ <title>/chapter: H-Csound-And-Html / CSOUND</title>
+ <link type="text/css" href="/site_static/css/draft.css" rel="Stylesheet" />
+
+ <link rel="alternate" type="application/rss+xml" title="RSS feed for CSOUND" href="/feeds/rss/book/csound/" /> 
+ <link rel="alternate" type="application/atom+xml" title="Atom feed for CSOUND" href="/feeds/atom/book/csound/" /> 
+
+ <link rel="alternate" type="application/rss+xml" title="RSS feed for chapter H. CSOUND AND HTML" href="/feeds/rss/chapter/csound/csound/" /> 
+ <link rel="alternate" type="application/atom+xml" title="Atom feed for chapter H. CSOUND AND HTML" href="/feeds/atom/chapter/csound/csound/" /> 
+ 
+ <script type="text/javascript" src="/site_static/js/draft.js"></script>
+
+
+   <link type="text/css" href="/static/css/_user.css" rel="Stylesheet" >
+ </head>
+<body>
+
+<div class="topbar"> 
+  <div class="logo"><a href="http://write.flossmanuals.net/"></a></div>
+
+  <div class="meta-bar">
+    
+    <ul>
+      <li>
+        <a href="/accounts/signin/?redirect=/csound/_draft/_v/1.0/h-csound-and-html/">Sign In / Create Account</a>
+      </li>
+    </ul>
+    
+    <div style="padding-top: 10px; padding-right: 15px;">
+      <br/>
+      
+
+<script>
+  $(function() {
+    var $frm = $("FORM[name=changelang]");
+	
+    $("A[href=#]", $frm).click(function() {
+        var lang = $(this).attr("class").substr(4);
+	
+        $("INPUT[name=language]", $frm).val(lang);
+        $frm.submit();
+	
+        return false;
+    });
+  });
+ </script>
+
+<form name="changelang" method="POST" action="/accounts/i18n/setlang/?language=en-us">
+  <input type="hidden" name="language" value="en-us">
+  
+    &nbsp;English&nbsp;|
+  
+  
+  
+    &nbsp;<a class="langes" href="#">Español</a>&nbsp;|
+  
+
+  
+    &nbsp;<a class="langfr" href="#">Français</a>&nbsp;|
+  
+	
+  
+    &nbsp;<a class="langit" href="#">Italiano</a>&nbsp;|
+  
+	
+  
+    &nbsp;<a class="langpt" href="#">Português</a>&nbsp;|
+  
+	
+  
+    &nbsp;<a class="langru" href="#">Русский</a>&nbsp;|
+  
+	
+  
+    &nbsp;<a class="langsq" href="#">Shqip</a>
+  	
+</form>
+
+    </div>
+    
+    
+  </div><!-- End of .meta-bar -->
+</div><!-- End top bar -->
+
+<div class="menubar shadow">
+  
+  
+  <div class="navbox">
+    <ul>
+      <li><a href="/list-books/">Books</a></li>
+      <li><a href="/list-groups/">Groups</a></li>
+      <li><a href="/list-people/">People</a></li>
+    </ul>      
+  </div><!-- End of .navbox -->       
+</div>
+
+<div class="content-container">
+  <div class="content shadow">
+    <!-- Content box and the drop shadow-->
+    
+
+<h2>CSOUND</h2>
+<div class="padded">
+ <div id="bookmenu" style="background: url(/site_static/images/draft_bg.png) repeat !important;"> 
+  <ul>
+   
+    
+      <li><b>INTRODUCTION</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/preface/">PREFACE</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/how-to-use-this-manual/">HOW TO USE THIS MANUAL</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/on-this-release/">ON THIS RELEASE</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/credits/">CREDITS</a></li>
+    
+   
+    
+      <li><b>01 BASICS</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-digital-audio/">A. DIGITAL AUDIO</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-pitch-and-frequency/">B. PITCH AND FREQUENCY</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-intensities/">C. INTENSITIES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-random/">D. RANDOM</a></li>
+    
+   
+    
+      <li><b>02 QUICK START</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-make-csound-run/">A. MAKE CSOUND RUN</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-csound-syntax/">B. CSOUND SYNTAX</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-configuring-midi/">C. CONFIGURING MIDI</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-live-audio/">D. LIVE AUDIO</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-rendering-to-file/">E. RENDERING TO FILE</a></li>
+    
+   
+    
+      <li><b>03 CSOUND LANGUAGE</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-initialization-and-performance-pass/">A. INITIALIZATION AND PERFORMANCE PASS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-local-and-global-variables/">B. LOCAL AND GLOBAL VARIABLES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-control-structures/">C. CONTROL STRUCTURES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-function-tables/">D. FUNCTION TABLES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-arrays/">E. ARRAYS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/f-live-events/">F. LIVE EVENTS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/g-user-defined-opcodes/">G. USER DEFINED OPCODES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/h-macros/">H. MACROS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/i-functional-syntax/">I. FUNCTIONAL SYNTAX</a></li>
+    
+   
+    
+      <li><b>04 SOUND SYNTHESIS</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-additive-synthesis/">A. ADDITIVE SYNTHESIS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-subtractive-synthesis/">B. SUBTRACTIVE SYNTHESIS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-amplitude-and-ring-modulation/">C. AMPLITUDE AND RING MODULATION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-frequency-modulation/">D. FREQUENCY MODULATION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-waveshaping/">E. WAVESHAPING</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/f-granular-synthesis/">F. GRANULAR SYNTHESIS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/g-physical-modelling/">G. PHYSICAL MODELLING</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/h-scanned-synthesis/">H. SCANNED SYNTHESIS</a></li>
+    
+   
+    
+      <li><b>05 SOUND MODIFICATION</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-envelopes/">A. ENVELOPES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-panning-and-spatialization/">B. PANNING AND SPATIALIZATION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-filters/">C. FILTERS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-delay-and-feedback/">D. DELAY AND FEEDBACK</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-reverberation/">E. REVERBERATION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/f-am-rm-waveshaping/">F. AM / RM / WAVESHAPING</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/g-granular-synthesis/">G. GRANULAR SYNTHESIS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/h-convolution/">H. CONVOLUTION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/i-fourier-analysis-spectral-processing/">I. FOURIER ANALYSIS / SPECTRAL PROCESSING</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/k-ats-resynthesis/">K. ATS RESYNTHESIS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/l-amplitude-and-pitch-tracking/">L. AMPLITUDE AND PITCH TRACKING</a></li>
+    
+   
+    
+      <li><b>06 SAMPLES</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-record-and-play-soundfiles/">A. RECORD AND PLAY SOUNDFILES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-record-and-play-buffers/">B. RECORD AND PLAY BUFFERS</a></li>
+    
+   
+    
+      <li><b>07 MIDI</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-receiving-events-by-midiin/">A. RECEIVING EVENTS BY MIDIIN</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-triggering-instrument-instances/">B. TRIGGERING INSTRUMENT INSTANCES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-working-with-controllers/">C. WORKING WITH CONTROLLERS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-reading-midi-files/">D. READING MIDI FILES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-midi-output/">E. MIDI OUTPUT</a></li>
+    
+   
+    
+      <li><b>08 OTHER COMMUNICATION</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-open-sound-control/">A. OPEN SOUND CONTROL</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-csound-and-arduino/">B. CSOUND AND ARDUINO</a></li>
+    
+   
+    
+      <li><b>09 CSOUND IN OTHER APPLICATIONS</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-csound-in-pd/">A. CSOUND IN PD</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-csound-in-maxmsp/">B. CSOUND IN MAXMSP</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-csound-in-ableton-live/">C. CSOUND IN ABLETON LIVE</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-csound-as-a-vst-plugin/">D. CSOUND AS A VST PLUGIN</a></li>
+    
+   
+    
+      <li><b>10 CSOUND FRONTENDS</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/csoundqt/">CSOUNDQT</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/cabbage/">CABBAGE</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/blue/">BLUE</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/winxound/">WINXOUND</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/csound-via-terminal/">CSOUND VIA TERMINAL</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/web-based-csound/">WEB BASED CSOUND</a></li>
+    
+   
+    
+      <li><b>11 CSOUND UTILITIES</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/csound-utilities/">CSOUND UTILITIES</a></li>
+    
+   
+    
+      <li><b>12 CSOUND AND OTHER PROGRAMMING LANGUAGES</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-the-csound-api/">A. THE CSOUND API</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-python-inside-csound/">B. PYTHON INSIDE CSOUND</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-python-in-csoundqt/">C. PYTHON IN CSOUNDQT</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-lua-in-csound/">D. LUA IN CSOUND</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-csound-in-ios/">E. CSOUND IN iOS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/f-csound-on-android/">F. CSOUND ON ANDROID</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/g-csound-and-haskell/">G. CSOUND AND HASKELL</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/h-csound-and-html/">H. CSOUND AND HTML</a></li>
+    
+   
+    
+      <li><b>13 EXTENDING CSOUND</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/extending-csound/">EXTENDING CSOUND</a></li>
+    
+   
+    
+      <li><b>OPCODE GUIDE</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/overview/">OVERVIEW</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/signal-processing-i/">SIGNAL PROCESSING I</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/signal-processing-ii/">SIGNAL PROCESSING II</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/data/">DATA</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/realtime-interaction/">REALTIME INTERACTION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/instrument-control/">INSTRUMENT CONTROL</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/maths-pythonsystem-plugins/">MATHS, PYTHON/SYSTEM, PLUGINS</a></li>
+    
+   
+    
+      <li><b>APPENDIX</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/methods-of-writing-csound-scores/">METHODS OF WRITING CSOUND SCORES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/glossary/">GLOSSARY</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/links/">LINKS</a></li>
+    
+   
+  </ul>
+ </div>
+ <div id="bookcontent"   style="background: url(/site_static/images/draft_bg.png) repeat !important;">
+   
+
+  <html><body><h1>H. CSOUND AND HTML
+</h1>
+<h1>Introduction 
+</h1>
+<p>Certain Csound front ends, currently including CsoundQt and Csound for Android, have the ability to use HTML to define user interfaces, to control Csound, and to generate Csound scores and even orchestras. The HTML code is embedded in the optional &lt;html&gt; element of the Csound Structured Data (CSD) file. This element essentially defines a Web page that contains Csound. 
+</p>
+<p>This chapter is organized as follows:
+</p>
+<p>
+</p>
+<ol style="list-style-type: decimal;"><li>Introduction (this section)</li>
+  <li>Installation</li>
+  <li>Tutorial User's Guide</li>
+  <li>Conclusion</li>
+</ol><p>
+</p>
+<p>HTML must be understood here to represent not only Hyper Text Markup Language, but also all of the other Web standards that currently are supported by Web browsers, Web servers, and the Internet, including cascading style sheets (CSS), HTML5 features such as drawing on a graphics canvas visible in the page, producing animated 3-dimensional graphics with WebGL including shaders and GPU acceleration, Web Audio, various forms of local data storage, Web Sockets, and so on and so on. This whole conglomeration of standards is currently defined and maintained under the non-governmental leadership of the <a href="http://www.w3.org/standards/">World Wide Web Consortium</a> (W3C) which in turn is primarily driven by commercial interests belonging to the <a href="https://whatwg.org/">Web Hypertext Application Technology Working Group</a> (WHATWG). Most modern Web browsers implement almost all of the W3C standards up to and including HTML5 at an impressive level of performance and consistency. To see what features are available in your own Web browser, go to this <a href="https://html5test.com/">test page</a>. All of this stuff is now usable in Csound pieces....
+</p>
+<h3>Examples of Use 
+</h3>
+<p>For an example of a few of the things are possible with HTML in Csound, take a look at the following screen shots. Both of these examples are included in the Windows installer for Csound, which also includes the HTML-enabled version of CsoundQt.
+</p>
+<p> 
+</p><figure><img src="static/GameOfLife3d.png" width="100%"><figcaption>Figure 1. GameOfLife3d.csd.</figcaption></figure><p>
+</p>
+<p>In Figure 1, GameOfLife3d.csd demonstrates the following features of HTML: style sheets for formatting the legend, WebGL for displaying a rotating 3-dimensional form of John Conway's Game of Life with shifting lighting, animation which "tweens" the cubes from one state of the game to the next, and the Csound API. The JavaScript code that generates the display also builds up a chunk of Csound score that is sent to Csound. Thus, each new state of the game plays a chord using Csound instruments.  The user can interact with the game, rotating it and zooming it.
+</p><figure><img src="static/LindenmayerCanvas.png" width="100%"><figcaption>Figure 2. LindenmayerCanvas.csd.</figcaption></figure><p>
+</p>
+<p>In Figure 2, LindenmayerCanvas.csd, the HTML code is used to do these things:
+</p>
+<p>
+</p>
+<ol><li>Define slider widgets for controlling Csound with the channel API, using HTML input elements with JavaScript event handlers.</li>
+  <li>Style the sliders and the table containing them with a Custom Style Sheet (CSS).</li>
+  <li>Save the positions of the widgets when the 'Save control values' button is clicked, and restore the positions of the widgets when the 'Restore control values' button is clicked, using the Local Storage feature of HTML5. These values are retrieved whenever the piece is loaded. </li>
+  <li>Use JavaScript to define a context-free Lindenmayer system for generating not only the tree image drawn on the HTML Canvas at the bottom of the screen, but also a Csound score representing the tree, when the 'Generate score' button is clicked. Being able to see some sort of graphical representation of a score is very useful when doing algorithmic composition.</li>
+</ol><p>
+</p>
+<p>It is true that LaTeX can do a better job of typesetting than HTML and CSS. It is true that game engines can do a better job for interactive, 3-dimensional computer animation with scene graphs than WebGL. It is true that compiled C or C++ code runs faster than JavaScript. It is true that Haskell is a more fully-featured functional programming language than JavaScript. It is true that MySQL is a more powerful database than HTML5 storage.
+</p>
+<p>But the fact is, there is no single program except for a Web browser that manages to be quite functional in all of these categories in a way that beginning to intermediate programmers can use, and for which the only required runtime is the Web browser itself. 
+</p>
+<p>For this reason alone, HTML makes a very good front end for Csound. Furthermore, the Web standards are maintained in a stable form by a large community of competent developers representing diverse interests. So I believe HTML as a front end for Csound should be quite stable and remain backwardly compatible, just as Csound itself remains backwardly compatible with old pieces. 
+</p>
+<h3>How it Works 
+</h3>
+<p>The Web browser embedded into CsoundQt is the <a href="https://bitbucket.org/chromiumembedded/cef">Chromium Embedded Framework</a>. The Web browser embedded into Csound for Android is the <a href="http://developer.android.com/reference/android/webkit/WebView.html">WebView</a> available in the <a href="https://developer.android.com/index.html">Android SDK</a>.
+</p>
+<p> The front end parses the &lt;html&gt; element out of the CSD file and simply saves it as an HTML file, in other words, as a Web page. For example, MyCsoundPiece.csd will produce <a href="http://MyCsoundPiece.csd.html">MyCsoundPiece.csd.html.</a> The front end's embedded browser then loads this Web page, compiles it, displays it, executes any scripts contained in it, and lets the user interact with it.
+</p>
+<p>It is important to understand that <em>any</em> valid HTML code can be used in Csound's &lt;html&gt; element. It is just a Web page like any other Web page. 
+</p>
+<p>In general, the different Web standards are either defined as JavaScript classes and libraries, or glued together using JavaScript. In other words, HTML without JavaScript is dead, but HTML with JavaScript handlers for HTML events and attached to the document elements in the HTML code, comes alive. Indeed, JavaScript can itself define HTML documents by programmatically creating Document Object Model objects.
+</p>
+<p>JavaScript is the engine and the major programming language of the World Wide Web in general, and of code that runs in Web browsers in particular. JavaScript is a standardized language, and it is a functional programming language not that dissimilar in concept from Scheme. JavaScript also allows classes to be defined by prototypes.
+</p>
+<p>The JavaScript execution context of a Csound Web page contains Csound itself as a "csound" JavaScript object that has the following methods:
+</p>
+<pre style="margin: 0px;"><span style=" color:#000080;">getVersion</span><span style=" color:#c0c0c0;"> </span><span style=" color:#000080;">() [returns a number]</span></pre>
+<pre style="margin: 0px;"><span style=" color:#000080;">compileOrc</span><span style=" color:#c0c0c0;"> </span><span style=" color:#000080;">(</span><span style=" color:#000080;">orchestra_code)</span><span style="line-height: 1.5em; font-family: trebuchet, verdana, sans-serif; color: rgb(192, 192, 192);"> </span><span style="line-height: 1.5em; font-family: trebuchet, verdana, sans-serif; color: rgb(0, 0, 128);">evalCode</span><span style="line-height: 1.5em; font-family: trebuchet, verdana, sans-serif; color: rgb(192, 192, 192);"> </span><span style="line-height: 1.5em; font-family: trebuchet, verdana, sans-serif; color: rgb(0, 0, 128);">(</span><span style="line-height: 1.5em; font-family: trebuchet, verdana, sans-serif; color: rgb(0, 0, 128);">orchestra_code) [returns the numeric result of the evaluation]</span></pre>
+<pre style="margin: 0px;"><span style=" color:#000080;">readScore</span><span style=" color:#c0c0c0;"> </span><span style=" color:#000080;">(</span><span style=" color:#000080;">score_lines)</span></pre>
+<pre style="margin: 0px;"><span style=" color:#000080;">setControlChannel</span><span style=" color:#c0c0c0;"> </span><span style=" color:#000080;">(</span><span style=" color:#000080;">channel_name,</span><span style=" color:#c0c0c0;"> </span><span style=" color:#000080;">number)</span></pre>
+<pre style="margin: 0px;"><span style=" color:#000080;">getControlChannel</span><span style=" color:#c0c0c0;"> </span><span style=" color:#000080;">(</span><span style=" color:#000080;">channel_name) [returns a number representing the channel value]</span></pre>
+<pre style="margin: 0px;"><span style=" color:#000080;">message</span><span style=" color:#c0c0c0;"> </span><span style=" color:#000080;">(</span><span style=" color:#000080;">text)</span></pre>
+<pre style="margin: 0px;"><span style=" color:#000080;">getSr</span><span style=" color:#c0c0c0;"> </span><span style=" color:#000080;">() [returns a number]</span></pre>
+<pre style="margin: 0px;"><span style=" color:#000080;">getKsmps</span><span style=" color:#c0c0c0;"> </span><span style=" color:#000080;">() [returns a number]</span></pre>
+<pre style="margin: 0px;"><span style=" color:#000080;">getNchnls</span><span style=" color:#c0c0c0;"> </span><span style=" color:#000080;">() [returns a number]</span></pre>
+<pre style="margin: 0px;"><span style=" color:#000080;">isPlaying</span><span style=" color:#c0c0c0;"> </span><span style=" color:#000080;">() [returns 1 if Csound is playing, 0 if not]</span></pre>
+<p>The front end contains a mechanism for forwarding JavaScript calls in the Web page's JavaScript context to native functions that are defined in the front end, which passes them on to Csound. This involves a small amount of C++ glue code that the user does not need to know about. In CsoundQt, the glue code uses asynchronous IPC because the Chromium Embedded Framework forks several threads or even processes to implement the Web browser, but again, the user does not need to know anything about this. 
+</p>
+<p>In the future, more functions from the Csound API will be added to this JavaScript interface, including, at least in some front ends, the ability for Csound to appear as a Node in a Web Audio graph (this already is possible in the Emscripten built of Csound).
+</p>
+<p>Also in the future, the JavaScript methods of Csound in Emscripten will be harmonized with these methods. 
+</p>
+<p>Also in the future, there will be a native Node extension for the NW.js HTML5 desktop application framework, providing the same JavaScript interface to Csound.
+</p>
+<h2>Installation
+</h2>
+<p>On Windows, simply download the current Csound installer from SourceForge and use it to install Csound on your computer. HTML is enabled by default in CsoundQt, which is included in the installer.
+</p>
+<p>On Android, simply download the current Csound6.apk from SourceForge and use it to install Csound on your Android device. This can be any reasonably powerful Android smartphone or tablet. HTML is enabled by default, but the HTML5 features that are available will depend upon your version of Android.
+</p>
+<p>Currently, WebGL may or may not be enabled on Android, depending on your versions of hardware and software.
+</p>
+<h2>Tutorial User Guide 
+</h2>
+<p>Let's get started and do a few things in the simplest possible way, in a series of "toots." These pieces also are included in the examples/html directory of the Windows installation and can be found in the Csound Git repository as well.
+</p>
+<p>
+</p>
+<ol><li>Display "Hello, World, this is Csound!" in HTML.</li>
+  <li>Create a button that will generate a series of notes based on the logistic equation.</li>
+  <li>Create a slider to set the value of the parameter that controls the degree of chaos produced by iterating the logistic equation, and two other sliders to control the frequency ratio and modulation index of the FM instrument that plays the notes from the logistic equation.</li>
+  <li>Style the HTML elements using a style sheet.</li>
+</ol><p>
+</p>
+<h3>01_HelloWorld.csd
+</h3>
+<p>This is the bare minimum CSD that shows some HTML output. In its entirety it is: 
+</p>
+<pre style="margin: 0px;">&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+sr = 44100
+ksmps = 128
+nchnls = 2
+0dbfs = 1.0
+&lt;/CsInstruments&gt;
+&lt;html&gt;
+Hello, World, this is Csound!
+&lt;/html&gt;
+&lt;CsScore&gt;
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt; </pre>
+<p>Not much to it. HTML is full of graceful defaults. In HTML, plain text without any tags is imply printed as plain text. 
+</p>
+<h3>02_ScoreGenerator.csd
+</h3>
+<p>Here I have introduced a simple Csound orchestra consisting of a single frequency modulation instrument feeding first into a reverberation effect, and then into a master output unit. These are connected using the signal flow graph opcodes. The actual orchestra is of little interest here. And this piece has no score, because the score will be generated at run time. In the &lt;html&gt; element, I also have added this button:
+</p>
+<pre style="margin: 0px;">&lt;button onclick="generate()"&gt; Generate score &lt;/button&gt;</pre>
+<p>When this button is clicked, it calls a JavaScript function that uses the logistic equation, which is a simple quadratic dynamical system,  to generate a Csound score from a chaotic attractor of the system. This function also is quite simple. Its main job, aside from iterating the logistic equation a few hundred times, is to translate each iteration of the system into a musical note and send that note to Csound to be played using the Csound API function readScore(). So the following &lt;script&gt; element is added to the body of the &lt;html&gt; element:
+</p>
+<pre style="margin: 0px;">&lt;script&gt;
+var c = 0.99;
+var y = 0.5;
+function generate() {
+	csound.message("generate()...\n");
+	for (i = 0; i &lt; 200; i++) {
+	  var t = i * (1.0 / 3.0);	
+	  var y1 = 4.0 * c * y * (1.0 - y);
+	  y = y1;
+	  var key = Math.round(36.0 + (y * 60.0));
+	  var note = "i 1 " + t + " 2.0 " + key + " 60 0.0 0.5\n";
+	  csound.readScore(note);		
+	};
+};
+&lt;/script&gt; </pre>
+<h3>03_Sliders.csd
+</h3>
+<p>The next step is to add more user control to this piece. We will enable the user to control the attractor of the piece by varying the constant <em>c</em>, and we will enable the user to control the sound of the Csound orchestra by varying the  frequency modulation index, frequency modulation carrier ratio, reverberation time, and master output level.
+</p>
+<p>This code is demonstrated on a low level, so that you can see all of the details and understand exactly what is going on. A real piece would most likely be written at a higher level of abstraction, for example by using a third party widget toolkit, such as jQuery UI.
+</p>
+<p>A slider in HTML is just an 'input' element like this:
+</p>
+<pre style="margin: 0px;">&lt;input type=range min=0 max=1 value=.5 id=sliderC step=0.001 oninput="on_sliderC(value)"&gt;</pre>
+<p>This element has attributes of minimum value 0, maximum value 1, which normalizes the user's possible values between 0 and 1. This could be anything, but in many musical contexts, for example VST plugins, user control values are always normalized between 0 and 1. The tiny 'step' attribute simply approximates a continuous range of values. 
+</p>
+<p>The most important thing is the 'oninput' attribute, which sets the value of a JavaScript event handler for the 'oninput' event. This function is called whenever the user changes the value of the slider.
+</p>
+<p>For ease of understanding, a naming convention is used here, with 'sliderC' being the basic name and other names of objects associated with this slider taking names  built up by adding prefixes or suffixes to this basic name.
+</p>
+<p>Normally a slider has a label, and it is convenient to show the actual numerical value of the slider. This can be done like so:
+</p>
+<pre style="margin: 0px;">&lt;table&gt;
+&lt;col width="2*"&gt;
+&lt;col width="5*"&gt;
+&lt;col width="100px"&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;label for=sliderC&gt;c&lt;/label&gt;
+&lt;td&gt;
+&lt;input type=range min=0 max=1 value=.5 id=sliderC step=0.001 oninput="on_sliderC(value)"&gt;
+&lt;td&gt;
+&lt;output for=sliderC id=sliderCOutput&gt;.5&lt;/output&gt;
+&lt;/tr&gt;
+&lt;/table&gt;</pre>
+<p>If the slider, its label, and its numeric display are put into an HTML table, that table will act like a layout manager in a standard widget toolkit, and will resize the contained elements as required to get them to line up.
+</p>
+<p>For this slider, the JavaScript handler is:
+</p>
+<pre style="margin: 0px;">function on_sliderC(value) {
+	c = parseFloat(value);
+	document.querySelector('#sliderCOutput').value = c;
+} </pre>
+<p>The variable <em>c</em> was declared at global scope just above the generate() function, so that variable is accessible within the on_sliderC function.
+</p>
+<p>Keep in mind, if you are playing with this code, that a new value of <em>c</em> will only be heard when a new score is generated. 
+</p>
+<p>Very similar logic can be used to control variables in the Csound orchestra. The value of the slider has to be sent to Csound using the channel API, like this:
+</p>
+<pre style="margin: 0px;">function on_sliderFmIndex(value) {
+	var numberValue = parseFloat(value);
+	document.querySelector('#sliderFmIndexOutput').value = numberValue;
+	csound.setControlChannel('gk_FmIndex', numberValue);
+} </pre>
+<p>Then, in the Csound orchestra, that value has to be retrieved using the chnget opcode and applied to the instrument to which it pertains. It is most efficient if the variables controlled by channels are global variables declared just above their respective instrument definitions. The normalized values can be rescaled as required in the Csound instrument code.
+</p>
+<pre style="margin: 0px;">gk_FmIndex                      init                    0.5
+                                instr			ModerateFM
+...
+kindex                   	=                       gk_FmIndex * 20
+...
+                                endin</pre>
+<p>Also for the sake of efficiency, a global, always-on instrument can be used to read the control channels and assign their values to these global variables:
+</p>
+<pre style="margin: 0px;">instr Controls
+gk_FmIndex_ chnget "gk_FmIndex"
+if gk_FmIndex_  != 0 then
+ gk_FmIndex = gk_FmIndex_
+endif
+gk_FmCarrier_ chnget "gk_FmCarrier"
+if gk_FmCarrier_  != 0 then
+ gk_FmCarrier = gk_FmCarrier_
+endif
+gk_ReverberationDelay_ chnget "gk_ReverberationDelay"
+if gk_ReverberationDelay_  != 0 then
+ gk_ReverberationDelay = gk_ReverberationDelay_
+endif
+gk_MasterLevel_ chnget "gk_MasterLevel"
+if gk_MasterLevel_  != 0 then
+ gk_MasterLevel = gk_MasterLevel_
+endif
+endin </pre>
+<p>Note that each actual global variable has a default value, which is only overridden if the user actually operates its slider.
+</p>
+<h3>04_CustomStyle.csd
+</h3>
+<p>The default appearance of HTML elements is brutally simple. But each element has attributes that can be used to change its appearance, and these offer a great deal of control.
+</p>
+<p>Of course, setting for example the font attribute for each label on a complex HTML layout is tedious. Therefore, this example shows how to use a style sheet. We don't need much style to get a much improved appearance:
+</p>
+<pre style="margin: 0px;">&lt;style type="text/css"&gt;
+input[type='range'] {
+	-webkit-appearance: none;
+	border-radius: 5px;
+	box-shadow: inset 0 0 5px #333;
+	background-color: #999;
+	height: 10px;
+    <span class="Apple-tab-span" style="white-space:pre">	</span>width: 100%;
+<span class="Apple-tab-span" style="white-space:pre">	</span>vertical-align: middle;
+}
+input[type=range]::-webkit-slider-thumb {
+    <span class="Apple-tab-span" style="white-space:pre">	</span>-webkit-appearance: none;
+    <span class="Apple-tab-span" style="white-space:pre">	</span>border: none;
+    <span class="Apple-tab-span" style="white-space:pre">	</span>height: 16px;
+    <span class="Apple-tab-span" style="white-space:pre">	</span>width: 16px;
+    <span class="Apple-tab-span" style="white-space:pre">	</span>border-radius: 50%;
+    <span class="Apple-tab-span" style="white-space:pre">	</span>background: yellow;
+    <span class="Apple-tab-span" style="white-space:pre">	</span>margin-top: -4px;
+    <span class="Apple-tab-span" style="white-space:pre">	</span>border-radius: 10px;
+}
+table td {
+	border-width: 2px;
+	padding: 8px;
+	border-style: solid;
+	border-color: transparent;
+    <span class="Apple-tab-span" style="white-space:pre">	</span>color:yellow;
+	background-color: teal;
+	font-family: sans-serif
+}
+&lt;/style&gt;</pre>
+<p>This little style sheet is generic, that is, it applies to every element on the HTML page. It says, for example, that 'table td' (table cells) are to have a yellow sans-serif font on a teal background, and this will apply to every table cell on the page. Style sheets can be made more specialized by giving them names. But for this kind of application, that is not usually necessary.
+</p>
+<h2>Conclusion 
+</h2>
+<p>Most, if not all all, of the functions performed by other Csound front ends could be encompassed by HTML and JavaScript. However, there are a few gotchas. For CsoundQt and other front ends based on Chrome, there may be extra latency and processing overhead required by inter-process communications. For Emscripten and other applications that use Web Audio, there may also be additional latency.
+</p>
+<p>Obviously, much <em>more </em>can be done with HTML, JavaScript, and other Web standards found in contemporary Web browsers. Full-fledged, three-dimensional, interactive, multi-player computer games are now being written with HTML and JavaScript. Other sorts of Web applications also are being written this way.
+</p>
+<p>Sometimes, JavaScript is embedded into an application for use as a scripting language. The Csound front ends discussed here are examples, but there are others. For example, Max for Live can be programmed in JavaScript, and so can the open source score editor MuseScore. In fact, in MuseScore, JavaScript can be used to algorithmically generate notated scores.
+</p>
+<p>
+  <br></p></body></html>
+   
+  </div>
+ </div>
+
+
+  </div>
+</div>
+<!-- End of content -->
+
+
+
+<!-- sputnik error page -->
+<div id="dialog-sputnik-qrac" style="display: none"></div>
+<div id="dialog-sputnik-error" title="Can't communicate with booktype">
+  <p>
+    <span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
+    There has been error in communication with Booktype server.
+    Not sure right now where is the problem.
+  </p>
+  <p>
+    You should refresh this page.
+  </p>
+</div>
+
+
+<ul class="strings template">
+ <li class="ok">OK</li>
+ <li class="back">Back</li>
+ <li class="create">Create</li>
+ <li class="cancel">Cancel</li>
+ <li class="next">Next</li>
+ <li class="import">Import</li>
+ <li class="savechanges">Save changes</li>
+ <li class="errorcreategroup">Couldn't create a group!</li>
+ <li class="msgepub">enter epub URL</li>
+ <li class="msgarchive">enter Archive.org ID</li>
+ <li class="msgwiki">enter Wikibooks URL</li>
+ <li class="msgbooktype">enter Booktype URL</li>
+ <li class="deletebook">Delete book</li>
+</ul>
+
+</body>
+</html>
+

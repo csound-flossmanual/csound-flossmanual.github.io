@@ -1,0 +1,1307 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html>
+ <head>
+   <link type="text/css" href="http://www.flossmanuals.net/_templates/prettify/src/prettify.css" rel="Stylesheet" />
+   <script type="text/javascript" src="http://www.flossmanuals.net/_templates/prettify/src/prettify.js"></script>
+
+   <link type="text/css" href="/site_static/js/jquery/themes/base/jquery.ui.all.css" rel="Stylesheet" >
+   <link type="text/css" href="/site_static/js/jquery/themes/smoothness/jquery.ui.all.css" rel="Stylesheet" >
+   <script type="text/javascript" src="/static/js/jquery-1.7.js"></script>
+<!--
+   <script type="text/javascript" src="/site_static/js/jquery/jquery-1.4.4.js"></script>
+-->   
+<script type="text/javascript" src="/site_static/js/jquery/ui/jquery-ui-1.8.10.custom.js"></script>
+   <script type="text/javascript" src="/site_static/js/jquery.json-1.3.js"></script>
+   <script type="text/javascript" src="/site_static/js/booki.js"></script>
+
+   <link href="/site_static/css/jquery.bubblepopup.v2.3.1.css" rel="stylesheet" type="text/css" />
+   <script src="/site_static/js/jquery.bubblepopup.v2.3.1.min.js" type="text/javascript"></script>
+
+   <link type="text/css" href="/static/css/booki_fm.css" rel="Stylesheet"/ >
+<style>
+.template {
+	display: none !important;
+}
+
+
+#header {
+    background-color: transparent !important;
+}
+.paginator { padding:.5em .75em; float:left; font:normal .8em arial; }
+ 
+.paginator .prev-na,
+.paginator .next-na {
+	padding:.3em;
+	font-weight: bold;
+/*	font:bold .875em arial; */
+}
+ 
+.paginator .prev-na,
+.paginator .next-na {
+/*	border:1px solid #ccc; 
+	background-color:#f9f9f9; */
+	color:#aaa;
+	font-weight:normal;
+}
+ 
+.paginator .prev a, .paginator .prev a:visited,
+.paginator .next a, .paginator .next a:visited {
+/*	border:1px solid #c2ee62; 
+	background-color:#edfdd0; */
+	color:#234f32;
+	padding:.3em;
+/*	font:bold .875em arial; */
+        font-weight: bold;
+}
+ 
+.paginator .prev, .paginator .prev-na { margin-right:.5em; }
+.paginator .next, .paginator .next-na { margin-left:.5em; }
+ 
+.paginator .page a, .paginator .page a:visited, .paginator .curr {
+	padding:.25em;
+	font-weight: normal;
+/*	font:normal .875em verdana; */
+/*	border:1px solid #C2EE62; 
+	background-color:#EDFDD0; */
+	margin:0em .25em;	
+	color:#006000;
+}
+ 
+.paginator .curr { 
+/*	background-color:#234f32; 
+	color:#fff; */
+	border:1px solid #234f32; 
+	font-weight:bold;
+	font-size:1em;
+}
+ 
+.paginator .page a:hover,
+.paginator .curr a:hover,
+.paginator .prev a:hover,
+.paginator .next a:hover {
+/*	color:#fff;
+	background-color:#234f32;
+	border:1px solid #234f32; */
+}
+</style>
+ <script type="text/javascript">
+      $(function() {
+   $.booki.sputnikDispatcherURL = "/_sputnik/";
+    });
+   </script>
+
+   <script type="text/javascript">
+     $(function() {
+	 // open debug window
+	 $.booki.debug.init();
+	 
+	 
+	 $("A.debug").click(function() {
+	     $("#bookidebug").dialog("open");
+	     return false;
+	 });
+     });
+   </script>
+
+   
+<title>/chapter: Scanned-Synthesis / CSound</title>
+<link type="text/css" href="/site_static/css/editor.css" rel="Stylesheet" />
+
+<script src="http://assets.annotateit.org/annotator/v1.2.5/annotator-full.min.js"></script>
+<link rel="stylesheet" href="http://assets.annotateit.org/annotator/v1.2.5/annotator.min.css">
+
+
+
+<link rel="alternate" type="application/rss+xml" title="RSS feed for CSound" href="/feeds/rss/book/csound/" /> 
+<link rel="alternate" type="application/atom+xml" title="Atom feed for CSound" href="/feeds/atom/book/csound/" /> 
+
+<link rel="alternate" type="application/rss+xml" title="RSS feed for chapter Scanned-Synthesis" href="/feeds/rss/chapter/csound/csound/" /> 
+<link rel="alternate" type="application/atom+xml" title="Atom feed for chapter Scanned-Synthesis" href="/feeds/atom/chapter/csound/csound/" /> 
+
+
+ </head>
+<body onload="prettyPrint()" >
+<!-- testis -->
+
+<script type="text/javascript">
+$(function() {
+    $("#snippetdialog").dialog({autoOpen: false});
+});
+</script>
+
+
+<div id="snippetdialog" title="Basic dialog">
+        <p></p>
+</div>
+
+
+
+<div id="page-container"> 
+<style>
+body
+{
+margin:0;
+padding:0
+}
+#header
+{
+position:absolute;
+top:23px;
+width:100%;
+background-image: url('http://www.flossmanuals.net/_templates/fm_resources/header_bg.gif');
+background-position: 700px 0px; /* this places the orange background at
+an offset, making sure it doesn't underlap the left side of the gif */
+background-repeat: no-repeat;
+}
+
+#fmheader {
+    background-image: url("http://en.flossmanuals.net/_templates/fm_resources/header_bg.gif");
+    background-position: 600px 0;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 23px;
+    width: 100%;
+}
+#header_image
+{
+margin-left: 270px;
+border: 0px
+}
+
+#navigation
+{
+position:absolute;
+top: 80px;
+left: 357px;
+width:50%;
+}
+
+
+#languages
+{
+position:absolute;
+top: 40px;
+left: 740px;
+width:50%;
+}
+</style>
+
+
+
+<!-- Header graphic is common to all pages  -->
+<div id="header"><img id="header_image" alt="FlossManuals menu" src="http://www.flossmanuals.net/_templates/fm_resources/header_menu.gif" height="95" width="465" border="0"></div>
+
+
+<!-- Navigation buttons are language and context specific  -->
+<div id="navigation">
+<a title="Read" href="http://en.flossmanuals.net/index.php"><img src="http://www.flossmanuals.net/_templates/fm_resources/read_en.png" width="65" height="30" border="0" alt="Read"></a>
+<a title="Write" href="http://booki.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/write_active_en.png" width="65" height="30" border="0" alt="Write"></a>
+<a title="Remix" href="http://en.flossmanuals.net/index.php?plugin=remix"><img src="http://www.flossmanuals.net/_templates/fm_resources/remix_en.png" width="65" height="30" border="0" alt="Remix"></a>
+<a title="About" href="http://www.flossmanuals.org"><img src="http://www.flossmanuals.net/_templates/fm_resources/about_en.png" width="65" height="30" border="0" alt="About"></a>
+</div>
+
+<!-- Language buttons are common to all pages  -->
+<div id="languages">
+<a title="English" href="http://en.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/english_button.png" width="65" height="30" border="0" alt="English"></a>
+
+<!-- <a title="Español" href="http://es.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/spanish_button.png" width="65" height="30" border="0" alt="Español"></a> -->
+<a title="فارسی" href="http://fa.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/farsi_button.png" width="65" height="30" border="0" alt="فارسی"></a>
+<a title="Suomi" href="http://fi.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/finnish_button.png" width="65" height="30" border="0" alt="Suomi"></a>
+<br>
+<a title="Français" href="http://fr.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/french_button.png" width="65" height="30" border="0" alt="Français"></a>
+<a title="Nederlands" href="http://nl.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/dutch_button.png" width="65" height="30" border="0" alt="Nederlands"></a>
+<!-- <a title="Pусский" href="http://ru.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/russian_button.png" width="65" height="30" border="0" alt="Pусский"></a> -->
+<a title="Translate" href="http://translate.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/translate_button.png" width="65" height="30" border="0" alt="Translate"></a>
+</div>
+
+<!-- End top bar -->
+
+<!-- nav box + drop shadow -->
+<div class="navbox shadow" style="top:160px;">
+    		<ul>
+
+ 		<li><a href="/accounts/signin/?redirect=/csound/_draft/_v/1.0/scanned-synthesis/">Sign In</li><li>Register</a></li>
+
+                <li><a href="/list-books">All Manuals</a></li>
+                <li><a href="/list-groups">All Groups</a></li>
+                <li><a href="/list-people/">All People</a></li>
+           	</ul>
+</div>
+<!-- End of nav box -->
+
+
+
+<div class="content-container shadow">
+<!-- Content box and the drop shadow-->
+
+
+
+
+<br clear="all"/>
+   <h1>CSound</h1>
+
+
+<div id="bookmenu"   style="background: url(/site_static/images/draft_bg.png) repeat !important;">
+<ul>
+
+ 
+   <li><b>INTRODUCTION</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/introduction/">PREFACE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/how-to-use-this-manual/">HOW TO USE THIS MANUAL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/on-this-release/">ON THIS RELEASE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/credits/">CREDITS</a></li>
+ 
+
+ 
+   <li><b>01 BASICS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-digital-audio/">A. DIGITAL AUDIO</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-pitch-and-frequency/">B. PITCH AND FREQUENCY</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-intensities/">C. INTENSITIES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/random/">D. RANDOM</a></li>
+ 
+
+ 
+   <li><b>02 QUICK START</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-make-csound-run/">A. MAKE CSOUND RUN</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-csound-syntax/">B. CSOUND SYNTAX</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-configuring-midi/">C. CONFIGURING MIDI</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-live-audio/">D. LIVE AUDIO</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-rendering-to-file/">E. RENDERING TO FILE</a></li>
+ 
+
+ 
+   <li><b>03 CSOUND LANGUAGE</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-initialization-and-performance-pass/">A. INITIALIZATION AND PERFORMANCE PASS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-local-and-global-variables/">B. LOCAL AND GLOBAL VARIABLES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-control-structures/">C. CONTROL STRUCTURES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-function-tables/">D. FUNCTION TABLES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/arrays/">E. ARRAYS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-triggering-instrument-events/">F. LIVE EVENTS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-user-defined-opcodes/">G. USER DEFINED OPCODES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/macros/">H. MACROS</a></li>
+ 
+
+ 
+   <li><b>04 SOUND SYNTHESIS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-additive-synthesis/">A. ADDITIVE SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-subtractive-synthesis/">B. SUBTRACTIVE SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-amplitude-and-ringmodulation/">C. AMPLITUDE AND RING MODULATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-frequency-modulation/">D. FREQUENCY MODULATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-waveshaping/">E. WAVESHAPING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-granular-synthesis/">F. GRANULAR SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/g-physical-modelling/">G. PHYSICAL MODELLING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/scanned-synthesis/">H. SCANNED SYNTHESIS</a></li>
+ 
+
+ 
+   <li><b>05 SOUND MODIFICATION</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-envelopes/">A. ENVELOPES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-panning-and-spatialization/">B. PANNING AND SPATIALIZATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-filters/">C. FILTERS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-delay-and-feedback/">D. DELAY AND FEEDBACK</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-reverberation/">E. REVERBERATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-am-rm-waveshaping/">F. AM / RM / WAVESHAPING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/g-granular-synthesis/">G. GRANULAR SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/h-convolution/">H. CONVOLUTION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/i-fourier-analysis-spectral-processing/">I. FOURIER ANALYSIS / SPECTRAL PROCESSING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/k-ats-resynthesis/">K. ATS RESYNTHESIS</a></li>
+ 
+
+ 
+   <li><b>06 SAMPLES</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-record-and-play-soundfiles/">A. RECORD AND PLAY SOUNDFILES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-record-and-play-buffers/">B. RECORD AND PLAY BUFFERS</a></li>
+ 
+
+ 
+   <li><b>07 MIDI</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-receiving-events-by-midiin/">A. RECEIVING EVENTS BY MIDIIN</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-triggering-instrument-instances/">B. TRIGGERING INSTRUMENT INSTANCES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-working-with-controllers/">C. WORKING WITH CONTROLLERS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-reading-midi-files/">D. READING MIDI FILES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-midi-output/">E. MIDI OUTPUT</a></li>
+ 
+
+ 
+   <li><b>08 OTHER COMMUNICATION</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/osc-and-wii/">A. OPEN SOUND CONTROL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-arduino/">B. CSOUND AND ARDUINO</a></li>
+ 
+
+ 
+   <li><b>09 CSOUND IN OTHER APPLICATIONS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-pd/">A. CSOUND IN PD</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-maxmsp/">B. CSOUND IN MAXMSP</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-ableton-live/">C. CSOUND IN ABLETON LIVE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-csound-as-a-vst-plugin/">D. CSOUND AS A VST PLUGIN</a></li>
+ 
+
+ 
+   <li><b>10 CSOUND FRONTENDS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/qutecsound/">CSOUNDQT</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/cecilia/">CABBAGE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/blue/">BLUE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/winxound/">WINXOUND</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-via-terminal/">CSOUND VIA TERMINAL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/web-based-csound/">WEB BASED CSOUND</a></li>
+ 
+
+ 
+   <li><b>11 CSOUND UTILITIES</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-utilities/">CSOUND UTILITIES</a></li>
+ 
+
+ 
+   <li><b>12 CSOUND AND OTHER PROGRAMMING LANGUAGES</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/the-csound-api/">A. THE CSOUND API</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/using-python-inside-csound/">B. PYTHON INSIDE CSOUND</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-python-in-csoundqt/">C. PYTHON IN CSOUNDQT</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-lua-in-csound/">D. LUA IN CSOUND</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-csound-in-ios/">E. CSOUND IN iOS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-csound-on-android/">F. CSOUND ON ANDROID</a></li>
+ 
+
+ 
+   <li><b>13 EXTENDING CSOUND</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/extending-csound/">EXTENDING CSOUND</a></li>
+ 
+
+ 
+   <li><b>OPCODE GUIDE</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/overview/">OVERVIEW</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/signal-processing-i/">SIGNAL PROCESSING I</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/signal-processing-ii/">SIGNAL PROCESSING II</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/data/">DATA</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/realtime-interaction/">REALTIME INTERACTION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/instrument-control/">INSTRUMENT CONTROL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/math-pythonsystem-plugins/">MATHS, PYTHON/SYSTEM, PLUGINS</a></li>
+ 
+
+ 
+   <li><b>APPENDIX</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/writing-csound-scores-by-hand/">METHODS OF WRITING CSOUND SCORES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/glossary/">GLOSSARY</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/links/">LINKS</a></li>
+ 
+
+</ul>
+</div>
+<div id="bookcontent"   >
+<h1>SCANNED SYNTHESIS
+</h1>
+<p> Scanned Synthesis is a relatively new synthesis technique invented by Max Mathews, Rob Shaw and Bill Verplank at Interval Research in 2000. This algorithm uses a combination of a table-lookup oscillator and Sir Issac Newton's mechanical model (equation) of a mass and spring system to dynamically change the values stored in an f-table. The sonic result is a timbral spectrum that changes with time.
+</p>
+<p> Csound has a couple opcodes dedicated to scanned synthesis, and these opcodes can be used not only to make sounds, but also to generate dynamic f-tables for use with other Csound opcodes.
+</p>
+<h2>A QUICK SCANNED SYNTH
+</h2>
+<p> The quickest way to start using scanned synthesis is Matt Ingalls' opcode <em><a href="http://www.csounds.com/manual/html/scantable.html">scantable</a>.</em>
+</p>
+<pre> <code>a1 <strong>scantable</strong> iamp, kfrq, ipos, imass, istiff, idamp, ivel </code>
+</pre>
+<p>The arguments <em>iamp</em> and <em>kfrq</em> should be familiar, amplitude and frequency respectively. The other arguments are f-table numbers containing data known in the scanned synthesis world as <strong>profiles</strong>.
+</p>
+<h2>PROFILES
+</h2>
+<p>Profiles refer to variables in the mass and spring equation. Newton's model describes a string as a finite series of marbles connected to each other with springs.
+  <br />
+</p>
+<p>In this example we will use 128 marbles in our system. To the Csound user, profiles are a series of f-tables that set up the <a href="http://www.csounds.com/manual/html/scantable.html"><em>scantable</em></a> opcode. To the opcode, these f-tables influence the dynamic&nbsp;behavior&nbsp;of the table read by a table-lookup oscillator.
+</p>
+<pre><code>
+gipos     ftgen 1, 0, 128, 10, 1              ;Initial Shape   ;Sine wave range -1 to 1
+gimass    ftgen 2, 0, 128, -7, 1, 1           ;Masses          ;Constant value 1
+gistiff   ftgen 3, 0, 128, -7, 50, 64, 100, 0 ;Stiffness       ;Unipolar triangle range to 100
+gidamp    ftgen 4, 0, 128, -7, 1, 128, 1      ;Damping         ;Constant value 1
+givel     ftgen 5, 0, 128, -7, 0, 128, 0      ;Initial Velocity;Constant value 1
+</code></pre>
+<p> These tables need to be the same size as each other or Csound will return an error.
+</p>
+<p>
+</p>
+<p>Run the following<em> .csd.</em> Notice that the sound starts off sounding like our intial shape (a sine wave) but evolves as if there are filters or distortions or LFO's.
+</p>
+<p><em><strong>EXAMPLE 04H01_scantable.csd</strong></em>
+  <br />
+</p>
+<pre><code>&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+-o dac
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+nchnls = 2
+sr=44100
+ksmps = 32
+0dbfs = 1
+gipos   ftgen 1, 0, 128, 10, 1                  ;Initial Shape, sine wave range -1 to 1
+gimass  ftgen 2, 0, 128, -7, 1, 128, 1          ;Masses(adj.), constant value 1
+gistiff ftgen 3, 0, 128, -7, 50, 64, 100, 64, 0 ;Stiffness; unipolar triangle range 0 to 100
+gidamp  ftgen 4, 0, 128, -7, 1, 128, 1          ;Damping; constant value 1
+givel   ftgen 5, 0, 128, -7, 0, 128, 0          ;Initial Velocity; constant value 1
+instr 1
+iamp = .7
+kfrq = 440
+a1 scantable iamp, kfrq, gipos, gimass, gistiff, gidamp, givel
+a1 dcblock2 a1
+outs a1, a1
+endin
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+i 1 0 10
+e
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+;Example by Christopher Saunders</code></pre>
+<p> But as you see no effects or controls signals in the .csd, just a synth!
+</p>
+<p>This is the power of scanned synthesis. It produces a dynamic spectrum with "just" an oscillator. Imagine now applying a scanned synthesis oscillator to all your favorite synth techniques - Subtractive, Waveshaping, FM, Granular and more.
+</p>
+<p>Recall from the subtractive synthesis technique, that the "shape" of the waveform of your oscillator has a huge effect on the way the oscillator sounds. In scanned synthesis, the shape is in motion and these f-tables control how the shape moves.
+</p>
+<h2>DYNAMIC TABLES
+</h2>
+<p>The <a href="http://www.csounds.com/manual/html/scantable.html"><em>scantable</em></a> opcode makes it easy to use dynamic f-tables in other csound opcodes. The example below sounds exactly like the above .csd, but it demonstrates how the f-table set into motion by scantable can be used by other csound opcodes.
+</p>
+<p><em><strong>EXAMPLE 04H02_Dynamic_tables.csd</strong></em>
+  <br />
+</p>
+<pre><code>
+&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+-o dac
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+nchnls = 2
+sr=44100
+ksmps = 32
+0dbfs = 1
+
+gipos      ftgen      1, 0, 128, 10, 1 ;Initial Shape, sine wave range -1 to 1;
+gimass     ftgen      2, 0, 128, -7, 1, 128, 1 ;Masses(adj.), constant value 1
+gistiff    ftgen      3, 0, 128, -7, 50, 64, 100, 64, 0 ;Stiffness; unipolar triangle range 0 to 100
+gidamp     ftgen      4, 0, 128, -7, 1, 128, 1 ;Damping; constant value 1
+givel      ftgen      5, 0, 128, -7, 0, 128, 0 ;Initial Velocity; constant value 1
+instr 1
+iamp       =          .7
+kfrq       =          440
+a0         scantable  iamp, kfrq, gipos, gimass, gistiff, gidamp, givel ;
+a1         oscil3     iamp, kfrq, gipos
+a1         dcblock2   a1
+           outs       a1, a1
+endin
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+i 1 0 10
+e
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+;Example by Christopher Saunders
+</code></pre>
+<p> Above we use a table-lookup oscillator to periodically read a dynamic table.
+</p>
+<p> Below is an example of using the values of an f-table generated by <a href="http://www.csounds.com/manual/html/scantable.html"><em>scantable</em></a>, to modify the amplitudes of an fsig, a signal type in csound which represents a spectral signal.
+</p>
+<p><em><strong>EXAMPLE 04H03_Scantable_pvsmaska.csd</strong></em>
+  <br />
+</p>
+<pre><code>
+&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+-o dac
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+nchnls = 2
+sr=44100
+ksmps = 32
+0dbfs = 1
+
+gipos      ftgen      1, 0, 128, 10, 1                  ;Initial Shape, sine wave range -1 to 1;
+gimass     ftgen      2, 0, 128, -7, 1, 128, 1          ;Masses(adj.), constant value 1
+gistiff    ftgen      3, 0, 128, -7, 50, 64, 100, 64, 0 ;Stiffness; unipolar triangle range 0 to 100
+gidamp     ftgen      4, 0, 128, -7, 1, 128, 1          ;Damping; constant value 1
+givel      ftgen      5, 0, 128, -7, 0, 128, 0          ;Initial Velocity; constant value 1
+gisin      ftgen      6, 0,8192, 10, 1                  ;Sine wave for buzz opcode
+
+instr 1
+iamp       =          .7
+kfrq       =          110
+a1         buzz       iamp, kfrq, 32, gisin
+           outs       a1, a1
+endin
+instr 2
+iamp       =          .7
+kfrq       =          110
+a0         scantable  1, 10, gipos, gimass, gistiff, gidamp, givel ;
+ifftsize   =          128
+ioverlap   =          ifftsize / 4
+iwinsize   =          ifftsize
+iwinshape  =          1; von-Hann window
+a1         buzz       iamp, kfrq, 32, gisin
+fftin      pvsanal    a1, ifftsize, ioverlap, iwinsize, iwinshape; fft-analysis of file
+fmask      pvsmaska   fftin, 1, 1
+a2         pvsynth    fmask; resynthesize
+           outs       a2, a2
+endin
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+i 1 0 3
+i 2 5 10
+e
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+;Example by Christopher Saunders</code>
+</pre>
+<p> In this .csd, the score plays instrument 1, a normal buzz sound, and then the score plays instrument 2 -- the same buzz sound re-synthesized with amplitudes of each of the 128 frequency bands, controlled by a dynamic f-table.&nbsp;
+</p>
+<h2> A MORE FLEXIBLE SCANNED SYNTH
+</h2>
+<p> <a href="http://www.csounds.com/manual/html/scantable.html"><em>Scantable</em></a> can do a lot for us, it can synthesize an interesting, time-varying timbre using a table lookup oscillator, or animate an f-table for use in other Csound opcodes. However, there are other scanned synthesis opcodes that can take our expressive use of the algorithm even further.
+</p>
+<p> The opcodes <a href="http://www.csounds.com/manual/html/scans.html"><em>scans</em></a> and <a href="http://www.csounds.com/manual/html/scanu.html"><em>scanu</em></a> by Paris Smaragdis give the Csound user one of the most robust and flexible scanned synthesis environments. These opcodes work in tandem to first set up the dynamic wavetable, and then to "scan" the dynamic table in ways a table-lookup oscillator cannot.
+</p>
+<p> The opcode <a href="http://www.csounds.com/manual/html/scanu.html"><em>scanu</em></a> takes 18 arguments and sets a table into motion.
+</p>
+<pre> <code> <strong>scanu</strong> ipos, irate, ifnvel, ifnmass, ifnstif, ifncentr, ifndamp, kmass, kstif, kcentr, kdamp, ileft, iright, kpos, kstrngth, ain, idisp, id </code>
+</pre>
+<p> For a detailed description of what each argument does, see the Csound Reference Manual (<a href="http://www.csounds.com/manual/html/scanu.html">link</a>); I will discuss the various types of arguments in the opcode.
+</p>
+<p> The first set of arguments - <em>ipos, irate, ifnvel, ifnmass, ifnstiff, ifncenter</em>, and <em>ifndamp</em>, are f-tables describing the profiles, similar to the profile arguments for <em>scantable</em>. <em>Scanu</em> takes 6 f-tables instead of <em>scantable's</em> 5. Like <em><a href="http://www.csounds.com/manual/html/scantable.html">scantable</a>, </em>these need to be f-tables of the same size or Csound will return an error.
+</p>
+<p> An exception to this size requirement is the <code>ifnstiff</code> table. This table is the size of the other profiles squared. If the other f-tables are size 128, then <coe>ifnstiff should be of size16384 (or 128 x 128). To discuss what this table does, I must first introduce the concept of a scanned matrix. </coe>
+</p>
+<h2> THE SCANNED MATRIX
+</h2>
+<p> The scanned matrix is a convention designed to describe the shape of the connections of masses(<strong>n.</strong>) in the mass(<strong>n.</strong>) and spring model.
+</p>
+<p> Going back to our discussion on Newton's mechanical model, the mass(<strong>n.</strong>) and spring model describes the behavior of a string as a finite number of masses connected by springs. As you can imagine, the masses are connected sequentially, one to another, like beads on a string. Mass(<strong>n.</strong>) #1 is connected to #2, #2 connected to #3 and so on. However, the pioneers of scanned synthesis had the idea to connect the masses in a non-linear way. It's hard to imagine, because as musicians, we have experience with piano or violin strings (one dimensional strings), but not with multi-dimensional strings. Fortunately, the computer has no problem working with this this idea, and the flexibility of Newton's equation allows us to use the CPU to model mass(<strong>n.</strong>) #1 being connected with springs not only to #2 but also to #3 and any other mass(<strong>n.</strong>) in the model.
+</p>
+<p> The most direct and useful implementation of this concept is to connect mass #1 to mass #2 and mass #128 -- forming a string without endpoints, a circular string. Like tying our string with beads to make a necklace. The pioneers of scanned synthesis discovered that this circular string model is more useful than a conventional one-dimensionalstring model with endpoints. In fact, <em><a href="http://www.csounds.com/manual/html/scantable.html">scantable</a> </em>uses a circular string.
+</p>
+<p> The matrix is described in a simple ASCII file, imported into Csound via a GEN23 generated f-table.
+</p>
+<pre> <code> f3 0 16384 -23 "string-128" </code>
+</pre>
+<p> This text file <strong>must</strong> be located in the same directory as your .csd or csound will give you this error
+</p> <code> ftable 3: error opening ASCII file </code>
+<br />
+<p> f 3 0.00 16384.00 -23.00 "circularstring-128"
+</p>
+<p>You can construct your own matrix using Stephen Yi's Scanned Matrix editor included in the Blue frontend for Csound, and as a standalone Java application <a href="http://www.csounds.com/stevenyi/scanned/">Scanned Synthesis Matrix Editor</a>.
+</p>
+<p> To swap out matrices, simply type the name of a different matrix file into the double quotes.
+</p> <code> f3 0 16384 -23 "circularstring-128"; </code>
+<br />
+<p> Different matrices have unique effects on the behavior of the system. Some matrices can make the synth extremely loud, others extremely quiet. Experiment with using different matrices.
+</p>
+<p> Now would be a good time to point out that Csound has other scanned synthesis opcodes preceded with an "x",<em> <a href="http://www.csounds.com/manual/html/xscans.html">xscans</a>, <a href="http://www.csounds.com/manual/html/xscanu.html">xscanu</a></em>, that use a different matrix format than the one used by <a href="http://www.csounds.com/manual/html/scans.html"><em>scans</em></a>, <a href="http://www.csounds.com/manual/html/scanu.html"><em>scanu</em></a>, and Stephen Yi's Scanned Matrix Editor. The Csound Reference Manual has more information on this.
+</p>
+<h2> THE HAMMER
+</h2>
+<p> If the initial shape, an f-table specified by the ipos argument determines the shape of the initial contents in our dynamic table. If you use autocomplete in CsoundQT, the <a href="http://www.csounds.com/manual/html/scanu.html">scanu</a> opcode line highlights the first p-field of scanu as the "init" opcode. In my examples I use "ipos" to avoid p1 of scanu being syntax-highlighted. But what if we want to "reset" or "pluck" the table, perhaps with a shape of a square wave instead of a sine wave, while the instrument is playing?
+</p>
+<p> With <a href="http://www.csounds.com/manual/html/scantable.html"><em>scantable</em></a>, there is an easy way to to this, send a score event changing the contents of the dynamic f-table. You can do this with the Csound score by adjusting the start time of the f-events in the score.
+</p>
+<p><em><strong>EXAMPLE 04H04_Hammer.csd </strong></em>
+  <br />
+</p>
+<pre><code>
+&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+-o dac
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+sr=44100
+kr=4410
+ksmps=10
+nchnls=2
+0dbfs=1
+
+instr 1
+ipos       ftgen      1, 0, 128, 10, 1 ; Initial Shape, sine wave range -1 to 1;
+imass      ftgen      2, 0, 128, -7, 1, 128, 1 ;Masses(adj.), constant value 1
+istiff     ftgen      3, 0, 128, -7, 50, 64, 100, 64, 0 ;Stiffness; unipolar triangle range 0 to 100
+idamp      ftgen      4, 0, 128, -7, 1, 128, 1; ;Damping; constant value 1
+ivel       ftgen      5, 0, 128, -7, 0, 128, 0 ;Initial Velocity; constant value 0
+iamp       =          0.5
+a1         scantable  iamp, 60, ipos, imass, istiff, idamp, ivel
+           outs       a1, a1
+endin
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+i 1 0 14
+f 1 1 128 10 1 1 1 1 1 1 1 1 1 1 1
+f 1 2 128 10 1 1 0 0 0 0 0 0 0 1 1
+f 1 3 128 10 1 1 1 1 1
+f 1 4 128 10 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1
+f 1 5 128 10 1 1
+f 1 6 128 13 1 1 0 0 0 -.1 0 .3 0 -.5 0 .7 0 -.9 0 1 0 -1 0
+f 1 7 128 21 6 5.745
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+;Example by Christopher Saunders</code>
+</pre>
+<p> You'll get the warning
+</p> <code><span style=" color:#ffa500;">WARNING: </span>replacing previous ftable 1 </code>
+<br />
+<p> This is not a bad thing, it means this method of hammering the string is working. In fact you could use this method to explore and hammer every possible GEN routine in Csound. <a href="http://www.csounds.com/manual/html/GEN10.html">GEN10</a> (sines), <a href="http://www.csounds.com/manual/html/GEN21.html">GEN 21</a> (noise) and <a href="http://www.csounds.com/manual/html/GEN27.html">GEN 27</a> (breakpoint functions) could keep you occupied for a while.
+</p>
+<p> Unipolar waves have a different sound but a loss in volume can occur.
+</p>
+<p> There is a way to do this with <em><a href="http://www.csounds.com/manual/html/scanu.html">scanu</a>. </em>But I do not use this feature and just use these values instead.
+</p>
+<pre><code>
+ileft = 0.
+iright = 1.
+kpos = 0.
+kstrngth = 0.
+</code></pre>
+<h2>MORE ON PROFILES
+</h2>
+<p> One of the biggest challenges in understanding scanned synthesis is the concept of profiles.
+</p>
+<p> Setting up the opcode <a href="http://www.csounds.com/manual/html/scanu.html"><em>scanu</em></a> requires 3 profiles - Centering, Mass, Damping. The pioneers of scanned synthesis discovered early on that the resultant timbre is far more interesting if marble #1 had a different centering force than mass #64.
+</p>
+<p> The farther our model gets away from a physical real-world string that we know and pluck on our guitars and pianos, the more interesting the sounds for synthesis. Therefore, instead of one mass, and damping, and centering value for all 128 of the marbles each marble should have its own conditions. How the centering, mass, and damping profiles make the system behave is up to the user to discover through experimentation. (More on how to experiment safely later in this chapter.)
+</p>
+<h2> CONTROL RATE PROFILE SCALARS
+</h2>
+<p> Profiles are a detailed way to control the behavior of the string, but what if we want to influence the mass or centering or damping of every marble <strong>after</strong> a note has been activated and while its playing?
+</p>
+<p><a href="http://www.csounds.com/manual/html/scanu.html"><em>Scanu</em></a> gives us 4 k-rate arguments <em>kmass, kstif, kcentr, kdamp</em>, to scale these forces. One could scale mass to volume, or have an envelope controlling centering.
+</p>
+<p><strong>Caution! </strong>These parameters can make the scanned system unstable in ways that could make <strong>extremely</strong> loud sounds come out of your computer. It is best to experiment with small changes in range and keep your headphones off. A good place to start experimenting is with different values for <em>kcentr</em> while keeping <em>kmass</em>, <em>kstiff</em>, and <em>kdamp</em> constant.
+</p>
+<p> You could also scale mass and stiffness to MIDI velocity.
+</p>
+<h2> AUDIO INJECTION
+</h2>
+<p> Instead of using the hammer method to move the marbles around, we could use audio to add motion to the mass and spring model. <em>Scanu</em> lets us do this with a simple audio rate argument. When the Reference manual says "amplitude should not be too great" <strong>it means it.</strong>
+</p>
+<p> A good place to start is by scaling down the audio in the opcode line.
+</p>
+<pre><code>
+ain/2000
+</code></pre>
+<p> It is always a good idea to take into account the 0dbfs statement in the header. Simply put if 0dbfs =1 and you send <em>scans </em>an audio signal with a value of 1, you and your immediate neighbors are in for a very loud ugly sound. <strong>"amplitude should not be too great"</strong>
+</p>
+<p> to bypass audio injection all together, simply assign 0 to an a-rate variable.
+</p>
+<pre><code>
+ain = 0
+</code></pre>
+<p> and use this variable as the argument.
+</p>
+<h2> CONNECTING TO SCANS
+</h2>
+<p> The p-field id, is an arbitrary integer label that tells the scans opcode which <a href="http://www.csounds.com/manual/html/scanu.html"><em>scanu</em></a> to read. By making the value of id negative, the arbitrary numerical label becomes the number of an f-table that can be used by any other opcode in Csound, like we did with <a href="http://www.csounds.com/manual/html/scantable.html"><em>scantable</em></a> earlier in this chapter.
+</p>
+<p> We could then use <a href="http://www.csounds.com/manual/html/oscil.html"><em>oscil</em></a> to perform a table lookup algorithm to make sound out of <a href="http://www.csounds.com/manual/html/scanu.html"><em>scanu</em></a> (as long as id is negative), but <a href="http://www.csounds.com/manual/html/scanu.html"><em>scanu</em></a> has a companion opcode, <a href="http://www.csounds.com/manual/html/scans.html"><em>scans</em></a> which has 1 more argument than <a href="http://www.csounds.com/manual/html/oscil.html"><em>oscil</em></a>. This argument is the number of an f-table containing the scan trajectory.
+</p>
+<h2> SCAN TRAJECTORIES
+</h2>
+<p> One thing we have take for granted so far with <a href="http://www.csounds.com/manual/html/oscil.html"><em>oscil</em></a> is that the wave table is read front to back If you regard oscil as a phasor and table pair, the first index of the table is always read first and the last index is always read last as in the example below
+</p>
+<p><em><strong>EXAMPLE 04H05_Scan_trajectories.csd</strong></em>
+</p>
+<pre>&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+-o dac
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+
+sr=44100
+kr=4410
+ksmps=10
+nchnls=2
+0dbfs=1
+
+instr 1
+andx phasor 440
+a1 table andx*8192, 1
+outs a1*.2, a1*.2
+endin
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+
+f1 0 8192 10 1
+i 1 0 4
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+;Example by Christopher Saunders
+</pre><code></code><code> </code>
+<p> But what if we wanted to read the table indices back to front, or even "out of order"? Well we could do something like this-
+</p>
+<p><em><strong>EXAMPLE 04H06_Scan_trajectories2.csd</strong></em>
+</p>
+<pre>&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+-o dac
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+sr=44100
+kr=4410
+ksmps=10
+nchnls=2 ; STEREO
+0dbfs=1
+instr 1
+andx phasor 440
+andx table andx*8192, 1  ; read the table out of order!
+a1   table andx*8192, 1
+outs a1*.2, a1*.2
+endin
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+
+f1 0 8192 10 1
+f2 0 8192 -5 .001 8192 1;
+i 1 0 4
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+;Example by Christopher Saunders
+</pre><code> </code>
+<p> We are still dealing with 2 dimensional arrays, or f-tables as we know them. But if we remember back to the our conversation about the scanned matrix, matrices are multi-dimensional, it would be a shame to only read them in "2D".
+</p>
+<p> The opcode <a href="http://www.csounds.com/manual/html/scans.html"><em>scans</em></a> gives us the flexibility of specifying a scan trajectory, analogous to the telling the phasor/table combination to read values non-consecutively. We could read these values, not left to right, but in a spiral order, by specifying a table to be the <em>ifntraj</em> argument of <a href="http://www.csounds.com/manual/html/scans.html"><em>scans</em></a>.
+</p> <code>a3 scans iamp, kpch, ifntraj ,id , interp </code>
+<br />
+<p> An f-table for the spiral method can generated by reading the ASCII file "spiral-8,16,128,2,1over2" by GEN23
+</p>
+<pre><code>f2 0 128 -23 "spiral-8,16,128,2,1over2"
+</code></pre>
+<p>
+</p>
+<p> The following .csd requires that the files "circularstring-128" and "spiral-8,16, 128,2,1over2" be located in the same directory as the .csd.
+</p>
+<p><em><strong>EXAMPLE 04H07_Scan_matrices.csd</strong></em>
+</p>
+<pre>&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+-o dac
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+nchnls = 2
+sr = 44100
+ksmps = 10
+0dbfs = 1
+instr 1
+ipos ftgen 1, 0, 128, 10, 1
+irate = .005
+ifnvel ftgen 6, 0, 128, -7, 0, 128, 0
+ifnmass ftgen 2, 0, 128, -7, 1, 128, 1
+ifnstif ftgen 3, 0, 16384,-23,"circularstring-128"
+ifncentr ftgen 4, 0, 128, -7, 0, 128, 2
+ifndamp ftgen 5, 0, 128, -7, 1, 128, 1
+imass = 2
+istif = 1.1
+icentr = .1
+idamp = -0.01
+ileft = 0.
+iright = .5
+ipos = 0.
+istrngth = 0.
+ain = 0
+idisp = 0
+id = 8
+scanu 1, irate, ifnvel, ifnmass, ifnstif, ifncentr, ifndamp, imass, istif, icentr, idamp, ileft, iright, ipos, istrngth, ain, idisp, id
+scanu 1,.007,6,2,3,4,5, 2, 1.10 ,.10 ,0 ,.1 ,.5, 0, 0,ain,1,2;
+iamp = .2
+ifreq = 200
+a1 scans iamp, ifreq, 7, id
+a1 dcblock a1
+outs a1, a1
+endin
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+f7 0 128 -7 0 128 128
+i 1 0 5
+f7 5 128 -23 "spiral-8,16,128,2,1over2"
+i 1 5 5
+f7 10 128 -7 127 64 1 63 127
+i 1 10 5
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+;Example by Christopher Saunders
+</pre><code> </code>
+<p>Notice that the scan trajectory has an FM-like effect on the sound.
+</p>
+<h2> TABLE SIZE AND INTERPOLATION
+</h2>
+<p> Tables used for scan trajectory must be the same size (have the same number of indices) as the mass, centering, damping tables. and must also have the same range as the size of these tables. For example, in our .csd's we've been using 128 point tables for initial position, mass centering, damping;(our stiffness tables have been 128 squared). So our trajectory tables must be of size 128, and contain values from 0 to 127.
+</p>
+<p> One can use larger or smaller tables, but their sizes must agree in this way or Csound will give you an error. Larger tables, of course significantly increase CPU usage and slow down real-time performance.
+</p>
+<p> If all the sizes are multiples of a number (128), we can use Csound's Macro language extension to define the table size as a macro, and then change the definition twice (once for the orc and once for the score) instead of 10 times.
+</p>
+<p><em><strong>EXAMPLE 04H08_Scan_tablesize.csd</strong></em>
+</p>
+<pre>&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+-o dac
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+nchnls = 2
+sr = 44100
+ksmps = 10
+0dbfs = 1
+#define SIZE #128#
+instr 1
+ipos ftgen 1, 0, $SIZE., 10, 1
+irate = .005
+ifnvel ftgen 6, 0, $SIZE., -7, 0, $SIZE., 0
+ifnmass ftgen 2, 0, $SIZE., -7, 1, $SIZE., 1
+ifnstif ftgen 3, 0, $SIZE.*$SIZE.,-23, "circularstring-$SIZE."
+ifncentr ftgen 4, 0, $SIZE., -7, 0, $SIZE., 2
+ifndamp ftgen 5, 0, $SIZE., -7, 1, $SIZE., 1
+imass = 2
+istif = 1.1
+icentr = .1
+idamp = -0.01
+ileft = 0.
+iright = .5
+ipos = 0.
+istrngth = 0.
+ain = 0
+idisp = 0
+id = 8
+	
+scanu 1, irate, ifnvel, ifnmass, ifnstif, ifncentr, ifndamp, imass, istif, icentr, idamp, ileft, iright, ipos, istrngth, ain, idisp, id
+scanu 1,.007,6,2,3,4,5, 2, 1.10 ,.10 ,0 ,.1 ,.5, 0, 0,ain,1,2;
+iamp = .2
+ifreq = 200
+a1 scans iamp, ifreq, 7, id, 4
+a1 dcblock a1
+outs a1, a1
+endin
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+#define SIZE #128#
+f7 0 $SIZE. -7 0 $SIZE. $SIZE.
+i 1 0 5
+f7 5 $SIZE. -7 0 63 [$SIZE.-1] 63 0
+i 1 5 5
+f7 10 $SIZE. -7 [$SIZE.-1] 64 1 63 [$SIZE.-1]
+i 1 10 5
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+;Example by Christopher Saunders
+</pre><code> </code>
+<p> Macros even work in our string literal in our <a href="http://www.csounds.com/manual/html/GEN23.html">GEN 23</a> f-table! But if you define size as 64 and there isn't a file in your directory named "circularstring-64" Csound will not run your score and give you an error. Here is a <a href="http://csounds.com/scanned/scanned_synthesis_matricies.zip">link to download power-of-two size ASCII files</a> that create circular matrices for use in this way, and of course, you can design your own stiffness matrix files with <a href="http://www.csounds.com/stevenyi/scanned/">Steven Yi's scanned matrix editor</a>.
+</p>
+<p> When using smaller size tables it may be necessary to use interpolation to avoid the artifacts of a small table. <em>scans</em> gives us this option as a fifth optional argument, <em>iorder, </em>detailed in the reference manual and worth experimenting with.
+</p>
+<p> Using the opcodes scanu and scans require that we fill in 22 arguments and create at least 7 f-tables, including at least one external ASCII file (because no one wants to fill in 16,384 arguments to an f-statement). This a very challenging pair of opcodes. The beauty of scanned synthesis is that there is no one scanned synthesis "sound".
+</p>
+<h2> USING BALANCE TO TAME AMPLITUDES
+</h2>
+<p> However, like this frontier can be a lawless, dangerous place. When experimenting with scanned synthesis parameters, one can illicit extraordinarily loud sounds out of Csound, often by something as simple as a misplaced decimal point.
+</p>
+<p> <strong>Warning the following .csd is hot, it produces massively loud amplitude values. Be very cautious about rendering this .csd, I highly recommend rendering to a file instead of real-time, if you must run it.</strong>
+</p>
+<p><em><strong>EXAMPLE 04H09_Scan_extreme_amplitude.csd</strong></em>
+</p>
+<pre>&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+-o dac
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+
+nchnls = 2
+sr = 44100
+ksmps = 256
+0dbfs = 1
+;NOTE THIS CSD WILL NOT RUN UNLESS
+;IT IS IN THE SAME FOLDER AS THE FILE "STRING-128"
+instr 1
+ipos ftgen 1, 0, 128 , 10, 1
+irate = .007
+ifnvel ftgen 6, 0, 128 , -7, 0, 128, 0.1
+ifnmass ftgen 2, 0, 128 , -7, 1, 128, 1
+ifnstif ftgen 3, 0, 16384, -23, "string-128"
+ifncentr ftgen 4, 0, 128 , -7, 1, 128, 2
+ifndamp ftgen 5, 0, 128 , -7, 1, 128, 1
+kmass = 1
+kstif = 0.1
+kcentr = .01
+kdamp = 1
+ileft = 0
+iright = 1
+kpos = 0
+kstrngth = 0.
+ain = 0
+idisp = 1
+id = 22
+scanu ipos, irate, ifnvel, ifnmass, \
+ifnstif, ifncentr, ifndamp, kmass, \
+kstif, kcentr, kdamp, ileft, iright,\
+kpos, kstrngth, ain, idisp, id
+kamp = 0dbfs*.2
+kfreq = 200
+ifn ftgen 7, 0, 128, -5, .001, 128, 128.
+a1 scans kamp, kfreq, ifn, id
+a1 dcblock2 a1
+iatt = .005
+idec = 1
+islev = 1
+irel = 2
+aenv adsr iatt, idec, islev, irel
+;outs a1*aenv,a1*aenv; Uncomment for speaker destruction;
+endin
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+f8 0 8192 10 1;
+i 1 0 5
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+;Example by Christopher Saunders
+</pre><code> </code>
+<p> The extreme volume of this .csd comes from from a value given to scanu
+</p> <code> kdamp = .1 </code>
+<br />
+<p> .1 is not exactly a safe value for this argument, in fact, any value above 0 for this argument can cause chaos.
+</p>
+<p> It would take a skilled mathematician to map out safe possible ranges for all the arguments of scanu. I figured out these values through a mix of trial and error and <strong>studying other .csd's</strong>.
+</p>
+<p> We can use the opcode <a href="http://www.csounds.com/manual/html/balance.html">balance</a> to listen to sine wave (a signal with consistent, safe amplitude) and squash down our extremely loud scanned synth output (which is loud only because of our intentional carelessness.)
+</p>
+<p><em><strong>EXAMPLE 04H10_Scan_balanced_amplitudes.csd</strong></em>
+</p>
+<pre>&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+-o dac
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+
+nchnls = 2
+sr = 44100
+ksmps = 256
+0dbfs = 1
+;NOTE THIS CSD WILL NOT RUN UNLESS
+;IT IS IN THE SAME FOLDER AS THE FILE "STRING-128"
+
+instr 1
+ipos ftgen 1, 0, 128 , 10, 1
+irate = .007
+ifnvel   ftgen 6, 0, 128 , -7, 0, 128, 0.1
+ifnmass  ftgen 2, 0, 128 , -7, 1, 128, 1
+ifnstif  ftgen 3, 0, 16384, -23, "string-128"
+ifncentr ftgen 4, 0, 128 , -7, 1, 128, 2
+ifndamp  ftgen 5, 0, 128 , -7, 1, 128, 1
+kmass = 1
+kstif = 0.1
+kcentr = .01
+kdamp = -0.01
+ileft = 0
+iright = 1
+kpos = 0
+kstrngth = 0.
+ain = 0
+idisp = 1
+id = 22
+scanu ipos, irate, ifnvel, ifnmass, \
+ifnstif, ifncentr, ifndamp, kmass, \
+kstif, kcentr, kdamp, ileft, iright,\
+kpos, kstrngth, ain, idisp, id
+kamp = 0dbfs*.2
+kfreq = 200
+ifn ftgen 7, 0, 128, -5, .001, 128, 128.
+a1 scans kamp, kfreq, ifn, id
+a1 dcblock2 a1
+ifnsine ftgen 8, 0, 8192, 10, 1
+a2 oscil kamp, kfreq, ifnsine
+a1 balance a1, a2
+iatt = .005
+idec = 1
+islev = 1
+irel = 2
+aenv adsr iatt, idec, islev, irel
+outs a1*aenv,a1*aenv
+endin
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+f8 0 8192 10 1;
+i 1 0 5
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+;Example by Christopher Saunders
+</pre><code> </code>
+<p> It must be emphasized that this is merely a safeguard. We still get samples out of range when we run this .csd, but many less than if we had not used balance. It is recommended to use balance if you are doing real-time mapping of k-rate profile scalar arguments for <a href="http://www.csounds.com/manual/html/scans.html"><em>scans</em></a>; mass stiffness, damping, and centering.
+</p>
+<h2> REFERENCES AND FURTHER READING
+</h2>
+<p>Max Matthews, Bill Verplank, Rob Shaw, Paris Smaragdis, Richard Boulanger, John ffitch, Matthew Gilliard, Matt Ingalls, and Steven Yi all worked to make scanned synthesis usable, stable and openly available to the open-source Csound community. Their contributions are in the reference manual, several academic papers on scanned synthesis and journal articles, and the software that supports the Csound community.
+</p>
+<p>Csounds.com page on Scanned Synthesis
+</p>
+<p><a href="http://www.csounds.com/scanned/">http://www.csounds.com/scanned/</a>
+</p>
+<p>Dr. Richard Boulanger's tutorial on Scanned Synthesis
+</p>
+<p><a href="http://www.csounds.com/scanned/toot/index.html ">http://www.csounds.com/scanned/toot/index.html </a>
+</p>
+<p>Steven Yi's Page on experimenting with Scanned Synthesis
+</p>
+<p><a href="http://www.csounds.com/stevenyi/scanned/yi_scannedSynthesis.html ">http://www.csounds.com/stevenyi/scanned/yi_scannedSynthesis.html </a>
+</p>
+   <hr/>
+    <a href="/csound/_edit/">EDIT</a>
+
+</div>
+
+<script type="text/javascript">
+jQuery(function ($) {
+    $('#bookcontent').annotator()
+   		.annotator('setupPlugins', {}, {
+                Tags: false,
+                Filter: {
+                  addAnnotationFilter: false
+                },
+                Permissions: false,
+                AnnotateItPermissions: {}
+              });
+});
+</script>
+
+
+
+</div>
+<!-- End of content -->
+
+</div>  
+<!-- DEV TOOLS -->
+<div id="bookidebug">
+</div>
+
+<!-- sputnik error page -->
+<div id="dialog-sputnik-qrac" style="display: none"></div>
+</body>
+</html>
+

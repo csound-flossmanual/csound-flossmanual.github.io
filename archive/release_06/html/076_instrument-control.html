@@ -1,0 +1,887 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html>
+ <head>
+   <link type="text/css" href="http://www.flossmanuals.net/_templates/prettify/src/prettify.css" rel="Stylesheet" />
+   <script type="text/javascript" src="http://www.flossmanuals.net/_templates/prettify/src/prettify.js"></script>
+
+   <link type="text/css" href="/site_static/js/jquery/themes/base/jquery.ui.all.css" rel="Stylesheet" >
+   <link type="text/css" href="/site_static/js/jquery/themes/smoothness/jquery.ui.all.css" rel="Stylesheet" >
+   <script type="text/javascript" src="/static/js/jquery-1.7.js"></script>
+<!--
+   <script type="text/javascript" src="/site_static/js/jquery/jquery-1.4.4.js"></script>
+-->   
+<script type="text/javascript" src="/site_static/js/jquery/ui/jquery-ui-1.8.10.custom.js"></script>
+   <script type="text/javascript" src="/site_static/js/jquery.json-1.3.js"></script>
+   <script type="text/javascript" src="/site_static/js/booki.js"></script>
+
+   <link href="/site_static/css/jquery.bubblepopup.v2.3.1.css" rel="stylesheet" type="text/css" />
+   <script src="/site_static/js/jquery.bubblepopup.v2.3.1.min.js" type="text/javascript"></script>
+
+   <link type="text/css" href="/static/css/booki_fm.css" rel="Stylesheet"/ >
+<style>
+.template {
+	display: none !important;
+}
+
+
+#header {
+    background-color: transparent !important;
+}
+.paginator { padding:.5em .75em; float:left; font:normal .8em arial; }
+ 
+.paginator .prev-na,
+.paginator .next-na {
+	padding:.3em;
+	font-weight: bold;
+/*	font:bold .875em arial; */
+}
+ 
+.paginator .prev-na,
+.paginator .next-na {
+/*	border:1px solid #ccc; 
+	background-color:#f9f9f9; */
+	color:#aaa;
+	font-weight:normal;
+}
+ 
+.paginator .prev a, .paginator .prev a:visited,
+.paginator .next a, .paginator .next a:visited {
+/*	border:1px solid #c2ee62; 
+	background-color:#edfdd0; */
+	color:#234f32;
+	padding:.3em;
+/*	font:bold .875em arial; */
+        font-weight: bold;
+}
+ 
+.paginator .prev, .paginator .prev-na { margin-right:.5em; }
+.paginator .next, .paginator .next-na { margin-left:.5em; }
+ 
+.paginator .page a, .paginator .page a:visited, .paginator .curr {
+	padding:.25em;
+	font-weight: normal;
+/*	font:normal .875em verdana; */
+/*	border:1px solid #C2EE62; 
+	background-color:#EDFDD0; */
+	margin:0em .25em;	
+	color:#006000;
+}
+ 
+.paginator .curr { 
+/*	background-color:#234f32; 
+	color:#fff; */
+	border:1px solid #234f32; 
+	font-weight:bold;
+	font-size:1em;
+}
+ 
+.paginator .page a:hover,
+.paginator .curr a:hover,
+.paginator .prev a:hover,
+.paginator .next a:hover {
+/*	color:#fff;
+	background-color:#234f32;
+	border:1px solid #234f32; */
+}
+</style>
+ <script type="text/javascript">
+      $(function() {
+   $.booki.sputnikDispatcherURL = "/_sputnik/";
+    });
+   </script>
+
+   <script type="text/javascript">
+     $(function() {
+	 // open debug window
+	 $.booki.debug.init();
+	 
+	 
+	 $("A.debug").click(function() {
+	     $("#bookidebug").dialog("open");
+	     return false;
+	 });
+     });
+   </script>
+
+   
+<title>/chapter: Instrument-Control / CSound</title>
+<link type="text/css" href="/site_static/css/editor.css" rel="Stylesheet" />
+
+<script src="http://assets.annotateit.org/annotator/v1.2.5/annotator-full.min.js"></script>
+<link rel="stylesheet" href="http://assets.annotateit.org/annotator/v1.2.5/annotator.min.css">
+
+
+
+<link rel="alternate" type="application/rss+xml" title="RSS feed for CSound" href="/feeds/rss/book/csound/" /> 
+<link rel="alternate" type="application/atom+xml" title="Atom feed for CSound" href="/feeds/atom/book/csound/" /> 
+
+<link rel="alternate" type="application/rss+xml" title="RSS feed for chapter Instrument-Control" href="/feeds/rss/chapter/csound/csound/" /> 
+<link rel="alternate" type="application/atom+xml" title="Atom feed for chapter Instrument-Control" href="/feeds/atom/chapter/csound/csound/" /> 
+
+
+ </head>
+<body onload="prettyPrint()" >
+<!-- testis -->
+
+<script type="text/javascript">
+$(function() {
+    $("#snippetdialog").dialog({autoOpen: false});
+});
+</script>
+
+
+<div id="snippetdialog" title="Basic dialog">
+        <p></p>
+</div>
+
+
+
+<div id="page-container"> 
+<style>
+body
+{
+margin:0;
+padding:0
+}
+#header
+{
+position:absolute;
+top:23px;
+width:100%;
+background-image: url('http://www.flossmanuals.net/_templates/fm_resources/header_bg.gif');
+background-position: 700px 0px; /* this places the orange background at
+an offset, making sure it doesn't underlap the left side of the gif */
+background-repeat: no-repeat;
+}
+
+#fmheader {
+    background-image: url("http://en.flossmanuals.net/_templates/fm_resources/header_bg.gif");
+    background-position: 600px 0;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 23px;
+    width: 100%;
+}
+#header_image
+{
+margin-left: 270px;
+border: 0px
+}
+
+#navigation
+{
+position:absolute;
+top: 80px;
+left: 357px;
+width:50%;
+}
+
+
+#languages
+{
+position:absolute;
+top: 40px;
+left: 740px;
+width:50%;
+}
+</style>
+
+
+
+<!-- Header graphic is common to all pages  -->
+<div id="header"><img id="header_image" alt="FlossManuals menu" src="http://www.flossmanuals.net/_templates/fm_resources/header_menu.gif" height="95" width="465" border="0"></div>
+
+
+<!-- Navigation buttons are language and context specific  -->
+<div id="navigation">
+<a title="Read" href="http://en.flossmanuals.net/index.php"><img src="http://www.flossmanuals.net/_templates/fm_resources/read_en.png" width="65" height="30" border="0" alt="Read"></a>
+<a title="Write" href="http://booki.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/write_active_en.png" width="65" height="30" border="0" alt="Write"></a>
+<a title="Remix" href="http://en.flossmanuals.net/index.php?plugin=remix"><img src="http://www.flossmanuals.net/_templates/fm_resources/remix_en.png" width="65" height="30" border="0" alt="Remix"></a>
+<a title="About" href="http://www.flossmanuals.org"><img src="http://www.flossmanuals.net/_templates/fm_resources/about_en.png" width="65" height="30" border="0" alt="About"></a>
+</div>
+
+<!-- Language buttons are common to all pages  -->
+<div id="languages">
+<a title="English" href="http://en.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/english_button.png" width="65" height="30" border="0" alt="English"></a>
+
+<!-- <a title="Español" href="http://es.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/spanish_button.png" width="65" height="30" border="0" alt="Español"></a> -->
+<a title="فارسی" href="http://fa.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/farsi_button.png" width="65" height="30" border="0" alt="فارسی"></a>
+<a title="Suomi" href="http://fi.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/finnish_button.png" width="65" height="30" border="0" alt="Suomi"></a>
+<br>
+<a title="Français" href="http://fr.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/french_button.png" width="65" height="30" border="0" alt="Français"></a>
+<a title="Nederlands" href="http://nl.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/dutch_button.png" width="65" height="30" border="0" alt="Nederlands"></a>
+<!-- <a title="Pусский" href="http://ru.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/russian_button.png" width="65" height="30" border="0" alt="Pусский"></a> -->
+<a title="Translate" href="http://translate.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/translate_button.png" width="65" height="30" border="0" alt="Translate"></a>
+</div>
+
+<!-- End top bar -->
+
+<!-- nav box + drop shadow -->
+<div class="navbox shadow" style="top:160px;">
+    		<ul>
+
+ 		<li><a href="/accounts/signin/?redirect=/csound/_draft/_v/1.0/instrument-control/">Sign In</li><li>Register</a></li>
+
+                <li><a href="/list-books">All Manuals</a></li>
+                <li><a href="/list-groups">All Groups</a></li>
+                <li><a href="/list-people/">All People</a></li>
+           	</ul>
+</div>
+<!-- End of nav box -->
+
+
+
+<div class="content-container shadow">
+<!-- Content box and the drop shadow-->
+
+
+
+
+<br clear="all"/>
+   <h1>CSound</h1>
+
+
+<div id="bookmenu"   style="background: url(/site_static/images/draft_bg.png) repeat !important;">
+<ul>
+
+ 
+   <li><b>INTRODUCTION</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/introduction/">PREFACE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/how-to-use-this-manual/">HOW TO USE THIS MANUAL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/on-this-release/">ON THIS RELEASE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/credits/">CREDITS</a></li>
+ 
+
+ 
+   <li><b>01 BASICS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-digital-audio/">A. DIGITAL AUDIO</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-pitch-and-frequency/">B. PITCH AND FREQUENCY</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-intensities/">C. INTENSITIES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/random/">D. RANDOM</a></li>
+ 
+
+ 
+   <li><b>02 QUICK START</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-make-csound-run/">A. MAKE CSOUND RUN</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-csound-syntax/">B. CSOUND SYNTAX</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-configuring-midi/">C. CONFIGURING MIDI</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-live-audio/">D. LIVE AUDIO</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-rendering-to-file/">E. RENDERING TO FILE</a></li>
+ 
+
+ 
+   <li><b>03 CSOUND LANGUAGE</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-initialization-and-performance-pass/">A. INITIALIZATION AND PERFORMANCE PASS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-local-and-global-variables/">B. LOCAL AND GLOBAL VARIABLES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-control-structures/">C. CONTROL STRUCTURES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-function-tables/">D. FUNCTION TABLES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/arrays/">E. ARRAYS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-triggering-instrument-events/">F. LIVE EVENTS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-user-defined-opcodes/">G. USER DEFINED OPCODES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/macros/">H. MACROS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/functional-syntax/">I. FUNCTIONAL SYNTAX</a></li>
+ 
+
+ 
+   <li><b>04 SOUND SYNTHESIS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-additive-synthesis/">A. ADDITIVE SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-subtractive-synthesis/">B. SUBTRACTIVE SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-amplitude-and-ringmodulation/">C. AMPLITUDE AND RING MODULATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-frequency-modulation/">D. FREQUENCY MODULATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-waveshaping/">E. WAVESHAPING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-granular-synthesis/">F. GRANULAR SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/g-physical-modelling/">G. PHYSICAL MODELLING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/scanned-synthesis/">H. SCANNED SYNTHESIS</a></li>
+ 
+
+ 
+   <li><b>05 SOUND MODIFICATION</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-envelopes/">A. ENVELOPES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-panning-and-spatialization/">B. PANNING AND SPATIALIZATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-filters/">C. FILTERS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-delay-and-feedback/">D. DELAY AND FEEDBACK</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-reverberation/">E. REVERBERATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-am-rm-waveshaping/">F. AM / RM / WAVESHAPING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/g-granular-synthesis/">G. GRANULAR SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/h-convolution/">H. CONVOLUTION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/i-fourier-analysis-spectral-processing/">I. FOURIER ANALYSIS / SPECTRAL PROCESSING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/k-ats-resynthesis/">K. ATS RESYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/amplitude-and-pitch-tracking/">L. AMPLITUDE AND PITCH TRACKING</a></li>
+ 
+
+ 
+   <li><b>06 SAMPLES</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-record-and-play-soundfiles/">A. RECORD AND PLAY SOUNDFILES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-record-and-play-buffers/">B. RECORD AND PLAY BUFFERS</a></li>
+ 
+
+ 
+   <li><b>07 MIDI</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-receiving-events-by-midiin/">A. RECEIVING EVENTS BY MIDIIN</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-triggering-instrument-instances/">B. TRIGGERING INSTRUMENT INSTANCES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-working-with-controllers/">C. WORKING WITH CONTROLLERS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-reading-midi-files/">D. READING MIDI FILES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-midi-output/">E. MIDI OUTPUT</a></li>
+ 
+
+ 
+   <li><b>08 OTHER COMMUNICATION</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/osc-and-wii/">A. OPEN SOUND CONTROL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-arduino/">B. CSOUND AND ARDUINO</a></li>
+ 
+
+ 
+   <li><b>09 CSOUND IN OTHER APPLICATIONS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-pd/">A. CSOUND IN PD</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-maxmsp/">B. CSOUND IN MAXMSP</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-ableton-live/">C. CSOUND IN ABLETON LIVE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-csound-as-a-vst-plugin/">D. CSOUND AS A VST PLUGIN</a></li>
+ 
+
+ 
+   <li><b>10 CSOUND FRONTENDS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/qutecsound/">CSOUNDQT</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/cecilia/">CABBAGE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/blue/">BLUE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/winxound/">WINXOUND</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-via-terminal/">CSOUND VIA TERMINAL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/web-based-csound/">WEB BASED CSOUND</a></li>
+ 
+
+ 
+   <li><b>11 CSOUND UTILITIES</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-utilities/">CSOUND UTILITIES</a></li>
+ 
+
+ 
+   <li><b>12 CSOUND AND OTHER PROGRAMMING LANGUAGES</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/the-csound-api/">A. THE CSOUND API</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/using-python-inside-csound/">B. PYTHON INSIDE CSOUND</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-python-in-csoundqt/">C. PYTHON IN CSOUNDQT</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-lua-in-csound/">D. LUA IN CSOUND</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-csound-in-ios/">E. CSOUND IN iOS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-csound-on-android/">F. CSOUND ON ANDROID</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-and-haskell/">G. CSOUND AND HASKELL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/h-csound-and-html/">H. CSOUND AND HTML</a></li>
+ 
+
+ 
+   <li><b>13 EXTENDING CSOUND</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/extending-csound/">EXTENDING CSOUND</a></li>
+ 
+
+ 
+   <li><b>OPCODE GUIDE</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/overview/">OVERVIEW</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/signal-processing-i/">SIGNAL PROCESSING I</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/signal-processing-ii/">SIGNAL PROCESSING II</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/data/">DATA</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/realtime-interaction/">REALTIME INTERACTION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/instrument-control/">INSTRUMENT CONTROL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/math-pythonsystem-plugins/">MATHS, PYTHON/SYSTEM, PLUGINS</a></li>
+ 
+
+ 
+   <li><b>APPENDIX</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/writing-csound-scores-by-hand/">METHODS OF WRITING CSOUND SCORES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/glossary/">GLOSSARY</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/links/">LINKS</a></li>
+ 
+
+</ul>
+</div>
+<div id="bookcontent"   >
+<h1>OPCODE GUIDE: INSTRUMENT CONTROL
+</h1>
+<ul>
+  <li>
+  <h2>SCORE PARAMETER ACCESS
+  </h2>
+  <p><a href="http://www.csounds.com/manual/html/p.html"> </a>
+  </p>
+  <p><a href="http://www.csounds.com/manual/html/p.html"><strong>p(x)</strong></a> gets the value of a specified p-field. (So, 'p(5)' and 'p5' both return the value of the fifth parameter in a certain score line, but in the former case you can insert a variable to specify the p-field.
+    <br />
+  </p>
+  <p><a href="http://www.csounds.com/manual/html/pindex.html"><strong>pindex</strong></a> does actually the same, but as an opcode instead of an expression.
+    <br />
+  </p>
+  <p><a href="http://www.csounds.com/manual/html/pset.html"><strong>pset</strong></a> sets p-field values in case there is no value from a scoreline.
+    <br />
+  </p>
+  <p><a href="http://www.csounds.com/manual/html/passign.html"><strong>passign</strong></a> assigns a range of p-fields to i-variables.
+    <br />
+  </p> <a href="http://www.csounds.com/manual/html/pcount.html"><strong>pcount</strong></a> returns the number of p-fields belonging to a note event.
+  <p>
+  </p></li>
+  <li>
+  <h2>TIME AND TEMPO
+  </h2>
+  <ul>
+    <li>
+    <h3>Time Reading
+    </h3>
+    <p><a href="http://www.csounds.com/manual/html/times.html"> </a>
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/times.html"><strong>times</strong></a> / <a href="http://www.csounds.com/manual/html/timek.html"><strong>timek</strong></a> return the time in seconds (times) or in control cycles (timek) since the start of the current Csound performance.
+      <br />
+    </p>
+    <p> <a href="http://www.csounds.com/manual/html/timeinsts.html"><strong>timeinsts</strong></a> / <a href="http://www.csounds.com/manual/html/timeinstk.html"><strong>timeinstk</strong></a> return the time in seconds (timeinsts) or in control cycles (timeinstk) since the start of the instrument in which they are defined.
+      <br />
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/date.html"><strong>date</strong></a> / <a href="http://www.csounds.com/manual/html/dates.html"><strong>dates</strong></a> return the number of seconds since 1 January 1970, using the operating system's clock, either as a number (date) or as a string (dates).
+      <br />
+    </p> <a href="http://www.csounds.com/manual/html/setscorepos.html"><strong>setscorepos</strong></a> sets the playback position of the current score performance to a given position.
+    <p>
+    </p></li>
+    <li>
+    <h3>Tempo Reading
+    </h3>
+    <p><a href="http://www.csounds.com/manual/html/tempo.html"> </a>
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/tempo.html"><strong>tempo</strong></a> allows the performance speed of Csound scored events to be controlled from within an orchestra.
+      <br />
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/miditempo.html"><strong>miditempo</strong></a> returns the current tempo at k-rate, of either the midi file (if available) or the score.
+    </p>
+    <p> <a href="http://www.csounds.com/manual/html/tempoval.html"><strong>tempoval</strong></a> reads the current value of the tempo.
+    </p>
+    <p>
+    </p></li>
+    <li>
+    <h3>Duration Modifications
+    </h3>
+    <p><a href="http://www.csounds.com/manual/html/ihold.html"> </a>
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/ihold.html"><strong>ihold</strong></a> forces a finite-duration note to become a 'held' note.
+      <br />
+    </p>
+    <p>
+    </p> <a href="http://www.csounds.com/manual/html/xtratim.html"><strong>xtratim</strong></a> extend the duration of the current instrument instance by a specified time duration.
+    <p>
+    </p>
+    <p>
+    </p></li>
+    <li>
+    <h3>Time Signal Generators
+    </h3>
+    <p><a href="http://www.csounds.com/manual/html/metro.html"> </a>
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/metro.html"><strong>metro</strong></a> outputs a metronome-like control signal (1 value impulses separated by zeroes). Rate of impulses can be specified as impulses per second
+    </p> <a href="http://www.csounds.com/manual/html/mpulse.html"><strong>mpulse</strong></a> generates an impulse for one sample of user definable amplitude, followed by a user-definable time gap.
+    <p>
+    </p></li>
+  </ul></li>
+</ul>
+<ul>
+  <li>
+  <p id="alexbreak">
+  </p>
+  <h2>CONDITIONS AND LOOPS
+  </h2>
+  <p><a href="http://www.csounds.com/manual/html/changed.html"> </a>
+  </p>
+  <p><a href="http://www.csounds.com/manual/html/changed.html"><strong>changed</strong></a> reports whether any of its k-rate variable inputs has changed.
+  </p>
+  <p><a href="http://www.csounds.com/manual/html/trigger.html"><strong>trigger</strong></a> informs whether a k-rate signal crosses a certain threshold, either in an upward direction, in a downward direction or both.
+    <br />
+  </p>
+  <p><a href="http://www.csounds.com/manual/html/if.html"><strong>if</strong></a> branches conditionally at initialisation or during performance time.
+  </p> <a href="http://www.csounds.com/manual/html/loop_lt.html"><strong>loop_lt</strong></a>, <a href="http://www.csounds.com/manual/html/loop_le.html"><strong>loop_le</strong></a>, <a href="http://www.csounds.com/manual/html/loop_gt.html"><strong>loop_gt</strong></a> and <a href="http://www.csounds.com/manual/html/loop_ge.html"><strong>loop_ge</strong></a> perform loops either at i-time or at k-rate.
+  <p>
+  </p></li>
+</ul>
+<ul>
+  <li>
+  <h2>PROGRAM FLOW
+  </h2>
+  <p><a href="http://www.csounds.com/manual/html/init.html"><strong>init</strong></a> initializes a k- or a-variable (assigns a value to a k- or a-variable which is valid at i-time).
+    <br />
+  </p>
+  <p> <a href="http://www.csounds.com/manual/html/igoto.html"><strong>igoto</strong></a> jumps to a label at i-time.
+    <br />
+  </p>
+  <p><a href="http://www.csounds.com/manual/html/kgoto.html"><strong>kgoto</strong></a> jumps to a label at k-rate.
+    <br />
+  </p>
+  <p><a href="http://www.csounds.com/manual/html/timout.html"><strong>timout</strong></a> jumps to a label for a given time. Can be used in conjunction with <a href="http://www.csounds.com/manual/html/reinit.html">reinit</a> to perform time loops (see the chapter about Control Structures for more information).
+    <br />
+  </p> <a href="http://www.csounds.com/manual/html/reinit.html"><strong>reinit</strong></a> / <a href="http://www.csounds.com/manual/html/rigoto.html"><strong>rigoto</strong></a> / <a href="http://www.csounds.com/manual/html/rireturn.html"><strong>rireturn</strong></a> forces a certain section of code to be reinitialised (i.e. i-rate variables will be refreshed).</li>
+</ul>
+<h4>
+</h4>
+<ul>
+  <li>
+  <h2>EVENT TRIGGERING
+  </h2>
+  <p>
+  </p>
+  <p><strong><a href="http://www.csounds.com/manual/html/event_i.html">event_i</a></strong> / <strong><a href="http://www.csounds.com/manual/html/event.html">event</a></strong>: Generate an instrument event at i-time (event_i) or at k-time (event). Easy to use, but you cannot send a string to the subinstrument.
+  </p>
+  <p><strong><a href="http://www.csounds.com/manual/html/scoreline_i.html">scoreline_i</a></strong> / <strong><a href="http://www.csounds.com/manual/html/scoreline.html">scoreline</a></strong>: Generate an instrument at i-time (scoreline_i) or at k-time (scoreline). Like event_i/event, but you can send to more than one instrument but unlike event_i/event you can send strings. On the other hand, you must usually pre-format your scoreline-string using sprintf.
+  </p>
+  <p><a href="http://www.csounds.com/manual/html/schedkwhen.html"><strong>schedkwhen</strong></a> triggers an instrument event at k-time if a certain condition is given.
+    <br />
+  </p>
+  <p><a href="http://www.csounds.com/manual/html/seqtime.html"><strong>seqtime</strong></a> / <a href="http://www.csounds.com/manual/html/seqtime2.html"><strong>seqtime2</strong></a> can be used to generate a trigger signal according to time values in a function table.
+  </p>
+  <p> <a href="http://www.csounds.com/manual/html/timedseq.html"><strong>timedseq</strong></a> is an event-sequencer in which time can be controlled by a time-pointer. Sequence data is stored in a function table or text file.
+  </p>
+  <p>
+  </p></li>
+</ul>
+<ul>
+  <li>
+  <h2>INSTRUMENT SUPERVISION
+  </h2>
+  <ul>
+    <li>
+    <h3>Instances And Allocation
+    </h3>
+    <p>
+    </p>
+    <p> <a href="http://www.csounds.com/manual/html/active.html"><strong>active</strong></a> returns the number of active instances of an instrument.
+      <br />
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/maxalloc.html"><strong>maxalloc</strong></a> limits the number of allocations (instances) of an instrument.
+      <br />
+    </p> <a href="http://www.csounds.com/manual/html/prealloc.html"><strong>prealloc</strong></a> creates space for instruments but does not run them.
+    <p>
+    </p></li>
+  </ul>
+  <ul>
+    <li>
+    <h3>Turning On And Off
+    </h3>
+    <p>
+    </p>
+    <p> <a href="http://www.csounds.com/manual/html/turnon.html"><strong>turnon</strong></a> activates an instrument for an indefinite time.
+      <br />
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/turnoff.html"><strong>turnoff</strong></a> / <a href="http://www.csounds.com/manual/html/turnoff2.html"><strong>turnoff2</strong></a> enables an instrument to turn itself, or another instrument, off.
+      <br />
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/mute.html"><strong>mute</strong></a> mutes/unmutes new instances of a given instrument.
+      <br />
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/remove.html"><strong>remove</strong></a> removes the definition of an instrument as long as it is not in use.
+      <br />
+    </p> <a href="http://www.csounds.com/manual/html/exitnow.html"><strong>exitnow</strong></a> causes Csound to exit as fast as possible and with no cleaning up.
+    <p>
+    </p></li>
+    <li>
+    <h3>Named Instruments
+    </h3>
+    <p><a href="http://www.csounds.com/manual/html/nstrnum.html"> </a><a href="http://www.csounds.com/manual/html/nstrnum.html"><strong>nstrnum</strong></a> returns the number of a named instrument.
+    </p></li>
+  </ul></li>
+</ul>
+<ul>
+  <li>
+  <h2>SIGNAL EXCHANGE AND MIXING
+  </h2>
+  <ul>
+    <li>
+    <h3>chn opcodes
+    </h3>
+    <p><a href="http://www.csounds.com/manual/html/chn.html"><strong>chn_k</strong></a>, <a href="http://www.csounds.com/manual/html/chn.html"><strong>chn_a</strong></a>, and <a href="http://www.csounds.com/manual/html/chn.html"><strong>chn_S</strong></a> declare a control, audio, or string channel. Note that this can be done implicitly in most cases by chnset/chnget.
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/chnset.html"><strong>chnset</strong></a> writes a value (i, k, S or a) to a software channel (which is identified by a string as its name).
+    </p>
+    <p> <a href="http://www.csounds.com/manual/html/chnget.html"><strong>chnget</strong></a> gets the value of a named software channel.
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/chnmix.html"><strong>chnmix</strong></a> writes audio data to an named audio channel, mixing to the previous output.
+      <br />
+    </p> <a href="http://www.csounds.com/manual/html/chnclear.html"><strong>chnclear</strong></a> clears an audio channel of the named software bus to zero.</li>
+    <li>
+    <h3>zak&nbsp; <a href="http://www.csounds.com/manual/html/chn.html"><strong></strong></a>
+    </h3>
+    <p><strong><a href="http://www.csounds.com/manual/html/zakinit.html">zakinit</a></strong> initialised zak space for the storage of zak variables.
+    </p>
+    <p><strong><a href="http://www.csounds.com/manual/html/zaw.html">zaw</a></strong>, <a href="http://www.csounds.com/manual/html/zkw.html"><strong>zkw</strong></a> and <a href="http://www.csounds.com/manual/html/ziw.html"><strong>ziw</strong></a> write to (or overwrite) a-rate, k-rate or i-rate zak variables respectively.
+    </p>
+    <p><strong><a href="http://www.csounds.com/manual/html/zawm.html">zawm</a></strong>, <strong><a href="http://www.csounds.com/manual/html/zkwm.html">zkwm</a></strong> and <a href="http://www.csounds.com/manual/html/ziw.html"><strong>ziwm</strong></a> mix (accumulate) a-rate, k-rate or i-rate zak variables respectively.
+      <br />
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/zar.html"><strong>zar</strong></a>, <a href="zkr"><strong>zkr</strong></a> and <a href="http://www.csounds.com/manual/html/zir.html"><strong>zir</strong></a> read from a-rate, k-rate or i-rate zak variables respectively.
+      <br />
+    </p>
+    <p><a href="http://www.csounds.com/manual/html/zacl.html"><strong>zacl</strong></a> and <a href="http://www.csounds.com/manual/html/zkcl.html"><strong>zkcl</strong></a> clears a range of a-rate or k-rate zak variables respectively.
+      <br />
+    </p></li>
+  </ul></li>
+</ul>
+   <hr/>
+    <a href="/csound/_edit/">EDIT</a>
+
+</div>
+
+<script type="text/javascript">
+jQuery(function ($) {
+    $('#bookcontent').annotator()
+   		.annotator('setupPlugins', {}, {
+                Tags: false,
+                Filter: {
+                  addAnnotationFilter: false
+                },
+                Permissions: false,
+                AnnotateItPermissions: {}
+              });
+});
+</script>
+
+
+
+</div>
+<!-- End of content -->
+
+</div>  
+<!-- DEV TOOLS -->
+<div id="bookidebug">
+</div>
+
+<!-- sputnik error page -->
+<div id="dialog-sputnik-qrac" style="display: none"></div>
+</body>
+</html>
+

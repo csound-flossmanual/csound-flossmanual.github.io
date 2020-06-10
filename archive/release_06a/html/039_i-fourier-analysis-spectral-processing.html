@@ -1,0 +1,856 @@
+
+<!DOCTYPE HTML>
+<html>
+ <head>
+   
+
+<link type="text/css" href="/site_static/css/booki.css" rel="Stylesheet" >
+<link type="text/css" href="/site_static/js/jquery/themes/base/jquery.ui.all.css" rel="Stylesheet" >
+<link type="text/css" href="/site_static/js/jquery/themes/smoothness/jquery.ui.all.css" rel="Stylesheet" >
+<script type="text/javascript" src="/site_static/js/jquery/jquery-1.4.4.js"></script>
+<script type="text/javascript" src="/site_static/js/jquery/ui/jquery-ui-1.8.10.custom.js"></script>
+<script type="text/javascript" src="/site_static/js/jquery.json-1.3.js"></script>
+<script type="text/javascript" src="/site_static/js/booki.js"></script>
+<script src="/site_static/js/messaging.js" type="text/javascript"></script>   
+<script type="text/javascript" src="/site_static/js/general.js"></script>
+<link href="/site_static/css/jquery.bubblepopup.v2.3.1.css" rel="stylesheet" type="text/css" />
+<link type="text/css" href="/site_static/css/jquery-ui_overrides.css" rel="Stylesheet" >
+<script src="/site_static/js/jquery.bubblepopup.v2.3.1.min.js" type="text/javascript"></script>
+
+<link rel="SHORTCUT ICON" href="http://write.flossmanuals.net/site_static/images/favicon.ico" type="image/x-icon">
+
+
+<script type="text/javascript">
+  $(function() {
+      $.booki.sputnikDispatcherURL = "/_sputnik/";
+
+      $("#dialog-sputnik-error").dialog({
+          modal: true,
+          autoOpen: false,
+          buttons: {
+            Ok: function() {
+               $(this).dialog('close');
+               window.location = '.';
+            }
+          }
+      });
+  
+      $("FORM.messagefield").messagefield('init', {'view_post': '/messaging/post' });  
+  });
+</script>
+
+
+   
+ <title>/chapter: I-Fourier-Analysis-Spectral-Processing / CSOUND</title>
+ <link type="text/css" href="/site_static/css/draft.css" rel="Stylesheet" />
+
+ <link rel="alternate" type="application/rss+xml" title="RSS feed for CSOUND" href="/feeds/rss/book/csound/" /> 
+ <link rel="alternate" type="application/atom+xml" title="Atom feed for CSOUND" href="/feeds/atom/book/csound/" /> 
+
+ <link rel="alternate" type="application/rss+xml" title="RSS feed for chapter I. FOURIER ANALYSIS / SPECTRAL PROCESSING" href="/feeds/rss/chapter/csound/csound/" /> 
+ <link rel="alternate" type="application/atom+xml" title="Atom feed for chapter I. FOURIER ANALYSIS / SPECTRAL PROCESSING" href="/feeds/atom/chapter/csound/csound/" /> 
+ 
+ <script type="text/javascript" src="/site_static/js/draft.js"></script>
+
+
+   <link type="text/css" href="/static/css/_user.css" rel="Stylesheet" >
+ </head>
+<body>
+
+<div class="topbar"> 
+  <div class="logo"><a href="http://write.flossmanuals.net/"></a></div>
+
+  <div class="meta-bar">
+    
+    <ul>
+      <li>
+        <a href="/accounts/signin/?redirect=/csound/_draft/_v/1.0/i-fourier-analysis-spectral-processing/">Sign In / Create Account</a>
+      </li>
+    </ul>
+    
+    <div style="padding-top: 10px; padding-right: 15px;">
+      <br/>
+      
+
+<script>
+  $(function() {
+    var $frm = $("FORM[name=changelang]");
+	
+    $("A[href=#]", $frm).click(function() {
+        var lang = $(this).attr("class").substr(4);
+	
+        $("INPUT[name=language]", $frm).val(lang);
+        $frm.submit();
+	
+        return false;
+    });
+  });
+ </script>
+
+<form name="changelang" method="POST" action="/accounts/i18n/setlang/?language=en-us">
+  <input type="hidden" name="language" value="en-us">
+  
+    &nbsp;English&nbsp;|
+  
+  
+  
+    &nbsp;<a class="langes" href="#">Español</a>&nbsp;|
+  
+
+  
+    &nbsp;<a class="langfr" href="#">Français</a>&nbsp;|
+  
+	
+  
+    &nbsp;<a class="langit" href="#">Italiano</a>&nbsp;|
+  
+	
+  
+    &nbsp;<a class="langpt" href="#">Português</a>&nbsp;|
+  
+	
+  
+    &nbsp;<a class="langru" href="#">Русский</a>&nbsp;|
+  
+	
+  
+    &nbsp;<a class="langsq" href="#">Shqip</a>
+  	
+</form>
+
+    </div>
+    
+    
+  </div><!-- End of .meta-bar -->
+</div><!-- End top bar -->
+
+<div class="menubar shadow">
+  
+  
+  <div class="navbox">
+    <ul>
+      <li><a href="/list-books/">Books</a></li>
+      <li><a href="/list-groups/">Groups</a></li>
+      <li><a href="/list-people/">People</a></li>
+    </ul>      
+  </div><!-- End of .navbox -->       
+</div>
+
+<div class="content-container">
+  <div class="content shadow">
+    <!-- Content box and the drop shadow-->
+    
+
+<h2>CSOUND</h2>
+<div class="padded">
+ <div id="bookmenu" style="background: url(/site_static/images/draft_bg.png) repeat !important;"> 
+  <ul>
+   
+    
+      <li><b>INTRODUCTION</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/preface/">PREFACE</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/how-to-use-this-manual/">HOW TO USE THIS MANUAL</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/on-this-release/">ON THIS RELEASE</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/credits/">CREDITS</a></li>
+    
+   
+    
+      <li><b>01 BASICS</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-digital-audio/">A. DIGITAL AUDIO</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-pitch-and-frequency/">B. PITCH AND FREQUENCY</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-intensities/">C. INTENSITIES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-random/">D. RANDOM</a></li>
+    
+   
+    
+      <li><b>02 QUICK START</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-make-csound-run/">A. MAKE CSOUND RUN</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-csound-syntax/">B. CSOUND SYNTAX</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-configuring-midi/">C. CONFIGURING MIDI</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-live-audio/">D. LIVE AUDIO</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-rendering-to-file/">E. RENDERING TO FILE</a></li>
+    
+   
+    
+      <li><b>03 CSOUND LANGUAGE</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-initialization-and-performance-pass/">A. INITIALIZATION AND PERFORMANCE PASS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-local-and-global-variables/">B. LOCAL AND GLOBAL VARIABLES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-control-structures/">C. CONTROL STRUCTURES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-function-tables/">D. FUNCTION TABLES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-arrays/">E. ARRAYS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/f-live-events/">F. LIVE EVENTS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/g-user-defined-opcodes/">G. USER DEFINED OPCODES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/h-macros/">H. MACROS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/i-functional-syntax/">I. FUNCTIONAL SYNTAX</a></li>
+    
+   
+    
+      <li><b>04 SOUND SYNTHESIS</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-additive-synthesis/">A. ADDITIVE SYNTHESIS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-subtractive-synthesis/">B. SUBTRACTIVE SYNTHESIS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-amplitude-and-ring-modulation/">C. AMPLITUDE AND RING MODULATION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-frequency-modulation/">D. FREQUENCY MODULATION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-waveshaping/">E. WAVESHAPING</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/f-granular-synthesis/">F. GRANULAR SYNTHESIS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/g-physical-modelling/">G. PHYSICAL MODELLING</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/h-scanned-synthesis/">H. SCANNED SYNTHESIS</a></li>
+    
+   
+    
+      <li><b>05 SOUND MODIFICATION</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-envelopes/">A. ENVELOPES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-panning-and-spatialization/">B. PANNING AND SPATIALIZATION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-filters/">C. FILTERS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-delay-and-feedback/">D. DELAY AND FEEDBACK</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-reverberation/">E. REVERBERATION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/f-am-rm-waveshaping/">F. AM / RM / WAVESHAPING</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/g-granular-synthesis/">G. GRANULAR SYNTHESIS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/h-convolution/">H. CONVOLUTION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/i-fourier-analysis-spectral-processing/">I. FOURIER ANALYSIS / SPECTRAL PROCESSING</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/k-ats-resynthesis/">K. ATS RESYNTHESIS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/l-amplitude-and-pitch-tracking/">L. AMPLITUDE AND PITCH TRACKING</a></li>
+    
+   
+    
+      <li><b>06 SAMPLES</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-record-and-play-soundfiles/">A. RECORD AND PLAY SOUNDFILES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-record-and-play-buffers/">B. RECORD AND PLAY BUFFERS</a></li>
+    
+   
+    
+      <li><b>07 MIDI</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-receiving-events-by-midiin/">A. RECEIVING EVENTS BY MIDIIN</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-triggering-instrument-instances/">B. TRIGGERING INSTRUMENT INSTANCES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-working-with-controllers/">C. WORKING WITH CONTROLLERS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-reading-midi-files/">D. READING MIDI FILES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-midi-output/">E. MIDI OUTPUT</a></li>
+    
+   
+    
+      <li><b>08 OTHER COMMUNICATION</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-open-sound-control/">A. OPEN SOUND CONTROL</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-csound-and-arduino/">B. CSOUND AND ARDUINO</a></li>
+    
+   
+    
+      <li><b>09 CSOUND IN OTHER APPLICATIONS</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-csound-in-pd/">A. CSOUND IN PD</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-csound-in-maxmsp/">B. CSOUND IN MAXMSP</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-csound-in-ableton-live/">C. CSOUND IN ABLETON LIVE</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-csound-as-a-vst-plugin/">D. CSOUND AS A VST PLUGIN</a></li>
+    
+   
+    
+      <li><b>10 CSOUND FRONTENDS</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/csoundqt/">CSOUNDQT</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/cabbage/">CABBAGE</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/blue/">BLUE</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/winxound/">WINXOUND</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/csound-via-terminal/">CSOUND VIA TERMINAL</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/web-based-csound/">WEB BASED CSOUND</a></li>
+    
+   
+    
+      <li><b>11 CSOUND UTILITIES</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/csound-utilities/">CSOUND UTILITIES</a></li>
+    
+   
+    
+      <li><b>12 CSOUND AND OTHER PROGRAMMING LANGUAGES</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/a-the-csound-api/">A. THE CSOUND API</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/b-python-inside-csound/">B. PYTHON INSIDE CSOUND</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/c-python-in-csoundqt/">C. PYTHON IN CSOUNDQT</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/d-lua-in-csound/">D. LUA IN CSOUND</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/e-csound-in-ios/">E. CSOUND IN iOS</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/f-csound-on-android/">F. CSOUND ON ANDROID</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/g-csound-and-haskell/">G. CSOUND AND HASKELL</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/h-csound-and-html/">H. CSOUND AND HTML</a></li>
+    
+   
+    
+      <li><b>13 EXTENDING CSOUND</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/extending-csound/">EXTENDING CSOUND</a></li>
+    
+   
+    
+      <li><b>OPCODE GUIDE</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/overview/">OVERVIEW</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/signal-processing-i/">SIGNAL PROCESSING I</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/signal-processing-ii/">SIGNAL PROCESSING II</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/data/">DATA</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/realtime-interaction/">REALTIME INTERACTION</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/instrument-control/">INSTRUMENT CONTROL</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/maths-pythonsystem-plugins/">MATHS, PYTHON/SYSTEM, PLUGINS</a></li>
+    
+   
+    
+      <li><b>APPENDIX</b></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/methods-of-writing-csound-scores/">METHODS OF WRITING CSOUND SCORES</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/glossary/">GLOSSARY</a></li>
+    
+   
+    
+      <li><a href="/csound/_draft/_v/1.0/links/">LINKS</a></li>
+    
+   
+  </ul>
+ </div>
+ <div id="bookcontent"   style="background: url(/site_static/images/draft_bg.png) repeat !important;">
+   
+
+  <p>Csound: FOURIERSPECTRAL</p>
+<h1>FOURIER TRANSFORMATION / SPECTRAL PROCESSING</h1>
+<p>A Fourier Transformation (FT) is used to transfer an audio-signal from the time-domain to the frequency-domain. This can, for instance, be used to analyze and visualize the spectrum of the signal appearing in a certain time span. Fourier transform and subsequent manipulations in the frequency domain open a wide area of interesting sound transformations, like time stretching, pitch shifting and much more.</p>
+<h2><strong>How does it work?</strong></h2>
+<p>The mathematician J.B. Fourier (1768-1830) developed a method to approximate unknown functions by using trigonometric functions. The advantage of this was that the properties of the trigonometric functions (sin &amp; cos) were well-known and helped to describe the properties of the unknown function.</p>
+<p>In audio DSP, a fourier transformed signal is decomposed into its sum of sinoids. Put simply, Fourier transform is the opposite of additive synthesis. Ideally, a sound can be dissected by Fourier transformation into its partial components, and resynthesized again by adding these components back together again.</p>
+<p>On account of the fact that sound is represented as discrete samples in the computer, the computer implementation of the FT calculates a discrete Fourier transform (DFT). As each transformation needs a certain number of samples, one key decision in performing DFT is about the number of samples used. The analysis of the frequency components will be more accurate if more samples are used, but as samples represent a progression of time, a caveat must be found for each FT between either better time resolution (fewer samples) or better frequency resolution (more samples). A typical value for FT in music is to have about 20-100 "snapshots" per second (which can be compared to the single frames in a film or video).</p>
+<p>At a sample rate of 48000 samples per second, these are about 500-2500 samples for one frame or window. It is normal in DFT in computer music to use window sizes which are a power-of-two in size, such as 512, 1024 or 2048 samples. The reason for this restriction is that DFT for these power-of-two sized frames can be calculated much faster. This is called Fast Fourier Transform (FFT), and this is the standard implementation of the Fourier transform in audio applications.</p>
+<h2><strong>How is FFT done in Csound?</strong></h2>
+<p>As usual, there is not just one way to work with FFT and spectral processing in Csound. There are several families of opcodes. Each family can be very useful for a specific approach to working in the frequency domain. Have a look at the <a href="http://www.csounds.com/manual/html/SpectralTop.html">Spectral Processing</a> overview in the Csound Manual. This introduction will focus on the so-called "Phase Vocoder Streaming" opcodes. All of these opcodes begin with the charcters "pvs". These opcodes became part of Csound through the work of Richard Dobson, Victor Lazzarini and others. They are designed to work in realtime in the frequency domain in Csound and indeed they are not just very fast but also easier to use than FFT implementations in many other applications.</p>
+<p id="alexbreak">&nbsp;</p>
+<h2>Changing from Time-domain to Frequency-domain</h2>
+<p>For dealing with signals in the frequency domain, the pvs opcodes implement a new signal type, the <strong>f-signals</strong>. Csound shows the type of a variable in the first letter of its name. Each audio signal starts with an <strong>a</strong>, each control signal with a <strong>k</strong>, and so each signal in the frequency domain used by the pvs-opcodes starts with an <strong>f</strong>.</p>
+<p>There are several ways to create an f-signal. The most common way is to convert an audio signal to a frequency signal. The first example covers two typical situations:</p>
+<ul>
+<li>the audio signal derives from playing back a soundfile from the hard disc (instr 1)</li>
+<li>the audio signal is the live input (instr 2)</li>
+</ul>
+<p>(Caution - this example can quickly start feeding back. Best results are with headphones.)</p>
+<p><em><strong>EXAMPLE 05I01_pvsanal.csd</strong></em> <span id="InsertNoteID_8_marker9" class="InsertNoteMarker"><sup><a href="i-fourier-analysis-spectral-processing#InsertNoteID_8">1</a></sup></span>&nbsp;</p>
+<pre>&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+-i adc -o dac
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+;Example by Joachim Heintz
+;uses the file "fox.wav" (distributed with the Csound Manual)
+sr = 44100
+ksmps = 32
+nchnls = 2
+0dbfs = 1
+
+;general values for fourier transform
+gifftsiz  =         1024
+gioverlap =         256
+giwintyp  =         1 ;von hann window
+
+instr 1 ;soundfile to fsig
+asig      soundin   "fox.wav"
+fsig      pvsanal   asig, gifftsiz, gioverlap, gifftsiz*2, giwintyp
+aback     pvsynth   fsig
+          outs      aback, aback
+endin
+
+instr 2 ;live input to fsig
+          prints    "LIVE INPUT NOW!%n"
+ain       inch      1 ;live input from channel 1
+fsig      pvsanal   ain, gifftsiz, gioverlap, gifftsiz, giwintyp
+alisten   pvsynth   fsig
+          outs      alisten, alisten
+endin
+
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+i 1 0 3
+i 2 3 10
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;&nbsp;</pre>
+<p>You should hear first the "fox.wav" sample, and then, the slightly delayed live input signal. The delay (or latency) that you will observe will depend first of all on the general settings for realtime input (ksmps, -b and -B: see chapter 2D), but it will also be added to by the FFT process. The window size here is 1024 samples, so the additional delay is 1024/44100 = 0.023 seconds. If you change the window size <em>gifftsiz </em>to 2048 or to 512 samples, you should notice a larger or shorter delay. For realtime applications, the decision about the FFT size is not only a question of better time resolution versus better frequency resolution, but it will also be a question concerning tolerable latency.</p>
+<p>What happens in the example above? Firstly, the audio signal (<em>asig, ain</em>) is being analyzed and transformed to an f-signal. This is done via the opcode <a href="http://www.csounds.com/manual/html/pvsanal.html">pvsanal</a>. Then nothing more happens than the f-signal being transformed from the frequency domain signal back into the time domain (an audio signal). This is called inverse Fourier transformation (IFT or IFFT) and is carried out by the opcode <a href="http://www.csounds.com/manual/html/pvsynth.html">pvsynth</a>.<span id="InsertNoteID_18_marker19" class="InsertNoteMarker"><sup><a href="i-fourier-analysis-spectral-processing#InsertNoteID_18">2</a></sup></span>&nbsp; In this case, it is just a test: to see if everything works, to hear the results of different window sizes and to check the latency, but potentially you can insert any other pvs opcode(s) in between this analysis and resynthesis:</p>
+<p>&nbsp;</p>
+<p><img src="static/04ISchema_1.png" alt="" width="600" height="104" /></p>
+<p>&nbsp;</p>
+<h2>Pitch shifting</h2>
+<p>Simple pitch shifting can be carried out by the opcode <a href="http://www.csounds.com/manual/html/pvscale.html">pvscale</a>. All the frequency data in the f-signal are scaled by a certain value. Multiplying by 2 results in transposing by an octave upwards; multiplying by 0.5 in transposing by an octave downwards. For accepting cent values instead of ratios as input, the <a href="http://www.csounds.com/manual/html/cent.html">cent</a> opcode can be used.</p>
+<p><em><strong>EXAMPLE 05I02_pvscale.csd</strong></em></p>
+<pre>&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+-odac
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+;example by joachim heintz
+sr = 44100
+ksmps = 32
+nchnls = 1
+0dbfs = 1
+
+gifftsize =         1024
+gioverlap =         gifftsize / 4
+giwinsize =         gifftsize
+giwinshape =        1; von-Hann window
+
+instr 1 ;scaling by a factor
+ain       soundin  "fox.wav"
+fftin     pvsanal  ain, gifftsize, gioverlap, giwinsize, giwinshape
+fftscal   pvscale  fftin, p4
+aout      pvsynth  fftscal
+          out      aout
+endin
+
+instr 2 ;scaling by a cent value
+ain       soundin  "fox.wav"
+fftin     pvsanal  ain, gifftsize, gioverlap, giwinsize, giwinshape
+fftscal   pvscale  fftin, cent(p4)
+aout      pvsynth  fftscal
+          out      aout/3
+endin
+
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+i 1 0 3 1; original pitch
+i 1 3 3 .5; octave lower
+i 1 6 3 2 ;octave higher
+i 2 9 3 0
+i 2 9 3 400 ;major third
+i 2 9 3 700 ;fifth
+e
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+</pre>
+<p>Pitch shifting via FFT resynthesis is very simple in general, but rather more complicated in detail. With speech for instance, there is a problem because of the formants. If you simply scale the frequencies, the formants are shifted, too, and the sound gets the typical 'helium voice' effect. There are some parameters in the <em>pvscale</em> opcode, and some other pvs-opcodes which can help to avoid this, but the quality of the results will always depend to an extend upon the nature of the input sound.</p>
+<h2>Time-stretch/compress</h2>
+<p>As the Fourier transformation separates the spectral information from its progression in time, both elements can be varied independently. Pitch shifting via the <em>pvscale</em> opcode, as in the previous example, is independent of the speed of reading the audio data. The complement is changing the time without changing the pitch: time-stretching or time-compression.</p>
+<p>The simplest way to alter the speed of a sampled sound is using <a href="http://www.csounds.com/manual/html/pvstanal.html">pvstanal</a> (new in Csound 5.13). This opcode transforms a sound stored in a function table (transformation to an f-signal is carried out internally by the opcode) with time manipulations simply being done by altering its <em>ktimescal</em> parameter.</p>
+<p><em><strong>EXAMPLE 05I03_pvstanal.csd</strong></em></p>
+<pre>&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+-odac
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+;example by joachim heintz
+sr = 44100
+ksmps = 32
+nchnls = 1
+0dbfs = 1
+
+;store the sample "fox.wav" in a function table (buffer)
+gifil     ftgen     0, 0, 0, 1, "fox.wav", 0, 0, 1
+
+;general values for the pvstanal opcode
+giamp     =         1 ;amplitude scaling
+gipitch   =         1 ;pitch scaling
+gidet     =         0 ;onset detection
+giwrap    =         0 ;no loop reading
+giskip    =         0 ;start at the beginning
+gifftsiz  =         1024 ;fft size
+giovlp    =         gifftsiz/8 ;overlap size
+githresh  =         0 ;threshold
+
+instr 1 ;simple time stretching / compressing
+fsig      pvstanal  p4, giamp, gipitch, gifil, gidet, giwrap, giskip,
+                    gifftsiz, giovlp, githresh
+aout      pvsynth   fsig
+          out       aout
+endin
+
+instr 2 ;automatic scratching
+kspeed    randi     2, 2, 2 ;speed randomly between -2 and 2
+kpitch    randi     p4, 2, 2 ;pitch between 2 octaves lower or higher
+fsig      pvstanal  kspeed, 1, octave(kpitch), gifil
+aout      pvsynth   fsig
+aenv      linen     aout, .003, p3, .1
+          out       aenv
+endin
+
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+;         speed
+i 1 0 3   1
+i . + 10   .33
+i . + 2   3
+s
+i 2 0 10 0;random scratching without ...
+i . 11 10 2 ;... and with pitch changes
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+</pre>
+<p id="alexbreak">&nbsp;</p>
+<h2>Cross Synthesis&nbsp;</h2>
+<p>Working in the frequency domain makes it possible to combine or 'cross' the spectra of two sounds. As the Fourier transform of an analysis frame results in a frequency and an amplitude value for each frequency 'bin', there are many different ways of performing cross synthesis. The most common methods are:</p>
+<ul>
+<li>Combine the amplitudes of sound A with the frequencies of sound B. This is the classical phase vocoder approach. If the frequencies are not completely from sound B, but represent an interpolation between A and B, the cross synthesis is more flexible and adjustable. This is what <a href="http://www.csounds.com/manual/html/pvsvoc.html">pvsvoc</a> does.&nbsp;</li>
+<li>Combine the frequencies of sound A with the amplitudes of sound B. Give user flexibility by scaling the amplitudes between A and B: <a href="http://www.csounds.com/manual/html/pvscross.html">pvscross</a>.</li>
+<li>Get the frequencies from sound A. Multiply the amplitudes of A and B. This can be described as spectral filtering. <a href="http://www.csounds.com/manual/html/pvsfilter.html">pvsfilter</a> gives a flexible portion of this filtering effect.</li>
+</ul>
+<p>This is an example of phase vocoding. It is nice to have speech as sound A, and a rich sound, like classical music, as sound B. Here the "fox" sample is being played at half speed and 'sings' through the music of sound B:&nbsp;</p>
+<p><em><strong>EXAMPLE 05I04_phase_vocoder.csd</strong></em></p>
+<pre><em><strong></strong></em>&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+-odac
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+;example by joachim heintz
+sr = 44100
+ksmps = 32
+nchnls = 1
+0dbfs = 1
+
+;store the samples in function tables (buffers)
+gifilA    ftgen     0, 0, 0, 1, "fox.wav", 0, 0, 1
+gifilB    ftgen     0, 0, 0, 1, "ClassGuit.wav", 0, 0, 1
+
+
+;general values for the pvstanal opcode
+giamp     =         1 ;amplitude scaling
+gipitch   =         1 ;pitch scaling
+gidet     =         0 ;onset detection
+giwrap    =         1 ;loop reading
+giskip    =         0 ;start at the beginning
+gifftsiz  =         1024 ;fft size
+giovlp    =         gifftsiz/8 ;overlap size
+githresh  =         0 ;threshold
+
+instr 1
+;read "fox.wav" in half speed and cross with classical guitar sample
+fsigA     pvstanal  .5, giamp, gipitch, gifilA, gidet, giwrap, giskip,\
+                     gifftsiz, giovlp, githresh
+fsigB     pvstanal  1, giamp, gipitch, gifilB, gidet, giwrap, giskip,\
+                     gifftsiz, giovlp, githresh
+fvoc      pvsvoc    fsigA, fsigB, 1, 1	
+aout      pvsynth   fvoc
+aenv      linen     aout, .1, p3, .5
+          out       aenv
+endin
+
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+i 1 0 11
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+</pre>
+<p id="alexbreak">&nbsp;</p>
+<p>The next example introduces <em>pvscross</em>:</p>
+<p><em><strong>EXAMPLE 05I05_pvscross.csd</strong></em></p>
+<pre>&lt;CsoundSynthesizer&gt;
+&lt;CsOptions&gt;
+-odac
+&lt;/CsOptions&gt;
+&lt;CsInstruments&gt;
+;example by joachim heintz
+sr = 44100
+ksmps = 32
+nchnls = 1
+0dbfs = 1
+
+;store the samples in function tables (buffers)
+gifilA    ftgen     0, 0, 0, 1, "BratscheMono.wav", 0, 0, 1
+gifilB    ftgen     0, 0, 0, 1, "fox.wav", 0, 0, 1
+
+;general values for the pvstanal opcode
+giamp     =         1 ;amplitude scaling
+gipitch   =         1 ;pitch scaling
+gidet     =         0 ;onset detection
+giwrap    =         1 ;loop reading
+giskip    =         0 ;start at the beginning
+gifftsiz  =         1024 ;fft size
+giovlp    =         gifftsiz/8 ;overlap size
+githresh  =         0 ;threshold
+
+instr 1
+;cross viola with "fox.wav" in half speed
+fsigA     pvstanal  1, giamp, gipitch, gifilA, gidet, giwrap, giskip,\
+                    gifftsiz, giovlp, githresh
+fsigB     pvstanal  .5, giamp, gipitch, gifilB, gidet, giwrap, giskip,\
+                     gifftsiz, giovlp, githresh
+fcross    pvscross  fsigA, fsigB, 0, 1	
+aout      pvsynth   fcross
+aenv      linen     aout, .1, p3, .5
+          out       aenv
+endin
+
+&lt;/CsInstruments&gt;
+&lt;CsScore&gt;
+i 1 0 11
+&lt;/CsScore&gt;
+&lt;/CsoundSynthesizer&gt;
+</pre>
+<p>The last example shows spectral filtering via <em>pvsfilter</em>. The well-known "fox" (sound A) is now filtered by the viola (sound B). Its resulting intensity is dependent upon the amplitudes of sound B, and if the amplitudes are strong enough, you will hear a resonating effect:</p>
+<p><em><strong>EXAMPLE 05I06_pvsfilter.csd</strong></em></p>
+<pre><em><strong></strong></em>&lt;CsoundSynthesizer&gt;<br />&lt;CsOptions&gt;<br />-odac<br />&lt;/CsOptions&gt;<br />&lt;CsInstruments&gt;<br />;example by joachim heintz<br />sr = 44100<br />ksmps = 32<br />nchnls = 1<br />0dbfs = 1<br /><br />;store the samples in function tables (buffers)<br />gifilA&nbsp;&nbsp;&nbsp; ftgen&nbsp;&nbsp;&nbsp;&nbsp; 0, 0, 0, 1, "fox.wav", 0, 0, 1<br />gifilB&nbsp;&nbsp;&nbsp; ftgen&nbsp;&nbsp;&nbsp;&nbsp; 0, 0, 0, 1, "BratscheMono.wav", 0, 0, 1<br /><br />;general values for the pvstanal opcode<br />giamp&nbsp;&nbsp;&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 ;amplitude scaling<br />gipitch&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 ;pitch scaling<br />gidet&nbsp;&nbsp;&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0 ;onset detection<br />giwrap&nbsp;&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 ;loop reading<br />giskip&nbsp;&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0 ;start at the beginning<br />gifftsiz&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1024 ;fft size<br />giovlp&nbsp;&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gifftsiz/4 ;overlap size<br />githresh&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0 ;threshold<br /><br />instr 1<br />;filters "fox.wav" (half speed) by the spectrum of the viola (double speed)<br />fsigA&nbsp;&nbsp;&nbsp;&nbsp; pvstanal&nbsp; .5, giamp, gipitch, gifilA, gidet, giwrap, giskip,\<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gifftsiz, giovlp, githresh<br />fsigB&nbsp;&nbsp;&nbsp;&nbsp; pvstanal&nbsp; 2, 5, gipitch, gifilB, gidet, giwrap, giskip,\<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gifftsiz, giovlp, githresh<br />ffilt&nbsp;&nbsp;&nbsp;&nbsp; pvsfilter fsigA, fsigB, 1&nbsp;&nbsp; &nbsp;<br />aout&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pvsynth&nbsp;&nbsp; ffilt<br />aenv&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; linen&nbsp;&nbsp;&nbsp;&nbsp; aout, .1, p3, .5<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; out&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; aenv<br />endin<br /><br />&lt;/CsInstruments&gt;<br />&lt;CsScore&gt;<br />i 1 0 11<br />&lt;/CsScore&gt;<br />&lt;/CsoundSynthesizer&gt;</pre>
+<p>There are many more tools and opcodes for transforming FFT signals in Csound. Have a look at the <em>Signal Processing II </em>section of the <em>Opcodes Overview</em> for some hints.</p>
+<ol id="InsertNote_NoteList">
+<li id="InsertNoteID_8">All soundfiles used in this manual are free and can be downloaded at www.csound-tutorial.net<span id="InsertNoteID_8_LinkBacks"><sup><a href="i-fourier-analysis-spectral-processing#InsertNoteID_8_marker9">^</a></sup></span></li>
+<li id="InsertNoteID_18">In some cases it might be interesting to use pvsadsyn instead of pvsynth. It employs a bank of oscillators for resynthesis, the details of which can be controlled by the user.<span id="InsertNoteID_18_LinkBacks"><sup><a href="i-fourier-analysis-spectral-processing#InsertNoteID_18_marker19">^</a></sup></span></li>
+</ol>
+   
+  </div>
+ </div>
+
+
+  </div>
+</div>
+<!-- End of content -->
+
+
+
+<!-- sputnik error page -->
+<div id="dialog-sputnik-qrac" style="display: none"></div>
+<div id="dialog-sputnik-error" title="Can't communicate with booktype">
+  <p>
+    <span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
+    There has been error in communication with Booktype server.
+    Not sure right now where is the problem.
+  </p>
+  <p>
+    You should refresh this page.
+  </p>
+</div>
+
+
+<ul class="strings template">
+ <li class="ok">OK</li>
+ <li class="back">Back</li>
+ <li class="create">Create</li>
+ <li class="cancel">Cancel</li>
+ <li class="next">Next</li>
+ <li class="import">Import</li>
+ <li class="savechanges">Save changes</li>
+ <li class="errorcreategroup">Couldn't create a group!</li>
+ <li class="msgepub">enter epub URL</li>
+ <li class="msgarchive">enter Archive.org ID</li>
+ <li class="msgwiki">enter Wikibooks URL</li>
+ <li class="msgbooktype">enter Booktype URL</li>
+ <li class="deletebook">Delete book</li>
+</ul>
+
+</body>
+</html>
+

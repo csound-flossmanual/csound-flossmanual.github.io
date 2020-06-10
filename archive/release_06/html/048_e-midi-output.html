@@ -1,0 +1,951 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html>
+ <head>
+   <link type="text/css" href="http://www.flossmanuals.net/_templates/prettify/src/prettify.css" rel="Stylesheet" />
+   <script type="text/javascript" src="http://www.flossmanuals.net/_templates/prettify/src/prettify.js"></script>
+
+   <link type="text/css" href="/site_static/js/jquery/themes/base/jquery.ui.all.css" rel="Stylesheet" >
+   <link type="text/css" href="/site_static/js/jquery/themes/smoothness/jquery.ui.all.css" rel="Stylesheet" >
+   <script type="text/javascript" src="/static/js/jquery-1.7.js"></script>
+<!--
+   <script type="text/javascript" src="/site_static/js/jquery/jquery-1.4.4.js"></script>
+-->   
+<script type="text/javascript" src="/site_static/js/jquery/ui/jquery-ui-1.8.10.custom.js"></script>
+   <script type="text/javascript" src="/site_static/js/jquery.json-1.3.js"></script>
+   <script type="text/javascript" src="/site_static/js/booki.js"></script>
+
+   <link href="/site_static/css/jquery.bubblepopup.v2.3.1.css" rel="stylesheet" type="text/css" />
+   <script src="/site_static/js/jquery.bubblepopup.v2.3.1.min.js" type="text/javascript"></script>
+
+   <link type="text/css" href="/static/css/booki_fm.css" rel="Stylesheet"/ >
+<style>
+.template {
+	display: none !important;
+}
+
+
+#header {
+    background-color: transparent !important;
+}
+.paginator { padding:.5em .75em; float:left; font:normal .8em arial; }
+ 
+.paginator .prev-na,
+.paginator .next-na {
+	padding:.3em;
+	font-weight: bold;
+/*	font:bold .875em arial; */
+}
+ 
+.paginator .prev-na,
+.paginator .next-na {
+/*	border:1px solid #ccc; 
+	background-color:#f9f9f9; */
+	color:#aaa;
+	font-weight:normal;
+}
+ 
+.paginator .prev a, .paginator .prev a:visited,
+.paginator .next a, .paginator .next a:visited {
+/*	border:1px solid #c2ee62; 
+	background-color:#edfdd0; */
+	color:#234f32;
+	padding:.3em;
+/*	font:bold .875em arial; */
+        font-weight: bold;
+}
+ 
+.paginator .prev, .paginator .prev-na { margin-right:.5em; }
+.paginator .next, .paginator .next-na { margin-left:.5em; }
+ 
+.paginator .page a, .paginator .page a:visited, .paginator .curr {
+	padding:.25em;
+	font-weight: normal;
+/*	font:normal .875em verdana; */
+/*	border:1px solid #C2EE62; 
+	background-color:#EDFDD0; */
+	margin:0em .25em;	
+	color:#006000;
+}
+ 
+.paginator .curr { 
+/*	background-color:#234f32; 
+	color:#fff; */
+	border:1px solid #234f32; 
+	font-weight:bold;
+	font-size:1em;
+}
+ 
+.paginator .page a:hover,
+.paginator .curr a:hover,
+.paginator .prev a:hover,
+.paginator .next a:hover {
+/*	color:#fff;
+	background-color:#234f32;
+	border:1px solid #234f32; */
+}
+</style>
+ <script type="text/javascript">
+      $(function() {
+   $.booki.sputnikDispatcherURL = "/_sputnik/";
+    });
+   </script>
+
+   <script type="text/javascript">
+     $(function() {
+	 // open debug window
+	 $.booki.debug.init();
+	 
+	 
+	 $("A.debug").click(function() {
+	     $("#bookidebug").dialog("open");
+	     return false;
+	 });
+     });
+   </script>
+
+   
+<title>/chapter: E-Midi-Output / CSound</title>
+<link type="text/css" href="/site_static/css/editor.css" rel="Stylesheet" />
+
+<script src="http://assets.annotateit.org/annotator/v1.2.5/annotator-full.min.js"></script>
+<link rel="stylesheet" href="http://assets.annotateit.org/annotator/v1.2.5/annotator.min.css">
+
+
+
+<link rel="alternate" type="application/rss+xml" title="RSS feed for CSound" href="/feeds/rss/book/csound/" /> 
+<link rel="alternate" type="application/atom+xml" title="Atom feed for CSound" href="/feeds/atom/book/csound/" /> 
+
+<link rel="alternate" type="application/rss+xml" title="RSS feed for chapter E-Midi-Output" href="/feeds/rss/chapter/csound/csound/" /> 
+<link rel="alternate" type="application/atom+xml" title="Atom feed for chapter E-Midi-Output" href="/feeds/atom/chapter/csound/csound/" /> 
+
+
+ </head>
+<body onload="prettyPrint()" >
+<!-- testis -->
+
+<script type="text/javascript">
+$(function() {
+    $("#snippetdialog").dialog({autoOpen: false});
+});
+</script>
+
+
+<div id="snippetdialog" title="Basic dialog">
+        <p></p>
+</div>
+
+
+
+<div id="page-container"> 
+<style>
+body
+{
+margin:0;
+padding:0
+}
+#header
+{
+position:absolute;
+top:23px;
+width:100%;
+background-image: url('http://www.flossmanuals.net/_templates/fm_resources/header_bg.gif');
+background-position: 700px 0px; /* this places the orange background at
+an offset, making sure it doesn't underlap the left side of the gif */
+background-repeat: no-repeat;
+}
+
+#fmheader {
+    background-image: url("http://en.flossmanuals.net/_templates/fm_resources/header_bg.gif");
+    background-position: 600px 0;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 23px;
+    width: 100%;
+}
+#header_image
+{
+margin-left: 270px;
+border: 0px
+}
+
+#navigation
+{
+position:absolute;
+top: 80px;
+left: 357px;
+width:50%;
+}
+
+
+#languages
+{
+position:absolute;
+top: 40px;
+left: 740px;
+width:50%;
+}
+</style>
+
+
+
+<!-- Header graphic is common to all pages  -->
+<div id="header"><img id="header_image" alt="FlossManuals menu" src="http://www.flossmanuals.net/_templates/fm_resources/header_menu.gif" height="95" width="465" border="0"></div>
+
+
+<!-- Navigation buttons are language and context specific  -->
+<div id="navigation">
+<a title="Read" href="http://en.flossmanuals.net/index.php"><img src="http://www.flossmanuals.net/_templates/fm_resources/read_en.png" width="65" height="30" border="0" alt="Read"></a>
+<a title="Write" href="http://booki.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/write_active_en.png" width="65" height="30" border="0" alt="Write"></a>
+<a title="Remix" href="http://en.flossmanuals.net/index.php?plugin=remix"><img src="http://www.flossmanuals.net/_templates/fm_resources/remix_en.png" width="65" height="30" border="0" alt="Remix"></a>
+<a title="About" href="http://www.flossmanuals.org"><img src="http://www.flossmanuals.net/_templates/fm_resources/about_en.png" width="65" height="30" border="0" alt="About"></a>
+</div>
+
+<!-- Language buttons are common to all pages  -->
+<div id="languages">
+<a title="English" href="http://en.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/english_button.png" width="65" height="30" border="0" alt="English"></a>
+
+<!-- <a title="Español" href="http://es.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/spanish_button.png" width="65" height="30" border="0" alt="Español"></a> -->
+<a title="فارسی" href="http://fa.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/farsi_button.png" width="65" height="30" border="0" alt="فارسی"></a>
+<a title="Suomi" href="http://fi.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/finnish_button.png" width="65" height="30" border="0" alt="Suomi"></a>
+<br>
+<a title="Français" href="http://fr.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/french_button.png" width="65" height="30" border="0" alt="Français"></a>
+<a title="Nederlands" href="http://nl.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/dutch_button.png" width="65" height="30" border="0" alt="Nederlands"></a>
+<!-- <a title="Pусский" href="http://ru.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/russian_button.png" width="65" height="30" border="0" alt="Pусский"></a> -->
+<a title="Translate" href="http://translate.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/translate_button.png" width="65" height="30" border="0" alt="Translate"></a>
+</div>
+
+<!-- End top bar -->
+
+<!-- nav box + drop shadow -->
+<div class="navbox shadow" style="top:160px;">
+    		<ul>
+
+ 		<li><a href="/accounts/signin/?redirect=/csound/_draft/_v/1.0/e-midi-output/">Sign In</li><li>Register</a></li>
+
+                <li><a href="/list-books">All Manuals</a></li>
+                <li><a href="/list-groups">All Groups</a></li>
+                <li><a href="/list-people/">All People</a></li>
+           	</ul>
+</div>
+<!-- End of nav box -->
+
+
+
+<div class="content-container shadow">
+<!-- Content box and the drop shadow-->
+
+
+
+
+<br clear="all"/>
+   <h1>CSound</h1>
+
+
+<div id="bookmenu"   style="background: url(/site_static/images/draft_bg.png) repeat !important;">
+<ul>
+
+ 
+   <li><b>INTRODUCTION</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/introduction/">PREFACE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/how-to-use-this-manual/">HOW TO USE THIS MANUAL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/on-this-release/">ON THIS RELEASE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/credits/">CREDITS</a></li>
+ 
+
+ 
+   <li><b>01 BASICS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-digital-audio/">A. DIGITAL AUDIO</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-pitch-and-frequency/">B. PITCH AND FREQUENCY</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-intensities/">C. INTENSITIES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/random/">D. RANDOM</a></li>
+ 
+
+ 
+   <li><b>02 QUICK START</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-make-csound-run/">A. MAKE CSOUND RUN</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-csound-syntax/">B. CSOUND SYNTAX</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-configuring-midi/">C. CONFIGURING MIDI</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-live-audio/">D. LIVE AUDIO</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-rendering-to-file/">E. RENDERING TO FILE</a></li>
+ 
+
+ 
+   <li><b>03 CSOUND LANGUAGE</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-initialization-and-performance-pass/">A. INITIALIZATION AND PERFORMANCE PASS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-local-and-global-variables/">B. LOCAL AND GLOBAL VARIABLES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-control-structures/">C. CONTROL STRUCTURES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-function-tables/">D. FUNCTION TABLES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/arrays/">E. ARRAYS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-triggering-instrument-events/">F. LIVE EVENTS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-user-defined-opcodes/">G. USER DEFINED OPCODES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/macros/">H. MACROS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/functional-syntax/">I. FUNCTIONAL SYNTAX</a></li>
+ 
+
+ 
+   <li><b>04 SOUND SYNTHESIS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-additive-synthesis/">A. ADDITIVE SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-subtractive-synthesis/">B. SUBTRACTIVE SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-amplitude-and-ringmodulation/">C. AMPLITUDE AND RING MODULATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-frequency-modulation/">D. FREQUENCY MODULATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-waveshaping/">E. WAVESHAPING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-granular-synthesis/">F. GRANULAR SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/g-physical-modelling/">G. PHYSICAL MODELLING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/scanned-synthesis/">H. SCANNED SYNTHESIS</a></li>
+ 
+
+ 
+   <li><b>05 SOUND MODIFICATION</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-envelopes/">A. ENVELOPES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-panning-and-spatialization/">B. PANNING AND SPATIALIZATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-filters/">C. FILTERS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-delay-and-feedback/">D. DELAY AND FEEDBACK</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-reverberation/">E. REVERBERATION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-am-rm-waveshaping/">F. AM / RM / WAVESHAPING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/g-granular-synthesis/">G. GRANULAR SYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/h-convolution/">H. CONVOLUTION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/i-fourier-analysis-spectral-processing/">I. FOURIER ANALYSIS / SPECTRAL PROCESSING</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/k-ats-resynthesis/">K. ATS RESYNTHESIS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/amplitude-and-pitch-tracking/">L. AMPLITUDE AND PITCH TRACKING</a></li>
+ 
+
+ 
+   <li><b>06 SAMPLES</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-record-and-play-soundfiles/">A. RECORD AND PLAY SOUNDFILES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-record-and-play-buffers/">B. RECORD AND PLAY BUFFERS</a></li>
+ 
+
+ 
+   <li><b>07 MIDI</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/a-receiving-events-by-midiin/">A. RECEIVING EVENTS BY MIDIIN</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/b-triggering-instrument-instances/">B. TRIGGERING INSTRUMENT INSTANCES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-working-with-controllers/">C. WORKING WITH CONTROLLERS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-reading-midi-files/">D. READING MIDI FILES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-midi-output/">E. MIDI OUTPUT</a></li>
+ 
+
+ 
+   <li><b>08 OTHER COMMUNICATION</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/osc-and-wii/">A. OPEN SOUND CONTROL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-arduino/">B. CSOUND AND ARDUINO</a></li>
+ 
+
+ 
+   <li><b>09 CSOUND IN OTHER APPLICATIONS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-pd/">A. CSOUND IN PD</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-maxmsp/">B. CSOUND IN MAXMSP</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-in-ableton-live/">C. CSOUND IN ABLETON LIVE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-csound-as-a-vst-plugin/">D. CSOUND AS A VST PLUGIN</a></li>
+ 
+
+ 
+   <li><b>10 CSOUND FRONTENDS</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/qutecsound/">CSOUNDQT</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/cecilia/">CABBAGE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/blue/">BLUE</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/winxound/">WINXOUND</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-via-terminal/">CSOUND VIA TERMINAL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/web-based-csound/">WEB BASED CSOUND</a></li>
+ 
+
+ 
+   <li><b>11 CSOUND UTILITIES</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-utilities/">CSOUND UTILITIES</a></li>
+ 
+
+ 
+   <li><b>12 CSOUND AND OTHER PROGRAMMING LANGUAGES</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/the-csound-api/">A. THE CSOUND API</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/using-python-inside-csound/">B. PYTHON INSIDE CSOUND</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/c-python-in-csoundqt/">C. PYTHON IN CSOUNDQT</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/d-lua-in-csound/">D. LUA IN CSOUND</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/e-csound-in-ios/">E. CSOUND IN iOS</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/f-csound-on-android/">F. CSOUND ON ANDROID</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/csound-and-haskell/">G. CSOUND AND HASKELL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/h-csound-and-html/">H. CSOUND AND HTML</a></li>
+ 
+
+ 
+   <li><b>13 EXTENDING CSOUND</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/extending-csound/">EXTENDING CSOUND</a></li>
+ 
+
+ 
+   <li><b>OPCODE GUIDE</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/overview/">OVERVIEW</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/signal-processing-i/">SIGNAL PROCESSING I</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/signal-processing-ii/">SIGNAL PROCESSING II</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/data/">DATA</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/realtime-interaction/">REALTIME INTERACTION</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/instrument-control/">INSTRUMENT CONTROL</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/math-pythonsystem-plugins/">MATHS, PYTHON/SYSTEM, PLUGINS</a></li>
+ 
+
+ 
+   <li><b>APPENDIX</b></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/writing-csound-scores-by-hand/">METHODS OF WRITING CSOUND SCORES</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/glossary/">GLOSSARY</a></li>
+ 
+
+ 
+   <li><a href="/csound/_draft/_v/1.0/links/">LINKS</a></li>
+ 
+
+</ul>
+</div>
+<div id="bookcontent"   >
+<h1 style="font-size: 24px; font-family: Arial, verdana, sans-serif; font-weight: bold; margin-bottom: 10px; margin-top: 0px; line-height: 32px; letter-spacing: -1px; color: rgb(0, 0, 0); font-style: normal; font-variant: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">MIDI OUTPUT
+</h1>
+<p style="color: rgb(0, 0, 0); font-family: trebuchet, verdana, sans-serif; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">Csound's ability to output midi data in real-time can open up many possibilities. We can relay the Csound score to a hardware synthesizer so that<span class="Apple-converted-space">&nbsp;</span><em>it</em><span class="Apple-converted-space">&nbsp;</span>plays the notes in our score, instead of a Csound instrument. We can algorithmically generate streams of notes within the orchestra and have these played by the external device. We could even route midi data internally to another piece of software. Csound could be used as a device to transform incoming midi data, transforming, transposing or arpeggiating incoming notes before they are output again. Midi output could also be used to preset faders on a motorized fader box to desired initial locations.
+</p>
+<h2 style="font-size: 18px; font-family: Arial, verdana, sans-serif; font-weight: bold; margin-bottom: 10px; margin-top: 15px; padding-top: 15px; color: rgb(0, 0, 0); font-style: normal; font-variant: normal; letter-spacing: normal; line-height: 17px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">Initiating Realtime MIDI Output
+</h2>
+<p style="color: rgb(0, 0, 0); font-family: trebuchet, verdana, sans-serif; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">The command line flag for realtime midi output is -Q. Just as when setting up an audio input or output device or a midi input device we must define the desired device number after the flag. When in doubt what midi output devices we have on our system we can always specify an 'out of range' device number (e.g. -Q999) in which case Csound will not run but will instead give an error and provide us with a list of available devices and their corresponding numbers. We can then insert an appropriate device number.
+</p>
+<h2 style="font-size: 18px; font-family: Arial, verdana, sans-serif; font-weight: bold; margin-bottom: 10px; margin-top: 15px; padding-top: 15px; color: rgb(0, 0, 0); font-style: normal; font-variant: normal; letter-spacing: normal; line-height: 17px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">midiout - Outputting Raw MIDI Data<span class="Apple-converted-space">&nbsp;</span>
+  <br />
+</h2>
+<p style="color: rgb(0, 0, 0); font-family: trebuchet, verdana, sans-serif; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">The analog of the opcode for the input of raw midi data,<span class="Apple-converted-space">&nbsp;</span><a href="http://www.csounds.com/manual/html/midiin.html">midiin</a>, is<span class="Apple-converted-space">&nbsp;</span><a href="http://www.csounds.com/manual/html/midiout.html">midiout</a>. midiout will output a midi message with its given input arguments once every k period - this could very quickly lead to clogging of incoming midi data in the device to which midi is begin sent unless measures are taken to restrain its output. In the following example this is dealt with by turning off the instrument as soon as the<span class="Apple-converted-space">&nbsp;</span><em>midiout</em><span class="Apple-converted-space">&nbsp;</span>line has been executed just once by using the<span class="Apple-converted-space">&nbsp;</span><a href="http://www.csounds.com/manual/html/turnoff.html">turnoff</a><span class="Apple-converted-space">&nbsp;</span>opcode. Alternative approaches would be to set the status byte to zero after the first k pass or to embed the<span class="Apple-converted-space">&nbsp;</span><em>midiout</em><span class="Apple-converted-space">&nbsp;</span>within a conditional (<em>if</em>...<span class="Apple-converted-space">&nbsp;</span><em>then</em>...) so that its rate of execution can be controlled in some way.<span class="Apple-converted-space">&nbsp;</span>
+  <br />
+</p>
+<p style="color: rgb(0, 0, 0); font-family: trebuchet, verdana, sans-serif; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">Another thing we need to be aware of is that midi notes do not contain any information about note duration; instead the device playing the note waits until it receives a corresponding note-off instruction on the same midi channel and with the same note number before stopping the note. We must be mindful of this when working with<span class="Apple-converted-space">&nbsp;</span><em>midiout</em>. The status byte for a midi note-off is 128 but it is more common for note-offs to be expressed as a note-on (status byte 144) with zero velocity. In the following example two notes (and corresponding note offs) are send to the midi output - the first note-off makes use of the zero velocity convention whereas the second makes use of the note-off status byte. Hardware and software synths should respond similarly to both. One advantage of the note-off message using status byte 128 is that we can also send a note-off velocity, i.e. how forcefully we release the key. Only more expensive midi keyboards actually sense and send note-off velocity and it is even rarer for hardware to respond to received note-off velocities in a meaningful way. Using Csound as a sound engine we could respond to this data in a creative way however.<span class="Apple-converted-space">&nbsp;</span>
+  <br />
+</p>
+<p style="color: rgb(0, 0, 0); font-family: trebuchet, verdana, sans-serif; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">In order for the following example to work you must connect a midi sound module or keyboard receiving on channel 1 to the midi output of your computer. You will also need to set the appropriate device number after the '-Q' flag.
+</p>
+<p style="color: rgb(0, 0, 0); font-family: trebuchet, verdana, sans-serif; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">No use is made of audio so sample rate (sr), and number of channels (nchnls) are left undefined - nonetheless they will assume default values.<span class="Apple-converted-space">&nbsp;</span>
+  <br />
+</p>
+<p style="color: rgb(0, 0, 0); font-family: trebuchet, verdana, sans-serif; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">&nbsp;<span class="Apple-converted-space">&nbsp;</span><em><strong>EXAMPLE 07E01_midiout.csd</strong></em>&nbsp;
+</p>
+<pre style="font-size: 12px; line-height: 1.5em; background-color: rgb(255, 229, 204); border: 0px solid rgb(0, 0, 0); margin-left: 0.5em; margin-bottom: 20px; margin-right: 1em; padding: 0.2em 1em; color: rgb(0, 0, 0); white-space: pre-wrap; word-wrap: break-word; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">&lt;CsoundSynthesizer&gt;
+
+&lt;CsOptions&gt;
+; amend device number accordingly
+-Q999
+&lt;/CsOptions&gt;
+
+&lt;CsInstruments&gt;
+ksmps = 32 ;no audio so sr and nchnls irrelevant
+
+  instr 1
+; arguments for midiout are read from p-fields
+istatus   init      p4
+ichan     init      p5
+idata1    init      p6
+idata2    init      p7
+          midiout   istatus, ichan, idata1, idata2; send raw midi data
+          turnoff   ; turn instrument off to prevent reiterations of midiout
+  endin
+
+&lt;/CsInstruments&gt;
+
+&lt;CsScore&gt;
+;p1 p2 p3   p4 p5 p6 p7
+i 1 0 0.01 144 1  60 100 ; note on
+i 1 2 0.01 144 1  60   0 ; note off (using velocity zero)
+
+i 1 3 0.01 144 1  60 100 ; note on
+i 1 5 0.01 128 1  60 100 ; note off (using 'note off' status byte)
+&lt;/CsScore&gt;
+
+&lt;/CsoundSynthesizer&gt;
+</pre>
+<p style="color: rgb(0, 0, 0); font-family: trebuchet, verdana, sans-serif; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">The use of separate score events for note-ons and note-offs is rather cumbersome. It would be more sensible to use the Csound note duration (p3) to define when the midi note-off is sent. The next example does this by utilising a release flag generated by the<span class="Apple-converted-space">&nbsp;</span><a href="http://www.csounds.com/manual/html/release.html">release</a><span class="Apple-converted-space">&nbsp;</span>opcode whenever a note ends and sending the note-off then.<span class="Apple-converted-space">&nbsp;</span>
+  <br />
+</p>
+<p style="color: rgb(0, 0, 0); font-family: trebuchet, verdana, sans-serif; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">&nbsp;<span class="Apple-converted-space">&nbsp;</span><em><strong>EXAMPLE 07E02_score_to_midiout.csd</strong></em>&nbsp;<span class="Apple-converted-space">&nbsp;</span>
+  <br />
+</p>
+<pre style="font-size: 12px; line-height: 1.5em; background-color: rgb(255, 229, 204); border: 0px solid rgb(0, 0, 0); margin-left: 0.5em; margin-bottom: 20px; margin-right: 1em; padding: 0.2em 1em; color: rgb(0, 0, 0); white-space: pre-wrap; word-wrap: break-word; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">&lt;CsoundSynthesizer&gt;
+
+&lt;CsOptions&gt;
+; amend device number accordingly
+-Q999
+&lt;/CsOptions&gt;
+
+&lt;CsInstruments&gt;
+ksmps = 32 ;no audio so sr and nchnls omitted
+
+&nbsp; instr 1
+;arguments for midiout are read from p-fields
+istatus&nbsp;&nbsp; init&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; p4
+ichan&nbsp;&nbsp;&nbsp;&nbsp; init&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; p5
+idata1&nbsp;&nbsp;&nbsp; init&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; p6
+idata2&nbsp;&nbsp;&nbsp; init&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; p7
+kskip&nbsp;&nbsp;&nbsp;&nbsp; init&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0
+&nbsp;if kskip=0 then
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; midiout&nbsp;&nbsp; istatus, ichan, idata1, idata2; send raw midi data (note on)
+kskip&nbsp;&nbsp;&nbsp;&nbsp; =&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1; ensure that the note on will only be executed once
+&nbsp;endif
+krelease&nbsp; release; normally output is zero, on final k pass output is 1
+&nbsp;if krelease=1 then; i.e. if we are on the final k pass...
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  midiout&nbsp;&nbsp; istatus, ichan, idata1, 0; send raw midi data (note off)
+&nbsp;endif
+&nbsp; endin
+
+&lt;/CsInstruments&gt;
+
+&lt;CsScore&gt;
+;p1 p2 p3&nbsp;&nbsp; p4 p5 p6 p7
+i 1 0&nbsp;&nbsp;&nbsp; 4 144 1&nbsp; 60 100
+i 1 1&nbsp;&nbsp;&nbsp; 3 144 1&nbsp; 64 100
+i 1 2&nbsp;&nbsp;&nbsp; 2 144 1&nbsp; 67 100
+f 0 5; extending performance time prevents note-offs from being lost
+&lt;/CsScore&gt;
+
+&lt;/CsoundSynthesizer&gt;
+</pre>
+<p style="color: rgb(0, 0, 0); font-family: trebuchet, verdana, sans-serif; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">Obviously<span class="Apple-converted-space">&nbsp;</span><em>midiout<span class="Apple-converted-space">&nbsp;</span></em>is not limited to only sending only midi note information but instead this information could include continuous controller information, pitch bend, system exclusive data and so on. The next example, as well as playing a note, sends controller 1 (modulation) data which rises from zero to maximum (127) across the duration of the note. To ensure that unnessessary midi data is not sent out, the output of the<span class="Apple-converted-space">&nbsp;</span><em>line</em><span class="Apple-converted-space">&nbsp;</span>function is first converted into integers, and<span class="Apple-converted-space">&nbsp;</span><em>midiout</em><span class="Apple-converted-space">&nbsp;</span>for the continuous controller data is only executed whenever this integer value changes. The function that creates this stream of data goes slightly above this maximum value (it finishes at a value of 127.1) to ensure that a rounded value of 127 is actually achieved.
+</p>
+<p style="color: rgb(0, 0, 0); font-family: trebuchet, verdana, sans-serif; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">In practice it may be necessary to start sending the continuous controller data slightly before the note-on to allow the hardware time to respond.<span class="Apple-converted-space">&nbsp;</span>
+  <br />
+</p>
+<p style="color: rgb(0, 0, 0); font-family: trebuchet, verdana, sans-serif; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">&nbsp;<span class="Apple-converted-space">&nbsp;</span><em><strong>EXAMPLE 07E03_midiout_cc.csd</strong></em>&nbsp;<span class="Apple-converted-space">&nbsp;</span>
+  <br />
+</p>
+<pre style="font-size: 12px; line-height: 1.5em; background-color: rgb(255, 229, 204); border: 0px solid rgb(0, 0, 0); margin-left: 0.5em; margin-bottom: 20px; margin-right: 1em; padding: 0.2em 1em; color: rgb(0, 0, 0); white-space: pre-wrap; word-wrap: break-word; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">&lt;CsoundSynthesizer&gt;
+
+&lt;CsOptions&gt;
+; amend device number accordingly
+-Q999
+&lt;/CsOptions&gt;
+
+&lt;CsInstruments&gt;
+ksmps = 32 ; no audio so sr and nchnls irrelevant
+
+  instr 1
+; play a midi note
+; read in values from p-fields
+ichan     init      p4
+inote     init      p5
+iveloc    init      p6
+kskip     init      0 ; 'skip' flag ensures that note-on is executed just once
+ if kskip=0 then
+          midiout   144, ichan, inote, iveloc; send raw midi data (note on)
+kskip     =         1   ; flip flag to prevent repeating the above line
+ endif
+krelease  release       ; normally zero, on final k pass this will output 1
+ if krelease=1 then     ; if we are on the final k pass...
+          midiout   144, ichan, inote, 0  ; send a note off
+ endif
+
+; send continuous controller data
+iCCnum    =         p7
+kCCval    line      0, p3, 127.1  ; continuous controller data function
+kCCval    =         int(kCCval)   ; convert data function to integers
+ktrig     changed   kCCval        ; generate a trigger each time kCCval changes
+ if ktrig=1 then                  ; if kCCval has changed...
+          midiout   176, ichan, iCCnum, kCCval  ; ...send a controller message
+ endif
+  endin
+
+&lt;/CsInstruments&gt;
+
+&lt;CsScore&gt;
+;p1 p2 p3   p4 p5 p6  p7
+i 1 0  5    1  60 100 1
+f 0 7 ; extending performance time prevents note-offs from being lost
+&lt;/CsScore&gt;
+
+&lt;/CsoundSynthesizer&gt;
+</pre>
+<h2 style="font-size: 18px; font-family: Arial, verdana, sans-serif; font-weight: bold; margin-bottom: 10px; margin-top: 15px; padding-top: 15px; color: rgb(0, 0, 0); font-style: normal; font-variant: normal; letter-spacing: normal; line-height: 17px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">midion - Outputting MIDI Notes Made Easier
+</h2>
+<p style="color: rgb(0, 0, 0); font-family: trebuchet, verdana, sans-serif; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><em>midiout<span class="Apple-converted-space">&nbsp;</span></em>is the most powerful opcode for midi output but if we are only interested in sending out midi notes from an instrument then the<span class="Apple-converted-space">&nbsp;</span><a href="http://www.csounds.com/manual/html/midion.html">midion</a><span class="Apple-converted-space">&nbsp;</span>opcode simplifies the procedure as the following example demonstrates by playing a simple major arpeggio.
+</p>
+<p style="color: rgb(0, 0, 0); font-family: trebuchet, verdana, sans-serif; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">&nbsp;<span class="Apple-converted-space">&nbsp;</span><em><strong>EXAMPLE 07E04_midion.csd</strong></em>
+</p>
+<pre style="font-size: 12px; line-height: 1.5em; background-color: rgb(255, 229, 204); border: 0px solid rgb(0, 0, 0); margin-left: 0.5em; margin-bottom: 20px; margin-right: 1em; padding: 0.2em 1em; color: rgb(0, 0, 0); white-space: pre-wrap; word-wrap: break-word; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">&lt;CsoundSynthesizer&gt;
+
+&lt;CsOptions&gt;
+; amend device number accordingly
+-Q999
+&lt;/CsOptions&gt;
+
+&lt;CsInstruments&gt;
+; Example by Iain McCurdy
+
+ksmps = 32 ;no audio so sr and nchnls irrelevant
+
+  instr 1
+; read values in from p-fields
+kchn    =       p4
+knum    =       p5
+kvel    =       p6
+        midion  kchn, knum, kvel ; send a midi note
+  endin
+
+&lt;/CsInstruments&gt;
+
+&lt;CsScore&gt;
+;p1 p2  p3  p4 p5 p6
+i 1 0   2.5 1 60  100
+i 1 0.5 2   1 64  100
+i 1 1   1.5 1 67  100
+i 1 1.5 1   1 72  100
+f 0 30 ; extending performance time prevents note-offs from being missed
+&lt;/CsScore&gt;
+
+&lt;/CsoundSynthesizer&gt;
+</pre>
+<p style="color: rgb(0, 0, 0); font-family: trebuchet, verdana, sans-serif; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">Changing any of midion's k-rate input arguments in realtime will force it to stop the current midi note and send out a new one with the new parameters.
+</p>
+<p style="color: rgb(0, 0, 0); font-family: trebuchet, verdana, sans-serif; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><a href="http://www.csounds.com/manual/html/midion2.html">midion2</a><span class="Apple-converted-space">&nbsp;</span>allows us to control when new notes are sent (and the current note is stopped) through the use of a trigger input. The next example uses 'midion2' to algorithmically generate a melodic line. New note generation is controlled by a<span class="Apple-converted-space">&nbsp;</span><a href="http://www.csounds.com/manual/html/metro.html">metro</a>, the rate of which undulates slowly through the use of a<span class="Apple-converted-space">&nbsp;</span><a href="http://www.csounds.com/manual/html/randomi.html">randomi</a><span class="Apple-converted-space">&nbsp;</span>function.
+</p>
+<p style="color: rgb(0, 0, 0); font-family: trebuchet, verdana, sans-serif; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">&nbsp;<span class="Apple-converted-space">&nbsp;</span><em><strong>EXAMPLE 07E05_midion2.csd</strong></em>
+</p>
+<pre style="font-size: 12px; line-height: 1.5em; background-color: rgb(255, 229, 204); border: 0px solid rgb(0, 0, 0); margin-left: 0.5em; margin-bottom: 20px; margin-right: 1em; padding: 0.2em 1em; color: rgb(0, 0, 0); white-space: pre-wrap; word-wrap: break-word; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">&lt;CsoundSynthesizer&gt;
+
+&lt;CsOptions&gt;
+; amend device number accordingly
+-Q999
+&lt;/CsOptions&gt;
+
+&lt;CsInstruments&gt;
+; Example by Iain McCurdy
+
+ksmps = 32 ; no audio so sr and nchnls irrelevant
+
+  instr 1
+; read values in from p-fields
+kchn    =        p4
+knum    random   48,72.99  ; note numbers chosen randomly across a 2 octaves
+kvel    random   40, 115   ; velocities are chosen randomly
+krate   randomi  1,2,1     ; rate at which new notes will be output
+ktrig   metro    krate^2   ; 'new note' trigger
+        midion2  kchn, int(knum), int(kvel), ktrig ; send midi note if ktrig=1
+  endin
+
+&lt;/CsInstruments&gt;
+
+&lt;CsScore&gt;
+i 1 0 20 1
+f 0 21 ; extending performance time prevents the final note-off being lost
+&lt;/CsScore&gt;
+
+&lt;/CsoundSynthesizer&gt;
+</pre>
+<p style="color: rgb(0, 0, 0); font-family: trebuchet, verdana, sans-serif; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">'midion' and 'midion2' generate monophonic melody lines with no gaps between notes.
+</p>
+<p style="color: rgb(0, 0, 0); font-family: trebuchet, verdana, sans-serif; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><a href="http://www.csounds.com/manual/html/moscil.html">moscil</a><span class="Apple-converted-space">&nbsp;</span>works in a slightly different way and allows us to explicitly define note durations as well as the pauses between notes thereby permitting the generation of more staccato melodic lines. Like<span style="font-style: italic;"><span class="Apple-converted-space">&nbsp;</span>'</span>midion' and<em></em><span class="Apple-converted-space">&nbsp;</span>'midion2',&nbsp;<em></em>'moscil' will not generate overlapping notes (unless two or more instances of it are concurrent). The next example algorithmically generates a melodic line using 'moscil'.
+</p>
+<p style="color: rgb(0, 0, 0); font-family: trebuchet, verdana, sans-serif; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">&nbsp;<span class="Apple-converted-space">&nbsp;</span><em><strong>EXAMPLE 07E06_moscil.csd</strong></em>
+</p>
+<pre style="font-size: 12px; line-height: 1.5em; background-color: rgb(255, 229, 204); border: 0px solid rgb(0, 0, 0); margin-left: 0.5em; margin-bottom: 20px; margin-right: 1em; padding: 0.2em 1em; color: rgb(0, 0, 0); white-space: pre-wrap; word-wrap: break-word; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">&lt;CsoundSynthesizer&gt;
+
+&lt;CsOptions&gt;
+; amend device number accordingly
+-Q999
+&lt;/CsOptions&gt;
+
+&lt;CsInstruments&gt;
+; Example by Iain McCurdy
+
+ksmps = 32 ;no audio so sr and nchnls omitted
+
+seed 0; random number generators seeded by system clock
+
+  instr 1
+; read value in from p-field
+kchn    =         p4
+knum    random    48,72.99  ; note numbers chosen randomly across a 2 octaves
+kvel    random    40, 115   ; velocities are chosen randomly
+kdur    random    0.2, 1    ; note durations chosen randomly from 0.2 to 1
+kpause  random    0, 0.4    ; pauses betw. notes chosen randomly from 0 to 0.4
+        moscil    kchn, knum, kvel, kdur, kpause ; send a stream of midi notes
+  endin
+
+&lt;/CsInstruments&gt;
+
+&lt;CsScore&gt;
+;p1 p2 p3 p4
+i 1 0  20 1
+f 0 21 ; extending performance time prevents final note-off from being lost
+&lt;/CsScore&gt;
+
+&lt;/CsoundSynthesizer&gt;
+</pre>
+<h2 style="font-size: 18px; font-family: Arial, verdana, sans-serif; font-weight: bold; margin-bottom: 10px; margin-top: 15px; padding-top: 15px; color: rgb(0, 0, 0); font-style: normal; font-variant: normal; letter-spacing: normal; line-height: 17px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">MIDI File Output
+</h2>
+<p style="color: rgb(0, 0, 0); font-family: trebuchet, verdana, sans-serif; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">As well as (or instead of) outputting midi in realtime, Csound can render data from all of its midi output opcodes to a midi file. To do this we use the '--midioutfile=' flag followed by the desired name for our file. For example:
+</p>
+<pre style="font-size: 12px; line-height: 1.5em; background-color: rgb(255, 229, 204); border: 0px solid rgb(0, 0, 0); margin-left: 0.5em; margin-bottom: 20px; margin-right: 1em; padding: 0.2em 1em; color: rgb(0, 0, 0); white-space: pre-wrap; word-wrap: break-word; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">&lt;CsOptions&gt;
+-Q2 --midioutfile=midiout.mid
+&lt;/CsOptions&gt;
+</pre>
+<p style="color: rgb(0, 0, 0); font-family: trebuchet, verdana, sans-serif; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 17px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">will simultaneously stream realtime midi to midi output device number 2 and render to a file named 'midiout.mid' which will be saved in our home directory.<span class="Apple-converted-space">
+  <br /></span>
+</p>
+   <hr/>
+    <a href="/csound/_edit/">EDIT</a>
+
+</div>
+
+<script type="text/javascript">
+jQuery(function ($) {
+    $('#bookcontent').annotator()
+   		.annotator('setupPlugins', {}, {
+                Tags: false,
+                Filter: {
+                  addAnnotationFilter: false
+                },
+                Permissions: false,
+                AnnotateItPermissions: {}
+              });
+});
+</script>
+
+
+
+</div>
+<!-- End of content -->
+
+</div>  
+<!-- DEV TOOLS -->
+<div id="bookidebug">
+</div>
+
+<!-- sputnik error page -->
+<div id="dialog-sputnik-qrac" style="display: none"></div>
+</body>
+</html>
+

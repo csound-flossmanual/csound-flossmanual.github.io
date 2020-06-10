@@ -1,0 +1,473 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html>
+ <head>
+   <link type="text/css" href="http://www.flossmanuals.net/_templates/prettify/src/prettify.css" rel="Stylesheet" />
+   <script type="text/javascript" src="http://www.flossmanuals.net/_templates/prettify/src/prettify.js"></script>
+
+   <link type="text/css" href="/site_static/js/jquery/themes/base/jquery.ui.all.css" rel="Stylesheet" >
+   <link type="text/css" href="/site_static/js/jquery/themes/smoothness/jquery.ui.all.css" rel="Stylesheet" >
+   <script type="text/javascript" src="/static/js/jquery-1.7.js"></script>
+<!--
+   <script type="text/javascript" src="/site_static/js/jquery/jquery-1.4.4.js"></script>
+-->   
+<script type="text/javascript" src="/site_static/js/jquery/ui/jquery-ui-1.8.10.custom.js"></script>
+   <script type="text/javascript" src="/site_static/js/jquery.json-1.3.js"></script>
+   <script type="text/javascript" src="/site_static/js/booki.js"></script>
+
+   <link href="/site_static/css/jquery.bubblepopup.v2.3.1.css" rel="stylesheet" type="text/css" />
+   <script src="/site_static/js/jquery.bubblepopup.v2.3.1.min.js" type="text/javascript"></script>
+
+   <link type="text/css" href="/static/css/booki_fm.css" rel="Stylesheet"/ >
+<style>
+.template {
+	display: none !important;
+}
+
+
+#header {
+    background-color: transparent !important;
+}
+.paginator { padding:.5em .75em; float:left; font:normal .8em arial; }
+ 
+.paginator .prev-na,
+.paginator .next-na {
+	padding:.3em;
+	font-weight: bold;
+/*	font:bold .875em arial; */
+}
+ 
+.paginator .prev-na,
+.paginator .next-na {
+/*	border:1px solid #ccc; 
+	background-color:#f9f9f9; */
+	color:#aaa;
+	font-weight:normal;
+}
+ 
+.paginator .prev a, .paginator .prev a:visited,
+.paginator .next a, .paginator .next a:visited {
+/*	border:1px solid #c2ee62; 
+	background-color:#edfdd0; */
+	color:#234f32;
+	padding:.3em;
+/*	font:bold .875em arial; */
+        font-weight: bold;
+}
+ 
+.paginator .prev, .paginator .prev-na { margin-right:.5em; }
+.paginator .next, .paginator .next-na { margin-left:.5em; }
+ 
+.paginator .page a, .paginator .page a:visited, .paginator .curr {
+	padding:.25em;
+	font-weight: normal;
+/*	font:normal .875em verdana; */
+/*	border:1px solid #C2EE62; 
+	background-color:#EDFDD0; */
+	margin:0em .25em;	
+	color:#006000;
+}
+ 
+.paginator .curr { 
+/*	background-color:#234f32; 
+	color:#fff; */
+	border:1px solid #234f32; 
+	font-weight:bold;
+	font-size:1em;
+}
+ 
+.paginator .page a:hover,
+.paginator .curr a:hover,
+.paginator .prev a:hover,
+.paginator .next a:hover {
+/*	color:#fff;
+	background-color:#234f32;
+	border:1px solid #234f32; */
+}
+</style>
+ <script type="text/javascript">
+      $(function() {
+   $.booki.sputnikDispatcherURL = "/_sputnik/";
+    });
+   </script>
+
+   <script type="text/javascript">
+     $(function() {
+	 // open debug window
+	 $.booki.debug.init();
+	 
+	 
+	 $("A.debug").click(function() {
+	     $("#bookidebug").dialog("open");
+	     return false;
+	 });
+     });
+   </script>
+
+   
+  <title>Booki Sign In</title>
+
+  <script type="text/javascript">
+    $(function() {
+
+	var groupsToJoin = [ ''];
+
+	function showNotification(whr, msg) {
+	    $(whr).find("*").addClass('template');
+	    $(whr).find(msg).removeClass('template');
+	}
+	
+	$("#signin_form BUTTON").click(function() {
+	    var username = $("#loginform INPUT[name=username]").val();
+	    var password = $("#loginform INPUT[name=password]").val();
+
+//	    $("#loginform BUTTON").attr("disabled", "disabled");
+
+	    $.post('/accounts/signin/', {'ajax': '1',
+					'method': 'signin',
+					'username': username,
+					'password': password},
+		   function(data) {
+		       switch(data.result) {
+		       case 1: // Everything is ok
+			   window.location = '/csound/_draft/_v/1.0/';
+			   return;
+		       case 2:  // User does not exist
+			   showNotification('#loginform .notify', '#no-such-user');
+			   $("#loginform INPUT[name=username]").focus().select();
+			   break;
+		       case 3: // Wrong password 
+			   showNotification('#loginform .notify', '#wrong-password');
+			   $("#loginform INPUT[name=password]").focus().select();
+			   break;
+
+		       default: // Unknown error
+			   showNotification('#loginform .notify', '#unknown-error');
+		       }
+
+//		       $("#loginform BUTTON").removeAttr("disabled");
+		   }, 'json');
+	});
+
+	$("#register_form BUTTON").click(function() {
+	    var username   = $("#registerform INPUT[name=username]").val();
+	    var email      = $("#registerform INPUT[name=email]").val();
+	    var password   = $("#registerform INPUT[name=password]").val();
+	    var password2  = $("#registerform INPUT[name=password2]").val();
+	    var fullname   = $("#registerform INPUT[name=fullname]").val();
+
+//	    $("#registerform BUTTON").attr("disabled", "disabled");
+
+	    showNotification('#registerform .notify', '#clear');
+
+
+	    $.post('/accounts/signin/', {'ajax': '1',
+					'method': 'register',
+					'username':  username,
+					'password':  password,
+					'password2': password2,
+					'email':     email,
+					'fullname':  fullname,
+					'groups':    $.toJSON(groupsToJoin)},
+
+		   function(data) {
+//		       $("#registerform BUTTON").removeAttr("disabled");
+
+		       switch(data.result) {
+		       case 1: // Everything is ok
+			   $("#register_form").slideUp("fast", function() {
+			       $("#signin_form").slideUp("fast", function() {
+
+				   function _showMessage(sec) {
+				       return function() {
+					   if(sec > 0) {
+					       $("#signinmessage .redirectmessage .sec").text(sec);
+					       setTimeout(_showMessage(sec-1), 1000);
+					   } else {
+					       window.location = '/accounts/XXX/'.replace('XXX', username);
+					   }
+				       }
+				   }
+				   $("#signinmessage").slideDown("slow");
+				   _showMessage(20)();
+			       });
+			   });
+
+			   return;
+
+		       case 2: // Missing username
+			   showNotification('#registerform .notify', '#missing-username');
+			   $("#registerform INPUT[name=username]").focus().select();
+			   break;
+
+		       case 3: // Missing email
+			   showNotification('#registerform .notify', '#missing-email');
+			   $("#registerform INPUT[name=email]").focus().select();
+			   break;
+
+		       case 4: // Missing password
+			   showNotification('#registerform .notify', '#missing-password');
+			   $("#registerform INPUT[name=password]").focus().select();
+			   break;
+
+		       case 5: // Missing fullname
+			   showNotification('#registerform .notify', '#missing-fullname');
+			   $("#registerform INPUT[name=fullname]").focus().select();
+			   break;
+
+		       case 6: // Wrong username
+			   showNotification('#registerform .notify', '#invalid-username');
+			   $("#registerform INPUT[name=username]").focus().select();
+			   break;
+
+		       case 7: // Wrong email
+			   showNotification('#registerform .notify', '#invalid-email');
+			   $("#registerform INPUT[name=email]").focus().select();
+			   break;
+
+
+		       case 8: // Password does not match
+			   showNotification('#registerform .notify', '#password-mismatch');
+			   $("#registerform INPUT[name=password]").focus().select();
+			   break;
+
+		       case 9: // Password too small
+			   showNotification('#registerform .notify', '#invalid-password');
+			   $("#registerform INPUT[name=password]").focus().select();
+			   break;
+
+		       case 10: // Username exists
+			   showNotification('#registerform .notify', '#username-taken');
+			   $("#registerform INPUT[name=username]").focus().select();
+			   break;
+
+			   
+		       default: // Unknown error
+			   showNotification('#registerform .notify', '#unknown-error');
+		       }
+		   }, 'json');
+	});
+
+    });
+
+
+  </script>
+
+
+ </head>
+<body onload="prettyPrint()" >
+<!-- testis -->
+
+<script type="text/javascript">
+$(function() {
+    $("#snippetdialog").dialog({autoOpen: false});
+});
+</script>
+
+
+<div id="snippetdialog" title="Basic dialog">
+        <p></p>
+</div>
+
+
+
+<div id="page-container"> 
+<style>
+body
+{
+margin:0;
+padding:0
+}
+#header
+{
+position:absolute;
+top:23px;
+width:100%;
+background-image: url('http://www.flossmanuals.net/_templates/fm_resources/header_bg.gif');
+background-position: 700px 0px; /* this places the orange background at
+an offset, making sure it doesn't underlap the left side of the gif */
+background-repeat: no-repeat;
+}
+
+#fmheader {
+    background-image: url("http://en.flossmanuals.net/_templates/fm_resources/header_bg.gif");
+    background-position: 600px 0;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 23px;
+    width: 100%;
+}
+#header_image
+{
+margin-left: 270px;
+border: 0px
+}
+
+#navigation
+{
+position:absolute;
+top: 80px;
+left: 357px;
+width:50%;
+}
+
+
+#languages
+{
+position:absolute;
+top: 40px;
+left: 740px;
+width:50%;
+}
+</style>
+
+
+
+<!-- Header graphic is common to all pages  -->
+<div id="header"><img id="header_image" alt="FlossManuals menu" src="http://www.flossmanuals.net/_templates/fm_resources/header_menu.gif" height="95" width="465" border="0"></div>
+
+
+<!-- Navigation buttons are language and context specific  -->
+<div id="navigation">
+<a title="Read" href="http://en.flossmanuals.net/index.php"><img src="http://www.flossmanuals.net/_templates/fm_resources/read_en.png" width="65" height="30" border="0" alt="Read"></a>
+<a title="Write" href="http://booki.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/write_active_en.png" width="65" height="30" border="0" alt="Write"></a>
+<a title="Remix" href="http://en.flossmanuals.net/index.php?plugin=remix"><img src="http://www.flossmanuals.net/_templates/fm_resources/remix_en.png" width="65" height="30" border="0" alt="Remix"></a>
+<a title="About" href="http://www.flossmanuals.org"><img src="http://www.flossmanuals.net/_templates/fm_resources/about_en.png" width="65" height="30" border="0" alt="About"></a>
+</div>
+
+<!-- Language buttons are common to all pages  -->
+<div id="languages">
+<a title="English" href="http://en.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/english_button.png" width="65" height="30" border="0" alt="English"></a>
+
+<!-- <a title="Español" href="http://es.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/spanish_button.png" width="65" height="30" border="0" alt="Español"></a> -->
+<a title="فارسی" href="http://fa.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/farsi_button.png" width="65" height="30" border="0" alt="فارسی"></a>
+<a title="Suomi" href="http://fi.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/finnish_button.png" width="65" height="30" border="0" alt="Suomi"></a>
+<br>
+<a title="Français" href="http://fr.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/french_button.png" width="65" height="30" border="0" alt="Français"></a>
+<a title="Nederlands" href="http://nl.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/dutch_button.png" width="65" height="30" border="0" alt="Nederlands"></a>
+<!-- <a title="Pусский" href="http://ru.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/russian_button.png" width="65" height="30" border="0" alt="Pусский"></a> -->
+<a title="Translate" href="http://translate.flossmanuals.net/"><img src="http://www.flossmanuals.net/_templates/fm_resources/translate_button.png" width="65" height="30" border="0" alt="Translate"></a>
+</div>
+
+<!-- End top bar -->
+
+<!-- nav box + drop shadow -->
+<div class="navbox shadow" style="top:160px;">
+    		<ul>
+
+ 		<li><a href="/accounts/signin/?redirect=/accounts/signin/">Sign In</li><li>Register</a></li>
+
+                <li><a href="/list-books">All Manuals</a></li>
+                <li><a href="/list-groups">All Groups</a></li>
+                <li><a href="/list-people/">All People</a></li>
+           	</ul>
+</div>
+<!-- End of nav box -->
+
+
+
+<div class="content-container shadow">
+<!-- Content box and the drop shadow-->
+
+
+
+<div id="signincontainer">
+<!-- SIGNIN FORM -->
+<div id="signin_form" style="float: left">
+  
+  
+  <div style="background-color: #f8e1a4; font-size: 12px; padding: 20px; width: 300px;">
+    <h2>Sign in</h2>
+    <form method="POST" action="/accounts/signin/" id="loginform" name="loginform" onsubmit="return false;">
+      USERNAME<br/>
+      <input type="text" name="username" style="width: 200px"/><br/>
+      PASSWORD<br/>
+      <input type="password" name="password" style="width: 200px"/><br/>
+      <div class="notify" style="padding-top: 5px; padding-bottom: 5px; color: red; font-weight: bold">
+	<div id="no-such-user" class="template">User does not exist.</div>
+	<div id="wrong-password" class="template">Password is wrong! Please try again.</div>
+	<div id="unknown-error" class="template">Unknown error!</div>
+      </div>
+      <br/>
+      <button>Sign in</button> <a href="/accounts/forgot_password/">Forgot your password ?</a>
+    </form>
+  </div>
+  
+  
+</div>
+
+<!-- REGISTER FORM -->
+<div id="register_form">
+  
+  
+  <div style="background-color: #f8e1a4;font-size: 12px; padding: 20px; float: right; width: 300px;">
+    <h2>Create Account</h2>
+    
+    <form method="POST" action="" onsubmit="return false" id="registerform">
+      USERNAME<br/>
+      <input type="text" name="username" value="" style="width: 200px;"/><br/>
+      E-MAIL<br/>
+      <input type="text" name="email" value="" style="width: 200px"/><br/>
+      PASSWORD (6 characters at least)<br/>
+      <input type="password" name="password" style="width: 200px"/><br/>
+      PASSWORD confirmation<br/>
+      <input type="password" name="password2" style="width: 200px"/><br/>
+      FULL NAME<br/>
+      <input type="text" name="fullname" value="" style="width: 200px"/><br/>
+      Your real name is compulsory for reasons of copyright attribution on books you create and contribute to.<br/>
+      <div class="notify" style="padding-top: 5px; padding-bottom: 5px; color: red; font-weight: bold">
+	<div id="missing-username" class="template">Missing username!</div>
+	<div id="missing-email" class="template">Missing e-mail!</div>
+	<div id="missing-password" class="template">Missing password!</div>
+	<div id="missing-fullname" class="template">Please provide your real name.</div>
+	<div id="invalid-username" class="template">Username is invalid. Please try a different one. You may use alhpanumeric characters and characters ".", "_", "-" (dot, underscore and minus). <br/><br/>Examples:<ul><li>vnazor</li><li>Marin.Drzic</li><li>kamilo_kamili</li></ul></div>
+	<div id="invalid-email" class="template">This is not a valid e-mail</div>
+	<div id="password-mismatch" class="template">Your passwords dont match. Please try a different one.</div>
+	<div id="invalid-password" class="template">Password must be 6 characters or more!</div>
+	<div id="username-taken" class="template">Username already taken. Please try a different one.</div>
+	<div id="unknown-error" class="template">Unknown error!</div>
+	<div id="clear" class="template"></div>
+      </div>
+      <br/>
+      <button>Create account</button>
+    </form>
+
+   
+  </div>
+  
+</div>
+
+
+<div id="signinmessage" style="display: none">
+<div style="background-color: #f8e1a4; font-size: 12px; padding: 20px;"><h2>Your account has been created!</h2><p>Thank you. We have created your account and signed you in. If you are new to Booki we recommend you to read <a href="http://www.booki.cc/booki-user-guide/">Booki User Guide</a>.</p><p><form method="GET" action="/"><button>Great! Let's use Booki now!</button><span class="redirectmessage" style="padding-left: 20px">Automatic redirection in <span class="sec">sec</span> seconds.</span></form></p></div>
+</div>
+</div>
+
+<div style="padding-top: 20px; float: left; clear: both">
+<h2>Why do I need account ?</h2>
+<p>Your real name is compulsory for reasons of copyright attribution on books you create and contribute to.</p>
+
+
+<h2>I forgot my password. What now ?!</h2>
+<p>Please <a href="/accounts/forgot_password/">request new one</a>.</p>
+
+<!--
+<h2>I forgot my username ?</h2>
+-->
+
+</div>
+
+
+</div>
+<!-- End of content -->
+
+</div>  
+<!-- DEV TOOLS -->
+<div id="bookidebug">
+</div>
+
+<!-- sputnik error page -->
+<div id="dialog-sputnik-qrac" style="display: none"></div>
+</body>
+</html>
+
