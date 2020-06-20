@@ -1,4 +1,11 @@
-# Csound Floss Manual Release History
+# The Csound Floss Manual
+### Edited by Joachim Heintz and Hlöðver Sigurðsson
+### With contributions of [numerous authors](https://flossmanual.csound.com/introduction/credits)
+
+## Sources
+<https://github.com/csound-flossmanual/csound-floss>
+
+## Release History
 
 | Release  | Year | Link                                         |
 |----------|------|----------------------------------------------|
